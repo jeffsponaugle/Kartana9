@@ -1,11 +1,11 @@
-{COMPONENT C:\4X7SEGV3.SYM
+{COMPONENT C:\SRC\4X7SEGV3.SYM
 
  {ENVIRONMENT
   {PDIFvrev 3.00}
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Tue Dec 19 14:37:45 2023 "}
+  {DBtime "Thu Jan 11 16:53:59 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -50,10 +50,10 @@
    {P D1 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
    {P D2 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
    {P D3 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
-   {P LEA' {Pt "I/O"}{Lq 0}{Ploc 280 20}}
-   {P LEB' {Pt "I/O"}{Lq 0}{Ploc 280 40}}
-   {P LEC' {Pt "I/O"}{Lq 0}{Ploc 280 60}}
-   {P LED' {Pt "I/O"}{Lq 0}{Ploc 280 80}}
+   {P LEA {Pt "I/O"}{Lq 0}{Ploc 280 20}}
+   {P LEB {Pt "I/O"}{Lq 0}{Ploc 280 40}}
+   {P LEC {Pt "I/O"}{Lq 0}{Ploc 280 60}}
+   {P LED {Pt "I/O"}{Lq 0}{Ploc 280 80}}
    {P SEGA {Pt "I/O"}{Lq 0}{Ploc 280 100}}
    {P SEGB {Pt "I/O"}{Lq 0}{Ploc 280 120}}
    {P SEGC {Pt "I/O"}{Lq 0}{Ploc 280 140}}
@@ -61,6 +61,10 @@
    {P SEGE {Pt "I/O"}{Lq 0}{Ploc 280 180}}
    {P SEGF {Pt "I/O"}{Lq 0}{Ploc 280 200}}
    {P SEGG {Pt "I/O"}{Lq 0}{Ploc 280 220}}
+   {P LEA2 {Pt "I/O"}{Lq 0}{Ploc 280 240}}
+   {P LEB2 {Pt "I/O"}{Lq 0}{Ploc 280 260}}
+   {P LEC2 {Pt "I/O"}{Lq 0}{Ploc 280 280}}
+   {P LED2 {Pt "I/O"}{Lq 0}{Ploc 280 300}}
   }
 
   {PKG
@@ -100,8 +104,12 @@
    {Pnl 260 190}
    {Pnl 260 210}
    {Pnl 260 230}
+   {Pnl 260 250}
+   {Pnl 260 270}
+   {Pnl 260 290}
+   {Pnl 260 310}
 
-   {Sd A 37 2 3 5 6 8 10 11 12 13 14 15 18 38 39 40 42 19 20 21 22 23 25 27 28 30 31 33}
+   {Sd A 37 2 3 5 6 8 10 11 12 13 14 15 18 38 39 40 42 19 20 21 22 23 25 27 28 30 31 33 34 35 43 44}
   }
 
   {PIC
@@ -126,14 +134,10 @@
    {L 130 60 100 60}
    {L 130 40 100 40}
    {L 130 20 100 20}
-   {C 255 20 5}
-   {L 260 20 280 20}
-   {C 255 40 5}
-   {L 260 40 280 40}
-   {C 255 60 5}
-   {L 260 60 280 60}
-   {C 255 80 5}
-   {L 260 80 280 80}
+   {L 250 20 280 20}
+   {L 250 40 280 40}
+   {L 250 60 280 60}
+   {L 250 80 280 80}
    {L 250 100 280 100}
    {L 250 120 280 120}
    {L 250 140 280 140}
@@ -141,6 +145,10 @@
    {L 250 180 280 180}
    {L 250 200 280 200}
    {L 250 220 280 220}
+   {L 250 240 280 240}
+   {L 250 260 280 260}
+   {L 250 280 280 280}
+   {L 250 300 280 300}
    [Ly "PINNAM"]
    [Tj "LC"]
    {T "CLK" 140 360}
@@ -161,10 +169,10 @@
    {T "D2" 140 40}
    {T "D3" 140 20}
    [Tj "RC"]
-   {T "LEA'" 240 20}
-   {T "LEB'" 240 40}
-   {T "LEC'" 240 60}
-   {T "LED'" 240 80}
+   {T "LEA" 240 20}
+   {T "LEB" 240 40}
+   {T "LEC" 240 60}
+   {T "LED" 240 80}
    {T "SEGA" 240 100}
    {T "SEGB" 240 120}
    {T "SEGC" 240 140}
@@ -172,6 +180,10 @@
    {T "SEGE" 240 180}
    {T "SEGF" 240 200}
    {T "SEGG" 240 220}
+   {T "LEA2" 240 240}
+   {T "LEB2" 240 260}
+   {T "LEC2" 240 280}
+   {T "LED2" 240 300}
    [Ly "DEVICE"]
    [Tj "CT"]
    {T "F1504ISPTQFP44" 190 -10}
@@ -185,7 +197,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD C:\4X7SEGV3 190 380}
+    {At PLD C:\SRC\4X7SEGV3 190 380}
    }
   }
  }
@@ -229,13 +241,13 @@
    }
    {N D3
    }
-   {N LEA'
+   {N LEA
    }
-   {N LEB'
+   {N LEB
    }
-   {N LEC'
+   {N LEC
    }
-   {N LED'
+   {N LED
    }
    {N SEGA
    }
@@ -250,6 +262,14 @@
    {N SEGF
    }
    {N SEGG
+   }
+   {N LEA2
+   }
+   {N LEB2
+   }
+   {N LEC2
+   }
+   {N LED2
    }
   }
 

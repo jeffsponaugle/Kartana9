@@ -15,10 +15,14 @@ PIN  38 =  D0
 PIN  39 =  D1 
 PIN  40 =  D2 
 PIN  42 =  D3 
-PIN  19 = !LEA 
-PIN  20 = !LEB 
-PIN  21 = !LEC 
-PIN  22 = !LED 
+PIN  19 =  LEA 
+PIN  34 =  LEA2 
+PIN  20 =  LEB 
+PIN  35 =  LEB2 
+PIN  21 =  LEC 
+PIN  43 =  LEC2 
+PIN  22 =  LED 
+PIN  44 =  LED2 
 PIN  23 =  SEGA 
 PIN  25 =  SEGB 
 PIN  27 =  SEGC 
@@ -196,171 +200,143 @@ DSEGG =>
   # D0 & D1 & D2 & !D3
   # !D1 & !D2 & !D3
 
-LEA =>
+!LEA =>
     !icnt0 & !icnt1
 
-LEB =>
+!LEA2 =>
+    !icnt0 & !icnt1
+
+!LEB =>
     icnt0 & !icnt1
 
-LEC =>
+!LEB2 =>
+    icnt0 & !icnt1
+
+!LEC =>
     !icnt0 & icnt1
 
-LED =>
+!LEC2 =>
+    !icnt0 & icnt1
+
+!LED =>
+    icnt0 & icnt1
+
+!LED2 =>
     icnt0 & icnt1
 
 SEGA =>
-    D1 & D2 & icnt0 & icnt1
-  # !D0 & !D2 & icnt0 & icnt1
-  # !D0 & D3 & icnt0 & icnt1
-  # D1 & !D3 & icnt0 & icnt1
-  # C1 & C2 & !icnt0 & icnt1
-  # !C0 & !C2 & !icnt0 & icnt1
-  # !C0 & C3 & !icnt0 & icnt1
-  # C1 & !C3 & !icnt0 & icnt1
-  # B1 & B2 & icnt0 & !icnt1
-  # !B0 & !B2 & icnt0 & !icnt1
-  # !B0 & B3 & icnt0 & !icnt1
-  # B1 & !B3 & icnt0 & !icnt1
-  # A1 & A2 & !icnt0 & !icnt1
-  # !A0 & !A2 & !icnt0 & !icnt1
-  # !A0 & A3 & !icnt0 & !icnt1
-  # A1 & !A3 & !icnt0 & !icnt1
-  # !D1 & !D2 & D3 & icnt0 & icnt1
-  # D0 & D2 & !D3 & icnt0 & icnt1
-  # !C1 & !C2 & C3 & !icnt0 & icnt1
-  # C0 & C2 & !C3 & !icnt0 & icnt1
-  # !B1 & !B2 & B3 & icnt0 & !icnt1
-  # B0 & B2 & !B3 & icnt0 & !icnt1
-  # !A1 & !A2 & A3 & !icnt0 & !icnt1
-  # A0 & A2 & !A3 & !icnt0 & !icnt1
+    A0 & A1 & !A2 & A3 & !icnt0 & !icnt1
+  # !A0 & !A1 & A2 & !A3 & !icnt0 & !icnt1
+  # A0 & !A1 & A2 & A3 & !icnt0 & !icnt1
+  # A0 & !A1 & !A2 & !A3 & !icnt0 & !icnt1
+  # B0 & B1 & !B2 & B3 & icnt0 & !icnt1
+  # !B0 & !B1 & B2 & !B3 & icnt0 & !icnt1
+  # B0 & !B1 & B2 & B3 & icnt0 & !icnt1
+  # B0 & !B1 & !B2 & !B3 & icnt0 & !icnt1
+  # C0 & C1 & !C2 & C3 & !icnt0 & icnt1
+  # !C0 & !C1 & C2 & !C3 & !icnt0 & icnt1
+  # C0 & !C1 & C2 & C3 & !icnt0 & icnt1
+  # C0 & !C1 & !C2 & !C3 & !icnt0 & icnt1
+  # D0 & D1 & !D2 & D3 & icnt0 & icnt1
+  # !D0 & !D1 & D2 & !D3 & icnt0 & icnt1
+  # D0 & !D1 & D2 & D3 & icnt0 & icnt1
+  # D0 & !D1 & !D2 & !D3 & icnt0 & icnt1
 
 SEGB =>
-    !D0 & !D2 & icnt0 & icnt1
-  # !D1 & !D2 & icnt0 & icnt1
-  # !C0 & !C2 & !icnt0 & icnt1
-  # !C1 & !C2 & !icnt0 & icnt1
-  # !B0 & !B2 & icnt0 & !icnt1
-  # !B1 & !B2 & icnt0 & !icnt1
-  # !A0 & !A2 & !icnt0 & !icnt1
-  # !A1 & !A2 & !icnt0 & !icnt1
-  # D0 & !D1 & D3 & icnt0 & icnt1
-  # D0 & D1 & !D3 & icnt0 & icnt1
-  # !D0 & !D1 & !D3 & icnt0 & icnt1
-  # C0 & !C1 & C3 & !icnt0 & icnt1
-  # C0 & C1 & !C3 & !icnt0 & icnt1
-  # !C0 & !C1 & !C3 & !icnt0 & icnt1
-  # B0 & !B1 & B3 & icnt0 & !icnt1
-  # B0 & B1 & !B3 & icnt0 & !icnt1
-  # !B0 & !B1 & !B3 & icnt0 & !icnt1
-  # A0 & !A1 & A3 & !icnt0 & !icnt1
-  # A0 & A1 & !A3 & !icnt0 & !icnt1
-  # !A0 & !A1 & !A3 & !icnt0 & !icnt1
+    !A0 & A1 & A2 & !icnt0 & !icnt1
+  # !A0 & A2 & A3 & !icnt0 & !icnt1
+  # A0 & !A1 & A2 & !A3 & !icnt0 & !icnt1
+  # A0 & A1 & A3 & !icnt0 & !icnt1
+  # !B0 & B1 & B2 & icnt0 & !icnt1
+  # !B0 & B2 & B3 & icnt0 & !icnt1
+  # B0 & !B1 & B2 & !B3 & icnt0 & !icnt1
+  # B0 & B1 & B3 & icnt0 & !icnt1
+  # !C0 & C1 & C2 & !icnt0 & icnt1
+  # !C0 & C2 & C3 & !icnt0 & icnt1
+  # C0 & !C1 & C2 & !C3 & !icnt0 & icnt1
+  # C0 & C1 & C3 & !icnt0 & icnt1
+  # !D0 & D1 & D2 & icnt0 & icnt1
+  # !D0 & D2 & D3 & icnt0 & icnt1
+  # D0 & !D1 & D2 & !D3 & icnt0 & icnt1
+  # D0 & D1 & D3 & icnt0 & icnt1
 
 SEGC =>
-    D0 & !D1 & icnt0 & icnt1
-  # D0 & !D2 & icnt0 & icnt1
-  # !D1 & !D2 & icnt0 & icnt1
-  # !D2 & D3 & icnt0 & icnt1
-  # D2 & !D3 & icnt0 & icnt1
-  # C0 & !C1 & !icnt0 & icnt1
-  # C0 & !C2 & !icnt0 & icnt1
-  # !C1 & !C2 & !icnt0 & icnt1
-  # !C2 & C3 & !icnt0 & icnt1
-  # C2 & !C3 & !icnt0 & icnt1
-  # B0 & !B1 & icnt0 & !icnt1
-  # B0 & !B2 & icnt0 & !icnt1
-  # !B1 & !B2 & icnt0 & !icnt1
-  # !B2 & B3 & icnt0 & !icnt1
-  # B2 & !B3 & icnt0 & !icnt1
-  # A0 & !A1 & !icnt0 & !icnt1
-  # A0 & !A2 & !icnt0 & !icnt1
-  # !A1 & !A2 & !icnt0 & !icnt1
-  # !A2 & A3 & !icnt0 & !icnt1
-  # A2 & !A3 & !icnt0 & !icnt1
+    !A0 & A1 & !A2 & !A3 & !icnt0 & !icnt1
+  # A1 & A2 & A3 & !icnt0 & !icnt1
+  # !A0 & A2 & A3 & !icnt0 & !icnt1
+  # !B0 & B1 & !B2 & !B3 & icnt0 & !icnt1
+  # B1 & B2 & B3 & icnt0 & !icnt1
+  # !B0 & B2 & B3 & icnt0 & !icnt1
+  # !C0 & C1 & !C2 & !C3 & !icnt0 & icnt1
+  # C1 & C2 & C3 & !icnt0 & icnt1
+  # !C0 & C2 & C3 & !icnt0 & icnt1
+  # !D0 & D1 & !D2 & !D3 & icnt0 & icnt1
+  # D1 & D2 & D3 & icnt0 & icnt1
+  # !D0 & D2 & D3 & icnt0 & icnt1
 
 SEGD =>
-    !D0 & D1 & D2 & icnt0 & icnt1
-  # D0 & !D1 & D2 & icnt0 & icnt1
-  # D0 & D1 & !D2 & icnt0 & icnt1
-  # !D0 & !D1 & D3 & icnt0 & icnt1
-  # !D0 & !D2 & !D3 & icnt0 & icnt1
-  # !C0 & C1 & C2 & !icnt0 & icnt1
-  # C0 & !C1 & C2 & !icnt0 & icnt1
-  # C0 & C1 & !C2 & !icnt0 & icnt1
-  # !C0 & !C1 & C3 & !icnt0 & icnt1
-  # !C0 & !C2 & !C3 & !icnt0 & icnt1
-  # !B0 & B1 & B2 & icnt0 & !icnt1
-  # B0 & !B1 & B2 & icnt0 & !icnt1
-  # B0 & B1 & !B2 & icnt0 & !icnt1
-  # !B0 & !B1 & B3 & icnt0 & !icnt1
-  # !B0 & !B2 & !B3 & icnt0 & !icnt1
-  # !A0 & A1 & A2 & !icnt0 & !icnt1
-  # A0 & !A1 & A2 & !icnt0 & !icnt1
-  # A0 & A1 & !A2 & !icnt0 & !icnt1
-  # !A0 & !A1 & A3 & !icnt0 & !icnt1
-  # !A0 & !A2 & !A3 & !icnt0 & !icnt1
+    !A0 & A1 & !A2 & A3 & !icnt0 & !icnt1
+  # A0 & !A1 & !A2 & !icnt0 & !icnt1
+  # A0 & A1 & A2 & !icnt0 & !icnt1
+  # !A0 & !A1 & A2 & !A3 & !icnt0 & !icnt1
+  # !B0 & B1 & !B2 & B3 & icnt0 & !icnt1
+  # B0 & !B1 & !B2 & icnt0 & !icnt1
+  # B0 & B1 & B2 & icnt0 & !icnt1
+  # !B0 & !B1 & B2 & !B3 & icnt0 & !icnt1
+  # !C0 & C1 & !C2 & C3 & !icnt0 & icnt1
+  # C0 & !C1 & !C2 & !icnt0 & icnt1
+  # C0 & C1 & C2 & !icnt0 & icnt1
+  # !C0 & !C1 & C2 & !C3 & !icnt0 & icnt1
+  # !D0 & D1 & !D2 & D3 & icnt0 & icnt1
+  # D0 & !D1 & !D2 & icnt0 & icnt1
+  # D0 & D1 & D2 & icnt0 & icnt1
+  # !D0 & !D1 & D2 & !D3 & icnt0 & icnt1
 
 SEGE =>
-    !D0 & D1 & icnt0 & icnt1
-  # !D0 & !D2 & icnt0 & icnt1
-  # D1 & D3 & icnt0 & icnt1
-  # D2 & D3 & icnt0 & icnt1
-  # !C0 & C1 & !icnt0 & icnt1
-  # !C0 & !C2 & !icnt0 & icnt1
-  # C1 & C3 & !icnt0 & icnt1
-  # C2 & C3 & !icnt0 & icnt1
-  # !B0 & B1 & icnt0 & !icnt1
-  # !B0 & !B2 & icnt0 & !icnt1
-  # B1 & B3 & icnt0 & !icnt1
-  # B2 & B3 & icnt0 & !icnt1
-  # !A0 & A1 & !icnt0 & !icnt1
-  # !A0 & !A2 & !icnt0 & !icnt1
-  # A1 & A3 & !icnt0 & !icnt1
-  # A2 & A3 & !icnt0 & !icnt1
+    A0 & !A1 & !A2 & !icnt0 & !icnt1
+  # A0 & !A3 & !icnt0 & !icnt1
+  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+  # B0 & !B1 & !B2 & icnt0 & !icnt1
+  # B0 & !B3 & icnt0 & !icnt1
+  # !B1 & B2 & !B3 & icnt0 & !icnt1
+  # C0 & !C1 & !C2 & !icnt0 & icnt1
+  # C0 & !C3 & !icnt0 & icnt1
+  # !C1 & C2 & !C3 & !icnt0 & icnt1
+  # D0 & !D1 & !D2 & icnt0 & icnt1
+  # D0 & !D3 & icnt0 & icnt1
+  # !D1 & D2 & !D3 & icnt0 & icnt1
 
 SEGF =>
-    !D0 & !D1 & icnt0 & icnt1
-  # !D0 & D2 & icnt0 & icnt1
-  # D1 & D3 & icnt0 & icnt1
-  # !D2 & D3 & icnt0 & icnt1
-  # !C0 & !C1 & !icnt0 & icnt1
-  # !C0 & C2 & !icnt0 & icnt1
-  # C1 & C3 & !icnt0 & icnt1
-  # !C2 & C3 & !icnt0 & icnt1
-  # !B0 & !B1 & icnt0 & !icnt1
-  # !B0 & B2 & icnt0 & !icnt1
-  # B1 & B3 & icnt0 & !icnt1
-  # !B2 & B3 & icnt0 & !icnt1
-  # !A0 & !A1 & !icnt0 & !icnt1
-  # !A0 & A2 & !icnt0 & !icnt1
-  # A1 & A3 & !icnt0 & !icnt1
-  # !A2 & A3 & !icnt0 & !icnt1
-  # !D1 & D2 & !D3 & icnt0 & icnt1
-  # !C1 & C2 & !C3 & !icnt0 & icnt1
-  # !B1 & B2 & !B3 & icnt0 & !icnt1
-  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+    A0 & !A2 & !A3 & !icnt0 & !icnt1
+  # A1 & !A2 & !A3 & !icnt0 & !icnt1
+  # A0 & A1 & !A3 & !icnt0 & !icnt1
+  # A0 & !A1 & A2 & A3 & !icnt0 & !icnt1
+  # B0 & !B2 & !B3 & icnt0 & !icnt1
+  # B1 & !B2 & !B3 & icnt0 & !icnt1
+  # B0 & B1 & !B3 & icnt0 & !icnt1
+  # B0 & !B1 & B2 & B3 & icnt0 & !icnt1
+  # C0 & !C2 & !C3 & !icnt0 & icnt1
+  # C1 & !C2 & !C3 & !icnt0 & icnt1
+  # C0 & C1 & !C3 & !icnt0 & icnt1
+  # C0 & !C1 & C2 & C3 & !icnt0 & icnt1
+  # D0 & !D2 & !D3 & icnt0 & icnt1
+  # D1 & !D2 & !D3 & icnt0 & icnt1
+  # D0 & D1 & !D3 & icnt0 & icnt1
+  # D0 & !D1 & D2 & D3 & icnt0 & icnt1
 
 SEGG =>
-    !D0 & D1 & icnt0 & icnt1
-  # D1 & !D2 & icnt0 & icnt1
-  # D0 & D3 & icnt0 & icnt1
-  # !D2 & D3 & icnt0 & icnt1
-  # !C0 & C1 & !icnt0 & icnt1
-  # C1 & !C2 & !icnt0 & icnt1
-  # C0 & C3 & !icnt0 & icnt1
-  # !C2 & C3 & !icnt0 & icnt1
-  # !B0 & B1 & icnt0 & !icnt1
-  # B1 & !B2 & icnt0 & !icnt1
-  # B0 & B3 & icnt0 & !icnt1
-  # !B2 & B3 & icnt0 & !icnt1
-  # !A0 & A1 & !icnt0 & !icnt1
-  # A1 & !A2 & !icnt0 & !icnt1
-  # A0 & A3 & !icnt0 & !icnt1
-  # !A2 & A3 & !icnt0 & !icnt1
-  # !D1 & D2 & !D3 & icnt0 & icnt1
-  # !C1 & C2 & !C3 & !icnt0 & icnt1
-  # !B1 & B2 & !B3 & icnt0 & !icnt1
-  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+    !A0 & !A1 & A2 & A3 & !icnt0 & !icnt1
+  # A0 & A1 & A2 & !A3 & !icnt0 & !icnt1
+  # !A1 & !A2 & !A3 & !icnt0 & !icnt1
+  # !B0 & !B1 & B2 & B3 & icnt0 & !icnt1
+  # B0 & B1 & B2 & !B3 & icnt0 & !icnt1
+  # !B1 & !B2 & !B3 & icnt0 & !icnt1
+  # !C0 & !C1 & C2 & C3 & !icnt0 & icnt1
+  # C0 & C1 & C2 & !C3 & !icnt0 & icnt1
+  # !C1 & !C2 & !C3 & !icnt0 & icnt1
+  # !D0 & !D1 & D2 & D3 & icnt0 & icnt1
+  # D0 & D1 & D2 & !D3 & icnt0 & icnt1
+  # !D1 & !D2 & !D3 & icnt0 & icnt1
 
 icnt0.d  =>
     !icnt0
