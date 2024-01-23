@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Fri Dec 29 16:19:11 2023 "}
+  {DBtime "Sun Dec 31 14:28:12 2023 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -33,32 +33,35 @@
  {SYMBOL
   {PIN_DEF
    [Ly "PINCON"]
-   {P D_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 900}}
-   {P ALU_FL {Pt "INPUT"}{Lq 0}{Ploc 100 860}}
-   {P ZFOUT {Pt "INPUT"}{Lq 0}{Ploc 100 840}}
-   {P ABUS15 {Pt "INPUT"}{Lq 0}{Ploc 100 820}}
-   {P ABUS3 {Pt "INPUT"}{Lq 0}{Ploc 100 800}}
-   {P ABUS2 {Pt "INPUT"}{Lq 0}{Ploc 100 780}}
-   {P FUNC2 {Pt "INPUT"}{Lq 0}{Ploc 100 760}}
-   {P FUNC1 {Pt "INPUT"}{Lq 0}{Ploc 100 740}}
-   {P FUNC0 {Pt "INPUT"}{Lq 0}{Ploc 100 720}}
-   {P BBUS14 {Pt "INPUT"}{Lq 0}{Ploc 100 700}}
-   {P ABUS13 {Pt "INPUT"}{Lq 0}{Ploc 100 680}}
-   {P ABUS11 {Pt "INPUT"}{Lq 0}{Ploc 100 660}}
-   {P ABUS10 {Pt "INPUT"}{Lq 0}{Ploc 100 640}}
-   {P ABUS14 {Pt "INPUT"}{Lq 0}{Ploc 100 620}}
-   {P ABUS0 {Pt "INPUT"}{Lq 0}{Ploc 100 600}}
-   {P ABUS1 {Pt "INPUT"}{Lq 0}{Ploc 100 580}}
-   {P BBUS15 {Pt "INPUT"}{Lq 0}{Ploc 100 560}}
-   {P BBUS13 {Pt "INPUT"}{Lq 0}{Ploc 100 540}}
-   {P ABUS12 {Pt "INPUT"}{Lq 0}{Ploc 100 520}}
-   {P BBUS1 {Pt "INPUT"}{Lq 0}{Ploc 100 500}}
-   {P ABUS9 {Pt "INPUT"}{Lq 0}{Ploc 100 480}}
-   {P ABUS6 {Pt "INPUT"}{Lq 0}{Ploc 100 460}}
-   {P ABUS5 {Pt "INPUT"}{Lq 0}{Ploc 100 440}}
-   {P ABUS8 {Pt "INPUT"}{Lq 0}{Ploc 100 420}}
-   {P ALU_CFLA {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
-   {P ALU_CFIN {Pt "INPUT"}{Lq 0}{Ploc 100 380}}
+   {P D_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 960}}
+   {P ALU_FL {Pt "INPUT"}{Lq 0}{Ploc 100 920}}
+   {P UNUSED4 {Pt "INPUT"}{Lq 0}{Ploc 100 900}}
+   {P ZFOUT {Pt "INPUT"}{Lq 0}{Ploc 100 880}}
+   {P ABUS15 {Pt "INPUT"}{Lq 0}{Ploc 100 860}}
+   {P ABUS3 {Pt "INPUT"}{Lq 0}{Ploc 100 840}}
+   {P ABUS2 {Pt "INPUT"}{Lq 0}{Ploc 100 820}}
+   {P FUNC2 {Pt "INPUT"}{Lq 0}{Ploc 100 800}}
+   {P FUNC1 {Pt "INPUT"}{Lq 0}{Ploc 100 780}}
+   {P FUNC0 {Pt "INPUT"}{Lq 0}{Ploc 100 760}}
+   {P BBUS14 {Pt "INPUT"}{Lq 0}{Ploc 100 740}}
+   {P ABUS13 {Pt "INPUT"}{Lq 0}{Ploc 100 720}}
+   {P ABUS11 {Pt "INPUT"}{Lq 0}{Ploc 100 700}}
+   {P ABUS10 {Pt "INPUT"}{Lq 0}{Ploc 100 680}}
+   {P ABUS14 {Pt "INPUT"}{Lq 0}{Ploc 100 660}}
+   {P ABUS0 {Pt "INPUT"}{Lq 0}{Ploc 100 640}}
+   {P ABUS1 {Pt "INPUT"}{Lq 0}{Ploc 100 620}}
+   {P UNUSED2 {Pt "INPUT"}{Lq 0}{Ploc 100 600}}
+   {P BBUS15 {Pt "INPUT"}{Lq 0}{Ploc 100 580}}
+   {P BBUS13 {Pt "INPUT"}{Lq 0}{Ploc 100 560}}
+   {P ABUS12 {Pt "INPUT"}{Lq 0}{Ploc 100 540}}
+   {P BBUS1 {Pt "INPUT"}{Lq 0}{Ploc 100 520}}
+   {P ABUS9 {Pt "INPUT"}{Lq 0}{Ploc 100 500}}
+   {P ABUS6 {Pt "INPUT"}{Lq 0}{Ploc 100 480}}
+   {P ABUS5 {Pt "INPUT"}{Lq 0}{Ploc 100 460}}
+   {P ABUS8 {Pt "INPUT"}{Lq 0}{Ploc 100 440}}
+   {P ALU_CFLA {Pt "INPUT"}{Lq 0}{Ploc 100 420}}
+   {P ALU_CFIN {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
+   {P UNUSED3 {Pt "INPUT"}{Lq 0}{Ploc 100 380}}
    {P CFOUT {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
    {P OVFOUT {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
    {P ABUS7 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
@@ -77,33 +80,37 @@
    {P BBUS12 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
    {P BBUS11 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
    {P ALU_OE {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
-   {P CBUS2 {Pt "I/O"}{Lq 0}{Ploc 340 20}}
-   {P CBUS14 {Pt "I/O"}{Lq 0}{Ploc 340 40}}
-   {P CBUS12 {Pt "I/O"}{Lq 0}{Ploc 340 60}}
-   {P CBUS15 {Pt "I/O"}{Lq 0}{Ploc 340 80}}
-   {P CBUS9 {Pt "I/O"}{Lq 0}{Ploc 340 100}}
-   {P CBUS10 {Pt "I/O"}{Lq 0}{Ploc 340 120}}
-   {P CBUS11 {Pt "I/O"}{Lq 0}{Ploc 340 140}}
-   {P CBUS13 {Pt "I/O"}{Lq 0}{Ploc 340 160}}
-   {P CBUS6 {Pt "I/O"}{Lq 0}{Ploc 340 180}}
-   {P CBUS5 {Pt "I/O"}{Lq 0}{Ploc 340 200}}
-   {P CBUS8 {Pt "I/O"}{Lq 0}{Ploc 340 220}}
-   {P CBUS7 {Pt "I/O"}{Lq 0}{Ploc 340 240}}
-   {P CBUS3 {Pt "I/O"}{Lq 0}{Ploc 340 260}}
-   {P CBUS1 {Pt "I/O"}{Lq 0}{Ploc 340 280}}
-   {P CBUS4 {Pt "I/O"}{Lq 0}{Ploc 340 300}}
-   {P CBUS0 {Pt "I/O"}{Lq 0}{Ploc 340 320}}
+   {P CBUS2 {Pt "I/O"}{Lq 0}{Ploc 350 20}}
+   {P CBUS14 {Pt "I/O"}{Lq 0}{Ploc 350 40}}
+   {P CBUS12 {Pt "I/O"}{Lq 0}{Ploc 350 60}}
+   {P CBUS15 {Pt "I/O"}{Lq 0}{Ploc 350 80}}
+   {P CBUS9 {Pt "I/O"}{Lq 0}{Ploc 350 100}}
+   {P CBUS10 {Pt "I/O"}{Lq 0}{Ploc 350 120}}
+   {P CBUS11 {Pt "I/O"}{Lq 0}{Ploc 350 140}}
+   {P CBUS13 {Pt "I/O"}{Lq 0}{Ploc 350 160}}
+   {P CBUS6 {Pt "I/O"}{Lq 0}{Ploc 350 180}}
+   {P CBUS5 {Pt "I/O"}{Lq 0}{Ploc 350 200}}
+   {P CBUS8 {Pt "I/O"}{Lq 0}{Ploc 350 220}}
+   {P UNUSED1 {Pt "I/O"}{Lq 0}{Ploc 350 240}}
+   {P CBUS7 {Pt "I/O"}{Lq 0}{Ploc 350 260}}
+   {P CBUS3 {Pt "I/O"}{Lq 0}{Ploc 350 280}}
+   {P CBUS1 {Pt "I/O"}{Lq 0}{Ploc 350 300}}
+   {P CBUS4 {Pt "I/O"}{Lq 0}{Ploc 350 320}}
+   {P CBUS0 {Pt "I/O"}{Lq 0}{Ploc 350 340}}
   }
 
   {PKG
    [Ly "REFDES"]
    [Ts 25][Tj "CB"][Tr 0][Tm "N"]
-   {Rdl 220 930}
+   {Rdl 225 990}
 
    [Ly "PINNUM"]
    [Ts 15][Tj "RC"]
-   {Pnl 120 910}
+   {Pnl 120 970}
    [Ts 15][Tj "RC"]
+   {Pnl 120 930}
+   {Pnl 120 910}
+   {Pnl 120 890}
    {Pnl 120 870}
    {Pnl 120 850}
    {Pnl 120 830}
@@ -148,32 +155,36 @@
    {Pnl 120 50}
    {Pnl 120 30}
    [Ts 15][Tj "LC"]
-   {Pnl 320 30}
-   {Pnl 320 50}
-   {Pnl 320 70}
-   {Pnl 320 90}
-   {Pnl 320 110}
-   {Pnl 320 130}
-   {Pnl 320 150}
-   {Pnl 320 170}
-   {Pnl 320 190}
-   {Pnl 320 210}
-   {Pnl 320 230}
-   {Pnl 320 250}
-   {Pnl 320 270}
-   {Pnl 320 290}
-   {Pnl 320 310}
-   {Pnl 320 330}
+   {Pnl 330 30}
+   {Pnl 330 50}
+   {Pnl 330 70}
+   {Pnl 330 90}
+   {Pnl 330 110}
+   {Pnl 330 130}
+   {Pnl 330 150}
+   {Pnl 330 170}
+   {Pnl 330 190}
+   {Pnl 330 210}
+   {Pnl 330 230}
+   {Pnl 330 250}
+   {Pnl 330 270}
+   {Pnl 330 290}
+   {Pnl 330 310}
+   {Pnl 330 330}
+   {Pnl 330 350}
 
-   {Sd A 83 1 5 6 8 9 10 11 12 17 20 21 22 25 30 31 40 41 44 45 46 48 49 54 55 56 60 61 63 64 65 67 68 69 70 73 74 75 76 77 79 80 81 84 4 15 16 18 24 27 28 29 33 34 35 37 50 51 52 58}
+   {Sd A 83 1 2 5 6 8 9 10 11 12 17 20 21 22 25 30 31 39 40 41 44 45 46 48 49 54 55 56 57 60 61 63 64 65 67 68 69 70 73 74 75 76 77 79 80 81 84 4 15 16 18 24 27 28 29 33 34 35 36 37 50 51 52 58}
   }
 
   {PIC
    [Ly "GATE"]
    [Ts 15][Tj "LC"][Tr 0][Tm "N"]
-   {R 130 920 310 0}
+   {R 130 980 320 0}
+   {L 130 960 100 960}
+   {L 130 970 140 960 130 950}
+   {L 130 920 100 920}
    {L 130 900 100 900}
-   {L 130 910 140 900 130 890}
+   {L 130 880 100 880}
    {L 130 860 100 860}
    {L 130 840 100 840}
    {L 130 820 100 820}
@@ -217,50 +228,54 @@
    {L 130 60 100 60}
    {L 130 40 100 40}
    {L 130 20 100 20}
-   {L 310 20 340 20}
-   {L 310 40 340 40}
-   {L 310 60 340 60}
-   {L 310 80 340 80}
-   {L 310 100 340 100}
-   {L 310 120 340 120}
-   {L 310 140 340 140}
-   {L 310 160 340 160}
-   {L 310 180 340 180}
-   {L 310 200 340 200}
-   {L 310 220 340 220}
-   {L 310 240 340 240}
-   {L 310 260 340 260}
-   {L 310 280 340 280}
-   {L 310 300 340 300}
-   {L 310 320 340 320}
+   {L 320 20 350 20}
+   {L 320 40 350 40}
+   {L 320 60 350 60}
+   {L 320 80 350 80}
+   {L 320 100 350 100}
+   {L 320 120 350 120}
+   {L 320 140 350 140}
+   {L 320 160 350 160}
+   {L 320 180 350 180}
+   {L 320 200 350 200}
+   {L 320 220 350 220}
+   {L 320 240 350 240}
+   {L 320 260 350 260}
+   {L 320 280 350 280}
+   {L 320 300 350 300}
+   {L 320 320 350 320}
+   {L 320 340 350 340}
    [Ly "PINNAM"]
    [Tj "LC"]
-   {T "D_CLK_IN" 140 900}
-   {T "ALU_FL" 140 860}
-   {T "ZFOUT" 140 840}
-   {T "ABUS15" 140 820}
-   {T "ABUS3" 140 800}
-   {T "ABUS2" 140 780}
-   {T "FUNC2" 140 760}
-   {T "FUNC1" 140 740}
-   {T "FUNC0" 140 720}
-   {T "BBUS14" 140 700}
-   {T "ABUS13" 140 680}
-   {T "ABUS11" 140 660}
-   {T "ABUS10" 140 640}
-   {T "ABUS14" 140 620}
-   {T "ABUS0" 140 600}
-   {T "ABUS1" 140 580}
-   {T "BBUS15" 140 560}
-   {T "BBUS13" 140 540}
-   {T "ABUS12" 140 520}
-   {T "BBUS1" 140 500}
-   {T "ABUS9" 140 480}
-   {T "ABUS6" 140 460}
-   {T "ABUS5" 140 440}
-   {T "ABUS8" 140 420}
-   {T "ALU_CFLA" 140 400}
-   {T "ALU_CFIN" 140 380}
+   {T "D_CLK_IN" 140 960}
+   {T "ALU_FL" 140 920}
+   {T "UNUSED4" 140 900}
+   {T "ZFOUT" 140 880}
+   {T "ABUS15" 140 860}
+   {T "ABUS3" 140 840}
+   {T "ABUS2" 140 820}
+   {T "FUNC2" 140 800}
+   {T "FUNC1" 140 780}
+   {T "FUNC0" 140 760}
+   {T "BBUS14" 140 740}
+   {T "ABUS13" 140 720}
+   {T "ABUS11" 140 700}
+   {T "ABUS10" 140 680}
+   {T "ABUS14" 140 660}
+   {T "ABUS0" 140 640}
+   {T "ABUS1" 140 620}
+   {T "UNUSED2" 140 600}
+   {T "BBUS15" 140 580}
+   {T "BBUS13" 140 560}
+   {T "ABUS12" 140 540}
+   {T "BBUS1" 140 520}
+   {T "ABUS9" 140 500}
+   {T "ABUS6" 140 480}
+   {T "ABUS5" 140 460}
+   {T "ABUS8" 140 440}
+   {T "ALU_CFLA" 140 420}
+   {T "ALU_CFIN" 140 400}
+   {T "UNUSED3" 140 380}
    {T "CFOUT" 140 360}
    {T "OVFOUT" 140 340}
    {T "ABUS7" 140 320}
@@ -280,25 +295,26 @@
    {T "BBUS11" 140 40}
    {T "ALU_OE" 140 20}
    [Tj "RC"]
-   {T "CBUS2" 300 20}
-   {T "CBUS14" 300 40}
-   {T "CBUS12" 300 60}
-   {T "CBUS15" 300 80}
-   {T "CBUS9" 300 100}
-   {T "CBUS10" 300 120}
-   {T "CBUS11" 300 140}
-   {T "CBUS13" 300 160}
-   {T "CBUS6" 300 180}
-   {T "CBUS5" 300 200}
-   {T "CBUS8" 300 220}
-   {T "CBUS7" 300 240}
-   {T "CBUS3" 300 260}
-   {T "CBUS1" 300 280}
-   {T "CBUS4" 300 300}
-   {T "CBUS0" 300 320}
+   {T "CBUS2" 310 20}
+   {T "CBUS14" 310 40}
+   {T "CBUS12" 310 60}
+   {T "CBUS15" 310 80}
+   {T "CBUS9" 310 100}
+   {T "CBUS10" 310 120}
+   {T "CBUS11" 310 140}
+   {T "CBUS13" 310 160}
+   {T "CBUS6" 310 180}
+   {T "CBUS5" 310 200}
+   {T "CBUS8" 310 220}
+   {T "UNUSED1" 310 240}
+   {T "CBUS7" 310 260}
+   {T "CBUS3" 310 280}
+   {T "CBUS1" 310 300}
+   {T "CBUS4" 310 320}
+   {T "CBUS0" 310 340}
    [Ly "DEVICE"]
    [Tj "CT"]
-   {T "F1508ISPPLCC84" 220 -10}
+   {T "F1508ISPPLCC84" 225 -10}
   }
 
   {ATR
@@ -309,7 +325,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD C:\ALU 220 920}
+    {At PLD C:\ALU 225 980}
    }
   }
  }
@@ -322,6 +338,8 @@
    {N D_CLK_IN
    }
    {N ALU_FL
+   }
+   {N UNUSED4
    }
    {N ZFOUT
    }
@@ -351,6 +369,8 @@
    }
    {N ABUS1
    }
+   {N UNUSED2
+   }
    {N BBUS15
    }
    {N BBUS13
@@ -370,6 +390,8 @@
    {N ALU_CFLA
    }
    {N ALU_CFIN
+   }
+   {N UNUSED3
    }
    {N CFOUT
    }
@@ -428,6 +450,8 @@
    {N CBUS5
    }
    {N CBUS8
+   }
+   {N UNUSED1
    }
    {N CBUS7
    }

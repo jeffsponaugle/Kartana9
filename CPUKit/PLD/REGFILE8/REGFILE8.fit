@@ -1,4 +1,4 @@
-Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Fri Dec 29 19:29:04 2023
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Mon Jan 01 10:55:09 2024
 
 
 fit1508 C:\REGFILE8.tt2 -CUPL -dev P1508C84 -JTAG ON
@@ -48,6 +48,9 @@ fit1508 C:\REGFILE8.tt2 -CUPL -dev P1508C84 -JTAG ON
  ITD2 = ON
  Fast_inlatch = off
  *******************************
+Info: C:\REGFILE8 uses 95% of the pins available in device PLCC84
+  If you wish to have more pins available for future logic changes
+  Atmel  recommends using a larger device
 ---------------------------------------------------------
  Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
  ... 
@@ -69,160 +72,188 @@ B_OE assigned to pin  84
 
 Performing input pin pre-assignments ...
 ------------------------------------
+UNUSED26 assigned to pin  2
 D_CLK_IN assigned to pin  83
 ResetIN assigned to pin  1
 B_OE assigned to pin  84
 
 Attempt to place floating signals ...
 ------------------------------------
+RHB0 is placed at feedback node 601 (MC 1)
+RGB0 is placed at feedback node 602 (MC 2)
 BSEL0 is placed at pin 12 (MC 3)
+RFB0 is placed at feedback node 603 (MC 3)
+REB0 is placed at feedback node 604 (MC 4)
 BSEL1 is placed at pin 11 (MC 5)
+RDB0 is placed at feedback node 605 (MC 5)
 BSEL2 is placed at pin 10 (MC 6)
+RCB0 is placed at feedback node 606 (MC 6)
 ABUS1 is placed at pin 9 (MC 8)
+RBB0 is placed at feedback node 609 (MC 9)
 ABUS0 is placed at pin 8 (MC 11)
+RAB0 is placed at feedback node 612 (MC 12)
 ASEL0 is placed at pin 6 (MC 13)
 BBUS1 is placed at pin 5 (MC 14)
 BBUS0 is placed at pin 4 (MC 16)
 ASEL2 is placed at pin 22 (MC 17)
+RHB2 is placed at feedback node 617 (MC 17)
+RGB2 is placed at feedback node 618 (MC 18)
 ASEL1 is placed at pin 21 (MC 19)
+RFB2 is placed at feedback node 619 (MC 19)
 ABUS3 is placed at pin 20 (MC 21)
+REB2 is placed at feedback node 622 (MC 22)
 ABUS2 is placed at pin 18 (MC 24)
 CSEL0 is placed at pin 17 (MC 25)
+RDB2 is placed at feedback node 625 (MC 25)
 BBUS3 is placed at pin 16 (MC 27)
 BBUS2 is placed at pin 15 (MC 29)
+RCB2 is placed at feedback node 630 (MC 30)
+RBB2 is placed at feedback node 631 (MC 31)
 TDI is placed at pin 14 (MC 32)
+RAB2 is placed at feedback node 632 (MC 32)
+RHB5 is placed at feedback node 633 (MC 33)
+RGB5 is placed at feedback node 634 (MC 34)
 CSEL2 is placed at pin 31 (MC 35)
+RFB5 is placed at feedback node 635 (MC 35)
+REB5 is placed at feedback node 636 (MC 36)
 C_WE is placed at pin 30 (MC 37)
 ABUS5 is placed at pin 29 (MC 38)
 ABUS4 is placed at pin 28 (MC 40)
+RDB5 is placed at feedback node 641 (MC 41)
 BBUS5 is placed at pin 27 (MC 43)
+RCB5 is placed at feedback node 644 (MC 44)
 CSEL1 is placed at pin 25 (MC 45)
 BBUS4 is placed at pin 24 (MC 46)
+RBB5 is placed at feedback node 647 (MC 47)
 TMS is placed at pin 23 (MC 48)
+RAB5 is placed at feedback node 648 (MC 48)
 C_ZH is placed at pin 41 (MC 49)
+RHB6 is placed at feedback node 649 (MC 49)
+RGB6 is placed at feedback node 650 (MC 50)
 CBUS2 is placed at pin 40 (MC 51)
+RFB6 is placed at feedback node 651 (MC 51)
+REB6 is placed at feedback node 652 (MC 52)
 CBUS1 is placed at pin 39 (MC 53)
+RDB6 is placed at feedback node 653 (MC 53)
+RCB6 is placed at feedback node 654 (MC 54)
 ABUS7 is placed at pin 37 (MC 56)
 CBUS0 is placed at pin 36 (MC 57)
+RBB6 is placed at feedback node 657 (MC 57)
 ABUS6 is placed at pin 35 (MC 59)
 BBUS7 is placed at pin 34 (MC 61)
+RAB6 is placed at feedback node 662 (MC 62)
 BBUS6 is placed at pin 33 (MC 64)
 CBUS3 is placed at pin 44 (MC 65)
-RGB6 is placed at feedback node 665 (MC 65)
-RFB7 is placed at feedback node 666 (MC 66)
 CBUS4 is placed at pin 45 (MC 67)
-RFB6 is placed at feedback node 667 (MC 67)
-REB7 is placed at feedback node 668 (MC 68)
 CBUS5 is placed at pin 46 (MC 69)
-REB6 is placed at feedback node 669 (MC 69)
-RDB7 is placed at feedback node 670 (MC 70)
-RDB6 is placed at feedback node 671 (MC 71)
 CBUS6 is placed at pin 48 (MC 72)
-RCB6 is placed at feedback node 672 (MC 72)
 CBUS7 is placed at pin 49 (MC 73)
-RCB7 is placed at feedback node 673 (MC 73)
-RBB7 is placed at feedback node 674 (MC 74)
-RHB6 is placed at feedback node 675 (MC 75)
-RBB6 is placed at feedback node 676 (MC 76)
-RHB7 is placed at feedback node 677 (MC 77)
-RAB7 is placed at feedback node 678 (MC 78)
-RAB6 is placed at feedback node 679 (MC 79)
-RGB7 is placed at feedback node 680 (MC 80)
-REB4 is placed at feedback node 681 (MC 81)
-RDB5 is placed at feedback node 682 (MC 82)
-RHB5 is placed at feedback node 683 (MC 83)
-RDB4 is placed at feedback node 684 (MC 84)
-RHB4 is placed at feedback node 685 (MC 85)
-RGB4 is placed at feedback node 686 (MC 86)
-RCB5 is placed at feedback node 687 (MC 87)
-RGB5 is placed at feedback node 688 (MC 88)
-RCB4 is placed at feedback node 689 (MC 89)
-RBB4 is placed at feedback node 690 (MC 90)
-RFB5 is placed at feedback node 691 (MC 91)
-RBB5 is placed at feedback node 692 (MC 92)
-RFB4 is placed at feedback node 693 (MC 93)
-REB5 is placed at feedback node 694 (MC 94)
-RAB5 is placed at feedback node 695 (MC 95)
+RGB7 is placed at feedback node 673 (MC 73)
+REB7 is placed at feedback node 674 (MC 74)
+UNUSED1 is placed at pin 50 (MC 75)
+RFB7 is placed at feedback node 676 (MC 76)
+UNUSED2 is placed at pin 51 (MC 77)
+RDB7 is placed at feedback node 677 (MC 77)
+RCB7 is placed at feedback node 678 (MC 78)
+RBB7 is placed at feedback node 679 (MC 79)
+UNUSED3 is placed at pin 52 (MC 80)
+RAB7 is placed at feedback node 680 (MC 80)
+RGB3 is placed at feedback node 681 (MC 81)
+RFB3 is placed at feedback node 682 (MC 82)
+UNUSED4 is placed at pin 54 (MC 83)
+REB3 is placed at feedback node 683 (MC 83)
+RDB3 is placed at feedback node 684 (MC 84)
+UNUSED5 is placed at pin 55 (MC 85)
+RCB3 is placed at feedback node 685 (MC 85)
+UNUSED6 is placed at pin 56 (MC 86)
+RBB3 is placed at feedback node 686 (MC 86)
+RAB3 is placed at feedback node 687 (MC 87)
+UNUSED7 is placed at pin 57 (MC 88)
+RHB4 is placed at feedback node 688 (MC 88)
+RGB4 is placed at feedback node 689 (MC 89)
+RFB4 is placed at feedback node 690 (MC 90)
+UNUSED8 is placed at pin 58 (MC 91)
+REB4 is placed at feedback node 691 (MC 91)
+RDB4 is placed at feedback node 692 (MC 92)
+UNUSED9 is placed at pin 60 (MC 93)
+RCB4 is placed at feedback node 693 (MC 93)
+UNUSED10 is placed at pin 61 (MC 94)
+RBB4 is placed at feedback node 694 (MC 94)
+RAB4 is placed at feedback node 695 (MC 95)
 TCK is placed at pin 62 (MC 96)
-RAB4 is placed at feedback node 696 (MC 96)
-RHB3 is placed at feedback node 697 (MC 97)
-REB2 is placed at feedback node 698 (MC 98)
-RHB2 is placed at feedback node 699 (MC 99)
-RDB3 is placed at feedback node 700 (MC 100)
-RGB3 is placed at feedback node 701 (MC 101)
-RDB2 is placed at feedback node 702 (MC 102)
-RCB3 is placed at feedback node 703 (MC 103)
-RGB2 is placed at feedback node 704 (MC 104)
-RFB2 is placed at feedback node 705 (MC 105)
-RCB2 is placed at feedback node 706 (MC 106)
-RFB3 is placed at feedback node 707 (MC 107)
-RBB3 is placed at feedback node 708 (MC 108)
-REB3 is placed at feedback node 709 (MC 109)
-RBB2 is placed at feedback node 710 (MC 110)
-RAB2 is placed at feedback node 711 (MC 111)
+RHB7 is placed at feedback node 696 (MC 96)
+UNUSED11 is placed at pin 63 (MC 97)
+UNUSED12 is placed at pin 64 (MC 99)
+UNUSED13 is placed at pin 65 (MC 101)
+RHB1 is placed at feedback node 703 (MC 103)
+UNUSED14 is placed at pin 67 (MC 104)
+RGB1 is placed at feedback node 704 (MC 104)
+UNUSED15 is placed at pin 68 (MC 105)
+RFB1 is placed at feedback node 705 (MC 105)
+REB1 is placed at feedback node 706 (MC 106)
+UNUSED16 is placed at pin 69 (MC 107)
+RDB1 is placed at feedback node 708 (MC 108)
+UNUSED17 is placed at pin 70 (MC 109)
+RCB1 is placed at feedback node 709 (MC 109)
+RBB1 is placed at feedback node 710 (MC 110)
+RHB3 is placed at feedback node 711 (MC 111)
 TDO is placed at pin 71 (MC 112)
-RAB3 is placed at feedback node 712 (MC 112)
-RDB1 is placed at feedback node 713 (MC 113)
-RDB0 is placed at feedback node 714 (MC 114)
-RHB1 is placed at feedback node 715 (MC 115)
-RCB1 is placed at feedback node 716 (MC 116)
-RHB0 is placed at feedback node 717 (MC 117)
-RGB1 is placed at feedback node 718 (MC 118)
-RCB0 is placed at feedback node 719 (MC 119)
-RGB0 is placed at feedback node 720 (MC 120)
-RBB1 is placed at feedback node 721 (MC 121)
-RBB0 is placed at feedback node 722 (MC 122)
-RFB1 is placed at feedback node 723 (MC 123)
-RAB1 is placed at feedback node 724 (MC 124)
-RFB0 is placed at feedback node 725 (MC 125)
-REB0 is placed at feedback node 726 (MC 126)
-RAB0 is placed at feedback node 727 (MC 127)
-REB1 is placed at feedback node 728 (MC 128)
+RAB1 is placed at feedback node 712 (MC 112)
+UNUSED18 is placed at pin 73 (MC 115)
+UNUSED19 is placed at pin 74 (MC 117)
+UNUSED20 is placed at pin 75 (MC 118)
+UNUSED21 is placed at pin 76 (MC 120)
+UNUSED22 is placed at pin 77 (MC 123)
+UNUSED23 is placed at pin 79 (MC 125)
+UNUSED24 is placed at pin 80 (MC 126)
+UNUSED25 is placed at pin 81 (MC 128)
 
                                                                                     
                                                                                     
                                                                                     
                                                                                     
-                                             D                                      
-                                          R  _                                      
-                                          e  C                                      
-                     B B  A A   A B B     s  L                                      
-                     S S  B B   S B B     eB K                                      
-                     E E  U U G E U U V   t_ _ G       V                            
-                     L L  S S N L S S C   IO I N       C                            
-                     1 2  1 0 D 0 1 0 C   NE N D       C                            
+                                        U    D   U U U   U U U                      
+                                        N R  _   N N N   N N N                      
+                                        U e  C   U U U   U U U                      
+                     B B  A A   A B B   S s  L   S S S   S S S                      
+                     S S  B B   S B B   E eB K   E E E   E E E                      
+                     E E  U U G E U U V D t_ _ G D D D V D D D                      
+                     L L  S S N L S S C 2 IO I N 2 2 2 C 2 2 2                      
+                     1 2  1 0 D 0 1 0 C 6 NE N D 5 4 3 C 2 1 0                      
                     -------------------------------------------                     
                    / 11   9   7   5   3   1  83  81  79  77  75 \                  
                   /    10   8   6   4   2  84  82  80  78  76    \                 
-           BSEL0 | 12                    (*)                   74 |                 
-             VCC | 13                                          73 |                 
+           BSEL0 | 12                    (*)                   74 | UNUSED19        
+             VCC | 13                                          73 | UNUSED18        
              TDI | 14                                          72 | GND             
            BBUS2 | 15                                          71 | TDO             
-           BBUS3 | 16                                          70 |                 
-           CSEL0 | 17                                          69 |                 
-           ABUS2 | 18                                          68 |                 
-             GND | 19                                          67 |                 
+           BBUS3 | 16                                          70 | UNUSED17        
+           CSEL0 | 17                                          69 | UNUSED16        
+           ABUS2 | 18                                          68 | UNUSED15        
+             GND | 19                                          67 | UNUSED14        
            ABUS3 | 20                                          66 | VCC             
-           ASEL1 | 21                                          65 |                 
-           ASEL2 | 22                 ATF1508                  64 |                 
-             TMS | 23               84-Lead PLCC               63 |                 
+           ASEL1 | 21                                          65 | UNUSED13        
+           ASEL2 | 22                 ATF1508                  64 | UNUSED12        
+             TMS | 23               84-Lead PLCC               63 | UNUSED11        
            BBUS4 | 24                                          62 | TCK             
-           CSEL1 | 25                                          61 |                 
-             VCC | 26                                          60 |                 
+           CSEL1 | 25                                          61 | UNUSED10        
+             VCC | 26                                          60 | UNUSED9         
            BBUS5 | 27                                          59 | GND             
-           ABUS4 | 28                                          58 |                 
-           ABUS5 | 29                                          57 |                 
-            C_WE | 30                                          56 |                 
-           CSEL2 | 31                                          55 |                 
-             GND | 32                                          54 |                 
+           ABUS4 | 28                                          58 | UNUSED8         
+           ABUS5 | 29                                          57 | UNUSED7         
+            C_WE | 30                                          56 | UNUSED6         
+           CSEL2 | 31                                          55 | UNUSED5         
+             GND | 32                                          54 | UNUSED4         
                   \     34  36  38  40  42  44  46  48  50  52   /                 
                    \  33  35  37  39  41  43  45  47  49  51  53/                  
               	    --------------------------------------------                     
-                      B B A C A V C C C G V C C C G C C       V                     
-                      B B B B B C B B _ N C B B B N B B       C                     
-                      U U U U U C U U Z D C U U U D U U       C                     
-                      S S S S S   S S H     S S S   S S                             
-                      6 7 6 0 7   1 2       3 4 5   6 7                             
+                      B B A C A V C C C G V C C C G C C U U U V                     
+                      B B B B B C B B _ N C B B B N B B N N N C                     
+                      U U U U U C U U Z D C U U U D U U U U U C                     
+                      S S S S S   S S H     S S S   S S S S S                       
+                      6 7 6 0 7   1 2       3 4 5   6 7 E E E                       
+                                                        D D D                       
+                                                        1 2 3                       
 
 
 
@@ -236,245 +267,254 @@ NC = Unused I/O pins which must be unconnected on the board
 
 Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
-FanIn assignment for block A [22]
+FanIn assignment for block A [28]
 {
-ASEL0,ASEL1,ASEL2,
-BSEL0,BSEL2,BSEL1,
-RBB0,RGB1,RDB0,RBB1,RDB1,RCB0,RFB1,RCB1,RGB0,RAB0,RHB0,RFB0,REB1,RAB1,REB0,RHB1,
+ASEL1,ASEL2,ASEL0,
+BSEL0,BSEL1,BSEL2,
+C_WE,CSEL1,C_ZH,CSEL0,CBUS0,CSEL2,
+RFB0,RDB0,RFB1,RGB1,RHB0,RGB0,RBB0,RAB0,RBB1,RHB1,RCB1,RCB0,RDB1,REB0,RAB1,REB1,
 }
 Multiplexer assignment for block A
-ASEL0			(MC20	P)   : MUX 0		Ref (A13p)
-RBB0			(MC10	FB)  : MUX 1		Ref (H122fb)
-RGB1			(MC6	FB)  : MUX 2		Ref (H118fb)
-RDB0			(MC2	FB)  : MUX 4		Ref (H114fb)
-RBB1			(MC9	FB)  : MUX 5		Ref (H121fb)
-BSEL0			(MC17	P)   : MUX 7		Ref (A3p)
-ASEL1			(MC21	P)   : MUX 9		Ref (B19p)
-RDB1			(MC1	FB)  : MUX 10		Ref (H113fb)
-RCB0			(MC7	FB)  : MUX 12		Ref (H119fb)
-RFB1			(MC11	FB)  : MUX 13		Ref (H123fb)
-RCB1			(MC4	FB)  : MUX 14		Ref (H116fb)
-BSEL2			(MC19	P)   : MUX 15		Ref (A6p)
-RGB0			(MC8	FB)  : MUX 16		Ref (H120fb)
-RAB0			(MC15	FB)  : MUX 17		Ref (H127fb)
-RHB0			(MC5	FB)  : MUX 18		Ref (H117fb)
-BSEL1			(MC18	P)   : MUX 19		Ref (A5p)
-RFB0			(MC13	FB)  : MUX 21		Ref (H125fb)
-REB1			(MC16	FB)  : MUX 23		Ref (H128fb)
-RAB1			(MC12	FB)  : MUX 25		Ref (H124fb)
-ASEL2			(MC22	P)   : MUX 31		Ref (B17p)
-REB0			(MC14	FB)  : MUX 37		Ref (H126fb)
-RHB1			(MC3	FB)  : MUX 38		Ref (H115fb)
+RFB0			(MC3	FB)  : MUX 0		Ref (A3fb)
+C_WE			(MC19	P)   : MUX 1		Ref (C37p)
+RDB0			(MC5	FB)  : MUX 2		Ref (A5fb)
+RFB1			(MC11	FB)  : MUX 3		Ref (G105fb)
+CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
+C_ZH			(MC21	P)   : MUX 5		Ref (D49p)
+RGB1			(MC10	FB)  : MUX 6		Ref (G104fb)
+BSEL0			(MC22	P)   : MUX 7		Ref (A3p)
+RHB0			(MC1	FB)  : MUX 8		Ref (A1fb)
+RGB0			(MC2	FB)  : MUX 10		Ref (A2fb)
+ASEL1			(MC26	P)   : MUX 11		Ref (B19p)
+BSEL1			(MC23	P)   : MUX 13		Ref (A5p)
+ASEL2			(MC27	P)   : MUX 15		Ref (B17p)
+CSEL0			(MC20	P)   : MUX 16		Ref (B25p)
+RBB0			(MC7	FB)  : MUX 17		Ref (A9fb)
+RAB0			(MC8	FB)  : MUX 19		Ref (A12fb)
+ASEL0			(MC25	P)   : MUX 20		Ref (A13p)
+RBB1			(MC15	FB)  : MUX 21		Ref (G110fb)
+RHB1			(MC9	FB)  : MUX 22		Ref (G103fb)
+RCB1			(MC14	FB)  : MUX 25		Ref (G109fb)
+RCB0			(MC6	FB)  : MUX 26		Ref (A6fb)
+CBUS0			(MC28	P)   : MUX 28		Ref (D57p)
+RDB1			(MC13	FB)  : MUX 31		Ref (G108fb)
+REB0			(MC4	FB)  : MUX 32		Ref (A4fb)
+BSEL2			(MC24	P)   : MUX 33		Ref (A6p)
+CSEL2			(MC18	P)   : MUX 35		Ref (C35p)
+RAB1			(MC16	FB)  : MUX 37		Ref (G112fb)
+REB1			(MC12	FB)  : MUX 39		Ref (G106fb)
 
-FanIn assignment for block B [22]
+FanIn assignment for block B [28]
 {
-ASEL2,ASEL1,ASEL0,
+ASEL0,ASEL1,ASEL2,
 BSEL2,BSEL0,BSEL1,
-RAB2,REB2,RFB2,RDB2,RGB2,RCB3,RBB3,RHB2,RBB2,REB3,RHB3,RAB3,RFB3,RGB3,RDB3,RCB2,
+C_WE,CSEL1,C_ZH,CSEL2,CSEL0,CBUS2,
+RGB2,RGB3,RAB2,RAB3,RBB3,RFB2,RDB3,REB3,RDB2,REB2,RFB3,RHB3,RHB2,RCB2,RCB3,RBB2,
 }
 Multiplexer assignment for block B
-RAB2			(MC15	FB)  : MUX 1		Ref (G111fb)
-REB2			(MC2	FB)  : MUX 2		Ref (G98fb)
-RFB2			(MC9	FB)  : MUX 3		Ref (G105fb)
-RDB2			(MC6	FB)  : MUX 4		Ref (G102fb)
-RGB2			(MC8	FB)  : MUX 6		Ref (G104fb)
-BSEL2			(MC19	P)   : MUX 9		Ref (A6p)
-RCB3			(MC7	FB)  : MUX 10		Ref (G103fb)
-RBB3			(MC12	FB)  : MUX 13		Ref (G108fb)
-ASEL2			(MC22	P)   : MUX 15		Ref (B17p)
-BSEL0			(MC17	P)   : MUX 17		Ref (A3p)
-RHB2			(MC3	FB)  : MUX 18		Ref (G99fb)
-BSEL1			(MC18	P)   : MUX 19		Ref (A5p)
-RBB2			(MC14	FB)  : MUX 21		Ref (G110fb)
-REB3			(MC13	FB)  : MUX 25		Ref (G109fb)
-ASEL1			(MC21	P)   : MUX 27		Ref (B19p)
-ASEL0			(MC20	P)   : MUX 28		Ref (A13p)
-RHB3			(MC1	FB)  : MUX 32		Ref (G97fb)
-RAB3			(MC16	FB)  : MUX 33		Ref (G112fb)
-RFB3			(MC11	FB)  : MUX 35		Ref (G107fb)
-RGB3			(MC5	FB)  : MUX 36		Ref (G101fb)
-RDB3			(MC4	FB)  : MUX 38		Ref (G100fb)
-RCB2			(MC10	FB)  : MUX 39		Ref (G106fb)
+RGB2			(MC2	FB)  : MUX 0		Ref (B18fb)
+RGB3			(MC9	FB)  : MUX 2		Ref (F81fb)
+C_WE			(MC19	P)   : MUX 3		Ref (C37p)
+CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
+C_ZH			(MC21	P)   : MUX 5		Ref (D49p)
+ASEL0			(MC25	P)   : MUX 6		Ref (A13p)
+RAB2			(MC8	FB)  : MUX 7		Ref (B32fb)
+CSEL2			(MC18	P)   : MUX 9		Ref (C35p)
+RAB3			(MC15	FB)  : MUX 10		Ref (F87fb)
+ASEL1			(MC26	P)   : MUX 11		Ref (B19p)
+RBB3			(MC14	FB)  : MUX 12		Ref (F86fb)
+ASEL2			(MC27	P)   : MUX 13		Ref (B17p)
+CSEL0			(MC20	P)   : MUX 14		Ref (B25p)
+BSEL2			(MC24	P)   : MUX 15		Ref (A6p)
+RFB2			(MC3	FB)  : MUX 16		Ref (B19fb)
+BSEL0			(MC22	P)   : MUX 17		Ref (A3p)
+RDB3			(MC12	FB)  : MUX 18		Ref (F84fb)
+BSEL1			(MC23	P)   : MUX 19		Ref (A5p)
+REB3			(MC11	FB)  : MUX 24		Ref (F83fb)
+RDB2			(MC5	FB)  : MUX 25		Ref (B25fb)
+REB2			(MC4	FB)  : MUX 26		Ref (B22fb)
+CBUS2			(MC28	P)   : MUX 27		Ref (D51p)
+RFB3			(MC10	FB)  : MUX 28		Ref (F82fb)
+RHB3			(MC16	FB)  : MUX 35		Ref (G111fb)
+RHB2			(MC1	FB)  : MUX 36		Ref (B17fb)
+RCB2			(MC6	FB)  : MUX 37		Ref (B30fb)
+RCB3			(MC13	FB)  : MUX 38		Ref (F85fb)
+RBB2			(MC7	FB)  : MUX 39		Ref (B31fb)
 
-FanIn assignment for block C [22]
+FanIn assignment for block C [28]
 {
-ASEL2,ASEL0,ASEL1,
-BSEL1,BSEL0,BSEL2,
-RDB4,REB4,RFB5,RAB5,RCB5,RDB5,RBB4,RGB5,RCB4,RBB5,RGB4,RHB4,REB5,RFB4,RHB5,RAB4,
+ASEL0,ASEL1,ASEL2,
+BSEL2,BSEL1,BSEL0,
+C_WE,CSEL1,C_ZH,CSEL2,CSEL0,CBUS5,
+RDB5,RFB5,RCB5,RGB5,RHB4,RBB4,RGB4,RHB5,REB4,RCB4,RAB4,RBB5,RFB4,REB5,RDB4,RAB5,
 }
 Multiplexer assignment for block C
-RDB4			(MC4	FB)  : MUX 0		Ref (F84fb)
-BSEL1			(MC18	P)   : MUX 1		Ref (A5p)
-REB4			(MC1	FB)  : MUX 2		Ref (F81fb)
-RFB5			(MC11	FB)  : MUX 3		Ref (F91fb)
-RAB5			(MC15	FB)  : MUX 5		Ref (F95fb)
-BSEL0			(MC17	P)   : MUX 7		Ref (A3p)
-RCB5			(MC7	FB)  : MUX 8		Ref (F87fb)
-RDB5			(MC2	FB)  : MUX 10		Ref (F82fb)
-RBB4			(MC10	FB)  : MUX 11		Ref (F90fb)
-ASEL2			(MC22	P)   : MUX 13		Ref (B17p)
-RGB5			(MC8	FB)  : MUX 14		Ref (F88fb)
-BSEL2			(MC19	P)   : MUX 15		Ref (A6p)
-ASEL0			(MC20	P)   : MUX 20		Ref (A13p)
-RCB4			(MC9	FB)  : MUX 21		Ref (F89fb)
-RBB5			(MC12	FB)  : MUX 23		Ref (F92fb)
-RGB4			(MC6	FB)  : MUX 26		Ref (F86fb)
-RHB4			(MC5	FB)  : MUX 28		Ref (F85fb)
-ASEL1			(MC21	P)   : MUX 29		Ref (B19p)
-REB5			(MC14	FB)  : MUX 35		Ref (F94fb)
-RFB4			(MC13	FB)  : MUX 37		Ref (F93fb)
-RHB5			(MC3	FB)  : MUX 38		Ref (F83fb)
-RAB4			(MC16	FB)  : MUX 39		Ref (F96fb)
+RDB5			(MC5	FB)  : MUX 1		Ref (C41fb)
+RFB5			(MC3	FB)  : MUX 2		Ref (C35fb)
+C_WE			(MC19	P)   : MUX 3		Ref (C37p)
+CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
+C_ZH			(MC21	P)   : MUX 5		Ref (D49p)
+ASEL0			(MC25	P)   : MUX 6		Ref (A13p)
+RCB5			(MC6	FB)  : MUX 7		Ref (C44fb)
+CSEL2			(MC18	P)   : MUX 9		Ref (C35p)
+RGB5			(MC2	FB)  : MUX 10		Ref (C34fb)
+ASEL1			(MC26	P)   : MUX 11		Ref (B19p)
+ASEL2			(MC27	P)   : MUX 13		Ref (B17p)
+RHB4			(MC9	FB)  : MUX 14		Ref (F88fb)
+BSEL2			(MC24	P)   : MUX 15		Ref (A6p)
+CSEL0			(MC20	P)   : MUX 16		Ref (B25p)
+RBB4			(MC15	FB)  : MUX 17		Ref (F94fb)
+BSEL1			(MC23	P)   : MUX 19		Ref (A5p)
+RGB4			(MC10	FB)  : MUX 21		Ref (F89fb)
+CBUS5			(MC28	P)   : MUX 23		Ref (E69p)
+RHB5			(MC1	FB)  : MUX 24		Ref (C33fb)
+REB4			(MC12	FB)  : MUX 25		Ref (F91fb)
+RCB4			(MC14	FB)  : MUX 27		Ref (F93fb)
+RAB4			(MC16	FB)  : MUX 29		Ref (F95fb)
+BSEL0			(MC22	P)   : MUX 31		Ref (A3p)
+RBB5			(MC7	FB)  : MUX 33		Ref (C47fb)
+RFB4			(MC11	FB)  : MUX 35		Ref (F90fb)
+REB5			(MC4	FB)  : MUX 36		Ref (C36fb)
+RDB4			(MC13	FB)  : MUX 37		Ref (F92fb)
+RAB5			(MC8	FB)  : MUX 39		Ref (C48fb)
 
-FanIn assignment for block D [22]
+FanIn assignment for block D [28]
 {
 ASEL0,ASEL2,ASEL1,
 BSEL1,BSEL0,BSEL2,
-RFB6,RHB7,RCB6,RAB6,REB6,RBB6,RFB7,RHB6,RGB6,RGB7,RDB6,RDB7,RAB7,REB7,RCB7,RBB7,
+C_ZH,CSEL2,CSEL1,C_WE,CBUS6,CSEL0,
+REB6,RDB7,RFB6,RHB6,RDB6,RBB7,RCB6,RCB7,RAB7,RHB7,RBB6,RGB6,REB7,RFB7,RGB7,RAB6,
 }
 Multiplexer assignment for block D
-RFB6			(MC3	FB)  : MUX 0		Ref (E67fb)
-BSEL1			(MC18	P)   : MUX 1		Ref (A5p)
-RHB7			(MC13	FB)  : MUX 3		Ref (E77fb)
-RCB6			(MC8	FB)  : MUX 4		Ref (E72fb)
-RAB6			(MC15	FB)  : MUX 5		Ref (E79fb)
-ASEL0			(MC20	P)   : MUX 6		Ref (A13p)
-BSEL0			(MC17	P)   : MUX 7		Ref (A3p)
-REB6			(MC5	FB)  : MUX 8		Ref (E69fb)
-RBB6			(MC12	FB)  : MUX 11		Ref (E76fb)
-ASEL2			(MC22	P)   : MUX 13		Ref (B17p)
-RFB7			(MC2	FB)  : MUX 14		Ref (E66fb)
-BSEL2			(MC19	P)   : MUX 15		Ref (A6p)
-RHB6			(MC11	FB)  : MUX 17		Ref (E75fb)
-RGB6			(MC1	FB)  : MUX 22		Ref (E65fb)
-RGB7			(MC16	FB)  : MUX 23		Ref (E80fb)
-RDB6			(MC7	FB)  : MUX 28		Ref (E71fb)
-ASEL1			(MC21	P)   : MUX 29		Ref (B19p)
-RDB7			(MC6	FB)  : MUX 34		Ref (E70fb)
-RAB7			(MC14	FB)  : MUX 35		Ref (E78fb)
-REB7			(MC4	FB)  : MUX 36		Ref (E68fb)
-RCB7			(MC9	FB)  : MUX 37		Ref (E73fb)
-RBB7			(MC10	FB)  : MUX 39		Ref (E74fb)
+ASEL0			(MC25	P)   : MUX 0		Ref (A13p)
+BSEL1			(MC23	P)   : MUX 1		Ref (A5p)
+REB6			(MC4	FB)  : MUX 2		Ref (D52fb)
+RDB7			(MC12	FB)  : MUX 3		Ref (E77fb)
+RFB6			(MC3	FB)  : MUX 4		Ref (D51fb)
+C_ZH			(MC21	P)   : MUX 5		Ref (D49p)
+BSEL0			(MC22	P)   : MUX 7		Ref (A3p)
+RHB6			(MC1	FB)  : MUX 8		Ref (D49fb)
+CSEL2			(MC18	P)   : MUX 9		Ref (C35p)
+RDB6			(MC5	FB)  : MUX 10		Ref (D53fb)
+RBB7			(MC14	FB)  : MUX 11		Ref (E79fb)
+RCB6			(MC6	FB)  : MUX 12		Ref (D54fb)
+ASEL2			(MC27	P)   : MUX 13		Ref (B17p)
+BSEL2			(MC24	P)   : MUX 15		Ref (A6p)
+RCB7			(MC13	FB)  : MUX 17		Ref (E78fb)
+CSEL1			(MC17	P)   : MUX 18		Ref (C45p)
+C_WE			(MC19	P)   : MUX 21		Ref (C37p)
+RAB7			(MC15	FB)  : MUX 23		Ref (E80fb)
+RHB7			(MC16	FB)  : MUX 25		Ref (F96fb)
+ASEL1			(MC26	P)   : MUX 27		Ref (B19p)
+CBUS6			(MC28	P)   : MUX 29		Ref (E72p)
+CSEL0			(MC20	P)   : MUX 30		Ref (B25p)
+RBB6			(MC7	FB)  : MUX 31		Ref (D57fb)
+RGB6			(MC2	FB)  : MUX 32		Ref (D50fb)
+REB7			(MC10	FB)  : MUX 33		Ref (E74fb)
+RFB7			(MC11	FB)  : MUX 35		Ref (E76fb)
+RGB7			(MC9	FB)  : MUX 37		Ref (E73fb)
+RAB6			(MC8	FB)  : MUX 39		Ref (D62fb)
 
-FanIn assignment for block E [23]
+FanIn assignment for block E [28]
 {
-CBUS7,C_WE,CSEL1,CBUS6,CSEL0,CSEL2,C_ZH,
-RDB7,REB6,RFB7,RDB6,RFB6,RHB6,RAB6,RCB6,RHB7,RGB7,RGB6,RAB7,REB7,RBB6,RCB7,RBB7,
+CBUS7,C_WE,CSEL1,CSEL2,C_ZH,CSEL0,
+RAB7,RCB7,RDB7,RBB7,RFB7,RGB7,REB7,
+UNUSED12,UNUSED5,UNUSED8,UNUSED11,UNUSED1,UNUSED6,UNUSED9,UNUSED10,UNUSED2,UNUSED7,UNUSED13,UNUSED15,UNUSED4,UNUSED14,UNUSED3,
 }
 Multiplexer assignment for block E
-CBUS7			(MC23	P)   : MUX 0		Ref (E73p)
-C_WE			(MC19	P)   : MUX 1		Ref (C37p)
-RDB7			(MC6	FB)  : MUX 2		Ref (E70fb)
-CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
-CBUS6			(MC22	P)   : MUX 5		Ref (E72p)
-REB6			(MC5	FB)  : MUX 6		Ref (E69fb)
-RFB7			(MC2	FB)  : MUX 8		Ref (E66fb)
-RDB6			(MC7	FB)  : MUX 10		Ref (E71fb)
-RFB6			(MC3	FB)  : MUX 12		Ref (E67fb)
-RHB6			(MC11	FB)  : MUX 13		Ref (E75fb)
-CSEL0			(MC20	P)   : MUX 14		Ref (B25p)
-RAB6			(MC15	FB)  : MUX 17		Ref (E79fb)
-RCB6			(MC8	FB)  : MUX 22		Ref (E72fb)
-CSEL2			(MC18	P)   : MUX 23		Ref (C35p)
-RHB7			(MC13	FB)  : MUX 25		Ref (E77fb)
-RGB7			(MC16	FB)  : MUX 27		Ref (E80fb)
-RGB6			(MC1	FB)  : MUX 28		Ref (E65fb)
-RAB7			(MC14	FB)  : MUX 31		Ref (E78fb)
-REB7			(MC4	FB)  : MUX 32		Ref (E68fb)
-C_ZH			(MC21	P)   : MUX 33		Ref (D49p)
-RBB6			(MC12	FB)  : MUX 35		Ref (E76fb)
-RCB7			(MC9	FB)  : MUX 37		Ref (E73fb)
-RBB7			(MC10	FB)  : MUX 39		Ref (E74fb)
+CBUS7			(MC14	P)   : MUX 0		Ref (E73p)
+UNUSED12		(MC21	P)   : MUX 1		Ref (G99p)
+C_WE			(MC11	P)   : MUX 3		Ref (C37p)
+CSEL1			(MC9	P)   : MUX 4		Ref (C45p)
+UNUSED5			(MC28	P)   : MUX 5		Ref (F85p)
+UNUSED8			(MC17	P)   : MUX 6		Ref (F91p)
+UNUSED11		(MC20	P)   : MUX 7		Ref (G97p)
+CSEL2			(MC10	P)   : MUX 9		Ref (C35p)
+UNUSED1			(MC3	P)   : MUX 10		Ref (E75p)
+UNUSED6			(MC15	P)   : MUX 11		Ref (F86p)
+UNUSED9			(MC18	P)   : MUX 12		Ref (F93p)
+RAB7			(MC8	FB)  : MUX 13		Ref (E80fb)
+UNUSED10		(MC19	P)   : MUX 14		Ref (F94p)
+C_ZH			(MC13	P)   : MUX 15		Ref (D49p)
+UNUSED2			(MC25	P)   : MUX 16		Ref (E77p)
+RCB7			(MC6	FB)  : MUX 17		Ref (E78fb)
+RDB7			(MC5	FB)  : MUX 19		Ref (E77fb)
+UNUSED7			(MC16	P)   : MUX 21		Ref (F88p)
+UNUSED13		(MC22	P)   : MUX 23		Ref (G101p)
+UNUSED15		(MC24	P)   : MUX 24		Ref (G105p)
+UNUSED4			(MC27	P)   : MUX 27		Ref (F83p)
+CSEL0			(MC12	P)   : MUX 30		Ref (B25p)
+UNUSED14		(MC23	P)   : MUX 31		Ref (G104p)
+UNUSED3			(MC26	P)   : MUX 32		Ref (E80p)
+RBB7			(MC7	FB)  : MUX 33		Ref (E79fb)
+RFB7			(MC4	FB)  : MUX 35		Ref (E76fb)
+RGB7			(MC1	FB)  : MUX 37		Ref (E73fb)
+REB7			(MC2	FB)  : MUX 39		Ref (E74fb)
 
-FanIn assignment for block F [23]
+FanIn assignment for block F [24]
 {
-C_WE,CSEL2,CBUS5,CSEL1,CBUS4,C_ZH,CSEL0,
-RDB4,RFB4,REB4,RAB4,RCB5,RDB5,RFB5,RGB5,RCB4,RGB4,RHB4,RAB5,RBB4,REB5,RBB5,RHB5,
+CSEL1,CBUS3,CSEL2,C_ZH,C_WE,CBUS7,CBUS4,CSEL0,
+RHB4,RCB4,RGB3,RBB4,RAB3,RFB3,RDB3,RDB4,RGB4,RHB7,RBB3,REB4,RCB3,RFB4,RAB4,REB3,
 }
 Multiplexer assignment for block F
-RDB4			(MC4	FB)  : MUX 0		Ref (F84fb)
-RFB4			(MC13	FB)  : MUX 1		Ref (F93fb)
-REB4			(MC1	FB)  : MUX 2		Ref (F81fb)
-C_WE			(MC19	P)   : MUX 3		Ref (C37p)
-RAB4			(MC16	FB)  : MUX 7		Ref (F96fb)
-RCB5			(MC7	FB)  : MUX 8		Ref (F87fb)
+RHB4			(MC8	FB)  : MUX 0		Ref (F88fb)
+RCB4			(MC13	FB)  : MUX 1		Ref (F93fb)
+RGB3			(MC1	FB)  : MUX 2		Ref (F81fb)
+RBB4			(MC14	FB)  : MUX 3		Ref (F94fb)
+CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
+CBUS3			(MC23	P)   : MUX 7		Ref (E65p)
+RAB3			(MC7	FB)  : MUX 8		Ref (F87fb)
 CSEL2			(MC18	P)   : MUX 9		Ref (C35p)
-RDB5			(MC2	FB)  : MUX 10		Ref (F82fb)
-CBUS5			(MC23	P)   : MUX 11		Ref (E69p)
-RFB5			(MC11	FB)  : MUX 13		Ref (F91fb)
-CSEL1			(MC17	P)   : MUX 14		Ref (C45p)
-CBUS4			(MC22	P)   : MUX 15		Ref (E67p)
-RGB5			(MC8	FB)  : MUX 20		Ref (F88fb)
-RCB4			(MC9	FB)  : MUX 21		Ref (F89fb)
-C_ZH			(MC21	P)   : MUX 23		Ref (D49p)
-RGB4			(MC6	FB)  : MUX 26		Ref (F86fb)
-RHB4			(MC5	FB)  : MUX 28		Ref (F85fb)
-RAB5			(MC15	FB)  : MUX 29		Ref (F95fb)
+RFB3			(MC2	FB)  : MUX 10		Ref (F82fb)
+C_ZH			(MC21	P)   : MUX 15		Ref (D49p)
+RDB3			(MC4	FB)  : MUX 16		Ref (F84fb)
+RDB4			(MC12	FB)  : MUX 17		Ref (F92fb)
+C_WE			(MC19	P)   : MUX 19		Ref (C37p)
+CBUS7			(MC22	P)   : MUX 20		Ref (E73p)
+RGB4			(MC9	FB)  : MUX 21		Ref (F89fb)
+RHB7			(MC16	FB)  : MUX 25		Ref (F96fb)
+RBB3			(MC6	FB)  : MUX 26		Ref (F86fb)
+REB4			(MC11	FB)  : MUX 27		Ref (F91fb)
+RCB3			(MC5	FB)  : MUX 28		Ref (F85fb)
+CBUS4			(MC24	P)   : MUX 29		Ref (E67p)
 CSEL0			(MC20	P)   : MUX 30		Ref (B25p)
-RBB4			(MC10	FB)  : MUX 33		Ref (F90fb)
-REB5			(MC14	FB)  : MUX 35		Ref (F94fb)
-RBB5			(MC12	FB)  : MUX 37		Ref (F92fb)
-RHB5			(MC3	FB)  : MUX 38		Ref (F83fb)
+RFB4			(MC10	FB)  : MUX 35		Ref (F90fb)
+RAB4			(MC15	FB)  : MUX 37		Ref (F95fb)
+REB3			(MC3	FB)  : MUX 38		Ref (F83fb)
 
-FanIn assignment for block G [23]
+FanIn assignment for block G [26]
 {
-CSEL1,C_ZH,CBUS3,CSEL2,CBUS2,CSEL0,C_WE,
-RAB2,REB2,RFB2,RGB2,RHB3,RFB3,RCB3,RBB2,REB3,RGB3,RBB3,RDB2,RAB3,RHB2,RDB3,RCB2,
+C_WE,CBUS3,CSEL2,C_ZH,CSEL0,CBUS1,CSEL1,
+RHB1,RFB1,RCB1,RBB1,RAB1,RHB3,RGB1,RDB1,REB1,
+UNUSED19,UNUSED17,UNUSED25,UNUSED20,UNUSED18,UNUSED22,UNUSED26,UNUSED23,UNUSED21,UNUSED24,
 }
 Multiplexer assignment for block G
-RAB2			(MC15	FB)  : MUX 1		Ref (G111fb)
-REB2			(MC2	FB)  : MUX 2		Ref (G98fb)
-RFB2			(MC9	FB)  : MUX 3		Ref (G105fb)
-CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
-C_ZH			(MC21	P)   : MUX 5		Ref (D49p)
-RGB2			(MC8	FB)  : MUX 6		Ref (G104fb)
-CBUS3			(MC22	P)   : MUX 7		Ref (E65p)
-CSEL2			(MC18	P)   : MUX 9		Ref (C35p)
-RHB3			(MC1	FB)  : MUX 10		Ref (G97fb)
-CBUS2			(MC23	P)   : MUX 13		Ref (D51p)
-CSEL0			(MC20	P)   : MUX 16		Ref (B25p)
-RFB3			(MC11	FB)  : MUX 17		Ref (G107fb)
-C_WE			(MC19	P)   : MUX 19		Ref (C37p)
-RCB3			(MC7	FB)  : MUX 20		Ref (G103fb)
-RBB2			(MC14	FB)  : MUX 21		Ref (G110fb)
-REB3			(MC13	FB)  : MUX 25		Ref (G109fb)
-RGB3			(MC5	FB)  : MUX 30		Ref (G101fb)
-RBB3			(MC12	FB)  : MUX 31		Ref (G108fb)
-RDB2			(MC6	FB)  : MUX 32		Ref (G102fb)
-RAB3			(MC16	FB)  : MUX 33		Ref (G112fb)
-RHB2			(MC3	FB)  : MUX 36		Ref (G99fb)
-RDB3			(MC4	FB)  : MUX 38		Ref (G100fb)
-RCB2			(MC10	FB)  : MUX 39		Ref (G106fb)
-
-FanIn assignment for block H [23]
-{
-C_WE,CSEL1,C_ZH,CBUS1,CBUS0,CSEL0,CSEL2,
-RHB0,RGB1,RDB0,RAB1,RBB0,RDB1,RAB0,RCB0,RFB1,RCB1,RGB0,RBB1,RFB0,REB1,REB0,RHB1,
-}
-Multiplexer assignment for block H
-RHB0			(MC5	FB)  : MUX 0		Ref (H117fb)
-C_WE			(MC19	P)   : MUX 1		Ref (C37p)
-RGB1			(MC6	FB)  : MUX 2		Ref (H118fb)
-CSEL1			(MC17	P)   : MUX 4		Ref (C45p)
-C_ZH			(MC21	P)   : MUX 5		Ref (D49p)
-RDB0			(MC2	FB)  : MUX 6		Ref (H114fb)
-RAB1			(MC12	FB)  : MUX 7		Ref (H124fb)
-RBB0			(MC10	FB)  : MUX 9		Ref (H122fb)
-RDB1			(MC1	FB)  : MUX 10		Ref (H113fb)
-RAB0			(MC15	FB)  : MUX 11		Ref (H127fb)
-RCB0			(MC7	FB)  : MUX 12		Ref (H119fb)
-RFB1			(MC11	FB)  : MUX 13		Ref (H123fb)
-RCB1			(MC4	FB)  : MUX 14		Ref (H116fb)
-RGB0			(MC8	FB)  : MUX 16		Ref (H120fb)
-CBUS1			(MC23	P)   : MUX 17		Ref (D53p)
-CBUS0			(MC22	P)   : MUX 18		Ref (D57p)
-RBB1			(MC9	FB)  : MUX 19		Ref (H121fb)
-RFB0			(MC13	FB)  : MUX 21		Ref (H125fb)
-REB1			(MC16	FB)  : MUX 27		Ref (H128fb)
-CSEL0			(MC20	P)   : MUX 34		Ref (B25p)
-CSEL2			(MC18	P)   : MUX 35		Ref (C35p)
-REB0			(MC14	FB)  : MUX 37		Ref (H126fb)
-RHB1			(MC3	FB)  : MUX 38		Ref (H115fb)
+C_WE			(MC12	P)   : MUX 1		Ref (C37p)
+RHB1			(MC1	FB)  : MUX 2		Ref (G103fb)
+UNUSED19		(MC23	P)   : MUX 3		Ref (H117p)
+RFB1			(MC3	FB)  : MUX 5		Ref (G105fb)
+UNUSED17		(MC21	P)   : MUX 6		Ref (G109p)
+CBUS3			(MC15	P)   : MUX 7		Ref (E65p)
+CSEL2			(MC11	P)   : MUX 9		Ref (C35p)
+UNUSED25		(MC19	P)   : MUX 10		Ref (H128p)
+UNUSED20		(MC24	P)   : MUX 11		Ref (H118p)
+UNUSED18		(MC22	P)   : MUX 13		Ref (H115p)
+UNUSED22		(MC16	P)   : MUX 14		Ref (H123p)
+C_ZH			(MC14	P)   : MUX 15		Ref (D49p)
+UNUSED26		(MC20	FB)  : MUX 16		Ref (OE2)
+RCB1			(MC6	FB)  : MUX 21		Ref (G109fb)
+UNUSED23		(MC17	P)   : MUX 22		Ref (H125p)
+RBB1			(MC7	FB)  : MUX 23		Ref (G110fb)
+UNUSED21		(MC25	P)   : MUX 27		Ref (H120p)
+UNUSED24		(MC18	P)   : MUX 28		Ref (H126p)
+CSEL0			(MC13	P)   : MUX 30		Ref (B25p)
+CBUS1			(MC26	P)   : MUX 31		Ref (D53p)
+RAB1			(MC9	FB)  : MUX 33		Ref (G112fb)
+CSEL1			(MC10	P)   : MUX 34		Ref (C45p)
+RHB3			(MC8	FB)  : MUX 35		Ref (G111fb)
+RGB1			(MC2	FB)  : MUX 36		Ref (G104fb)
+RDB1			(MC5	FB)  : MUX 37		Ref (G108fb)
+REB1			(MC4	FB)  : MUX 39		Ref (G106fb)
 
 Creating JEDEC file C:\REGFILE8.jed ...
 
@@ -624,11 +664,18 @@ BBUS7 = ((BSEL0 & !BSEL1 & !BSEL2 & RBB7.Q)
 	# (BSEL0 & BSEL1 & BSEL2 & RHB7.Q)
 	# (!BSEL0 & !BSEL1 & !BSEL2 & RAB7.Q));
 
-RAB2.D = ((RAB2.Q & CSEL1)
-	# (RAB2.Q & CSEL2)
-	# (RAB2.Q & C_WE)
-	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS2 & C_ZH)
-	# (CSEL0 & RAB2.Q));
+UNUSED1 = ((UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9 & UNUSED10)
+	# (UNUSED11 & UNUSED12 & UNUSED13 & UNUSED14 & UNUSED15)
+	# (UNUSED1 & UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5));
+
+UNUSED16 = ((UNUSED22 & UNUSED23 & UNUSED24 & UNUSED25 & UNUSED26)
+	# (UNUSED17 & UNUSED18 & UNUSED19 & UNUSED20 & UNUSED21));
+
+RAB1.D = ((RAB1.Q & CSEL1)
+	# (RAB1.Q & CSEL2)
+	# (RAB1.Q & C_WE)
+	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS1 & C_ZH)
+	# (CSEL0 & RAB1.Q));
 
 RAB0.D = ((RAB0.Q & CSEL1)
 	# (RAB0.Q & CSEL2)
@@ -636,11 +683,11 @@ RAB0.D = ((RAB0.Q & CSEL1)
 	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS0 & C_ZH)
 	# (CSEL0 & RAB0.Q));
 
-RAB1.D = ((RAB1.Q & CSEL1)
-	# (RAB1.Q & CSEL2)
-	# (RAB1.Q & C_WE)
-	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS1 & C_ZH)
-	# (CSEL0 & RAB1.Q));
+RAB2.D = ((RAB2.Q & CSEL1)
+	# (RAB2.Q & CSEL2)
+	# (RAB2.Q & C_WE)
+	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS2 & C_ZH)
+	# (CSEL0 & RAB2.Q));
 
 RAB3.D = ((RAB3.Q & CSEL1)
 	# (RAB3.Q & CSEL2)
@@ -660,17 +707,17 @@ RAB5.D = ((RAB5.Q & CSEL1)
 	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS5 & C_ZH)
 	# (CSEL0 & RAB5.Q));
 
+RBB0.D = ((RBB0.Q & CSEL1)
+	# (RBB0.Q & CSEL2)
+	# (RBB0.Q & C_WE)
+	# (CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS0 & C_ZH)
+	# (!CSEL0 & RBB0.Q));
+
 RAB6.D = ((RAB6.Q & CSEL1)
 	# (RAB6.Q & CSEL2)
 	# (RAB6.Q & C_WE)
 	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS6 & C_ZH)
 	# (CSEL0 & RAB6.Q));
-
-RBB1.D = ((RBB1.Q & CSEL1)
-	# (RBB1.Q & CSEL2)
-	# (RBB1.Q & C_WE)
-	# (CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS1 & C_ZH)
-	# (!CSEL0 & RBB1.Q));
 
 RAB7.D = ((RAB7.Q & CSEL1)
 	# (RAB7.Q & CSEL2)
@@ -678,11 +725,11 @@ RAB7.D = ((RAB7.Q & CSEL1)
 	# (!CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS7 & C_ZH)
 	# (CSEL0 & RAB7.Q));
 
-RBB0.D = ((RBB0.Q & CSEL1)
-	# (RBB0.Q & CSEL2)
-	# (RBB0.Q & C_WE)
-	# (CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS0 & C_ZH)
-	# (!CSEL0 & RBB0.Q));
+RBB1.D = ((RBB1.Q & CSEL1)
+	# (RBB1.Q & CSEL2)
+	# (RBB1.Q & C_WE)
+	# (CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS1 & C_ZH)
+	# (!CSEL0 & RBB1.Q));
 
 RBB2.D = ((RBB2.Q & CSEL1)
 	# (RBB2.Q & CSEL2)
@@ -708,12 +755,6 @@ RBB5.D = ((RBB5.Q & CSEL1)
 	# (CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS5 & C_ZH)
 	# (!CSEL0 & RBB5.Q));
 
-RCB0.D = ((RCB0.Q & !CSEL1)
-	# (RCB0.Q & CSEL2)
-	# (RCB0.Q & C_WE)
-	# (!CSEL0 & CSEL1 & !CSEL2 & !C_WE & CBUS0 & C_ZH)
-	# (CSEL0 & RCB0.Q));
-
 RBB6.D = ((RBB6.Q & CSEL1)
 	# (RBB6.Q & CSEL2)
 	# (RBB6.Q & C_WE)
@@ -725,6 +766,12 @@ RBB7.D = ((RBB7.Q & CSEL1)
 	# (RBB7.Q & C_WE)
 	# (CSEL0 & !CSEL1 & !CSEL2 & !C_WE & CBUS7 & C_ZH)
 	# (!CSEL0 & RBB7.Q));
+
+RCB0.D = ((RCB0.Q & !CSEL1)
+	# (RCB0.Q & CSEL2)
+	# (RCB0.Q & C_WE)
+	# (!CSEL0 & CSEL1 & !CSEL2 & !C_WE & CBUS0 & C_ZH)
+	# (CSEL0 & RCB0.Q));
 
 RCB1.D = ((RCB1.Q & !CSEL1)
 	# (RCB1.Q & CSEL2)
@@ -1024,17 +1071,17 @@ BBUS6.OE = !B_OE;
 
 BBUS7.OE = !B_OE;
 
-RAB2.C = D_CLK_IN;
+RAB1.C = D_CLK_IN;
 
-RAB2.AR = !ResetIN;
+RAB1.AR = !ResetIN;
 
 RAB0.C = D_CLK_IN;
 
 RAB0.AR = !ResetIN;
 
-RAB1.C = D_CLK_IN;
+RAB2.C = D_CLK_IN;
 
-RAB1.AR = !ResetIN;
+RAB2.AR = !ResetIN;
 
 RAB3.C = D_CLK_IN;
 
@@ -1048,21 +1095,21 @@ RAB5.C = D_CLK_IN;
 
 RAB5.AR = !ResetIN;
 
+RBB0.C = D_CLK_IN;
+
+RBB0.AR = !ResetIN;
+
 RAB6.C = D_CLK_IN;
 
 RAB6.AR = !ResetIN;
-
-RBB1.C = D_CLK_IN;
-
-RBB1.AR = !ResetIN;
 
 RAB7.C = D_CLK_IN;
 
 RAB7.AR = !ResetIN;
 
-RBB0.C = D_CLK_IN;
+RBB1.C = D_CLK_IN;
 
-RBB0.AR = !ResetIN;
+RBB1.AR = !ResetIN;
 
 RBB2.C = D_CLK_IN;
 
@@ -1080,10 +1127,6 @@ RBB5.C = D_CLK_IN;
 
 RBB5.AR = !ResetIN;
 
-RCB0.C = D_CLK_IN;
-
-RCB0.AR = !ResetIN;
-
 RBB6.C = D_CLK_IN;
 
 RBB6.AR = !ResetIN;
@@ -1091,6 +1134,10 @@ RBB6.AR = !ResetIN;
 RBB7.C = D_CLK_IN;
 
 RBB7.AR = !ResetIN;
+
+RCB0.C = D_CLK_IN;
+
+RCB0.AR = !ResetIN;
 
 RCB1.C = D_CLK_IN;
 
@@ -1284,6 +1331,7 @@ RHB7.AR = !ResetIN;
 PLCC84 Pin/Node Placement:
 ------------------------------------
 Pin 1  = ResetIN;
+Pin 2  = UNUSED26;
 Pin 4  = BBUS0; /* MC 16 */
 Pin 5  = BBUS1; /* MC 14 */
 Pin 6  = ASEL0; /* MC 13 */
@@ -1321,74 +1369,99 @@ Pin 45 = CBUS4; /* MC 67 */
 Pin 46 = CBUS5; /* MC 69 */ 
 Pin 48 = CBUS6; /* MC 72 */ 
 Pin 49 = CBUS7; /* MC 73 */ 
+Pin 50 = UNUSED1; /* MC 75 */ 
+Pin 51 = UNUSED2; /* MC 77 */ 
+Pin 52 = UNUSED3; /* MC 80 */ 
+Pin 54 = UNUSED4; /* MC 83 */ 
+Pin 55 = UNUSED5; /* MC 85 */ 
+Pin 56 = UNUSED6; /* MC 86 */ 
+Pin 57 = UNUSED7; /* MC 88 */ 
+Pin 58 = UNUSED8; /* MC 91 */ 
+Pin 60 = UNUSED9; /* MC 93 */ 
+Pin 61 = UNUSED10; /* MC 94 */ 
 Pin 62 = TCK; /* MC 96 */ 
+Pin 63 = UNUSED11; /* MC 97 */ 
+Pin 64 = UNUSED12; /* MC 99 */ 
+Pin 65 = UNUSED13; /* MC 101 */ 
+Pin 67 = UNUSED14; /* MC 104 */ 
+Pin 68 = UNUSED15; /* MC 105 */ 
+Pin 69 = UNUSED16; /* MC 107 */ 
+Pin 70 = UNUSED17; /* MC 109 */ 
 Pin 71 = TDO; /* MC 112 */ 
+Pin 73 = UNUSED18; /* MC 115 */ 
+Pin 74 = UNUSED19; /* MC 117 */ 
+Pin 75 = UNUSED20; /* MC 118 */ 
+Pin 76 = UNUSED21; /* MC 120 */ 
+Pin 77 = UNUSED22; /* MC 123 */ 
+Pin 79 = UNUSED23; /* MC 125 */ 
+Pin 80 = UNUSED24; /* MC 126 */ 
+Pin 81 = UNUSED25; /* MC 128 */ 
 Pin 83 = D_CLK_IN;
 Pin 84 = B_OE;
-PINNODE 665 = RGB6; /* MC 65 Feedback */
-PINNODE 666 = RFB7; /* MC 66 Feedback */
-PINNODE 667 = RFB6; /* MC 67 Feedback */
-PINNODE 668 = REB7; /* MC 68 Feedback */
-PINNODE 669 = REB6; /* MC 69 Feedback */
-PINNODE 670 = RDB7; /* MC 70 Feedback */
-PINNODE 671 = RDB6; /* MC 71 Feedback */
-PINNODE 672 = RCB6; /* MC 72 Feedback */
-PINNODE 673 = RCB7; /* MC 73 Feedback */
-PINNODE 674 = RBB7; /* MC 74 Feedback */
-PINNODE 675 = RHB6; /* MC 75 Feedback */
-PINNODE 676 = RBB6; /* MC 76 Feedback */
-PINNODE 677 = RHB7; /* MC 77 Feedback */
-PINNODE 678 = RAB7; /* MC 78 Feedback */
-PINNODE 679 = RAB6; /* MC 79 Feedback */
-PINNODE 680 = RGB7; /* MC 80 Feedback */
-PINNODE 681 = REB4; /* MC 81 Feedback */
-PINNODE 682 = RDB5; /* MC 82 Feedback */
-PINNODE 683 = RHB5; /* MC 83 Feedback */
-PINNODE 684 = RDB4; /* MC 84 Feedback */
-PINNODE 685 = RHB4; /* MC 85 Feedback */
-PINNODE 686 = RGB4; /* MC 86 Feedback */
-PINNODE 687 = RCB5; /* MC 87 Feedback */
-PINNODE 688 = RGB5; /* MC 88 Feedback */
-PINNODE 689 = RCB4; /* MC 89 Feedback */
-PINNODE 690 = RBB4; /* MC 90 Feedback */
-PINNODE 691 = RFB5; /* MC 91 Feedback */
-PINNODE 692 = RBB5; /* MC 92 Feedback */
-PINNODE 693 = RFB4; /* MC 93 Feedback */
-PINNODE 694 = REB5; /* MC 94 Feedback */
-PINNODE 695 = RAB5; /* MC 95 Feedback */
-PINNODE 696 = RAB4; /* MC 96 Feedback */
-PINNODE 697 = RHB3; /* MC 97 Feedback */
-PINNODE 698 = REB2; /* MC 98 Feedback */
-PINNODE 699 = RHB2; /* MC 99 Feedback */
-PINNODE 700 = RDB3; /* MC 100 Feedback */
-PINNODE 701 = RGB3; /* MC 101 Feedback */
-PINNODE 702 = RDB2; /* MC 102 Feedback */
-PINNODE 703 = RCB3; /* MC 103 Feedback */
-PINNODE 704 = RGB2; /* MC 104 Feedback */
-PINNODE 705 = RFB2; /* MC 105 Feedback */
-PINNODE 706 = RCB2; /* MC 106 Feedback */
-PINNODE 707 = RFB3; /* MC 107 Feedback */
-PINNODE 708 = RBB3; /* MC 108 Feedback */
-PINNODE 709 = REB3; /* MC 109 Feedback */
-PINNODE 710 = RBB2; /* MC 110 Feedback */
-PINNODE 711 = RAB2; /* MC 111 Feedback */
-PINNODE 712 = RAB3; /* MC 112 Feedback */
-PINNODE 713 = RDB1; /* MC 113 Feedback */
-PINNODE 714 = RDB0; /* MC 114 Feedback */
-PINNODE 715 = RHB1; /* MC 115 Feedback */
-PINNODE 716 = RCB1; /* MC 116 Feedback */
-PINNODE 717 = RHB0; /* MC 117 Feedback */
-PINNODE 718 = RGB1; /* MC 118 Feedback */
-PINNODE 719 = RCB0; /* MC 119 Feedback */
-PINNODE 720 = RGB0; /* MC 120 Feedback */
-PINNODE 721 = RBB1; /* MC 121 Feedback */
-PINNODE 722 = RBB0; /* MC 122 Feedback */
-PINNODE 723 = RFB1; /* MC 123 Feedback */
-PINNODE 724 = RAB1; /* MC 124 Feedback */
-PINNODE 725 = RFB0; /* MC 125 Feedback */
-PINNODE 726 = REB0; /* MC 126 Feedback */
-PINNODE 727 = RAB0; /* MC 127 Feedback */
-PINNODE 728 = REB1; /* MC 128 Feedback */
+PINNODE 601 = RHB0; /* MC 1 Feedback */
+PINNODE 602 = RGB0; /* MC 2 Feedback */
+PINNODE 603 = RFB0; /* MC 3 Feedback */
+PINNODE 604 = REB0; /* MC 4 Feedback */
+PINNODE 605 = RDB0; /* MC 5 Feedback */
+PINNODE 606 = RCB0; /* MC 6 Feedback */
+PINNODE 609 = RBB0; /* MC 9 Feedback */
+PINNODE 612 = RAB0; /* MC 12 Feedback */
+PINNODE 617 = RHB2; /* MC 17 Feedback */
+PINNODE 618 = RGB2; /* MC 18 Feedback */
+PINNODE 619 = RFB2; /* MC 19 Feedback */
+PINNODE 622 = REB2; /* MC 22 Feedback */
+PINNODE 625 = RDB2; /* MC 25 Feedback */
+PINNODE 630 = RCB2; /* MC 30 Feedback */
+PINNODE 631 = RBB2; /* MC 31 Feedback */
+PINNODE 632 = RAB2; /* MC 32 Feedback */
+PINNODE 633 = RHB5; /* MC 33 Feedback */
+PINNODE 634 = RGB5; /* MC 34 Feedback */
+PINNODE 635 = RFB5; /* MC 35 Feedback */
+PINNODE 636 = REB5; /* MC 36 Feedback */
+PINNODE 641 = RDB5; /* MC 41 Feedback */
+PINNODE 644 = RCB5; /* MC 44 Feedback */
+PINNODE 647 = RBB5; /* MC 47 Feedback */
+PINNODE 648 = RAB5; /* MC 48 Feedback */
+PINNODE 649 = RHB6; /* MC 49 Feedback */
+PINNODE 650 = RGB6; /* MC 50 Feedback */
+PINNODE 651 = RFB6; /* MC 51 Feedback */
+PINNODE 652 = REB6; /* MC 52 Feedback */
+PINNODE 653 = RDB6; /* MC 53 Feedback */
+PINNODE 654 = RCB6; /* MC 54 Feedback */
+PINNODE 657 = RBB6; /* MC 57 Feedback */
+PINNODE 662 = RAB6; /* MC 62 Feedback */
+PINNODE 673 = RGB7; /* MC 73 Feedback */
+PINNODE 674 = REB7; /* MC 74 Feedback */
+PINNODE 676 = RFB7; /* MC 76 Feedback */
+PINNODE 677 = RDB7; /* MC 77 Feedback */
+PINNODE 678 = RCB7; /* MC 78 Feedback */
+PINNODE 679 = RBB7; /* MC 79 Feedback */
+PINNODE 680 = RAB7; /* MC 80 Feedback */
+PINNODE 681 = RGB3; /* MC 81 Feedback */
+PINNODE 682 = RFB3; /* MC 82 Feedback */
+PINNODE 683 = REB3; /* MC 83 Feedback */
+PINNODE 684 = RDB3; /* MC 84 Feedback */
+PINNODE 685 = RCB3; /* MC 85 Feedback */
+PINNODE 686 = RBB3; /* MC 86 Feedback */
+PINNODE 687 = RAB3; /* MC 87 Feedback */
+PINNODE 688 = RHB4; /* MC 88 Feedback */
+PINNODE 689 = RGB4; /* MC 89 Feedback */
+PINNODE 690 = RFB4; /* MC 90 Feedback */
+PINNODE 691 = REB4; /* MC 91 Feedback */
+PINNODE 692 = RDB4; /* MC 92 Feedback */
+PINNODE 693 = RCB4; /* MC 93 Feedback */
+PINNODE 694 = RBB4; /* MC 94 Feedback */
+PINNODE 695 = RAB4; /* MC 95 Feedback */
+PINNODE 696 = RHB7; /* MC 96 Feedback */
+PINNODE 703 = RHB1; /* MC 103 Feedback */
+PINNODE 704 = RGB1; /* MC 104 Feedback */
+PINNODE 705 = RFB1; /* MC 105 Feedback */
+PINNODE 706 = REB1; /* MC 106 Feedback */
+PINNODE 708 = RDB1; /* MC 108 Feedback */
+PINNODE 709 = RCB1; /* MC 109 Feedback */
+PINNODE 710 = RBB1; /* MC 110 Feedback */
+PINNODE 711 = RHB3; /* MC 111 Feedback */
+PINNODE 712 = RAB1; /* MC 112 Feedback */
 
 ** Resource Usage **
 
@@ -1408,159 +1481,159 @@ DCERP Field = Summary of Allocations.
 For input only = INPUT.
 
 MCell Pin# Oe   PinDrive  DCERP  FBDrive  DCERP  Foldback  CascadeOut     TotPT output_slew
-MC1   0         --               --              --        --             0     slow
-MC2   0         --               --              --        --             0     slow
-MC3   12   --   BSEL0     INPUT  --              --        --             0     slow
-MC4   0         --               --              --        --             0     slow
-MC5   11   --   BSEL1     INPUT  --              --        --             0     slow
-MC6   10   --   BSEL2     INPUT  --              --        --             0     slow
+MC1   0         --               RHB0     Dg-g-  NA        --             5     slow
+MC2   0         --               RGB0     Dg-g-  NA        --             5     slow
+MC3   12   --   BSEL0     INPUT  RFB0     Dg-g-  NA        --             5     slow
+MC4   0         --               REB0     Dg-g-  NA        --             5     slow
+MC5   11   --   BSEL1     INPUT  RDB0     Dg-g-  NA        --             5     slow
+MC6   10   --   BSEL2     INPUT  RCB0     Dg-g-  NA        --             5     slow
 MC7   0         --               --              --        -> ABUS1       5     slow
 MC8   9    on   ABUS1     C----  --              --        --             3     slow
-MC9   0         --               --              --        --             0     slow
+MC9   0         --               RBB0     Dg-g-  NA        --             5     slow
 MC10  0         --               --              --        -> ABUS0       5     slow
 MC11  8    on   ABUS0     C----  --              --        --             3     slow
-MC12  0         --               --              --        --             0     slow
+MC12  0         --               RAB0     Dg-g-  NA        --             5     slow
 MC13  6    --   ASEL0     INPUT  --              --        -> BBUS1       5     slow
 MC14  5    OE0  BBUS1     C----  --              --        --             3     slow
 MC15  0         --               --              --        -> BBUS0       5     slow
 MC16  4    OE0  BBUS0     C----  --              --        --             3     slow
-MC17  22   --   ASEL2     INPUT  --              --        --             0     slow
-MC18  0         --               --              --        --             0     slow
-MC19  21   --   ASEL1     INPUT  --              --        --             0     slow
+MC17  22   --   ASEL2     INPUT  RHB2     Dg-g-  NA        --             5     slow
+MC18  0         --               RGB2     Dg-g-  NA        --             5     slow
+MC19  21   --   ASEL1     INPUT  RFB2     Dg-g-  NA        --             5     slow
 MC20  0         --               --              --        -> ABUS3       5     slow
 MC21  20   on   ABUS3     C----  --              --        --             3     slow
-MC22  0         --               --              --        --             0     slow
+MC22  0         --               REB2     Dg-g-  NA        --             5     slow
 MC23  0         --               --              --        -> ABUS2       5     slow
 MC24  18   on   ABUS2     C----  --              --        --             3     slow
-MC25  17   --   CSEL0     INPUT  --              --        --             0     slow
+MC25  17   --   CSEL0     INPUT  RDB2     Dg-g-  NA        --             5     slow
 MC26  0         --               --              --        -> BBUS3       5     slow
 MC27  16   OE0  BBUS3     C----  --              --        --             3     slow
 MC28  0         --               --              --        -> BBUS2       5     slow
 MC29  15   OE0  BBUS2     C----  --              --        --             3     slow
-MC30  0         --               --              --        --             0     slow
-MC31  0         --               --              --        --             0     slow
-MC32  14   --   TDI       INPUT  --              --        --             0     slow
-MC33  0         --               --              --        --             0     slow
-MC34  0         --               --              --        --             0     slow
-MC35  31   --   CSEL2     INPUT  --              --        --             0     slow
-MC36  0         --               --              --        --             0     slow
+MC30  0         --               RCB2     Dg-g-  NA        --             5     slow
+MC31  0         --               RBB2     Dg-g-  NA        --             5     slow
+MC32  14   --   TDI       INPUT  RAB2     Dg-g-  NA        --             5     slow
+MC33  0         --               RHB5     Dg-g-  NA        --             5     slow
+MC34  0         --               RGB5     Dg-g-  NA        --             5     slow
+MC35  31   --   CSEL2     INPUT  RFB5     Dg-g-  NA        --             5     slow
+MC36  0         --               REB5     Dg-g-  NA        --             5     slow
 MC37  30   --   C_WE      INPUT  --              --        -> ABUS5       5     slow
 MC38  29   on   ABUS5     C----  --              --        --             3     slow
 MC39  0         --               --              --        -> ABUS4       5     slow
 MC40  28   on   ABUS4     C----  --              --        --             3     slow
-MC41  0         --               --              --        --             0     slow
+MC41  0         --               RDB5     Dg-g-  NA        --             5     slow
 MC42  0         --               --              --        -> BBUS5       5     slow
 MC43  27   OE0  BBUS5     C----  --              --        --             3     slow
-MC44  0         --               --              --        --             0     slow
+MC44  0         --               RCB5     Dg-g-  NA        --             5     slow
 MC45  25   --   CSEL1     INPUT  --              --        -> BBUS4       5     slow
 MC46  24   OE0  BBUS4     C----  --              --        --             3     slow
-MC47  0         --               --              --        --             0     slow
-MC48  23   --   TMS       INPUT  --              --        --             0     slow
-MC49  41   --   C_ZH      INPUT  --              --        --             0     slow
-MC50  0         --               --              --        --             0     slow
-MC51  40   --   CBUS2     INPUT  --              --        --             0     slow
-MC52  0         --               --              --        --             0     slow
-MC53  39   --   CBUS1     INPUT  --              --        --             0     slow
-MC54  0         --               --              --        --             0     slow
+MC47  0         --               RBB5     Dg-g-  NA        --             5     slow
+MC48  23   --   TMS       INPUT  RAB5     Dg-g-  NA        --             5     slow
+MC49  41   --   C_ZH      INPUT  RHB6     Dg-g-  NA        --             5     slow
+MC50  0         --               RGB6     Dg-g-  NA        --             5     slow
+MC51  40   --   CBUS2     INPUT  RFB6     Dg-g-  NA        --             5     slow
+MC52  0         --               REB6     Dg-g-  NA        --             5     slow
+MC53  39   --   CBUS1     INPUT  RDB6     Dg-g-  NA        --             5     slow
+MC54  0         --               RCB6     Dg-g-  NA        --             5     slow
 MC55  0         --               --              --        -> ABUS7       5     slow
 MC56  37   on   ABUS7     C----  --              --        --             3     slow
-MC57  36   --   CBUS0     INPUT  --              --        --             0     slow
+MC57  36   --   CBUS0     INPUT  RBB6     Dg-g-  NA        --             5     slow
 MC58  0         --               --              --        -> ABUS6       5     slow
 MC59  35   on   ABUS6     C----  --              --        --             3     slow
 MC60  0         --               --              --        -> BBUS7       5     slow
 MC61  34   OE0  BBUS7     C----  --              --        --             3     slow
-MC62  0         --               --              --        --             0     slow
+MC62  0         --               RAB6     Dg-g-  NA        --             5     slow
 MC63  0         --               --              --        -> BBUS6       5     slow
 MC64  33   OE0  BBUS6     C----  --              --        --             3     slow
-MC65  44   --   CBUS3     INPUT  RGB6     Dg-g-  NA        --             5     slow
-MC66  0         --               RFB7     Dg-g-  NA        --             5     slow
-MC67  45   --   CBUS4     INPUT  RFB6     Dg-g-  NA        --             5     slow
-MC68  0         --               REB7     Dg-g-  NA        --             5     slow
-MC69  46   --   CBUS5     INPUT  REB6     Dg-g-  NA        --             5     slow
-MC70  0         --               RDB7     Dg-g-  NA        --             5     slow
-MC71  0         --               RDB6     Dg-g-  NA        --             5     slow
-MC72  48   --   CBUS6     INPUT  RCB6     Dg-g-  NA        --             5     slow
-MC73  49   --   CBUS7     INPUT  RCB7     Dg-g-  NA        --             5     slow
-MC74  0         --               RBB7     Dg-g-  NA        --             5     slow
-MC75  50        --               RHB6     Dg-g-  NA        --             5     slow
-MC76  0         --               RBB6     Dg-g-  NA        --             5     slow
-MC77  51        --               RHB7     Dg-g-  NA        --             5     slow
-MC78  0         --               RAB7     Dg-g-  NA        --             5     slow
-MC79  0         --               RAB6     Dg-g-  NA        --             5     slow
-MC80  52        --               RGB7     Dg-g-  NA        --             5     slow
-MC81  0         --               REB4     Dg-g-  NA        --             5     slow
-MC82  0         --               RDB5     Dg-g-  NA        --             5     slow
-MC83  54        --               RHB5     Dg-g-  NA        --             5     slow
-MC84  0         --               RDB4     Dg-g-  NA        --             5     slow
-MC85  55        --               RHB4     Dg-g-  NA        --             5     slow
-MC86  56        --               RGB4     Dg-g-  NA        --             5     slow
-MC87  0         --               RCB5     Dg-g-  NA        --             5     slow
-MC88  57        --               RGB5     Dg-g-  NA        --             5     slow
-MC89  0         --               RCB4     Dg-g-  NA        --             5     slow
-MC90  0         --               RBB4     Dg-g-  NA        --             5     slow
-MC91  58        --               RFB5     Dg-g-  NA        --             5     slow
-MC92  0         --               RBB5     Dg-g-  NA        --             5     slow
-MC93  60        --               RFB4     Dg-g-  NA        --             5     slow
-MC94  61        --               REB5     Dg-g-  NA        --             5     slow
-MC95  0         --               RAB5     Dg-g-  NA        --             5     slow
-MC96  62   --   TCK       INPUT  RAB4     Dg-g-  NA        --             5     slow
-MC97  63        --               RHB3     Dg-g-  NA        --             5     slow
-MC98  0         --               REB2     Dg-g-  NA        --             5     slow
-MC99  64        --               RHB2     Dg-g-  NA        --             5     slow
-MC100 0         --               RDB3     Dg-g-  NA        --             5     slow
-MC101 65        --               RGB3     Dg-g-  NA        --             5     slow
-MC102 0         --               RDB2     Dg-g-  NA        --             5     slow
-MC103 0         --               RCB3     Dg-g-  NA        --             5     slow
-MC104 67        --               RGB2     Dg-g-  NA        --             5     slow
-MC105 68        --               RFB2     Dg-g-  NA        --             5     slow
-MC106 0         --               RCB2     Dg-g-  NA        --             5     slow
-MC107 69        --               RFB3     Dg-g-  NA        --             5     slow
-MC108 0         --               RBB3     Dg-g-  NA        --             5     slow
-MC109 70        --               REB3     Dg-g-  NA        --             5     slow
-MC110 0         --               RBB2     Dg-g-  NA        --             5     slow
-MC111 0         --               RAB2     Dg-g-  NA        --             5     slow
-MC112 71   --   TDO       INPUT  RAB3     Dg-g-  NA        --             5     slow
-MC113 0         --               RDB1     Dg-g-  NA        --             5     slow
-MC114 0         --               RDB0     Dg-g-  NA        --             5     slow
-MC115 73        --               RHB1     Dg-g-  NA        --             5     slow
-MC116 0         --               RCB1     Dg-g-  NA        --             5     slow
-MC117 74        --               RHB0     Dg-g-  NA        --             5     slow
-MC118 75        --               RGB1     Dg-g-  NA        --             5     slow
-MC119 0         --               RCB0     Dg-g-  NA        --             5     slow
-MC120 76        --               RGB0     Dg-g-  NA        --             5     slow
-MC121 0         --               RBB1     Dg-g-  NA        --             5     slow
-MC122 0         --               RBB0     Dg-g-  NA        --             5     slow
-MC123 77        --               RFB1     Dg-g-  NA        --             5     slow
-MC124 0         --               RAB1     Dg-g-  NA        --             5     slow
-MC125 79        --               RFB0     Dg-g-  NA        --             5     slow
-MC126 80        --               REB0     Dg-g-  NA        --             5     slow
-MC127 0         --               RAB0     Dg-g-  NA        --             5     slow
-MC128 81        --               REB1     Dg-g-  NA        --             5     slow
-MC0   2         --               --              --        --             0     slow
+MC65  44   --   CBUS3     INPUT  --              --        --             0     slow
+MC66  0         --               --              --        --             0     slow
+MC67  45   --   CBUS4     INPUT  --              --        --             0     slow
+MC68  0         --               --              --        --             0     slow
+MC69  46   --   CBUS5     INPUT  --              --        --             0     slow
+MC70  0         --               --              --        --             0     slow
+MC71  0         --               --              --        --             0     slow
+MC72  48   --   CBUS6     INPUT  --              --        --             0     slow
+MC73  49   --   CBUS7     INPUT  RGB7     Dg-g-  NA        --             5     slow
+MC74  0         --               REB7     Dg-g-  NA        --             5     slow
+MC75  50   on   UNUSED1   C----  --              --        --             3     slow
+MC76  0         --               RFB7     Dg-g-  NA        --             5     slow
+MC77  51   --   UNUSED2   INPUT  RDB7     Dg-g-  NA        --             5     slow
+MC78  0         --               RCB7     Dg-g-  NA        --             5     slow
+MC79  0         --               RBB7     Dg-g-  NA        --             5     slow
+MC80  52   --   UNUSED3   INPUT  RAB7     Dg-g-  NA        --             5     slow
+MC81  0         --               RGB3     Dg-g-  NA        --             5     slow
+MC82  0         --               RFB3     Dg-g-  NA        --             5     slow
+MC83  54   --   UNUSED4   INPUT  REB3     Dg-g-  NA        --             5     slow
+MC84  0         --               RDB3     Dg-g-  NA        --             5     slow
+MC85  55   --   UNUSED5   INPUT  RCB3     Dg-g-  NA        --             5     slow
+MC86  56   --   UNUSED6   INPUT  RBB3     Dg-g-  NA        --             5     slow
+MC87  0         --               RAB3     Dg-g-  NA        --             5     slow
+MC88  57   --   UNUSED7   INPUT  RHB4     Dg-g-  NA        --             5     slow
+MC89  0         --               RGB4     Dg-g-  NA        --             5     slow
+MC90  0         --               RFB4     Dg-g-  NA        --             5     slow
+MC91  58   --   UNUSED8   INPUT  REB4     Dg-g-  NA        --             5     slow
+MC92  0         --               RDB4     Dg-g-  NA        --             5     slow
+MC93  60   --   UNUSED9   INPUT  RCB4     Dg-g-  NA        --             5     slow
+MC94  61   --   UNUSED10  INPUT  RBB4     Dg-g-  NA        --             5     slow
+MC95  0         --               RAB4     Dg-g-  NA        --             5     slow
+MC96  62   --   TCK       INPUT  RHB7     Dg-g-  NA        --             5     slow
+MC97  63   --   UNUSED11  INPUT  --              --        --             0     slow
+MC98  0         --               --              --        --             0     slow
+MC99  64   --   UNUSED12  INPUT  --              --        --             0     slow
+MC100 0         --               --              --        --             0     slow
+MC101 65   --   UNUSED13  INPUT  --              --        --             0     slow
+MC102 0         --               --              --        --             0     slow
+MC103 0         --               RHB1     Dg-g-  NA        --             5     slow
+MC104 67   --   UNUSED14  INPUT  RGB1     Dg-g-  NA        --             5     slow
+MC105 68   --   UNUSED15  INPUT  RFB1     Dg-g-  NA        --             5     slow
+MC106 0         --               REB1     Dg-g-  NA        --             5     slow
+MC107 69   on   UNUSED16  C----  --              --        --             2     slow
+MC108 0         --               RDB1     Dg-g-  NA        --             5     slow
+MC109 70   --   UNUSED17  INPUT  RCB1     Dg-g-  NA        --             5     slow
+MC110 0         --               RBB1     Dg-g-  NA        --             5     slow
+MC111 0         --               RHB3     Dg-g-  NA        --             5     slow
+MC112 71   --   TDO       INPUT  RAB1     Dg-g-  NA        --             5     slow
+MC113 0         --               --              --        --             0     slow
+MC114 0         --               --              --        --             0     slow
+MC115 73   --   UNUSED18  INPUT  --              --        --             0     slow
+MC116 0         --               --              --        --             0     slow
+MC117 74   --   UNUSED19  INPUT  --              --        --             0     slow
+MC118 75   --   UNUSED20  INPUT  --              --        --             0     slow
+MC119 0         --               --              --        --             0     slow
+MC120 76   --   UNUSED21  INPUT  --              --        --             0     slow
+MC121 0         --               --              --        --             0     slow
+MC122 0         --               --              --        --             0     slow
+MC123 77   --   UNUSED22  INPUT  --              --        --             0     slow
+MC124 0         --               --              --        --             0     slow
+MC125 79   --   UNUSED23  INPUT  --              --        --             0     slow
+MC126 80   --   UNUSED24  INPUT  --              --        --             0     slow
+MC127 0         --               --              --        --             0     slow
+MC128 81   --   UNUSED25  INPUT  --              --        --             0     slow
+MC0   2         UNUSED26  INPUT  --              --        --             0     slow
 MC0   1         ResetIN   INPUT  --              --        --             0     slow
 MC0   84        B_OE      INPUT  --              --        --             0     slow
 MC0   83        D_CLK_IN  INPUT  --              --        --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		4/16(25%)	8/16(50%)	0/16(0%)	32/80(40%)	(22)	4
-B: LC17	- LC32		4/16(25%)	8/16(50%)	0/16(0%)	32/80(40%)	(22)	4
-C: LC33	- LC48		4/16(25%)	8/16(50%)	0/16(0%)	32/80(40%)	(22)	4
-D: LC49	- LC64		4/16(25%)	8/16(50%)	0/16(0%)	32/80(40%)	(22)	4
-E: LC65	- LC80		16/16(100%)	5/16(31%)	0/16(0%)	80/80(100%)	(23)	0
-F: LC81	- LC96		16/16(100%)	1/16(6%)	0/16(0%)	80/80(100%)	(23)	0
-G: LC97	- LC112		16/16(100%)	1/16(6%)	0/16(0%)	80/80(100%)	(23)	0
-H: LC113- LC128		16/16(100%)	0/16(0%)	0/16(0%)	80/80(100%)	(23)	0
+A: LC1	- LC16		12/16(75%)	8/16(50%)	0/16(0%)	72/80(90%)	(28)	4
+B: LC17	- LC32		12/16(75%)	8/16(50%)	0/16(0%)	72/80(90%)	(28)	4
+C: LC33	- LC48		12/16(75%)	8/16(50%)	0/16(0%)	72/80(90%)	(28)	4
+D: LC49	- LC64		12/16(75%)	8/16(50%)	0/16(0%)	72/80(90%)	(28)	4
+E: LC65	- LC80		8/16(50%)	8/16(50%)	0/16(0%)	38/80(47%)	(28)	0
+F: LC81	- LC96		16/16(100%)	8/16(50%)	0/16(0%)	80/80(100%)	(24)	0
+G: LC97	- LC112		10/16(62%)	8/16(50%)	0/16(0%)	47/80(58%)	(26)	0
+H: LC113- LC128		0/16(0%)	8/16(50%)	0/16(0%)	0/80(0%)	(0)	0
 
-Total dedicated input used:	3/4 	(75%)
-Total I/O pins used		39/64 	(60%)
-Total Logic cells used 		96/128 	(75%)
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		64/64 	(100%)
+Total Logic cells used 		98/128 	(76%)
 Total Flip-Flop used 		64/128 	(50%)
 Total Foldback logic used 	0/128 	(0%)
-Total Nodes+FB/MCells 		80/128 	(62%)
+Total Nodes+FB/MCells 		82/128 	(64%)
 Total cascade used 		16
-Total input pins 		26
-Total output pins 		16
-Total Pts 			448
+Total input pins 		50
+Total output pins 		18
+Total Pts 			453
 Creating pla file C:\REGFILE8.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS

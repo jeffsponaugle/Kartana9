@@ -29,14 +29,25 @@ Pin[45,44]  = [SP_MODE0..1];
 Pin[24,20,22,21,18,17,15,16,12,10,11,9,6,8,4,5]  = [BBUS0..15];
 
 /* Output Pins */
-
-Pin[52,51,40,41,39,36,37,35,33,34,31,30,29,28,25,27]  = [ADBUS0..15];         
+Pin[52] = A0_HOLD;
+Pin[51,40,41,39,36,37,35,33,34,31,30,29,28,25,27]  = [ADBUS1..15];         
 Pin[50] = AD0;              /* Bit 0 of the BBUS used to determine if we are doing a high byte or low byte access */
 
 /* Stuff for IR2 |||||| */
 Pin[54,55,57,58,56,61,63,60,64,65,67,73,74,75,77,76] = [DABUS0..15];
 Pin[49] = IR2_LATCH;
 Pin[46] = IR2_OE;           /* Active low puts IR2 on BBUS */
+
+Pin[68] = UNUSED1;
+Pin[69] = UNUSED2;
+Pin[70] = UNUSED3;
+Pin[79] = UNUSED4;
+Pin[80] = UNUSED5;
+Pin[81] = UNUSED6;
+
+UNUSED1 = UNUSED2 # UNUSED3 # UNUSED4 # UNUSED5 # UNUSED6;
+
+
 PINNODE = [IRTWO0..15];
 
 [IRTWO0..15].ck = D_CLK_IN;
@@ -49,18 +60,19 @@ PINNODE = [IRTWO0..15];
 PINNODE = [SP0..15];
 PINNODE = [C2..C15];
 
-[ADBUS0..15].oe = !(ADBUS_SP_OE & ADBUS_IB_OE);
+[ADBUS1..15].oe = !(ADBUS_SP_OE & ADBUS_IB_OE);
 [BBUS0..15].oe = !BBUS_OE # !IR2_OE;
 
 /* Pick the ADBUS output data from either SP or BBUS */
-[ADBUS0..15] = ((!ADBUS_SP_OE) & [SP0..15])
-                 #  ((!ADBUS_IB_OE) & [BBUS0..15].io);
+[ADBUS1..15] = ((!ADBUS_SP_OE) & [SP1..15])
+                 #  ((!ADBUS_IB_OE) & [BBUS1..15].io);
 
 /* Pick the BBUS output from either SP or IR2 */
 
 [BBUS0..15] = (IR2_OE & [SP0..15]) # ( !IR2_OE & [IRTWO0..15]);
 
 AD0 = BBUS0.io;
+A0_HOLD = 'b'0;
 
 FIELD spmode = [SP_MODE0..1];
 
@@ -187,15 +199,15 @@ SP15.d = ((SP_INCDEC & S15) # (SP_STAY & SP15) # (SP_LOAD & BBUS15.io));
 /*
 
 Total dedicated input used:	4/4 	(100%)
-Total I/O pins used		58/64 	(90%)
-Total Logic cells used 		92/128 	(71%)
+Total I/O pins used		64/64 	(100%)
+Total Logic cells used 		93/128 	(72%)
 Total Flip-Flop used 		32/128 	(25%)
 Total Foldback logic used 	6/128 	(4%)
-Total Nodes+FB/MCells 		98/128 	(76%)
+Total Nodes+FB/MCells 		99/128 	(77%)
 Total cascade used 		0
-Total input pins 		29
-Total output pins 		33
-Total Pts 			275
+Total input pins 		34
+Total output pins 		34
+Total Pts 			273
 */
 
 

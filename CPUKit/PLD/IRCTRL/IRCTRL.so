@@ -1,0 +1,189 @@
+CSIM(WM): CUPL Simulation Program
+Version 5.0a Serial# 
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+CREATED Wed Jan 03 16:52:54 2024
+
+LISTING FOR SIMULATION FILE: IRCTRL.si
+
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbers
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbers
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersAD0
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_CFLATCH
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_CFLATCH
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_CFLATCH
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_CFLATCH
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FL
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FL
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FL
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FL
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC0
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC0
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC0
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC0
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC1
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC1
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC1
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC1
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC2
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC2
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC2
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_FUNC2
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_WC
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_WC
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_WC
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersALU_WC
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersA_CLK_IN
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersB2A_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersB2A_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersB2A_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersB2A_OE
+[0033sa] Please note: jedec vectors cannot be created with undefined pin numbersB_CLK_IN
+   1: Name     IRCTRL;
+   2: PartNo   IRCTRL;
+   3: Date     04/18/2022;
+   4: Revision 01;
+   5: Designer Sponaugle;
+   6: Company  Ratiometric;
+   7: Assembly None;
+   8: Location None;
+   9: Device   f1508ispplcc84;
+  10: 
+  11: 
+  12: FIELD icycles = [OPCB5,OPCB4];
+  13: FIELD opcf = [OPCB0,OPCB1,OPCB2,OPCB3,OPCB4,OPCB5,OPCB6];
+  14: FIELD stm = [CSM0,CSM1];
+  15:
+  16: ORDER: RESET_IN, A_CLK_IN, D_CLK_IN,%2,OPCB6..OPCB0,OPCSIZEHINT,AD0,%2, CSM0, CSM1, " | ",IR2_LATCH, IR1_LATCH, " | " 
+  17:        ,MEM_AS, MEM_RW, MEM_L_EN,MEM_H_EN," | ",IR2_OE,PC_BBOE,PC_ADOE," | ",ALU_OE, ALU_FUNC2..0; 
+  18: 
+
+====================================================
+                  O                                 
+                  P                                 
+                  C        II                 AAA   
+      RAD         S        RR     MM          LLL   
+      E__         I        21     EE    PP    UUU   
+      SCC         Z        __   MMMM   ICC   A___   
+      ELL  OOOOOOOE        LL   EE__   R__   LFFF   
+      TKK  PPPPPPPH   CC   AA   MMLH   2BA   UUUU   
+      ___  CCCCCCCIA  SS   TT   ____   _BD   _NNN   
+      III  BBBBBBBND  MM   CC   AREE   OOO   OCCC   
+      NNN  6543210T0  01   HH   SWNN   EEE   E210   
+====================================================
+0001: 000  000000000  LL | HH | HHHH | HHH | HLLL
+0002: 000  000000000  LL | HH | HHHH | HHH | HLLL
+Coming out of reset
+FETCH
+0003: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0004: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute NOP
+0005: 1C0  000000000  LH | HH | HHHH | HHH | HLLL
+0006: 10C  000000000  LL | HH | HHHH | HHH | HLLL
+FETCH
+0007: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0008: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute SUB
+0009: 1C0  000001000  LH | HH | HHHH | HHH | LLLH
+0010: 10C  000001000  LL | HH | HHHH | HHH | LLLH
+FETCH
+0011: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0012: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute SUBC
+0013: 1C0  000001100  LH | HH | HHHH | HHH | LLLH
+0014: 10C  000001100  LL | HH | HHHH | HHH | LLLH
+FETCH
+0015: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0016: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute ADD
+0017: 1C0  000010000  LH | HH | HHHH | HHH | LLHL
+0018: 10C  000010000  LL | HH | HHHH | HHH | LLHL
+FETCH
+0019: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0020: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute ADDC
+0021: 1C0  000010100  LH | HH | HHHH | HHH | LLHL
+0022: 10C  000010100  LL | HH | HHHH | HHH | LLHL
+FETCH
+0023: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0024: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute XOR
+0025: 1C0  000011000  LH | HH | HHHH | HHH | LLHH
+0026: 10C  000011000  LL | HH | HHHH | HHH | LLHH
+FETCH
+0027: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0028: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute OR
+0029: 1C0  000100000  LH | HH | HHHH | HHH | LHLL
+0030: 10C  000100000  LL | HH | HHHH | HHH | LHLL
+FETCH
+0031: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0032: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute AND
+0033: 1C0  000101000  LH | HH | HHHH | HHH | LHLH
+0034: 10C  000101000  LL | HH | HHHH | HHH | LHLH
+FETCH
+0035: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0036: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute NOT
+0037: 1C0  000110000  LH | HH | HHHH | HHH | LHHL
+0038: 10C  000110000  LL | HH | HHHH | HHH | LHHL
+FETCH
+0039: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0040: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute STORERW
+0041: 1C0  001000000  LH | HH | LLLL | HHH | LLLL
+0042: 10C  001000000  LL | HH | LLLL | HHH | LLLL
+FETCH
+0043: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0044: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute STORERB AD0=0
+0045: 1C0  001000100  LH | HH | LLLH | HHH | LLLL
+0046: 10C  001000100  LL | HH | LLLH | HHH | LLLL
+FETCH
+0047: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0048: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute STORERB AD0=1
+0049: 1C0  001000101  LH | HH | LLHL | HHH | LLLL
+0050: 10C  001000101  LL | HH | LLHL | HHH | LLLL
+FETCH
+0051: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0052: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute CMPC
+0053: 1C0  001001000  LH | HH | HHHH | HHH | HLLH
+0054: 10C  001001000  LL | HH | HHHH | HHH | HLLH
+FETCH
+0055: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0056: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute LOADRW
+0057: 1C0  001010000  LH | HH | LHLL | HHH | HLHL
+0058: 10C  001010000  LL | HH | LHLL | HHH | HLHL
+FETCH
+0059: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0060: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute LOADRB AD0=0
+0061: 1C0  001010100  LH | HH | LHLH | HHH | HLHL
+0062: 10C  001010100  LL | HH | LHLH | HHH | HLHL
+FETCH
+0063: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0064: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute LOADRB AD0=1
+0065: 1C0  001010101  LH | HH | LHHL | HHH | HLHL
+0066: 10C  001010101  LL | HH | LHHL | HHH | HLHL
+FETCH
+0067: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0068: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute JMPr
+0069: 1C0  001100001  LH | HH | HHHH | HHH | HHLL
+0070: 10C  001100001  LL | HH | HHHH | HHH | HHLL
+FETCH
+0071: 1C0  000000000  LL | HL | LHLL | HHL | HLLL
+0072: 10C  000000000  LH | HL | LHLL | HHL | HLLL
+Execute SHL
+0073: 1C0  010001001  LH | HH | HHHH | HHH | HHHH
+0074: 10C  010001001  LL | HH | HHHH | HHH | HHHH
+FETCH
+[0014sa] insufficient test values

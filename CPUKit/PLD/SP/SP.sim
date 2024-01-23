@@ -1,6 +1,6 @@
 %SIGNAL
+PIN  52 =  A0_HOLD 
 PIN  50 =  AD0 
-PIN  52 =  ADBUS0 
 PIN  51 =  ADBUS1 
 PIN  40 =  ADBUS2 
 PIN  41 =  ADBUS3 
@@ -103,6 +103,12 @@ PIN   0 =  SP14
 PIN   0 =  SP15 
 PIN  45 =  SP_MODE0 
 PIN  44 =  SP_MODE1 
+PIN  68 =  UNUSED1 
+PIN  69 =  UNUSED2 
+PIN  70 =  UNUSED3 
+PIN  79 =  UNUSED4 
+PIN  80 =  UNUSED5 
+PIN  81 =  UNUSED6 
 %END
 
 %FIELD
@@ -110,6 +116,9 @@ FIELD spmode = SP_MODE0,SP_MODE1
 %END
 
 %EQUATION
+A0_HOLD =>
+    0 
+
 A1 =>
     SP1
 
@@ -157,14 +166,6 @@ A15 =>
 
 AD0 =>
     BBUS0.io 
-
-ADBUS0 =>
-    !ADBUS_IB_OE & BBUS0.io 
-  # !ADBUS_SP_OE & SP0
-
-ADBUS0.oe  =>
-    !ADBUS_SP_OE
-  # !ADBUS_IB_OE
 
 ADBUS1 =>
     !ADBUS_IB_OE & BBUS1.io 
@@ -1106,5 +1107,12 @@ SP_LOAD =>
 
 SP_STAY =>
     !SP_MODE0 & !SP_MODE1
+
+UNUSED1 =>
+    UNUSED2
+  # UNUSED3
+  # UNUSED4
+  # UNUSED5
+  # UNUSED6
 
 %END

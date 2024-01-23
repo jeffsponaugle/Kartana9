@@ -1,4 +1,4 @@
-Name	 IRCTRL;
+Name     IRCTRL;
 PartNo   IRCTRL;
 Date     04/18/2022;
 Revision 01;
@@ -141,12 +141,24 @@ Pin[67] = JMPINST;
 Pin[24] = ALU_CFLATCH;
 Pin[21] = SHFT_WC;
 Pin[69] = HALT;
-Pin = UNUSED;
 Pin[68] = SHFT_INVERTCARRY;
+
+/* Unused pins, reserved for future use */
+
+Pin[65] = UNUSED1;
+Pin[74] = UNUSED2;
+Pin[75] = UNUSED3;
+Pin[76] = UNUSED4;
+Pin[77] = UNUSED5;
+Pin[79] = UNUSED6;
+Pin[80] = UNUSED7;
+Pin[81] = UNUSED8;
+Pin[84] = UNUSED9;
 
 /* Statment to force B_CLK_IN to be instantiated */
 
-UNUSED = B_CLK_IN & HALT # C_CLK_IN;
+UNUSED1 = B_CLK_IN & HALT # C_CLK_IN # (UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9) ;
+
 
 /* The core internal CPU state machine:
 
@@ -189,11 +201,11 @@ FIELD icycles = [OPCB5..OPCB4]; /* 00,01,10 for single cycle, 11 for two cycle i
 /* If HALT == 0, we are in a HALT state, so the state machine will never advance past state 0 */
 
 CSM0.d = (stm:['d'0] & preisize) 
-       # (stm:['d'2] & icycles:['b'11]);
+       # (stm:['d'2] & OPCB5 & OPCB4);
 
 CSM1.d = (stm:['d'0] & !preisize)
        # (stm:['d'1]) 
-       # (stm:['d'2] & icycles:['b'11]);
+       # (stm:['d'2] & OPCB5 & OPCB4);
 
 /* These 4 flags are 1 in each of the 4 states.   
     SM_F1 and SM_F2 for fetch cycle 1 and 2
@@ -593,16 +605,16 @@ HALT.d = !( INST_HALT );
 
 
 /*
-Total dedicated input used:	3/4 	(75%)
-Total I/O pins used		57/64 	(89%)
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		64/64 	(100%)
 Total Logic cells used 		54/128 	(42%)
 Total Flip-Flop used 		41/128 	(32%)
 Total Foldback logic used 	4/128 	(3%)
 Total Nodes+FB/MCells 		57/128 	(44%)
 Total cascade used 		1
-Total input pins 		18
+Total input pins 		26
 Total output pins 		42
-Total Pts 			192
+Total Pts 			193
 */
 
 

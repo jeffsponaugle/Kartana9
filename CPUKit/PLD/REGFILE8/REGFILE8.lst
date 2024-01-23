@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 19:29:00 2023
+Created Mon Jan 01 10:55:03 2024
 
   1:Name        REGFILE;
   2:PartNo   REGFILE;
@@ -38,328 +38,367 @@ Created Fri Dec 29 19:29:00 2023
  31:Pin[8,9,18,20,28,29,35,37]  = [ABUS0..7];     
  32:Pin[4,5,15,16,24,27,33,34]  = [BBUS0..7];
  33:
- 34:
- 35:/* Internal Nodes */
- 36:
- 37:PINNODE [0..0] = [RAB0..7];
- 38:PINNODE [0..0] = [RBB0..7];
- 39:PINNODE [0..0] = [RCB0..7];
- 40:PINNODE [0..0] = [RDB0..7];
- 41:PINNODE [0..0] = [REB0..7];
- 42:PINNODE [0..0] = [RFB0..7];
- 43:PINNODE [0..0] = [RGB0..7];
- 44:PINNODE [0..0] = [RHB0..7];
- 45:
- 46:
- 47:FIELD areg = [ASEL0..2];
- 48:FIELD breg = [BSEL0..2];
- 49:FIELD creg = [CSEL0..2];
- 50:
- 51:[BBUS0..7].oe = !B_OE;
- 52:
- 53:PINNODE  0  = REGWRITE;
+ 34:Pin[50] = UNUSED1;
+ 35:Pin[51] = UNUSED2;
+ 36:Pin[52] = UNUSED3;
+ 37:Pin[54] = UNUSED4;
+ 38:Pin[55] = UNUSED5;
+ 39:Pin[56] = UNUSED6;
+ 40:Pin[57] = UNUSED7;
+ 41:Pin[58] = UNUSED8;
+ 42:Pin[60] = UNUSED9;
+ 43:Pin[61] = UNUSED10;
+ 44:Pin[63] = UNUSED11;
+ 45:Pin[64] = UNUSED12;
+ 46:Pin[65] = UNUSED13;
+ 47:Pin[67] = UNUSED14;
+ 48:Pin[68] = UNUSED15;
+ 49:Pin[69] = UNUSED16;
+ 50:Pin[70] = UNUSED17;
+ 51:Pin[73] = UNUSED18;
+ 52:Pin[74] = UNUSED19;
+ 53:Pin[75] = UNUSED20;
 
 LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 2
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 19:29:00 2023
+Created Mon Jan 01 10:55:03 2024
 
- 54:REGWRITE = !C_WE;   /* If this ==1, we are doing a regular register write, if ==0 no write  */
- 55:
- 56:
- 57:[RAB0..7].ck = D_CLK_IN;
- 58:[RAB0..7].ar = !ResetIN;
- 59:RAB0.d = (REGWRITE & creg:['d'0] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB0);
- 60:RAB1.d = (REGWRITE & creg:['d'0] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB1);
- 61:RAB2.d = (REGWRITE & creg:['d'0] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB2);
- 62:RAB3.d = (REGWRITE & creg:['d'0] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB3);
- 63:RAB4.d = (REGWRITE & creg:['d'0] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB4);
- 64:RAB5.d = (REGWRITE & creg:['d'0] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB5);
- 65:RAB6.d = (REGWRITE & creg:['d'0] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB6);
- 66:RAB7.d = (REGWRITE & creg:['d'0] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB7);
+ 54:Pin[76] = UNUSED21;
+ 55:Pin[77] = UNUSED22;
+ 56:Pin[79] = UNUSED23;
+ 57:Pin[80] = UNUSED24;
+ 58:Pin[81] = UNUSED25;
+ 59:Pin[2] = UNUSED26;
+ 60:
+ 61:UNUSED1 = (UNUSED1 & UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5) # (UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9 & UNUSED10 ) # (UNUSED11 & UNUSED12 & UNUSED13 & UNUSED14 & UNUSED15);
+ 62:UNUSED16 = (UNUSED17 & UNUSED18 & UNUSED19 & UNUSED20 & UNUSED21) # (UNUSED22 & UNUSED23 & UNUSED24 & UNUSED25 & UNUSED26);
+ 63:
+ 64:
+ 65:
+ 66:/* Internal Nodes */
  67:
- 68:
- 69:[RBB0..7].ck = D_CLK_IN;
- 70:[RBB0..7].ar = !ResetIN;
- 71:RBB0.d = (REGWRITE & creg:['d'1] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB0);
- 72:RBB1.d = (REGWRITE & creg:['d'1] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB1);
- 73:RBB2.d = (REGWRITE & creg:['d'1] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB2);
- 74:RBB3.d = (REGWRITE & creg:['d'1] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB3);
- 75:RBB4.d = (REGWRITE & creg:['d'1] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB4);
- 76:RBB5.d = (REGWRITE & creg:['d'1] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB5);
- 77:RBB6.d = (REGWRITE & creg:['d'1] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB6);
- 78:RBB7.d = (REGWRITE & creg:['d'1] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB7);
- 79:
- 80:
- 81:[RCB0..7].ck = D_CLK_IN;
- 82:[RCB0..7].ar = !ResetIN;
- 83:RCB0.d = (REGWRITE & creg:['d'2] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB0);
- 84:RCB1.d = (REGWRITE & creg:['d'2] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB1);
- 85:RCB2.d = (REGWRITE & creg:['d'2] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB2);
- 86:RCB3.d = (REGWRITE & creg:['d'2] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB3);
- 87:RCB4.d = (REGWRITE & creg:['d'2] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB4);
- 88:RCB5.d = (REGWRITE & creg:['d'2] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB5);
- 89:RCB6.d = (REGWRITE & creg:['d'2] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB6);
- 90:RCB7.d = (REGWRITE & creg:['d'2] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB7);
- 91:
- 92:
- 93:[RDB0..7].ck = D_CLK_IN;
- 94:[RDB0..7].ar = !ResetIN;
- 95:RDB0.d = (REGWRITE & creg:['d'3] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB0);
- 96:RDB1.d = (REGWRITE & creg:['d'3] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB1);
- 97:RDB2.d = (REGWRITE & creg:['d'3] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB2);
- 98:RDB3.d = (REGWRITE & creg:['d'3] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB3);
- 99:RDB4.d = (REGWRITE & creg:['d'3] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB4);
-100:RDB5.d = (REGWRITE & creg:['d'3] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB5);
-101:RDB6.d = (REGWRITE & creg:['d'3] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB6);
-102:RDB7.d = (REGWRITE & creg:['d'3] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB7);
-103:
-104:
-105:[REB0..7].ck = D_CLK_IN;
-106:[REB0..7].ar = !ResetIN;
-107:REB0.d = (REGWRITE & creg:['d'4] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB0);
+ 68:PINNODE [0..0] = [RAB0..7];
+ 69:PINNODE [0..0] = [RBB0..7];
+ 70:PINNODE [0..0] = [RCB0..7];
+ 71:PINNODE [0..0] = [RDB0..7];
+ 72:PINNODE [0..0] = [REB0..7];
+ 73:PINNODE [0..0] = [RFB0..7];
+ 74:PINNODE [0..0] = [RGB0..7];
+ 75:PINNODE [0..0] = [RHB0..7];
+ 76:
+ 77:
+ 78:FIELD areg = [ASEL0..2];
+ 79:FIELD breg = [BSEL0..2];
+ 80:FIELD creg = [CSEL0..2];
+ 81:
+ 82:[BBUS0..7].oe = !B_OE;
+ 83:
+ 84:PINNODE  0  = REGWRITE;
+ 85:REGWRITE = !C_WE;   /* If this ==1, we are doing a regular register write, if ==0 no write  */
+ 86:
+ 87:
+ 88:[RAB0..7].ck = D_CLK_IN;
+ 89:[RAB0..7].ar = !ResetIN;
+ 90:RAB0.d = (REGWRITE & creg:['d'0] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB0);
+ 91:RAB1.d = (REGWRITE & creg:['d'0] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB1);
+ 92:RAB2.d = (REGWRITE & creg:['d'0] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB2);
+ 93:RAB3.d = (REGWRITE & creg:['d'0] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB3);
+ 94:RAB4.d = (REGWRITE & creg:['d'0] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB4);
+ 95:RAB5.d = (REGWRITE & creg:['d'0] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB5);
+ 96:RAB6.d = (REGWRITE & creg:['d'0] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB6);
+ 97:RAB7.d = (REGWRITE & creg:['d'0] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB7);
+ 98:
+ 99:
+100:[RBB0..7].ck = D_CLK_IN;
+101:[RBB0..7].ar = !ResetIN;
+102:RBB0.d = (REGWRITE & creg:['d'1] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB0);
+103:RBB1.d = (REGWRITE & creg:['d'1] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB1);
+104:RBB2.d = (REGWRITE & creg:['d'1] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB2);
+105:RBB3.d = (REGWRITE & creg:['d'1] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB3);
+106:RBB4.d = (REGWRITE & creg:['d'1] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB4);
+107:RBB5.d = (REGWRITE & creg:['d'1] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB5);
 
 LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 3
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 19:29:00 2023
+Created Mon Jan 01 10:55:03 2024
 
-108:REB1.d = (REGWRITE & creg:['d'4] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB1);
-109:REB2.d = (REGWRITE & creg:['d'4] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB2);
-110:REB3.d = (REGWRITE & creg:['d'4] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB3);
-111:REB4.d = (REGWRITE & creg:['d'4] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB4);
-112:REB5.d = (REGWRITE & creg:['d'4] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB5);
-113:REB6.d = (REGWRITE & creg:['d'4] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB6);
-114:REB7.d = (REGWRITE & creg:['d'4] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB7);
-115:
-116:
-117:[RFB0..7].ck = D_CLK_IN;
-118:[RFB0..7].ar = !ResetIN;
-119:RFB0.d = (REGWRITE & creg:['d'5] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB0);
-120:RFB1.d = (REGWRITE & creg:['d'5] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB1);
-121:RFB2.d = (REGWRITE & creg:['d'5] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB2);
-122:RFB3.d = (REGWRITE & creg:['d'5] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB3);
-123:RFB4.d = (REGWRITE & creg:['d'5] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB4);
-124:RFB5.d = (REGWRITE & creg:['d'5] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB5);
-125:RFB6.d = (REGWRITE & creg:['d'5] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB6);
-126:RFB7.d = (REGWRITE & creg:['d'5] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB7);
-127:
-128:[RGB0..7].ck = D_CLK_IN;
-129:[RGB0..7].ar = !ResetIN;
-130:RGB0.d = (REGWRITE & creg:['d'6] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB0);
-131:RGB1.d = (REGWRITE & creg:['d'6] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB1);
-132:RGB2.d = (REGWRITE & creg:['d'6] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB2);
-133:RGB3.d = (REGWRITE & creg:['d'6] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB3);
-134:RGB4.d = (REGWRITE & creg:['d'6] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB4);
-135:RGB5.d = (REGWRITE & creg:['d'6] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB5);
-136:RGB6.d = (REGWRITE & creg:['d'6] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB6);
-137:RGB7.d = (REGWRITE & creg:['d'6] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB7);
-138:
-139:
-140:[RHB0..7].ck = D_CLK_IN;
-141:[RHB0..7].ar = !ResetIN;
-142:RHB0.d = (REGWRITE & creg:['d'7] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB0);
-143:RHB1.d = (REGWRITE & creg:['d'7] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB1);
-144:RHB2.d = (REGWRITE & creg:['d'7] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB2);
-145:RHB3.d = (REGWRITE & creg:['d'7] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB3);
-146:RHB4.d = (REGWRITE & creg:['d'7] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB4);
-147:RHB5.d = (REGWRITE & creg:['d'7] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB5);
-148:RHB6.d = (REGWRITE & creg:['d'7] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB6);
-149:RHB7.d = (REGWRITE & creg:['d'7] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB7);
-150:
-151:
-152:/* A output based on areg */
-153:
-154:ABUS0 = (areg:['d'0] & RAB0)
-155:     # (areg:['d'1] & RBB0)
-156:     # (areg:['d'2] & RCB0)
-157:     # (areg:['d'3] & RDB0)
-158:     # (areg:['d'4] & REB0)
-159:     # (areg:['d'5] & RFB0)
-160:     # (areg:['d'6] & RGB0)
-161:     # (areg:['d'7] & RHB0);
+108:RBB6.d = (REGWRITE & creg:['d'1] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB6);
+109:RBB7.d = (REGWRITE & creg:['d'1] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB7);
+110:
+111:
+112:[RCB0..7].ck = D_CLK_IN;
+113:[RCB0..7].ar = !ResetIN;
+114:RCB0.d = (REGWRITE & creg:['d'2] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB0);
+115:RCB1.d = (REGWRITE & creg:['d'2] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB1);
+116:RCB2.d = (REGWRITE & creg:['d'2] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB2);
+117:RCB3.d = (REGWRITE & creg:['d'2] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB3);
+118:RCB4.d = (REGWRITE & creg:['d'2] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB4);
+119:RCB5.d = (REGWRITE & creg:['d'2] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB5);
+120:RCB6.d = (REGWRITE & creg:['d'2] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB6);
+121:RCB7.d = (REGWRITE & creg:['d'2] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB7);
+122:
+123:
+124:[RDB0..7].ck = D_CLK_IN;
+125:[RDB0..7].ar = !ResetIN;
+126:RDB0.d = (REGWRITE & creg:['d'3] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB0);
+127:RDB1.d = (REGWRITE & creg:['d'3] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB1);
+128:RDB2.d = (REGWRITE & creg:['d'3] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB2);
+129:RDB3.d = (REGWRITE & creg:['d'3] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB3);
+130:RDB4.d = (REGWRITE & creg:['d'3] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB4);
+131:RDB5.d = (REGWRITE & creg:['d'3] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB5);
+132:RDB6.d = (REGWRITE & creg:['d'3] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB6);
+133:RDB7.d = (REGWRITE & creg:['d'3] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB7);
+134:
+135:
+136:[REB0..7].ck = D_CLK_IN;
+137:[REB0..7].ar = !ResetIN;
+138:REB0.d = (REGWRITE & creg:['d'4] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB0);
+139:REB1.d = (REGWRITE & creg:['d'4] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB1);
+140:REB2.d = (REGWRITE & creg:['d'4] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB2);
+141:REB3.d = (REGWRITE & creg:['d'4] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB3);
+142:REB4.d = (REGWRITE & creg:['d'4] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB4);
+143:REB5.d = (REGWRITE & creg:['d'4] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB5);
+144:REB6.d = (REGWRITE & creg:['d'4] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB6);
+145:REB7.d = (REGWRITE & creg:['d'4] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB7);
+146:
+147:
+148:[RFB0..7].ck = D_CLK_IN;
+149:[RFB0..7].ar = !ResetIN;
+150:RFB0.d = (REGWRITE & creg:['d'5] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB0);
+151:RFB1.d = (REGWRITE & creg:['d'5] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB1);
+152:RFB2.d = (REGWRITE & creg:['d'5] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB2);
+153:RFB3.d = (REGWRITE & creg:['d'5] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB3);
+154:RFB4.d = (REGWRITE & creg:['d'5] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB4);
+155:RFB5.d = (REGWRITE & creg:['d'5] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB5);
+156:RFB6.d = (REGWRITE & creg:['d'5] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB6);
+157:RFB7.d = (REGWRITE & creg:['d'5] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB7);
+158:
+159:[RGB0..7].ck = D_CLK_IN;
+160:[RGB0..7].ar = !ResetIN;
+161:RGB0.d = (REGWRITE & creg:['d'6] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB0);
 
 LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 4
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 19:29:00 2023
+Created Mon Jan 01 10:55:03 2024
 
-162:ABUS1 = (areg:['d'0] & RAB1)
-163:     # (areg:['d'1] & RBB1)
-164:     # (areg:['d'2] & RCB1)
-165:     # (areg:['d'3] & RDB1)
-166:     # (areg:['d'4] & REB1)
-167:     # (areg:['d'5] & RFB1)
-168:     # (areg:['d'6] & RGB1)
-169:     # (areg:['d'7] & RHB1);
-170:ABUS2 = (areg:['d'0] & RAB2)
-171:     # (areg:['d'1] & RBB2)
-172:     # (areg:['d'2] & RCB2)
-173:     # (areg:['d'3] & RDB2)
-174:     # (areg:['d'4] & REB2)
-175:     # (areg:['d'5] & RFB2)
-176:     # (areg:['d'6] & RGB2)
-177:     # (areg:['d'7] & RHB2);
-178:ABUS3 = (areg:['d'0] & RAB3)
-179:     # (areg:['d'1] & RBB3)
-180:     # (areg:['d'2] & RCB3)
-181:     # (areg:['d'3] & RDB3)
-182:     # (areg:['d'4] & REB3)
-183:     # (areg:['d'5] & RFB3)
-184:     # (areg:['d'6] & RGB3)
-185:     # (areg:['d'7] & RHB3);
-186:ABUS4 = (areg:['d'0] & RAB4)
-187:     # (areg:['d'1] & RBB4)
-188:     # (areg:['d'2] & RCB4)
-189:     # (areg:['d'3] & RDB4)
-190:     # (areg:['d'4] & REB4)
-191:     # (areg:['d'5] & RFB4)
-192:     # (areg:['d'6] & RGB4)
-193:     # (areg:['d'7] & RHB4);
-194:ABUS5 = (areg:['d'0] & RAB5)
-195:     # (areg:['d'1] & RBB5)
-196:     # (areg:['d'2] & RCB5)
-197:     # (areg:['d'3] & RDB5)
-198:     # (areg:['d'4] & REB5)
-199:     # (areg:['d'5] & RFB5)
-200:     # (areg:['d'6] & RGB5)
-201:     # (areg:['d'7] & RHB5);
-202:ABUS6 = (areg:['d'0] & RAB6)
-203:     # (areg:['d'1] & RBB6)
-204:     # (areg:['d'2] & RCB6)
-205:     # (areg:['d'3] & RDB6)
-206:     # (areg:['d'4] & REB6)
-207:     # (areg:['d'5] & RFB6)
-208:     # (areg:['d'6] & RGB6)
-209:     # (areg:['d'7] & RHB6);
-210:ABUS7 = (areg:['d'0] & RAB7)
-211:     # (areg:['d'1] & RBB7)
-212:     # (areg:['d'2] & RCB7)
-213:     # (areg:['d'3] & RDB7)
-214:     # (areg:['d'4] & REB7)
-215:     # (areg:['d'5] & RFB7)
+162:RGB1.d = (REGWRITE & creg:['d'6] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB1);
+163:RGB2.d = (REGWRITE & creg:['d'6] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB2);
+164:RGB3.d = (REGWRITE & creg:['d'6] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB3);
+165:RGB4.d = (REGWRITE & creg:['d'6] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB4);
+166:RGB5.d = (REGWRITE & creg:['d'6] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB5);
+167:RGB6.d = (REGWRITE & creg:['d'6] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB6);
+168:RGB7.d = (REGWRITE & creg:['d'6] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB7);
+169:
+170:
+171:[RHB0..7].ck = D_CLK_IN;
+172:[RHB0..7].ar = !ResetIN;
+173:RHB0.d = (REGWRITE & creg:['d'7] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB0);
+174:RHB1.d = (REGWRITE & creg:['d'7] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB1);
+175:RHB2.d = (REGWRITE & creg:['d'7] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB2);
+176:RHB3.d = (REGWRITE & creg:['d'7] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB3);
+177:RHB4.d = (REGWRITE & creg:['d'7] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB4);
+178:RHB5.d = (REGWRITE & creg:['d'7] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB5);
+179:RHB6.d = (REGWRITE & creg:['d'7] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB6);
+180:RHB7.d = (REGWRITE & creg:['d'7] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB7);
+181:
+182:
+183:/* A output based on areg */
+184:
+185:ABUS0 = (areg:['d'0] & RAB0)
+186:     # (areg:['d'1] & RBB0)
+187:     # (areg:['d'2] & RCB0)
+188:     # (areg:['d'3] & RDB0)
+189:     # (areg:['d'4] & REB0)
+190:     # (areg:['d'5] & RFB0)
+191:     # (areg:['d'6] & RGB0)
+192:     # (areg:['d'7] & RHB0);
+193:ABUS1 = (areg:['d'0] & RAB1)
+194:     # (areg:['d'1] & RBB1)
+195:     # (areg:['d'2] & RCB1)
+196:     # (areg:['d'3] & RDB1)
+197:     # (areg:['d'4] & REB1)
+198:     # (areg:['d'5] & RFB1)
+199:     # (areg:['d'6] & RGB1)
+200:     # (areg:['d'7] & RHB1);
+201:ABUS2 = (areg:['d'0] & RAB2)
+202:     # (areg:['d'1] & RBB2)
+203:     # (areg:['d'2] & RCB2)
+204:     # (areg:['d'3] & RDB2)
+205:     # (areg:['d'4] & REB2)
+206:     # (areg:['d'5] & RFB2)
+207:     # (areg:['d'6] & RGB2)
+208:     # (areg:['d'7] & RHB2);
+209:ABUS3 = (areg:['d'0] & RAB3)
+210:     # (areg:['d'1] & RBB3)
+211:     # (areg:['d'2] & RCB3)
+212:     # (areg:['d'3] & RDB3)
+213:     # (areg:['d'4] & REB3)
+214:     # (areg:['d'5] & RFB3)
+215:     # (areg:['d'6] & RGB3)
 
 LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 5
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 19:29:00 2023
+Created Mon Jan 01 10:55:03 2024
 
-216:     # (areg:['d'6] & RGB7)
-217:     # (areg:['d'7] & RHB7);
-218:
-219:/* B output based on breg.  If BSPEC==1, we should output the special register instead of the BSEL# register */
-220:
-221:BBUS0 = ( (breg:['d'0] & RAB0)
-222:     # (breg:['d'1] & RBB0)
-223:     # (breg:['d'2] & RCB0)
-224:     # (breg:['d'3] & RDB0)
-225:     # (breg:['d'4] & REB0)
-226:     # (breg:['d'5] & RFB0)
-227:     # (breg:['d'6] & RGB0)
-228:     # (breg:['d'7] & RHB0));
-229:BBUS1 = ( (breg:['d'0] & RAB1)
-230:     # (breg:['d'1] & RBB1)
-231:     # (breg:['d'2] & RCB1)
-232:     # (breg:['d'3] & RDB1)
-233:     # (breg:['d'4] & REB1)
-234:     # (breg:['d'5] & RFB1)
-235:     # (breg:['d'6] & RGB1)
-236:     # (breg:['d'7] & RHB1));
-237:BBUS2 = ( (breg:['d'0] & RAB2)
-238:     # (breg:['d'1] & RBB2)
-239:     # (breg:['d'2] & RCB2)
-240:     # (breg:['d'3] & RDB2)
-241:     # (breg:['d'4] & REB2)
-242:     # (breg:['d'5] & RFB2)
-243:     # (breg:['d'6] & RGB2)
-244:     # (breg:['d'7] & RHB2));
-245:BBUS3 = ( (breg:['d'0] & RAB3)
-246:     # (breg:['d'1] & RBB3)
-247:     # (breg:['d'2] & RCB3)
-248:     # (breg:['d'3] & RDB3)
-249:     # (breg:['d'4] & REB3)
-250:     # (breg:['d'5] & RFB3)
-251:     # (breg:['d'6] & RGB3)
-252:     # (breg:['d'7] & RHB3));
-253:BBUS4 = ( (breg:['d'0] & RAB4)
-254:     # (breg:['d'1] & RBB4)
-255:     # (breg:['d'2] & RCB4)
-256:     # (breg:['d'3] & RDB4)
-257:     # (breg:['d'4] & REB4)
-258:     # (breg:['d'5] & RFB4)
-259:     # (breg:['d'6] & RGB4)
-260:     # (breg:['d'7] & RHB4));
-261:BBUS5 = ( (breg:['d'0] & RAB5)
-262:     # (breg:['d'1] & RBB5)
-263:     # (breg:['d'2] & RCB5)
-264:     # (breg:['d'3] & RDB5)
-265:     # (breg:['d'4] & REB5)
-266:     # (breg:['d'5] & RFB5)
-267:     # (breg:['d'6] & RGB5)
-268:     # (breg:['d'7] & RHB5));
-269:BBUS6 = ( (breg:['d'0] & RAB6)
+216:     # (areg:['d'7] & RHB3);
+217:ABUS4 = (areg:['d'0] & RAB4)
+218:     # (areg:['d'1] & RBB4)
+219:     # (areg:['d'2] & RCB4)
+220:     # (areg:['d'3] & RDB4)
+221:     # (areg:['d'4] & REB4)
+222:     # (areg:['d'5] & RFB4)
+223:     # (areg:['d'6] & RGB4)
+224:     # (areg:['d'7] & RHB4);
+225:ABUS5 = (areg:['d'0] & RAB5)
+226:     # (areg:['d'1] & RBB5)
+227:     # (areg:['d'2] & RCB5)
+228:     # (areg:['d'3] & RDB5)
+229:     # (areg:['d'4] & REB5)
+230:     # (areg:['d'5] & RFB5)
+231:     # (areg:['d'6] & RGB5)
+232:     # (areg:['d'7] & RHB5);
+233:ABUS6 = (areg:['d'0] & RAB6)
+234:     # (areg:['d'1] & RBB6)
+235:     # (areg:['d'2] & RCB6)
+236:     # (areg:['d'3] & RDB6)
+237:     # (areg:['d'4] & REB6)
+238:     # (areg:['d'5] & RFB6)
+239:     # (areg:['d'6] & RGB6)
+240:     # (areg:['d'7] & RHB6);
+241:ABUS7 = (areg:['d'0] & RAB7)
+242:     # (areg:['d'1] & RBB7)
+243:     # (areg:['d'2] & RCB7)
+244:     # (areg:['d'3] & RDB7)
+245:     # (areg:['d'4] & REB7)
+246:     # (areg:['d'5] & RFB7)
+247:     # (areg:['d'6] & RGB7)
+248:     # (areg:['d'7] & RHB7);
+249:
+250:/* B output based on breg.  If BSPEC==1, we should output the special register instead of the BSEL# register */
+251:
+252:BBUS0 = ( (breg:['d'0] & RAB0)
+253:     # (breg:['d'1] & RBB0)
+254:     # (breg:['d'2] & RCB0)
+255:     # (breg:['d'3] & RDB0)
+256:     # (breg:['d'4] & REB0)
+257:     # (breg:['d'5] & RFB0)
+258:     # (breg:['d'6] & RGB0)
+259:     # (breg:['d'7] & RHB0));
+260:BBUS1 = ( (breg:['d'0] & RAB1)
+261:     # (breg:['d'1] & RBB1)
+262:     # (breg:['d'2] & RCB1)
+263:     # (breg:['d'3] & RDB1)
+264:     # (breg:['d'4] & REB1)
+265:     # (breg:['d'5] & RFB1)
+266:     # (breg:['d'6] & RGB1)
+267:     # (breg:['d'7] & RHB1));
+268:BBUS2 = ( (breg:['d'0] & RAB2)
+269:     # (breg:['d'1] & RBB2)
 
 LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 6
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 19:29:00 2023
+Created Mon Jan 01 10:55:03 2024
 
-270:     # (breg:['d'1] & RBB6)
-271:     # (breg:['d'2] & RCB6)
-272:     # (breg:['d'3] & RDB6)
-273:     # (breg:['d'4] & REB6)
-274:     # (breg:['d'5] & RFB6)
-275:     # (breg:['d'6] & RGB6)
-276:     # (breg:['d'7] & RHB6));
-277:BBUS7 = ( (breg:['d'0] & RAB7)
-278:     # (breg:['d'1] & RBB7)
-279:     # (breg:['d'2] & RCB7)
-280:     # (breg:['d'3] & RDB7)
-281:     # (breg:['d'4] & REB7)
-282:     # (breg:['d'5] & RFB7)
-283:     # (breg:['d'6] & RGB7)
-284:     # (breg:['d'7] & RHB7));
-285:
-286:/*
-287:8 Registers, 8 bit each.
-288:
-289:Total dedicated input used:     3/4     (75%)
-290:Total I/O pins used             39/64   (60%)
-291:Total Logic cells used          96/128  (75%)
-292:Total Flip-Flop used            64/128  (50%)
-293:Total Foldback logic used       0/128   (0%)
-294:Total Nodes+FB/MCells           80/128  (62%)
-295:Total cascade used              16
-296:Total input pins                26
-297:Total output pins               16
-298:Total Pts                       448
-299:
-300:
-301:*/
-302:
-303:
-304:
-305:
-306:
-307:
-308:
-309:
-310:
-311:
-312:
-313:
-314:
-315:
+270:     # (breg:['d'2] & RCB2)
+271:     # (breg:['d'3] & RDB2)
+272:     # (breg:['d'4] & REB2)
+273:     # (breg:['d'5] & RFB2)
+274:     # (breg:['d'6] & RGB2)
+275:     # (breg:['d'7] & RHB2));
+276:BBUS3 = ( (breg:['d'0] & RAB3)
+277:     # (breg:['d'1] & RBB3)
+278:     # (breg:['d'2] & RCB3)
+279:     # (breg:['d'3] & RDB3)
+280:     # (breg:['d'4] & REB3)
+281:     # (breg:['d'5] & RFB3)
+282:     # (breg:['d'6] & RGB3)
+283:     # (breg:['d'7] & RHB3));
+284:BBUS4 = ( (breg:['d'0] & RAB4)
+285:     # (breg:['d'1] & RBB4)
+286:     # (breg:['d'2] & RCB4)
+287:     # (breg:['d'3] & RDB4)
+288:     # (breg:['d'4] & REB4)
+289:     # (breg:['d'5] & RFB4)
+290:     # (breg:['d'6] & RGB4)
+291:     # (breg:['d'7] & RHB4));
+292:BBUS5 = ( (breg:['d'0] & RAB5)
+293:     # (breg:['d'1] & RBB5)
+294:     # (breg:['d'2] & RCB5)
+295:     # (breg:['d'3] & RDB5)
+296:     # (breg:['d'4] & REB5)
+297:     # (breg:['d'5] & RFB5)
+298:     # (breg:['d'6] & RGB5)
+299:     # (breg:['d'7] & RHB5));
+300:BBUS6 = ( (breg:['d'0] & RAB6)
+301:     # (breg:['d'1] & RBB6)
+302:     # (breg:['d'2] & RCB6)
+303:     # (breg:['d'3] & RDB6)
+304:     # (breg:['d'4] & REB6)
+305:     # (breg:['d'5] & RFB6)
+306:     # (breg:['d'6] & RGB6)
+307:     # (breg:['d'7] & RHB6));
+308:BBUS7 = ( (breg:['d'0] & RAB7)
+309:     # (breg:['d'1] & RBB7)
+310:     # (breg:['d'2] & RCB7)
+311:     # (breg:['d'3] & RDB7)
+312:     # (breg:['d'4] & REB7)
+313:     # (breg:['d'5] & RFB7)
+314:     # (breg:['d'6] & RGB7)
+315:     # (breg:['d'7] & RHB7));
+316:
+317:/*
+318:8 Registers, 8 bit each.
+319:
+320:Total dedicated input used:     3/4     (75%)
+321:Total I/O pins used             39/64   (60%)
+322:Total Logic cells used          96/128  (75%)
+323:Total Flip-Flop used            64/128  (50%)
+
+LISTING FOR LOGIC DESCRIPTION FILE: REGFILE8.pld                     Page 7
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 10:55:03 2024
+
+324:Total Foldback logic used       0/128   (0%)
+325:Total Nodes+FB/MCells           80/128  (62%)
+326:Total cascade used              16
+327:Total input pins                26
+328:Total output pins               16
+329:Total Pts                       448
+330:
+331:
+332:*/
+333:
+334:
+335:
+336:
+337:
+338:
+339:
+340:
+341:
+342:
+343:
+344:
+345:
+346:
 
 
 

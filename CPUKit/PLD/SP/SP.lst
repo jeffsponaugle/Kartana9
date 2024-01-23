@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: SP.pld                           Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 16:19:45 2023
+Created Wed Jan 17 22:25:41 2024
 
   1:Name     SPPTR;
   2:PartNo   SPPTR;
@@ -36,211 +36,230 @@ Created Fri Dec 29 16:19:45 2023
  29:Pin[24,20,22,21,18,17,15,16,12,10,11,9,6,8,4,5]  = [BBUS0..15];
  30:
  31:/* Output Pins */
- 32:
- 33:Pin[52,51,40,41,39,36,37,35,33,34,31,30,29,28,25,27]  = [ADBUS0..15];         
+ 32:Pin[52] = A0_HOLD;
+ 33:Pin[51,40,41,39,36,37,35,33,34,31,30,29,28,25,27]  = [ADBUS1..15];         
  34:Pin[50] = AD0;              /* Bit 0 of the BBUS used to determine if we are doing a high byte or low byte access */
  35:
  36:/* Stuff for IR2 |||||| */
  37:Pin[54,55,57,58,56,61,63,60,64,65,67,73,74,75,77,76] = [DABUS0..15];
  38:Pin[49] = IR2_LATCH;
  39:Pin[46] = IR2_OE;           /* Active low puts IR2 on BBUS */
- 40:PINNODE [0..0] = [IRTWO0..15];
- 41:
- 42:[IRTWO0..15].ck = D_CLK_IN;
- 43:[IRTWO0..15].ar = !RESET_IN;
- 44:[IRTWO0..15].d = (IR2_LATCH & [IRTWO0..15]) # (!IR2_LATCH & [DABUS0..15]);
- 45:
- 46:/* Stuff for IR2 ^^^^^^  */
+ 40:
+ 41:Pin[68] = UNUSED1;
+ 42:Pin[69] = UNUSED2;
+ 43:Pin[70] = UNUSED3;
+ 44:Pin[79] = UNUSED4;
+ 45:Pin[80] = UNUSED5;
+ 46:Pin[81] = UNUSED6;
  47:
- 48:/* Internal Nodes */
- 49:PINNODE [0..0] = [SP0..15];
- 50:PINNODE [0..0] = [C2..C15];
- 51:
- 52:[ADBUS0..15].oe = !(ADBUS_SP_OE & ADBUS_IB_OE);
- 53:[BBUS0..15].oe = !BBUS_OE # !IR2_OE;
+ 48:UNUSED1 = UNUSED2 # UNUSED3 # UNUSED4 # UNUSED5 # UNUSED6;
+ 49:
+ 50:
+ 51:PINNODE [0..0] = [IRTWO0..15];
+ 52:
+ 53:[IRTWO0..15].ck = D_CLK_IN;
 
 LISTING FOR LOGIC DESCRIPTION FILE: SP.pld                           Page 2
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 16:19:45 2023
+Created Wed Jan 17 22:25:41 2024
 
- 54:
- 55:/* Pick the ADBUS output data from either SP or BBUS */
- 56:[ADBUS0..15] = ((!ADBUS_SP_OE) & [SP0..15])
- 57:                 #  ((!ADBUS_IB_OE) & [BBUS0..15].io);
+ 54:[IRTWO0..15].ar = !RESET_IN;
+ 55:[IRTWO0..15].d = (IR2_LATCH & [IRTWO0..15]) # (!IR2_LATCH & [DABUS0..15]);
+ 56:
+ 57:/* Stuff for IR2 ^^^^^^  */
  58:
- 59:/* Pick the BBUS output from either SP or IR2 */
- 60:
- 61:[BBUS0..15] = (IR2_OE & [SP0..15]) # ( !IR2_OE & [IRTWO0..15]);
+ 59:/* Internal Nodes */
+ 60:PINNODE [0..0] = [SP0..15];
+ 61:PINNODE [0..0] = [C2..C15];
  62:
- 63:AD0 = BBUS0.io;
- 64:
- 65:FIELD spmode = [SP_MODE0..1];
- 66:
- 67:
- 68:/* SP Adder/Subtractor Equations
+ 63:[ADBUS1..15].oe = !(ADBUS_SP_OE & ADBUS_IB_OE);
+ 64:[BBUS0..15].oe = !BBUS_OE # !IR2_OE;
+ 65:
+ 66:/* Pick the ADBUS output data from either SP or BBUS */
+ 67:[ADBUS1..15] = ((!ADBUS_SP_OE) & [SP1..15])
+ 68:                 #  ((!ADBUS_IB_OE) & [BBUS1..15].io);
  69:
- 70:    To Add 1 (SP_MODE1==0), set C1=1, and B1..B15=0
- 71:    To Sub 1 (SP_MODE1==1), set C1=0, and B1..B15=1
- 72:*/
+ 70:/* Pick the BBUS output from either SP or IR2 */
+ 71:
+ 72:[BBUS0..15] = (IR2_OE & [SP0..15]) # ( !IR2_OE & [IRTWO0..15]);
  73:
- 74:C1 = !SP_MODE1;
- 75:[B1..B15] = SP_MODE1;
- 76:[A1..A15] = [SP1..15];
- 77:
- 78:P1 = A1 $ B1;
- 79:G1 = A1 & B1;
- 80:S1 = P1 $ C1;
- 81:C2 = G1 # (P1&C1);
- 82:
- 83:P2 = A2 $ B2;
- 84:G2 = A2 & B2;
- 85:S2 = P2 $ C2;
- 86:C3 = G2 # (P2&C2);
- 87:
- 88:P3 = A3 $ B3;
- 89:G3 = A3 & B3;
- 90:S3 = P3 $ C3;
- 91:C4 = G3 # (P3&C3);
- 92:
- 93:P4 = A4 $ B4;
- 94:G4 = A4 & B4;
- 95:S4 = P4 $ C4;
- 96:C5 = G4 # (P4&C4);
- 97:
- 98:P5 = A5 $ B5;
- 99:G5 = A5 & B5;
-100:S5 = P5 $ C5;
-101:C6 = G5 # (P5&C5);
-102:
-103:P6 = A6 $ B6;
-104:G6 = A6 & B6;
-105:S6 = P6 $ C6;
-106:C7 = G6 # (P6&C6);
-107:
+ 74:AD0 = BBUS0.io;
+ 75:A0_HOLD = 'b'0;
+ 76:
+ 77:FIELD spmode = [SP_MODE0..1];
+ 78:
+ 79:
+ 80:/* SP Adder/Subtractor Equations
+ 81:
+ 82:    To Add 1 (SP_MODE1==0), set C1=1, and B1..B15=0
+ 83:    To Sub 1 (SP_MODE1==1), set C1=0, and B1..B15=1
+ 84:*/
+ 85:
+ 86:C1 = !SP_MODE1;
+ 87:[B1..B15] = SP_MODE1;
+ 88:[A1..A15] = [SP1..15];
+ 89:
+ 90:P1 = A1 $ B1;
+ 91:G1 = A1 & B1;
+ 92:S1 = P1 $ C1;
+ 93:C2 = G1 # (P1&C1);
+ 94:
+ 95:P2 = A2 $ B2;
+ 96:G2 = A2 & B2;
+ 97:S2 = P2 $ C2;
+ 98:C3 = G2 # (P2&C2);
+ 99:
+100:P3 = A3 $ B3;
+101:G3 = A3 & B3;
+102:S3 = P3 $ C3;
+103:C4 = G3 # (P3&C3);
+104:
+105:P4 = A4 $ B4;
+106:G4 = A4 & B4;
+107:S4 = P4 $ C4;
 
 LISTING FOR LOGIC DESCRIPTION FILE: SP.pld                           Page 3
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 16:19:45 2023
+Created Wed Jan 17 22:25:41 2024
 
-108:P7 = A7 $ B7;
-109:G7 = A7 & B7;
-110:S7 = P7 $ C7;
-111:C8 = G7 # (P7&C7);
-112:
-113:P8 = A8 $ B8;
-114:G8 = A8 & B8;
-115:S8 = P8 $ C8;
-116:C9 = G8 # (P8&C8);
-117:
-118:P9 = A9 $ B9;
-119:G9 = A9 & B9;
-120:S9 = P9 $ C9;
-121:C10 = G9 # (P9&C9);
-122:
-123:P10 = A10 $ B10;
-124:G10 = A10 & B10;
-125:S10 = P10 $ C10;
-126:C11 = G10 # (P10&C10);
-127:
-128:P11= A11 $ B11;
-129:G11 = A11 & B11;
-130:S11 = P11 $ C11;
-131:C12 = G11 # (P11&C11);
-132:
-133:P12 = A12 $ B12;
-134:G12 = A12 & B12;
-135:S12 = P12 $ C12;
-136:C13 = G12 # (P12&C12);
-137:
-138:P13 = A13 $ B13;
-139:G13 = A13 & B13;
-140:S13 = P13 $ C13;
-141:C14 = G13 # (P13&C13);
-142:
-143:P14 = A14 $ B14;
-144:G14 = A14 & B14;
-145:S14 = P14 $ C14;
-146:C15 = G14 # (P14&C14);
-147:
-148:P15 = A15 $ B15;
-149:G15 = A15 & B15;
-150:S15 = P15 $ C15;
-151:
-152:
-153:
-154:/* Stack Pointer 
-155:
-156:    mode        function
-157:    00          Do Nothing
-158:    01          Add 1
-159:    10          Load
-160:    11          Subtract 1
-161:*/
+108:C5 = G4 # (P4&C4);
+109:
+110:P5 = A5 $ B5;
+111:G5 = A5 & B5;
+112:S5 = P5 $ C5;
+113:C6 = G5 # (P5&C5);
+114:
+115:P6 = A6 $ B6;
+116:G6 = A6 & B6;
+117:S6 = P6 $ C6;
+118:C7 = G6 # (P6&C6);
+119:
+120:P7 = A7 $ B7;
+121:G7 = A7 & B7;
+122:S7 = P7 $ C7;
+123:C8 = G7 # (P7&C7);
+124:
+125:P8 = A8 $ B8;
+126:G8 = A8 & B8;
+127:S8 = P8 $ C8;
+128:C9 = G8 # (P8&C8);
+129:
+130:P9 = A9 $ B9;
+131:G9 = A9 & B9;
+132:S9 = P9 $ C9;
+133:C10 = G9 # (P9&C9);
+134:
+135:P10 = A10 $ B10;
+136:G10 = A10 & B10;
+137:S10 = P10 $ C10;
+138:C11 = G10 # (P10&C10);
+139:
+140:P11= A11 $ B11;
+141:G11 = A11 & B11;
+142:S11 = P11 $ C11;
+143:C12 = G11 # (P11&C11);
+144:
+145:P12 = A12 $ B12;
+146:G12 = A12 & B12;
+147:S12 = P12 $ C12;
+148:C13 = G12 # (P12&C12);
+149:
+150:P13 = A13 $ B13;
+151:G13 = A13 & B13;
+152:S13 = P13 $ C13;
+153:C14 = G13 # (P13&C13);
+154:
+155:P14 = A14 $ B14;
+156:G14 = A14 & B14;
+157:S14 = P14 $ C14;
+158:C15 = G14 # (P14&C14);
+159:
+160:P15 = A15 $ B15;
+161:G15 = A15 & B15;
 
 LISTING FOR LOGIC DESCRIPTION FILE: SP.pld                           Page 4
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Fri Dec 29 16:19:45 2023
+Created Wed Jan 17 22:25:41 2024
 
-162:
-163:SP_STAY = spmode:['d'0];
-164:SP_INCDEC  = spmode:['d'1,'d'3];
-165:SP_LOAD = spmode:['d'2];
-166:
-167:[SP0..15].ck = D_CLK_IN;
-168:[SP0..15].ar = !RESET_IN;
-169:
-170:SP0.d = 'd'0;
-171:SP1.d = ((SP_INCDEC & S1) # (SP_STAY & SP1) # (SP_LOAD & BBUS1.io));
-172:SP2.d = ((SP_INCDEC & S2) # (SP_STAY & SP2) # (SP_LOAD & BBUS2.io));
-173:SP3.d = ((SP_INCDEC & S3) # (SP_STAY & SP3) # (SP_LOAD & BBUS3.io));
-174:SP4.d = ((SP_INCDEC & S4) # (SP_STAY & SP4) # (SP_LOAD & BBUS4.io));
-175:SP5.d = ((SP_INCDEC & S5) # (SP_STAY & SP5) # (SP_LOAD & BBUS5.io));
-176:SP6.d = ((SP_INCDEC & S6) # (SP_STAY & SP6) # (SP_LOAD & BBUS6.io));
-177:SP7.d = ((SP_INCDEC & S7) # (SP_STAY & SP7) # (SP_LOAD & BBUS7.io));
-178:SP8.d = ((SP_INCDEC & S8) # (SP_STAY & SP8) # (SP_LOAD & BBUS8.io));
-179:SP9.d = ((SP_INCDEC & S9) # (SP_STAY & SP9) # (SP_LOAD & BBUS9.io));
-180:SP10.d = ((SP_INCDEC & S10) # (SP_STAY & SP10) # (SP_LOAD & BBUS10.io));
-181:SP11.d = ((SP_INCDEC & S11) # (SP_STAY & SP11) # (SP_LOAD & BBUS11.io));
-182:SP12.d = ((SP_INCDEC & S12) # (SP_STAY & SP12) # (SP_LOAD & BBUS12.io));
-183:SP13.d = ((SP_INCDEC & S13) # (SP_STAY & SP13) # (SP_LOAD & BBUS13.io));
-184:SP14.d = ((SP_INCDEC & S14) # (SP_STAY & SP14) # (SP_LOAD & BBUS14.io));
-185:SP15.d = ((SP_INCDEC & S15) # (SP_STAY & SP15) # (SP_LOAD & BBUS15.io));
-186:
-187:/*
-188:
-189:Total dedicated input used:     4/4     (100%)
-190:Total I/O pins used             59/64   (92%)
-191:Total Logic cells used          92/128  (71%)
-192:Total Flip-Flop used            32/128  (25%)
-193:Total Foldback logic used       6/128   (4%)
-194:Total Nodes+FB/MCells           98/128  (76%)
-195:Total cascade used              0
-196:Total input pins                30
-197:Total output pins               33
-198:Total Pts                       275
-199:
-200:*/
-201:
-202:
-203:
-204:
-205:
-206:
-207:
-208:
-209:
-210:
-211:
+162:S15 = P15 $ C15;
+163:
+164:
+165:
+166:/* Stack Pointer 
+167:
+168:    mode        function
+169:    00          Do Nothing
+170:    01          Add 1
+171:    10          Load
+172:    11          Subtract 1
+173:*/
+174:
+175:SP_STAY = spmode:['d'0];
+176:SP_INCDEC  = spmode:['d'1,'d'3];
+177:SP_LOAD = spmode:['d'2];
+178:
+179:[SP0..15].ck = D_CLK_IN;
+180:[SP0..15].ar = !RESET_IN;
+181:
+182:SP0.d = 'd'0;
+183:SP1.d = ((SP_INCDEC & S1) # (SP_STAY & SP1) # (SP_LOAD & BBUS1.io));
+184:SP2.d = ((SP_INCDEC & S2) # (SP_STAY & SP2) # (SP_LOAD & BBUS2.io));
+185:SP3.d = ((SP_INCDEC & S3) # (SP_STAY & SP3) # (SP_LOAD & BBUS3.io));
+186:SP4.d = ((SP_INCDEC & S4) # (SP_STAY & SP4) # (SP_LOAD & BBUS4.io));
+187:SP5.d = ((SP_INCDEC & S5) # (SP_STAY & SP5) # (SP_LOAD & BBUS5.io));
+188:SP6.d = ((SP_INCDEC & S6) # (SP_STAY & SP6) # (SP_LOAD & BBUS6.io));
+189:SP7.d = ((SP_INCDEC & S7) # (SP_STAY & SP7) # (SP_LOAD & BBUS7.io));
+190:SP8.d = ((SP_INCDEC & S8) # (SP_STAY & SP8) # (SP_LOAD & BBUS8.io));
+191:SP9.d = ((SP_INCDEC & S9) # (SP_STAY & SP9) # (SP_LOAD & BBUS9.io));
+192:SP10.d = ((SP_INCDEC & S10) # (SP_STAY & SP10) # (SP_LOAD & BBUS10.io));
+193:SP11.d = ((SP_INCDEC & S11) # (SP_STAY & SP11) # (SP_LOAD & BBUS11.io));
+194:SP12.d = ((SP_INCDEC & S12) # (SP_STAY & SP12) # (SP_LOAD & BBUS12.io));
+195:SP13.d = ((SP_INCDEC & S13) # (SP_STAY & SP13) # (SP_LOAD & BBUS13.io));
+196:SP14.d = ((SP_INCDEC & S14) # (SP_STAY & SP14) # (SP_LOAD & BBUS14.io));
+197:SP15.d = ((SP_INCDEC & S15) # (SP_STAY & SP15) # (SP_LOAD & BBUS15.io));
+198:
+199:/*
+200:
+201:Total dedicated input used:     4/4     (100%)
+202:Total I/O pins used             58/64   (90%)
+203:Total Logic cells used          92/128  (71%)
+204:Total Flip-Flop used            32/128  (25%)
+205:Total Foldback logic used       6/128   (4%)
+206:Total Nodes+FB/MCells           98/128  (76%)
+207:Total cascade used              0
+208:Total input pins                29
+209:Total output pins               33
+210:Total Pts                       275
+211:*/
 212:
+213:
+214:
+215:
+
+LISTING FOR LOGIC DESCRIPTION FILE: SP.pld                           Page 5
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Wed Jan 17 22:25:41 2024
+
+216:
+217:
+218:
+219:
+220:
+221:
+222:
+223:
 
 
 

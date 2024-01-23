@@ -1,4 +1,4 @@
-Name	 ALU;
+Name	   ALU;
 PartNo   ALU;
 Date     12/12/2023;
 Revision 01;
@@ -19,11 +19,11 @@ Pin[30,31,9,8,67,49,48,63,54,46,22,21,44,20,25,6]      = [ABUS0..15];        /* 
 Pin[64,45,65,70,69,74,77,73,75,76,79,81,80,41,17,40]      = [BBUS0..15];
 Pin[84]  = ALU_OE;
 Pin[83]  = D_CLK_IN;
-Pin[1]   = ALU_FL;  /* active low to save flags on d clock */
-Pin[68]      = ALU_WC;        /* active low signal to indicate math should include carry in */
+Pin[1]   = ALU_FL;                 /* active low to save flags on d clock */
+Pin[68]      = ALU_WC;             /* active low signal to indicate math should include carry in */
 Pin[12,11,10]      = [FUNC0..2];   /* Function Select */
-Pin[56] = ALU_CFIN;         /* A carry in for the carry flag to allow for shifts into carry as well as carry invert */
-Pin[55] = ALU_CFLATCH;   /* A flag (active low) that forces the carry flag to be set to the ALU_CFIN value on D_CLK_IN */
+Pin[56] = ALU_CFIN;                /* A carry in for the carry flag to allow for shifts into carry as well as carry invert */
+Pin[55] = ALU_CFLATCH;             /* A flag (active low) that forces the carry flag to be set to the ALU_CFIN value on D_CLK_IN */
 
 /* Output Pins */
 Pin[58,51,4,50,52,34,33,37,35,24,27,28,16,29,15,18]  = [CBUS0..15];        /* SUM output bits S*/
@@ -31,6 +31,12 @@ Pin[60]  = CFOut;
 Pin[61]  = OVFOut;
 Pin[5]  = ZFOut;
 
+Pin[36] = UNUSED1;
+Pin[39] = UNUSED2;
+Pin[57] = UNUSED3;
+Pin[2]  = UNUSED4;
+
+UNUSED1 = UNUSED2 # UNUSED3 # UNUSED4;
 
 /* Internal Nodes */
 PINNODE = [C4..10];
@@ -40,7 +46,7 @@ FIELD aluop = [FUNC0..2];
 [A0..A15] = [ABUS0..15];
 
 /* Invert the B input bits for SUB functions */
-[B0..15] = aluop:['d'0,'d'2,'d'3,'d'4,'d'5,'d'6,'d'7]&[BBUS0..15] # aluop:['d'1]&!([BBUS0..15]);
+[B0..15] = (aluop:['d'0,'d'2,'d'3,'d'4,'d'5,'d'6,'d'7]&[BBUS0..15]) # (aluop:['d'1]&!([BBUS0..15]));
 
 /* Setup Carry-in for addition or subtraction, and if the with carry flag is active. */
 C0 =   (aluop:['d'2] & CFOut & (!ALU_WC) )       // inst=ADD: if WC==0 Cin=CF else Cin=0
@@ -144,7 +150,7 @@ CarryOut = C16;
 */
 
 
-[CBUS0..15] = aluop:['d'0] & ([A0..15]) 
+[CBUS0..15] =   aluop:['d'0] & ([A0..15]) 
               # aluop:['d'1] & ([S0..15]) 
               # aluop:['d'2] & ([S0..15]) 
               # aluop:['d'3] & ([A0..15] $ [B0..15])
@@ -177,17 +183,16 @@ OVFOut.ck = D_CLK_IN;
 
 /*
 
-
-Total dedicated input used:	3/4 	(75%)
-Total I/O pins used		61/64 	(95%)
-Total Logic cells used 		78/128 	(60%)
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		64/64 	(100%)
+Total Logic cells used 		79/128 	(61%)
 Total Flip-Flop used 		3/128 	(2%)
 Total Foldback logic used 	28/128 	(21%)
-Total Nodes+FB/MCells 		92/128 	(71%)
+Total Nodes+FB/MCells 		93/128 	(72%)
 Total cascade used 		14
-Total input pins 		45
-Total output pins 		19
-Total Pts 			302
+Total input pins 		48
+Total output pins 		20
+Total Pts 			303
 
 */
 

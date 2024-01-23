@@ -1,4 +1,4 @@
-Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Fri Dec 29 16:19:12 2023
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Sun Dec 31 14:28:13 2023
 
 
 fit1508 C:\ALU.tt2 -CUPL -dev P1508C84 -JTAG ON
@@ -48,6 +48,9 @@ fit1508 C:\ALU.tt2 -CUPL -dev P1508C84 -JTAG ON
  ITD2 = ON
  Fast_inlatch = off
  *******************************
+Info: C:\ALU uses 95% of the pins available in device PLCC84
+  If you wish to have more pins available for future logic changes
+  Atmel  recommends using a larger device
 ---------------------------------------------------------
  Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
  ... 
@@ -72,6 +75,7 @@ ALU_OE assigned to pin  84
 
 Performing input pin pre-assignments ...
 ------------------------------------
+UNUSED4 assigned to pin  2
 D_CLK_IN assigned to pin  83
 ALU_FL assigned to pin  1
 ALU_OE assigned to pin  84
@@ -85,125 +89,128 @@ ABUS2 is placed at pin 9 (MC 8)
 ABUS3 is placed at pin 8 (MC 11)
 ABUS15 is placed at pin 6 (MC 13)
 ZFOut is placed at pin 5 (MC 14)
-XXL_180 is placed at foldback expander node 314 (MC 14)
+XXL_184 is placed at foldback expander node 314 (MC 14)
 CBUS2 is placed at pin 4 (MC 16)
 ABUS10 is placed at pin 22 (MC 17)
-XXL_276 is placed at feedback node 617 (MC 17)
-XXL_188 is placed at feedback node 618 (MC 18)
-XXL_284 is placed at foldback expander node 318 (MC 18)
+XXL_280 is placed at feedback node 617 (MC 17)
+XXL_192 is placed at feedback node 618 (MC 18)
+XXL_288 is placed at foldback expander node 318 (MC 18)
 ABUS11 is placed at pin 21 (MC 19)
-XXL_176 is placed at feedback node 619 (MC 19)
-XXL_189 is placed at foldback expander node 319 (MC 19)
-XXL_208 is placed at feedback node 620 (MC 20)
-XXL_185 is placed at foldback expander node 320 (MC 20)
+XXL_180 is placed at feedback node 619 (MC 19)
+XXL_193 is placed at foldback expander node 319 (MC 19)
+XXL_212 is placed at feedback node 620 (MC 20)
+XXL_189 is placed at foldback expander node 320 (MC 20)
 ABUS13 is placed at pin 20 (MC 21)
-XXL_220 is placed at feedback node 621 (MC 21)
-XXL_183 is placed at foldback expander node 321 (MC 21)
-XXL_202 is placed at feedback node 622 (MC 22)
-XXL_180 is placed at foldback expander node 322 (MC 22)
+XXL_224 is placed at feedback node 621 (MC 21)
+XXL_187 is placed at foldback expander node 321 (MC 21)
+XXL_206 is placed at feedback node 622 (MC 22)
+XXL_184 is placed at foldback expander node 322 (MC 22)
 CBUS15 is placed at pin 18 (MC 24)
 BBUS14 is placed at pin 17 (MC 25)
-XXL_196 is placed at feedback node 625 (MC 25)
-XXL_178 is placed at foldback expander node 325 (MC 25)
+XXL_200 is placed at feedback node 625 (MC 25)
+XXL_182 is placed at foldback expander node 325 (MC 25)
 CBUS12 is placed at pin 16 (MC 27)
 CBUS14 is placed at pin 15 (MC 29)
 B0 is placed at feedback node 630 (MC 30)
-XXL_177 is placed at foldback expander node 330 (MC 30)
-XXL_345 is placed at feedback node 631 (MC 31)
+XXL_181 is placed at foldback expander node 330 (MC 30)
+XXL_349 is placed at feedback node 631 (MC 31)
 TDI is placed at pin 14 (MC 32)
-XXL_344 is placed at feedback node 632 (MC 32)
-XXL_286 is placed at foldback expander node 333 (MC 33)
-XXL_197 is placed at feedback node 634 (MC 34)
-XXL_186 is placed at foldback expander node 334 (MC 34)
+XXL_348 is placed at feedback node 632 (MC 32)
+XXL_290 is placed at foldback expander node 333 (MC 33)
+XXL_201 is placed at feedback node 634 (MC 34)
+XXL_190 is placed at foldback expander node 334 (MC 34)
 ABUS1 is placed at pin 31 (MC 35)
-XXL_200 is placed at feedback node 635 (MC 35)
-XXL_184 is placed at foldback expander node 335 (MC 35)
-XXL_195 is placed at feedback node 636 (MC 36)
-XXL_180 is placed at foldback expander node 336 (MC 36)
+XXL_204 is placed at feedback node 635 (MC 35)
+XXL_188 is placed at foldback expander node 335 (MC 35)
+XXL_199 is placed at feedback node 636 (MC 36)
+XXL_184 is placed at foldback expander node 336 (MC 36)
 ABUS0 is placed at pin 30 (MC 37)
 CBUS13 is placed at pin 29 (MC 38)
 CBUS11 is placed at pin 28 (MC 40)
-XXL_194 is placed at feedback node 641 (MC 41)
-XXL_179 is placed at foldback expander node 341 (MC 41)
+XXL_198 is placed at feedback node 641 (MC 41)
+XXL_183 is placed at foldback expander node 341 (MC 41)
 CBUS10 is placed at pin 27 (MC 43)
 B1 is placed at feedback node 644 (MC 44)
-XXL_177 is placed at foldback expander node 344 (MC 44)
+XXL_181 is placed at foldback expander node 344 (MC 44)
 ABUS14 is placed at pin 25 (MC 45)
 CBUS9 is placed at pin 24 (MC 46)
 C10 is placed at feedback node 647 (MC 47)
-XXL_165 is placed at foldback expander node 347 (MC 47)
+XXL_169 is placed at foldback expander node 347 (MC 47)
 TMS is placed at pin 23 (MC 48)
-XXL_343 is placed at feedback node 648 (MC 48)
+XXL_347 is placed at feedback node 648 (MC 48)
 BBUS13 is placed at pin 41 (MC 49)
-B6 is placed at feedback node 649 (MC 49)
-B5 is placed at feedback node 650 (MC 50)
+B5 is placed at feedback node 649 (MC 49)
+B4 is placed at feedback node 650 (MC 50)
 BBUS15 is placed at pin 40 (MC 51)
-B4 is placed at feedback node 651 (MC 51)
-B3 is placed at feedback node 652 (MC 52)
-B8 is placed at feedback node 653 (MC 53)
-B2 is placed at feedback node 654 (MC 54)
+B3 is placed at feedback node 651 (MC 51)
+B2 is placed at feedback node 652 (MC 52)
+UNUSED2 is placed at pin 39 (MC 53)
+C8 is placed at feedback node 653 (MC 53)
+C6 is placed at feedback node 654 (MC 54)
 CBUS7 is placed at pin 37 (MC 56)
-B7 is placed at feedback node 657 (MC 57)
-XXL_180 is placed at foldback expander node 357 (MC 57)
+UNUSED1 is placed at pin 36 (MC 57)
+XXL_184 is placed at foldback expander node 357 (MC 57)
 CBUS8 is placed at pin 35 (MC 59)
 CBUS5 is placed at pin 34 (MC 61)
-C6 is placed at feedback node 662 (MC 62)
-XXL_177 is placed at foldback expander node 362 (MC 62)
+C7 is placed at feedback node 662 (MC 62)
+XXL_181 is placed at foldback expander node 362 (MC 62)
 CBUS6 is placed at pin 33 (MC 64)
 ABUS12 is placed at pin 44 (MC 65)
 BBUS1 is placed at pin 45 (MC 67)
-B13 is placed at feedback node 668 (MC 68)
+B10 is placed at feedback node 668 (MC 68)
 ABUS9 is placed at pin 46 (MC 69)
-B12 is placed at feedback node 669 (MC 69)
-B11 is placed at feedback node 670 (MC 70)
-B10 is placed at feedback node 671 (MC 71)
-XXL_299 is placed at foldback expander node 371 (MC 71)
+B9 is placed at feedback node 669 (MC 69)
+B8 is placed at feedback node 670 (MC 70)
+B7 is placed at feedback node 671 (MC 71)
+XXL_303 is placed at foldback expander node 371 (MC 71)
 ABUS6 is placed at pin 48 (MC 72)
-B9 is placed at feedback node 672 (MC 72)
-XXL_285 is placed at foldback expander node 372 (MC 72)
+B6 is placed at feedback node 672 (MC 72)
+XXL_289 is placed at foldback expander node 372 (MC 72)
 ABUS5 is placed at pin 49 (MC 73)
-XXL_273 is placed at feedback node 673 (MC 73)
-XXL_284 is placed at foldback expander node 373 (MC 73)
+XXL_281 is placed at feedback node 673 (MC 73)
+XXL_288 is placed at foldback expander node 373 (MC 73)
 XXL_277 is placed at feedback node 674 (MC 74)
-XXL_191 is placed at foldback expander node 374 (MC 74)
+XXL_195 is placed at foldback expander node 374 (MC 74)
 CBUS3 is placed at pin 50 (MC 75)
-XXL_180 is placed at foldback expander node 375 (MC 75)
+XXL_184 is placed at foldback expander node 375 (MC 75)
 CBUS1 is placed at pin 51 (MC 77)
 C5 is placed at feedback node 678 (MC 78)
-XXL_177 is placed at foldback expander node 378 (MC 78)
+XXL_181 is placed at foldback expander node 378 (MC 78)
 CBUS4 is placed at pin 52 (MC 80)
 ABUS8 is placed at pin 54 (MC 83)
 ALU_CFLATCH is placed at pin 55 (MC 85)
 ALU_CFIN is placed at pin 56 (MC 86)
-XXL_341 is placed at feedback node 687 (MC 87)
-B14 is placed at feedback node 689 (MC 89)
-B15 is placed at feedback node 690 (MC 90)
-XXL_286 is placed at foldback expander node 390 (MC 90)
+B15 is placed at feedback node 686 (MC 86)
+B14 is placed at feedback node 687 (MC 87)
+UNUSED3 is placed at pin 57 (MC 88)
+B13 is placed at feedback node 688 (MC 88)
+B12 is placed at feedback node 689 (MC 89)
+B11 is placed at feedback node 690 (MC 90)
 CBUS0 is placed at pin 58 (MC 91)
-XXL_347 is placed at feedback node 692 (MC 92)
+XXL_351 is placed at feedback node 692 (MC 92)
 CFOut is placed at pin 60 (MC 93)
-XXL_193 is placed at foldback expander node 393 (MC 93)
+XXL_290 is placed at foldback expander node 393 (MC 93)
 OVFOut is placed at pin 61 (MC 94)
-XXL_177 is placed at foldback expander node 394 (MC 94)
+XXL_181 is placed at foldback expander node 394 (MC 94)
 XXL_346 is placed at feedback node 695 (MC 95)
 TCK is placed at pin 62 (MC 96)
-XXL_342 is placed at feedback node 696 (MC 96)
+XXL_350 is placed at feedback node 696 (MC 96)
 ABUS7 is placed at pin 63 (MC 97)
 BBUS0 is placed at pin 64 (MC 99)
 BBUS2 is placed at pin 65 (MC 101)
 ABUS4 is placed at pin 67 (MC 104)
 ALU_WC is placed at pin 68 (MC 105)
 BBUS4 is placed at pin 69 (MC 107)
-XXL_201 is placed at feedback node 707 (MC 107)
-XXL_203 is placed at feedback node 708 (MC 108)
+XXL_207 is placed at feedback node 708 (MC 108)
 BBUS3 is placed at pin 70 (MC 109)
-C9 is placed at feedback node 709 (MC 109)
-C7 is placed at feedback node 710 (MC 110)
-C8 is placed at feedback node 711 (MC 111)
-XXL_182 is placed at foldback expander node 411 (MC 111)
+XXL_345 is placed at feedback node 709 (MC 109)
+XXL_205 is placed at feedback node 710 (MC 110)
+XXL_197 is placed at foldback expander node 410 (MC 110)
+C9 is placed at feedback node 711 (MC 111)
+XXL_186 is placed at foldback expander node 411 (MC 111)
 TDO is placed at pin 71 (MC 112)
 C4 is placed at feedback node 712 (MC 112)
-XXL_181 is placed at foldback expander node 412 (MC 112)
+XXL_185 is placed at foldback expander node 412 (MC 112)
 BBUS7 is placed at pin 73 (MC 115)
 BBUS5 is placed at pin 74 (MC 117)
 BBUS8 is placed at pin 75 (MC 118)
@@ -218,13 +225,13 @@ BBUS11 is placed at pin 81 (MC 128)
                                                                                     
                                                                                     
                                              D                                      
-                                             _                                      
-                                A         AA C   B B B                              
-                     F F  A A   B Z C     LL L   B B B   B B B                      
-                     U U  B B   U F B     UU K   U U U   B B B                      
-                     N N  U U G S O U V   __ _ G S S S V U U U                      
-                     C C  S S N 1 u S C   FO I N 1 1 1 C S S S                      
-                     1 2  2 3 D 5 t 2 C   LE N D 1 2 0 C 6 9 8                      
+                                        U    _                                      
+                                A       N AA C   B B B                              
+                     F F  A A   B Z C   U LL L   B B B   B B B                      
+                     U U  B B   U F B   S UU K   U U U   B B B                      
+                     N N  U U G S O U V E __ _ G S S S V U U U                      
+                     C C  S S N 1 u S C D FO I N 1 1 1 C S S S                      
+                     1 2  2 3 D 5 t 2 C 4 LE N D 1 2 0 C 6 9 8                      
                     -------------------------------------------                     
                    / 11   9   7   5   3   1  83  81  79  77  75 \                  
                   /    10   8   6   4   2  84  82  80  78  76    \                 
@@ -245,19 +252,20 @@ BBUS11 is placed at pin 81 (MC 128)
              VCC | 26                                          60 | CFOut           
           CBUS10 | 27                                          59 | GND             
           CBUS11 | 28                                          58 | CBUS0           
-          CBUS13 | 29                                          57 |                 
+          CBUS13 | 29                                          57 | UNUSED3         
            ABUS0 | 30                                          56 | ALU_CFIN        
            ABUS1 | 31                                          55 | ALU_CFLATCH     
              GND | 32                                          54 | ABUS8           
                   \     34  36  38  40  42  44  46  48  50  52   /                 
                    \  33  35  37  39  41  43  45  47  49  51  53/                  
               	    --------------------------------------------                     
-                      C C C   C V   B B G V A B A G A A C C C V                     
-                      B B B   B C   B B N C B B B N B B B B B C                     
-                      U U U   U C   U U D C U U U D U U U U U C                     
-                      S S S   S     S S     S S S   S S S S S                       
-                      6 5 8   7     1 1     1 1 9   6 5 3 1 4                       
-                                    5 3     2                                       
+                      C C C U C V U B B G V A B A G A A C C C V                     
+                      B B B N B C N B B N C B B B N B B B B B C                     
+                      U U U U U C U U U D C U U U D U U U U U C                     
+                      S S S S S   S S S     S S S   S S S S S                       
+                      6 5 8 E 7   E 1 1     1 1 9   6 5 3 1 4                       
+                            D     D 5 3     2                                       
+                            1     2                                                 
 
 
 
@@ -277,24 +285,24 @@ ABUS2,ALU_FL,
 B2,
 CBUS12,CBUS2,CBUS10,CBUS11,CBUS9,CBUS14,CBUS1,CBUS5,CBUS4,CBUS15,CBUS0,CBUS13,CBUS8,CBUS3,CBUS7,CBUS6,
 FUNC1,FUNC2,FUNC0,
-XXL_273,XXL_188,XXL_176,XXL_277,XXL_276,
+XXL_281,XXL_192,XXL_180,XXL_277,XXL_280,
 ZFOut,
 }
 Multiplexer assignment for block A
 CBUS12			(MC7	P)   : MUX 0		Ref (B27p)
 FUNC1			(MC25	P)   : MUX 1		Ref (A5p)
-B2			(MC13	FB)  : MUX 2		Ref (D54fb)
+B2			(MC13	FB)  : MUX 2		Ref (D52fb)
 ABUS2			(MC27	P)   : MUX 3		Ref (A8p)
 CBUS2			(MC2	P)   : MUX 4		Ref (A16p)
-XXL_273			(MC18	FB)  : MUX 5		Ref (E73fb)
-XXL_188			(MC4	FB)  : MUX 6		Ref (B18fb)
+XXL_281			(MC18	FB)  : MUX 5		Ref (E73fb)
+XXL_192			(MC4	FB)  : MUX 6		Ref (B18fb)
 ZFOut			(MC1	P)   : MUX 8		Ref (A14p)
 FUNC2			(MC24	P)   : MUX 9		Ref (A6p)
 CBUS10			(MC11	P)   : MUX 10		Ref (C43p)
 CBUS11			(MC10	P)   : MUX 11		Ref (C40p)
 CBUS9			(MC12	P)   : MUX 12		Ref (C46p)
 CBUS14			(MC8	P)   : MUX 14		Ref (B29p)
-XXL_176			(MC5	FB)  : MUX 16		Ref (B19fb)
+XXL_180			(MC5	FB)  : MUX 16		Ref (B19fb)
 XXL_277			(MC19	FB)  : MUX 17		Ref (E74fb)
 CBUS1			(MC21	P)   : MUX 18		Ref (E77p)
 CBUS5			(MC16	P)   : MUX 20		Ref (D61p)
@@ -302,7 +310,7 @@ CBUS4			(MC22	P)   : MUX 22		Ref (E80p)
 CBUS15			(MC6	P)   : MUX 23		Ref (B24p)
 CBUS0			(MC23	P)   : MUX 24		Ref (F91p)
 CBUS13			(MC9	P)   : MUX 25		Ref (C38p)
-XXL_276			(MC3	FB)  : MUX 26		Ref (B17fb)
+XXL_280			(MC3	FB)  : MUX 26		Ref (B17fb)
 FUNC0			(MC26	P)   : MUX 29		Ref (A3p)
 CBUS8			(MC15	P)   : MUX 30		Ref (D59p)
 CBUS3			(MC20	P)   : MUX 32		Ref (E75p)
@@ -312,296 +320,296 @@ CBUS6			(MC17	P)   : MUX 38		Ref (D64p)
 
 FanIn assignment for block B [25]
 {
-ABUS15,ABUS2,ABUS3,ABUS14,ABUS12,
-BBUS0,B15,B2,B3,B14,B12,
-FUNC1,FUNC0,FUNC2,
-XXL_208,XXL_195,XXL_220,XXL_188,XXL_176,XXL_197,XXL_276,XXL_203,XXL_341,XXL_201,XXL_273,
+ABUS15,ABUS14,ABUS3,ABUS2,ABUS12,
+BBUS0,B3,B2,B14,B15,B12,
+FUNC1,FUNC2,FUNC0,
+XXL_212,XXL_201,XXL_207,XXL_280,XXL_192,XXL_205,XXL_180,XXL_345,XXL_199,XXL_224,XXL_277,
 }
 Multiplexer assignment for block B
 ABUS15			(MC22	P)   : MUX 0		Ref (A13p)
 FUNC1			(MC18	P)   : MUX 1		Ref (A5p)
-ABUS2			(MC20	P)   : MUX 3		Ref (A8p)
-XXL_208			(MC4	FB)  : MUX 4		Ref (B20fb)
+XXL_212			(MC4	FB)  : MUX 2		Ref (B20fb)
+ABUS14			(MC24	P)   : MUX 4		Ref (C45p)
 BBUS0			(MC25	P)   : MUX 5		Ref (G99p)
 ABUS3			(MC21	P)   : MUX 6		Ref (A11p)
-FUNC0			(MC19	P)   : MUX 7		Ref (A3p)
-XXL_195			(MC7	FB)  : MUX 8		Ref (C36fb)
-XXL_220			(MC5	FB)  : MUX 10		Ref (B21fb)
-B15			(MC14	FB)  : MUX 11		Ref (F90fb)
-B2			(MC9	FB)  : MUX 12		Ref (D54fb)
-XXL_188			(MC2	FB)  : MUX 14		Ref (B18fb)
+ABUS2			(MC20	P)   : MUX 7		Ref (A8p)
+XXL_201			(MC6	FB)  : MUX 10		Ref (C34fb)
+XXL_207			(MC14	FB)  : MUX 11		Ref (G108fb)
+XXL_280			(MC1	FB)  : MUX 12		Ref (B17fb)
+ABUS12			(MC23	P)   : MUX 13		Ref (E65p)
+XXL_192			(MC2	FB)  : MUX 14		Ref (B18fb)
 FUNC2			(MC17	P)   : MUX 15		Ref (A6p)
-XXL_176			(MC3	FB)  : MUX 16		Ref (B19fb)
-B3			(MC8	FB)  : MUX 20		Ref (D52fb)
-B14			(MC13	FB)  : MUX 21		Ref (F89fb)
-XXL_197			(MC6	FB)  : MUX 22		Ref (C34fb)
-XXL_276			(MC1	FB)  : MUX 26		Ref (B17fb)
-XXL_203			(MC16	FB)  : MUX 29		Ref (G108fb)
-XXL_341			(MC12	FB)  : MUX 32		Ref (F87fb)
-ABUS14			(MC24	P)   : MUX 34		Ref (C45p)
-XXL_201			(MC15	FB)  : MUX 35		Ref (G107fb)
-XXL_273			(MC11	FB)  : MUX 37		Ref (E73fb)
-B12			(MC10	FB)  : MUX 38		Ref (E69fb)
-ABUS12			(MC23	P)   : MUX 39		Ref (E65p)
+B3			(MC8	FB)  : MUX 16		Ref (D51fb)
+XXL_205			(MC16	FB)  : MUX 17		Ref (G110fb)
+B2			(MC9	FB)  : MUX 18		Ref (D52fb)
+XXL_180			(MC3	FB)  : MUX 20		Ref (B19fb)
+XXL_345			(MC15	FB)  : MUX 21		Ref (G109fb)
+XXL_199			(MC7	FB)  : MUX 26		Ref (C36fb)
+FUNC0			(MC19	P)   : MUX 29		Ref (A3p)
+XXL_224			(MC5	FB)  : MUX 30		Ref (B21fb)
+B14			(MC12	FB)  : MUX 32		Ref (F87fb)
+B15			(MC11	FB)  : MUX 34		Ref (F86fb)
+XXL_277			(MC10	FB)  : MUX 35		Ref (E74fb)
+B12			(MC13	FB)  : MUX 39		Ref (F89fb)
 
 FanIn assignment for block C [25]
 {
-ABUS0,ABUS11,ABUS10,ABUS13,ALU_WC,ABUS9,
-B9,B13,BBUS1,B11,B0,B10,
+ABUS0,ABUS10,ABUS13,ALU_WC,ABUS9,ABUS11,
+B10,B0,B9,B13,BBUS1,B11,
 C9,CFOut,C10,
 FUNC0,FUNC2,FUNC1,
-XXL_176,XXL_194,XXL_188,XXL_202,XXL_200,XXL_196,XXL_276,
+XXL_180,XXL_206,XXL_280,XXL_198,XXL_200,XXL_192,XXL_204,
 }
 Multiplexer assignment for block C
-XXL_176			(MC3	FB)  : MUX 0		Ref (B19fb)
-XXL_194			(MC8	FB)  : MUX 1		Ref (C41fb)
+XXL_180			(MC3	FB)  : MUX 0		Ref (B19fb)
+C9			(MC15	FB)  : MUX 1		Ref (G111fb)
+B10			(MC10	FB)  : MUX 2		Ref (E68fb)
 ABUS0			(MC19	P)   : MUX 3		Ref (C37p)
-B9			(MC13	FB)  : MUX 4		Ref (E72fb)
-C9			(MC15	FB)  : MUX 5		Ref (G109fb)
-XXL_188			(MC2	FB)  : MUX 6		Ref (B18fb)
+B0			(MC6	FB)  : MUX 5		Ref (B30fb)
+B9			(MC11	FB)  : MUX 6		Ref (E69fb)
 FUNC0			(MC18	P)   : MUX 7		Ref (A3p)
-XXL_202			(MC4	FB)  : MUX 8		Ref (B22fb)
+XXL_206			(MC4	FB)  : MUX 8		Ref (B22fb)
 FUNC2			(MC16	P)   : MUX 9		Ref (A6p)
-B13			(MC10	FB)  : MUX 10		Ref (E68fb)
-ABUS11			(MC21	P)   : MUX 11		Ref (B19p)
-XXL_200			(MC7	FB)  : MUX 12		Ref (C35fb)
+XXL_280			(MC1	FB)  : MUX 10		Ref (B17fb)
+CFOut			(MC14	P)   : MUX 12		Ref (F93p)
 ABUS10			(MC23	P)   : MUX 13		Ref (B17p)
+B13			(MC12	FB)  : MUX 14		Ref (F88fb)
 BBUS1			(MC25	P)   : MUX 15		Ref (E67p)
 ABUS13			(MC20	P)   : MUX 17		Ref (B21p)
-CFOut			(MC14	P)   : MUX 18		Ref (F93p)
 FUNC1			(MC17	P)   : MUX 19		Ref (A5p)
-B11			(MC11	FB)  : MUX 20		Ref (E70fb)
+XXL_198			(MC8	FB)  : MUX 21		Ref (C41fb)
 ALU_WC			(MC22	P)   : MUX 22		Ref (G105p)
 ABUS9			(MC24	P)   : MUX 23		Ref (E69p)
-XXL_196			(MC5	FB)  : MUX 25		Ref (B25fb)
-XXL_276			(MC1	FB)  : MUX 26		Ref (B17fb)
-B0			(MC6	FB)  : MUX 27		Ref (B30fb)
-B10			(MC12	FB)  : MUX 28		Ref (E71fb)
+XXL_200			(MC5	FB)  : MUX 25		Ref (B25fb)
+ABUS11			(MC21	P)   : MUX 27		Ref (B19p)
+XXL_192			(MC2	FB)  : MUX 28		Ref (B18fb)
+XXL_204			(MC7	FB)  : MUX 34		Ref (C35fb)
+B11			(MC13	FB)  : MUX 35		Ref (F90fb)
 C10			(MC9	FB)  : MUX 37		Ref (C47fb)
 
 FanIn assignment for block D [25]
 {
 ABUS8,ABUS6,ABUS5,ABUS7,
-BBUS5,BBUS3,B8,BBUS8,B6,B5,BBUS2,BBUS7,BBUS4,BBUS6,B7,
-C5,C8,C7,C6,
-FUNC1,FUNC0,FUNC2,
-XXL_188,XXL_176,XXL_276,
+BBUS3,B5,BBUS2,BBUS5,B7,BBUS4,B8,B6,
+C8,C6,C5,C7,
+FUNC0,FUNC1,FUNC2,
+UNUSED2,UNUSED3,UNUSED4,
+XXL_180,XXL_192,XXL_280,
 }
 Multiplexer assignment for block D
-XXL_188			(MC2	FB)  : MUX 0		Ref (B18fb)
-FUNC1			(MC13	P)   : MUX 1		Ref (A5p)
-BBUS5			(MC22	P)   : MUX 3		Ref (H117p)
-C5			(MC9	FB)  : MUX 5		Ref (E78fb)
-BBUS3			(MC20	P)   : MUX 6		Ref (G109p)
-B8			(MC6	FB)  : MUX 10		Ref (D53fb)
-BBUS8			(MC25	P)   : MUX 11		Ref (H118p)
-B6			(MC4	FB)  : MUX 12		Ref (D49fb)
-ABUS8			(MC15	P)   : MUX 13		Ref (F83p)
-C8			(MC11	FB)  : MUX 15		Ref (G111fb)
-XXL_176			(MC3	FB)  : MUX 16		Ref (B19fb)
-B5			(MC5	FB)  : MUX 18		Ref (D50fb)
-ABUS6			(MC17	P)   : MUX 19		Ref (E72p)
-ABUS5			(MC18	P)   : MUX 20		Ref (E73p)
-C7			(MC10	FB)  : MUX 21		Ref (G110fb)
-BBUS2			(MC19	P)   : MUX 23		Ref (G101p)
-ABUS7			(MC16	P)   : MUX 25		Ref (G97p)
-BBUS7			(MC24	P)   : MUX 27		Ref (H115p)
-BBUS4			(MC21	P)   : MUX 28		Ref (G107p)
-FUNC0			(MC14	P)   : MUX 31		Ref (A3p)
-BBUS6			(MC23	P)   : MUX 32		Ref (H123p)
+XXL_180			(MC3	FB)  : MUX 0		Ref (B19fb)
+ABUS8			(MC15	P)   : MUX 1		Ref (F83p)
+ABUS6			(MC18	P)   : MUX 5		Ref (E72p)
+BBUS3			(MC23	P)   : MUX 6		Ref (G109p)
+FUNC0			(MC14	P)   : MUX 7		Ref (A3p)
+B5			(MC4	FB)  : MUX 8		Ref (D49fb)
+BBUS2			(MC22	P)   : MUX 9		Ref (G101p)
+C8			(MC5	FB)  : MUX 10		Ref (D53fb)
+C6			(MC6	FB)  : MUX 12		Ref (D54fb)
+BBUS5			(MC25	P)   : MUX 13		Ref (H117p)
+ABUS5			(MC17	P)   : MUX 14		Ref (E73p)
+C5			(MC11	FB)  : MUX 15		Ref (E78fb)
+UNUSED2			(MC19	P)   : MUX 17		Ref (D53p)
+B7			(MC9	FB)  : MUX 18		Ref (E71fb)
+FUNC1			(MC13	P)   : MUX 19		Ref (A5p)
+BBUS4			(MC24	P)   : MUX 26		Ref (G107p)
+ABUS7			(MC16	P)   : MUX 27		Ref (G97p)
+XXL_192			(MC2	FB)  : MUX 28		Ref (B18fb)
+XXL_280			(MC1	FB)  : MUX 32		Ref (B17fb)
 FUNC2			(MC12	P)   : MUX 33		Ref (A6p)
-XXL_276			(MC1	FB)  : MUX 36		Ref (B17fb)
-B7			(MC7	FB)  : MUX 37		Ref (D57fb)
-C6			(MC8	FB)  : MUX 39		Ref (D62fb)
+B8			(MC8	FB)  : MUX 34		Ref (E70fb)
+UNUSED3			(MC20	P)   : MUX 35		Ref (F88p)
+B6			(MC10	FB)  : MUX 36		Ref (E72fb)
+UNUSED4			(MC21	FB)  : MUX 38		Ref (OE2)
+C7			(MC7	FB)  : MUX 39		Ref (D62fb)
 
 FanIn assignment for block E [25]
 {
-ABUS0,ABUS3,ABUS1,ABUS2,ABUS4,
-BBUS9,B3,BBUS13,BBUS12,B2,B4,BBUS10,B0,BBUS11,B1,
+ABUS2,ABUS3,ABUS1,ABUS4,ABUS0,
+B2,B0,BBUS8,B3,BBUS9,BBUS10,BBUS7,BBUS6,B4,B1,
 C4,
-FUNC2,FUNC1,FUNC0,
-XXL_188,XXL_344,XXL_273,XXL_176,XXL_345,XXL_276,
+FUNC0,FUNC2,FUNC1,
+XXL_192,XXL_280,XXL_180,XXL_349,XXL_277,XXL_348,
 }
 Multiplexer assignment for block E
-XXL_188			(MC2	FB)  : MUX 0		Ref (B18fb)
-BBUS9			(MC21	P)   : MUX 1		Ref (H120p)
-B3			(MC9	FB)  : MUX 2		Ref (D52fb)
-ABUS0			(MC18	P)   : MUX 3		Ref (C37p)
-BBUS13			(MC25	P)   : MUX 5		Ref (D49p)
-BBUS12			(MC24	P)   : MUX 6		Ref (H126p)
-XXL_344			(MC6	FB)  : MUX 7		Ref (B32fb)
+B2			(MC10	FB)  : MUX 0		Ref (D52fb)
+ABUS2			(MC16	P)   : MUX 3		Ref (A8p)
+B0			(MC4	FB)  : MUX 5		Ref (B30fb)
+XXL_192			(MC2	FB)  : MUX 6		Ref (B18fb)
+FUNC0			(MC15	P)   : MUX 7		Ref (A3p)
 FUNC2			(MC13	P)   : MUX 9		Ref (A6p)
 ABUS3			(MC17	P)   : MUX 10		Ref (A11p)
-C4			(MC12	FB)  : MUX 11		Ref (G112fb)
-B2			(MC10	FB)  : MUX 12		Ref (D54fb)
-FUNC1			(MC14	P)   : MUX 13		Ref (A5p)
-B4			(MC8	FB)  : MUX 14		Ref (D51fb)
+BBUS8			(MC23	P)   : MUX 11		Ref (H118p)
+XXL_280			(MC1	FB)  : MUX 12		Ref (B17fb)
+C4			(MC12	FB)  : MUX 13		Ref (G112fb)
+B3			(MC9	FB)  : MUX 14		Ref (D51fb)
 ABUS1			(MC19	P)   : MUX 15		Ref (C35p)
-FUNC0			(MC15	P)   : MUX 17		Ref (A3p)
-XXL_273			(MC11	FB)  : MUX 19		Ref (E73fb)
-XXL_176			(MC3	FB)  : MUX 20		Ref (B19fb)
-ABUS2			(MC16	P)   : MUX 21		Ref (A8p)
-BBUS10			(MC22	P)   : MUX 22		Ref (H125p)
-XXL_345			(MC5	FB)  : MUX 25		Ref (B31fb)
-XXL_276			(MC1	FB)  : MUX 26		Ref (B17fb)
-B0			(MC4	FB)  : MUX 27		Ref (B30fb)
-BBUS11			(MC23	P)   : MUX 32		Ref (H128p)
-ABUS4			(MC20	P)   : MUX 35		Ref (G104p)
+XXL_180			(MC3	FB)  : MUX 16		Ref (B19fb)
+ABUS4			(MC20	P)   : MUX 17		Ref (G104p)
+BBUS9			(MC24	P)   : MUX 19		Ref (H120p)
+ABUS0			(MC18	P)   : MUX 21		Ref (C37p)
+BBUS10			(MC25	P)   : MUX 22		Ref (H125p)
+BBUS7			(MC22	P)   : MUX 23		Ref (H115p)
+XXL_349			(MC5	FB)  : MUX 25		Ref (B31fb)
+BBUS6			(MC21	P)   : MUX 26		Ref (H123p)
+FUNC1			(MC14	P)   : MUX 31		Ref (A5p)
+B4			(MC8	FB)  : MUX 32		Ref (D50fb)
+XXL_277			(MC11	FB)  : MUX 35		Ref (E74fb)
+XXL_348			(MC6	FB)  : MUX 37		Ref (B32fb)
 B1			(MC7	FB)  : MUX 39		Ref (C44fb)
 
 FanIn assignment for block F [24]
 {
-ALU_WC,ABUS0,ALU_CFLATCH,ABUS2,ALU_CFIN,ABUS15,ALU_FL,
-BBUS15,B15,B2,B0,BBUS14,
+ABUS15,ALU_WC,ABUS0,ALU_CFLATCH,ALU_CFIN,ALU_FL,
+B15,BBUS15,BBUS13,B0,BBUS12,BBUS14,BBUS11,
 CFOut,
-FUNC1,FUNC2,FUNC0,
+FUNC0,FUNC2,FUNC1,
 OVFOut,
-XXL_208,XXL_220,XXL_346,XXL_343,XXL_342,XXL_347,XXL_277,
+XXL_224,XXL_351,XXL_212,XXL_350,XXL_346,XXL_347,
 }
 Multiplexer assignment for block F
-FUNC1			(MC14	P)   : MUX 1		Ref (A5p)
-ALU_WC			(MC20	P)   : MUX 2		Ref (G105p)
-ABUS0			(MC17	P)   : MUX 3		Ref (C37p)
-XXL_208			(MC1	FB)  : MUX 4		Ref (B20fb)
-ALU_CFLATCH		(MC21	P)   : MUX 5		Ref (F85p)
-ABUS2			(MC16	P)   : MUX 7		Ref (A8p)
-OVFOut			(MC10	P)   : MUX 8		Ref (F94p)
-FUNC2			(MC13	P)   : MUX 9		Ref (A6p)
-XXL_220			(MC2	FB)  : MUX 10		Ref (B21fb)
-XXL_346			(MC11	FB)  : MUX 11		Ref (F95fb)
-BBUS15			(MC23	P)   : MUX 13		Ref (D51p)
-B15			(MC7	FB)  : MUX 15		Ref (F90fb)
-FUNC0			(MC15	P)   : MUX 17		Ref (A3p)
-ALU_CFIN		(MC22	P)   : MUX 19		Ref (F86p)
-B2			(MC5	FB)  : MUX 20		Ref (D54fb)
-XXL_343			(MC4	FB)  : MUX 21		Ref (C48fb)
-XXL_342			(MC12	FB)  : MUX 25		Ref (F96fb)
-CFOut			(MC9	P)   : MUX 26		Ref (F93p)
+ABUS15			(MC16	P)   : MUX 0		Ref (A13p)
+ALU_WC			(MC17	P)   : MUX 2		Ref (G105p)
+ABUS0			(MC14	P)   : MUX 3		Ref (C37p)
+CFOut			(MC7	P)   : MUX 4		Ref (F93p)
+ALU_CFLATCH		(MC18	P)   : MUX 5		Ref (F85p)
+FUNC0			(MC13	P)   : MUX 7		Ref (A3p)
+FUNC2			(MC11	P)   : MUX 9		Ref (A6p)
+XXL_224			(MC2	FB)  : MUX 10		Ref (B21fb)
+B15			(MC5	FB)  : MUX 12		Ref (F86fb)
+BBUS15			(MC24	P)   : MUX 13		Ref (D51p)
+BBUS13			(MC22	P)   : MUX 15		Ref (D49p)
+XXL_351			(MC6	FB)  : MUX 17		Ref (F92fb)
+ALU_CFIN		(MC19	P)   : MUX 19		Ref (F86p)
+XXL_212			(MC1	FB)  : MUX 20		Ref (B20fb)
+XXL_350			(MC10	FB)  : MUX 25		Ref (F96fb)
 B0			(MC3	FB)  : MUX 27		Ref (B30fb)
-ABUS15			(MC19	P)   : MUX 28		Ref (A13p)
-BBUS14			(MC24	P)   : MUX 30		Ref (B25p)
-ALU_FL			(MC18	FB)  : MUX 36		Ref (GCLR)
-XXL_347			(MC8	FB)  : MUX 37		Ref (F92fb)
-XXL_277			(MC6	FB)  : MUX 39		Ref (E74fb)
+BBUS12			(MC21	P)   : MUX 28		Ref (H126p)
+BBUS14			(MC23	P)   : MUX 30		Ref (B25p)
+FUNC1			(MC12	P)   : MUX 31		Ref (A5p)
+BBUS11			(MC20	P)   : MUX 32		Ref (H128p)
+OVFOut			(MC8	P)   : MUX 34		Ref (F94p)
+ALU_FL			(MC15	FB)  : MUX 36		Ref (GCLR)
+XXL_346			(MC9	FB)  : MUX 37		Ref (F95fb)
+XXL_347			(MC4	FB)  : MUX 39		Ref (C48fb)
 
-FanIn assignment for block G [18]
+FanIn assignment for block G [15]
 {
-ABUS6,ABUS7,ABUS8,ABUS3,ABUS11,ABUS13,
-B3,B11,B6,B8,B13,B7,
-C8,C7,C6,
-XXL_200,XXL_341,XXL_202,
+ABUS8,ABUS2,ABUS11,ABUS3,ABUS13,
+B2,B13,B8,B3,B11,
+C8,
+XXL_345,XXL_206,XXL_204,XXL_281,
 }
 Multiplexer assignment for block G
-B3			(MC4	FB)  : MUX 0		Ref (D52fb)
-C8			(MC12	FB)  : MUX 1		Ref (G111fb)
-XXL_200			(MC2	FB)  : MUX 2		Ref (C35fb)
-ABUS6			(MC18	P)   : MUX 5		Ref (E72p)
-ABUS7			(MC17	P)   : MUX 7		Ref (G97p)
-XXL_341			(MC10	FB)  : MUX 8		Ref (F87fb)
-ABUS8			(MC16	P)   : MUX 13		Ref (F83p)
-XXL_202			(MC1	FB)  : MUX 16		Ref (B22fb)
-B11			(MC9	FB)  : MUX 20		Ref (E70fb)
-C7			(MC11	FB)  : MUX 23		Ref (G110fb)
-ABUS3			(MC13	P)   : MUX 24		Ref (A11p)
-B6			(MC3	FB)  : MUX 26		Ref (D49fb)
-ABUS11			(MC15	P)   : MUX 27		Ref (B19p)
-ABUS13			(MC14	P)   : MUX 31		Ref (B21p)
-B8			(MC5	FB)  : MUX 34		Ref (D53fb)
-B13			(MC8	FB)  : MUX 36		Ref (E68fb)
-B7			(MC6	FB)  : MUX 37		Ref (D57fb)
-C6			(MC7	FB)  : MUX 39		Ref (D62fb)
+ABUS8			(MC15	P)   : MUX 1		Ref (F83p)
+B2			(MC4	FB)  : MUX 2		Ref (D52fb)
+ABUS2			(MC11	P)   : MUX 3		Ref (A8p)
+XXL_345			(MC10	FB)  : MUX 5		Ref (G109fb)
+XXL_206			(MC1	FB)  : MUX 8		Ref (B22fb)
+ABUS11			(MC14	P)   : MUX 11		Ref (B19p)
+XXL_204			(MC2	FB)  : MUX 12		Ref (C35fb)
+B13			(MC8	FB)  : MUX 14		Ref (F88fb)
+B8			(MC6	FB)  : MUX 16		Ref (E70fb)
+XXL_281			(MC7	FB)  : MUX 23		Ref (E73fb)
+ABUS3			(MC12	P)   : MUX 24		Ref (A11p)
+B3			(MC3	FB)  : MUX 30		Ref (D51fb)
+ABUS13			(MC13	P)   : MUX 33		Ref (B21p)
+C8			(MC5	FB)  : MUX 34		Ref (D53fb)
+B11			(MC9	FB)  : MUX 37		Ref (F90fb)
 
 Creating JEDEC file C:\ALU.jed ...
 
 PLCC84 programmed logic:
 -----------------------------------
-B1 = ((BBUS1 & XXL_177)
+B1 = ((BBUS1 & XXL_181)
 	# (!BBUS1 & FUNC0 & !FUNC1 & !FUNC2));
 
-B2 = ((BBUS2 & XXL_177)
+B2 = ((BBUS2 & XXL_181)
 	# (!BBUS2 & FUNC0 & !FUNC1 & !FUNC2));
 
-B0 = ((BBUS0 & XXL_177)
+B0 = ((BBUS0 & XXL_181)
 	# (!BBUS0 & FUNC0 & !FUNC1 & !FUNC2));
 
-B7 = ((BBUS7 & XXL_177)
-	# (!BBUS7 & FUNC0 & !FUNC1 & !FUNC2));
-
-B3 = ((BBUS3 & XXL_177)
-	# (!BBUS3 & FUNC0 & !FUNC1 & !FUNC2));
-
-B4 = ((BBUS4 & XXL_177)
+B4 = ((BBUS4 & XXL_181)
 	# (!BBUS4 & FUNC0 & !FUNC1 & !FUNC2));
 
-B8 = ((BBUS8 & XXL_177)
-	# (!BBUS8 & FUNC0 & !FUNC1 & !FUNC2));
-
-B5 = ((BBUS5 & XXL_177)
+B5 = ((BBUS5 & XXL_181)
 	# (!BBUS5 & FUNC0 & !FUNC1 & !FUNC2));
 
-B6 = ((BBUS6 & XXL_177)
+B3 = ((BBUS3 & XXL_181)
+	# (!BBUS3 & FUNC0 & !FUNC1 & !FUNC2));
+
+B7 = ((BBUS7 & XXL_181)
+	# (!BBUS7 & FUNC0 & !FUNC1 & !FUNC2));
+
+B8 = ((BBUS8 & XXL_181)
+	# (!BBUS8 & FUNC0 & !FUNC1 & !FUNC2));
+
+B6 = ((BBUS6 & XXL_181)
 	# (!BBUS6 & FUNC0 & !FUNC1 & !FUNC2));
 
-B9 = ((BBUS9 & XXL_177)
+B9 = ((BBUS9 & XXL_181)
 	# (!BBUS9 & FUNC0 & !FUNC1 & !FUNC2));
 
-B12 = ((BBUS12 & XXL_177)
-	# (!BBUS12 & FUNC0 & !FUNC1 & !FUNC2));
-
-B13 = ((BBUS13 & XXL_177)
-	# (!BBUS13 & FUNC0 & !FUNC1 & !FUNC2));
-
-B10 = ((BBUS10 & XXL_177)
+B10 = ((BBUS10 & XXL_181)
 	# (!BBUS10 & FUNC0 & !FUNC1 & !FUNC2));
 
-B11 = ((BBUS11 & XXL_177)
+B12 = ((BBUS12 & XXL_181)
+	# (!BBUS12 & FUNC0 & !FUNC1 & !FUNC2));
+
+B13 = ((BBUS13 & XXL_181)
+	# (!BBUS13 & FUNC0 & !FUNC1 & !FUNC2));
+
+B11 = ((BBUS11 & XXL_181)
 	# (!BBUS11 & FUNC0 & !FUNC1 & !FUNC2));
 
-B14 = ((BBUS14 & XXL_177)
+B14 = ((BBUS14 & XXL_181)
 	# (!BBUS14 & FUNC0 & !FUNC1 & !FUNC2));
 
-B15 = ((BBUS15 & XXL_177)
+B15 = ((BBUS15 & XXL_181)
 	# (!BBUS15 & FUNC0 & !FUNC1 & !FUNC2));
+
+!UNUSED1 = (!UNUSED2 & !UNUSED3 & !UNUSED4);
 
 ZFOut.D = ((!ALU_FL & !CBUS0.PIN & !CBUS1.PIN & !CBUS2.PIN & !CBUS3.PIN & !CBUS4.PIN & !CBUS5.PIN & !CBUS6.PIN & !CBUS7.PIN & !CBUS8.PIN & !CBUS9.PIN & !CBUS10.PIN & !CBUS11.PIN & !CBUS12.PIN & !CBUS13.PIN & !CBUS14.PIN & !CBUS15.PIN)
 	# (ALU_FL & ZFOut.Q));
 
-C4 = ((B3 & XXL_341)
+C4 = ((B3 & XXL_345)
 	# (ABUS3 & B3)
-	# (ABUS3 & XXL_341));
+	# (ABUS3 & XXL_345));
 
 CBUS2 = ((FUNC2 & B2 & FUNC1 & FUNC0)
 	# (FUNC2 & !B2 & FUNC1 & !FUNC0)
-	# (ABUS2 & !FUNC2 & B2 & XXL_180 & XXL_277)
-	# (!ABUS2 & !B2 & XXL_277 & XXL_176)
-	# (!ABUS2 & B2 & XXL_273 & XXL_188)
-	# (!ABUS2 & B2 & XXL_276)
+	# (ABUS2 & !FUNC2 & B2 & XXL_184 & XXL_281)
+	# (!ABUS2 & !B2 & XXL_281 & XXL_180)
+	# (!ABUS2 & B2 & XXL_277 & XXL_192)
+	# (!ABUS2 & B2 & XXL_280)
 	# (ABUS2 & FUNC2 & !B2 & !FUNC1)
 	# (ABUS2 & !FUNC1 & !FUNC0)
 	# (ABUS2 & !FUNC2 & !B2 & FUNC1 & FUNC0)
-	# (ABUS2 & !FUNC2 & !B2 & XXL_273));
+	# (ABUS2 & !FUNC2 & !B2 & XXL_277));
 
 CBUS0 = ((ABUS0 & !FUNC1 & !FUNC0)
-	# (ABUS0 & FUNC1 & !FUNC2 & !B0 & XXL_286)
-	# (ABUS0 & !FUNC1 & !FUNC2 & B0 & XXL_286)
-	# XXL_342
-	# XXL_343);
+	# (ABUS0 & FUNC1 & !FUNC2 & !B0 & XXL_290)
+	# (ABUS0 & !FUNC1 & !FUNC2 & B0 & XXL_290)
+	# XXL_346
+	# XXL_347);
 
 CBUS1 = ((FUNC1 & !FUNC0 & FUNC2 & !B1)
-	# (B1 & !ABUS1 & XXL_299 & XXL_188)
-	# (B1 & !ABUS1 & XXL_276)
-	# (!FUNC2 & B1 & ABUS1 & XXL_180 & ABUS0 & B0)
-	# (!B1 & !ABUS1 & ABUS0 & B0 & XXL_176)
+	# (B1 & !ABUS1 & XXL_303 & XXL_192)
+	# (B1 & !ABUS1 & XXL_280)
+	# (!FUNC2 & B1 & ABUS1 & XXL_184 & ABUS0 & B0)
+	# (!B1 & !ABUS1 & ABUS0 & B0 & XXL_180)
 	# (FUNC1 & FUNC0 & !FUNC2 & !B1 & ABUS1)
-	# (!FUNC2 & !B1 & ABUS1 & XXL_299)
+	# (!FUNC2 & !B1 & ABUS1 & XXL_303)
 	# (!FUNC1 & FUNC2 & !B1 & ABUS1)
 	# (!FUNC1 & !FUNC0 & ABUS1)
 	# (FUNC1 & FUNC0 & FUNC2 & B1));
 
 CBUS3 = ((B3 & FUNC2 & FUNC0 & FUNC1)
-	# (B3 & !ABUS3 & XXL_188 & XXL_284 & XXL_273)
-	# XXL_344
-	# XXL_345);
+	# (B3 & !ABUS3 & XXL_192 & XXL_288 & XXL_277)
+	# XXL_348
+	# XXL_349);
 
 C5 = ((B4 & C4)
 	# (ABUS4 & C4)
@@ -609,23 +617,23 @@ C5 = ((B4 & C4)
 
 CBUS4 = ((ABUS4 & !FUNC2 & !B4 & !C4)
 	# (ABUS4 & FUNC1 & FUNC0 & !FUNC2 & !B4)
-	# (ABUS4 & !FUNC2 & B4 & C4 & XXL_180)
+	# (ABUS4 & !FUNC2 & B4 & C4 & XXL_184)
 	# (FUNC1 & FUNC0 & FUNC2 & B4)
 	# (FUNC1 & !FUNC0 & FUNC2 & !B4)
-	# (!ABUS4 & B4 & !C4 & XXL_188)
-	# (!ABUS4 & B4 & XXL_276)
-	# (!ABUS4 & !B4 & C4 & XXL_176)
+	# (!ABUS4 & B4 & !C4 & XXL_192)
+	# (!ABUS4 & B4 & XXL_280)
+	# (!ABUS4 & !B4 & C4 & XXL_180)
 	# (ABUS4 & !FUNC1 & FUNC2 & !B4)
 	# (ABUS4 & !FUNC1 & !FUNC0));
 
-CBUS5 = ((ABUS5 & !FUNC2 & B5 & C5 & XXL_180)
+CBUS5 = ((ABUS5 & !FUNC2 & B5 & C5 & XXL_184)
 	# (ABUS5 & FUNC2 & !B5 & !FUNC1)
 	# (ABUS5 & !FUNC0 & !FUNC1)
 	# (FUNC2 & B5 & FUNC0 & FUNC1)
 	# (FUNC2 & !B5 & !FUNC0 & FUNC1)
-	# (!ABUS5 & B5 & !C5 & XXL_188)
-	# (!ABUS5 & B5 & XXL_276)
-	# (!ABUS5 & !B5 & C5 & XXL_176)
+	# (!ABUS5 & B5 & !C5 & XXL_192)
+	# (!ABUS5 & B5 & XXL_280)
+	# (!ABUS5 & !B5 & C5 & XXL_180)
 	# (ABUS5 & !FUNC2 & !B5 & !C5)
 	# (ABUS5 & !FUNC2 & !B5 & FUNC0 & FUNC1));
 
@@ -637,14 +645,14 @@ C7 = ((B6 & C6)
 	# (ABUS6 & C6)
 	# (B6 & ABUS6));
 
-CBUS6 = ((ABUS6 & !FUNC2 & B6 & C6 & XXL_180)
+CBUS6 = ((ABUS6 & !FUNC2 & B6 & C6 & XXL_184)
 	# (ABUS6 & FUNC2 & !B6 & !FUNC1)
 	# (ABUS6 & !FUNC0 & !FUNC1)
 	# (FUNC2 & B6 & FUNC0 & FUNC1)
 	# (FUNC2 & !B6 & !FUNC0 & FUNC1)
-	# (!ABUS6 & B6 & !C6 & XXL_188)
-	# (!ABUS6 & B6 & XXL_276)
-	# (!ABUS6 & !B6 & C6 & XXL_176)
+	# (!ABUS6 & B6 & !C6 & XXL_192)
+	# (!ABUS6 & B6 & XXL_280)
+	# (!ABUS6 & !B6 & C6 & XXL_180)
 	# (ABUS6 & !FUNC2 & !B6 & !C6)
 	# (ABUS6 & !FUNC2 & !B6 & FUNC0 & FUNC1));
 
@@ -652,14 +660,14 @@ C8 = ((B7 & C7)
 	# (ABUS7 & C7)
 	# (B7 & ABUS7));
 
-CBUS7 = ((ABUS7 & !FUNC2 & B7 & C7 & XXL_180)
+CBUS7 = ((ABUS7 & !FUNC2 & B7 & C7 & XXL_184)
 	# (ABUS7 & FUNC2 & !B7 & !FUNC1)
 	# (ABUS7 & !FUNC0 & !FUNC1)
 	# (FUNC2 & B7 & FUNC0 & FUNC1)
 	# (FUNC2 & !B7 & !FUNC0 & FUNC1)
-	# (!ABUS7 & B7 & !C7 & XXL_188)
-	# (!ABUS7 & B7 & XXL_276)
-	# (!ABUS7 & !B7 & C7 & XXL_176)
+	# (!ABUS7 & B7 & !C7 & XXL_192)
+	# (!ABUS7 & B7 & XXL_280)
+	# (!ABUS7 & !B7 & C7 & XXL_180)
 	# (ABUS7 & !FUNC2 & !B7 & !C7)
 	# (ABUS7 & !FUNC2 & !B7 & FUNC0 & FUNC1));
 
@@ -667,14 +675,14 @@ C9 = ((B8 & C8)
 	# (ABUS8 & C8)
 	# (B8 & ABUS8));
 
-CBUS8 = ((ABUS8 & !FUNC2 & B8 & C8 & XXL_180)
+CBUS8 = ((ABUS8 & !FUNC2 & B8 & C8 & XXL_184)
 	# (ABUS8 & FUNC2 & !B8 & !FUNC1)
 	# (ABUS8 & !FUNC0 & !FUNC1)
 	# (FUNC2 & B8 & FUNC0 & FUNC1)
 	# (FUNC2 & !B8 & !FUNC0 & FUNC1)
-	# (!ABUS8 & B8 & !C8 & XXL_188)
-	# (!ABUS8 & B8 & XXL_276)
-	# (!ABUS8 & !B8 & C8 & XXL_176)
+	# (!ABUS8 & B8 & !C8 & XXL_192)
+	# (!ABUS8 & B8 & XXL_280)
+	# (!ABUS8 & !B8 & C8 & XXL_180)
 	# (ABUS8 & !FUNC2 & !B8 & !C8)
 	# (ABUS8 & !FUNC2 & !B8 & FUNC0 & FUNC1));
 
@@ -682,209 +690,209 @@ C10 = ((B9 & C9)
 	# (ABUS9 & C9)
 	# (B9 & ABUS9));
 
-CBUS9 = ((ABUS9 & !FUNC2 & B9 & C9 & XXL_180)
+CBUS9 = ((ABUS9 & !FUNC2 & B9 & C9 & XXL_184)
 	# (ABUS9 & FUNC2 & !B9 & !FUNC1)
 	# (ABUS9 & !FUNC0 & !FUNC1)
 	# (FUNC2 & B9 & FUNC0 & FUNC1)
 	# (FUNC2 & !B9 & !FUNC0 & FUNC1)
-	# (!ABUS9 & B9 & !C9 & XXL_188)
-	# (!ABUS9 & B9 & XXL_276)
-	# (!ABUS9 & !B9 & C9 & XXL_176)
+	# (!ABUS9 & B9 & !C9 & XXL_192)
+	# (!ABUS9 & B9 & XXL_280)
+	# (!ABUS9 & !B9 & C9 & XXL_180)
 	# (ABUS9 & !FUNC2 & !B9 & !C9)
 	# (ABUS9 & !FUNC2 & !B9 & FUNC0 & FUNC1));
 
 CBUS11 = ((FUNC2 & !B11 & !FUNC0 & FUNC1)
-	# (B11 & !ABUS11 & XXL_194 & XXL_188)
-	# (B11 & !ABUS11 & XXL_276)
+	# (B11 & !ABUS11 & XXL_198 & XXL_192)
+	# (B11 & !ABUS11 & XXL_280)
 	# (FUNC2 & !B11 & !FUNC1 & ABUS11)
 	# (!FUNC0 & !FUNC1 & ABUS11)
-	# (!B11 & !ABUS11 & XXL_200 & XXL_176)
+	# (!B11 & !ABUS11 & XXL_204 & XXL_180)
 	# (!FUNC2 & !B11 & FUNC0 & FUNC1 & ABUS11)
-	# (!FUNC2 & !B11 & ABUS11 & XXL_194)
-	# (!FUNC2 & B11 & ABUS11 & XXL_200 & XXL_180)
+	# (!FUNC2 & !B11 & ABUS11 & XXL_198)
+	# (!FUNC2 & B11 & ABUS11 & XXL_204 & XXL_184)
 	# (FUNC2 & B11 & FUNC0 & FUNC1));
 
 CBUS10 = ((ABUS10 & !FUNC2 & !B10 & !C10)
 	# (FUNC2 & B10 & FUNC0 & FUNC1)
 	# (FUNC2 & !B10 & !FUNC0 & FUNC1)
-	# (!ABUS10 & B10 & !C10 & XXL_188)
-	# (!ABUS10 & B10 & XXL_276)
-	# (!ABUS10 & !B10 & C10 & XXL_176)
+	# (!ABUS10 & B10 & !C10 & XXL_192)
+	# (!ABUS10 & B10 & XXL_280)
+	# (!ABUS10 & !B10 & C10 & XXL_180)
 	# (ABUS10 & FUNC2 & !B10 & !FUNC1)
 	# (ABUS10 & !FUNC0 & !FUNC1)
-	# (ABUS10 & !FUNC2 & B10 & C10 & XXL_180)
+	# (ABUS10 & !FUNC2 & B10 & C10 & XXL_184)
 	# (ABUS10 & !FUNC2 & !B10 & FUNC0 & FUNC1));
 
 CBUS12 = ((FUNC2 & !B12 & !FUNC0 & FUNC1)
-	# (B12 & !ABUS12 & XXL_195 & XXL_188)
-	# (B12 & !ABUS12 & XXL_276)
+	# (B12 & !ABUS12 & XXL_199 & XXL_192)
+	# (B12 & !ABUS12 & XXL_280)
 	# (FUNC2 & !B12 & !FUNC1 & ABUS12)
 	# (!FUNC0 & !FUNC1 & ABUS12)
-	# (!B12 & !ABUS12 & XXL_201 & XXL_176)
+	# (!B12 & !ABUS12 & XXL_205 & XXL_180)
 	# (!FUNC2 & !B12 & FUNC0 & FUNC1 & ABUS12)
-	# (!FUNC2 & !B12 & ABUS12 & XXL_195)
-	# (!FUNC2 & B12 & ABUS12 & XXL_201 & XXL_180)
+	# (!FUNC2 & !B12 & ABUS12 & XXL_199)
+	# (!FUNC2 & B12 & ABUS12 & XXL_205 & XXL_184)
 	# (FUNC2 & B12 & FUNC0 & FUNC1));
 
 CBUS13 = ((FUNC2 & !B13 & !FUNC0 & FUNC1)
-	# (B13 & !ABUS13 & XXL_196 & XXL_188)
-	# (B13 & !ABUS13 & XXL_276)
+	# (B13 & !ABUS13 & XXL_200 & XXL_192)
+	# (B13 & !ABUS13 & XXL_280)
 	# (FUNC2 & !B13 & !FUNC1 & ABUS13)
 	# (!FUNC0 & !FUNC1 & ABUS13)
-	# (!B13 & !ABUS13 & XXL_202 & XXL_176)
+	# (!B13 & !ABUS13 & XXL_206 & XXL_180)
 	# (!FUNC2 & !B13 & FUNC0 & FUNC1 & ABUS13)
-	# (!FUNC2 & !B13 & ABUS13 & XXL_196)
-	# (!FUNC2 & B13 & ABUS13 & XXL_202 & XXL_180)
+	# (!FUNC2 & !B13 & ABUS13 & XXL_200)
+	# (!FUNC2 & B13 & ABUS13 & XXL_206 & XXL_184)
 	# (FUNC2 & B13 & FUNC0 & FUNC1));
 
 !CFOut.D = ((!ALU_CFLATCH & !ALU_CFIN)
-	# (ALU_CFLATCH & !ALU_FL & !ABUS15 & XXL_220)
+	# (ALU_CFLATCH & !ALU_FL & !ABUS15 & XXL_224)
 	# (ALU_CFLATCH & !ALU_FL & !ABUS15 & !B15)
-	# XXL_346);
+	# XXL_350);
 
 CBUS14 = ((FUNC2 & !B14 & !FUNC0 & FUNC1)
-	# (B14 & !ABUS14 & XXL_197 & XXL_188)
-	# (B14 & !ABUS14 & XXL_276)
+	# (B14 & !ABUS14 & XXL_201 & XXL_192)
+	# (B14 & !ABUS14 & XXL_280)
 	# (FUNC2 & !B14 & !FUNC1 & ABUS14)
 	# (!FUNC0 & !FUNC1 & ABUS14)
-	# (!B14 & !ABUS14 & XXL_203 & XXL_176)
+	# (!B14 & !ABUS14 & XXL_207 & XXL_180)
 	# (!FUNC2 & !B14 & FUNC0 & FUNC1 & ABUS14)
-	# (!FUNC2 & !B14 & ABUS14 & XXL_197)
-	# (!FUNC2 & B14 & ABUS14 & XXL_203 & XXL_180)
+	# (!FUNC2 & !B14 & ABUS14 & XXL_201)
+	# (!FUNC2 & B14 & ABUS14 & XXL_207 & XXL_184)
 	# (FUNC2 & B14 & FUNC0 & FUNC1));
 
 CBUS15 = ((ABUS15 & FUNC1 & FUNC0 & !FUNC2 & !B15)
-	# (ABUS15 & !FUNC2 & !B15 & XXL_220)
-	# (ABUS15 & !FUNC2 & B15 & XXL_180 & XXL_208)
+	# (ABUS15 & !FUNC2 & !B15 & XXL_224)
+	# (ABUS15 & !FUNC2 & B15 & XXL_184 & XXL_212)
 	# (FUNC1 & FUNC0 & FUNC2 & B15)
 	# (FUNC1 & !FUNC0 & FUNC2 & !B15)
-	# (!ABUS15 & B15 & XXL_220 & XXL_188)
-	# (!ABUS15 & B15 & XXL_276)
-	# (!ABUS15 & !B15 & XXL_208 & XXL_176)
+	# (!ABUS15 & B15 & XXL_224 & XXL_192)
+	# (!ABUS15 & B15 & XXL_280)
+	# (!ABUS15 & !B15 & XXL_212 & XXL_180)
 	# (ABUS15 & !FUNC1 & FUNC2 & !B15)
 	# (ABUS15 & !FUNC1 & !FUNC0));
 
 !OVFOut.D = ((ALU_FL & !OVFOut.Q)
 	# (!ALU_FL & !ABUS15 & B15)
-	# (!ALU_FL & !ABUS15 & XXL_220)
-	# XXL_347);
+	# (!ALU_FL & !ABUS15 & XXL_224)
+	# XXL_351);
 
-!XXL_165 = (!B10 & !C10);
+!XXL_169 = (!B10 & !C10);
 
-XXL_176 = ((!FUNC0 & FUNC1)
+XXL_180 = ((!FUNC0 & FUNC1)
 	# (FUNC0 & !FUNC1 & !FUNC2));
 
-!XXL_177 = (FUNC0 & !FUNC1 & !FUNC2);
+!XXL_181 = (FUNC0 & !FUNC1 & !FUNC2);
 
-!XXL_178 = (!ABUS12 & !B12);
+!XXL_182 = (!ABUS12 & !B12);
 
-!XXL_179 = (B10 & C10);
+!XXL_183 = (B10 & C10);
 
-!XXL_180 = (FUNC0 & FUNC1);
+!XXL_184 = (FUNC0 & FUNC1);
 
-!XXL_181 = (!ABUS11 & !B11);
+!XXL_185 = (!ABUS11 & !B11);
 
-!XXL_182 = (!ABUS13 & !B13);
+!XXL_186 = (!ABUS13 & !B13);
 
-!XXL_183 = (ABUS14 & B14);
+!XXL_187 = (ABUS14 & B14);
 
-!XXL_184 = (ABUS13 & B13);
+!XXL_188 = (ABUS13 & B13);
 
-!XXL_185 = (ABUS12 & B12);
+!XXL_189 = (ABUS12 & B12);
 
-!XXL_186 = (ABUS11 & B11);
+!XXL_190 = (ABUS11 & B11);
 
-XXL_188 = (FUNC0
+XXL_192 = (FUNC0
 	# (FUNC1 & !FUNC2));
 
-!XXL_189 = (!ABUS14 & !B14);
+!XXL_193 = (!ABUS14 & !B14);
 
-!XXL_191 = (!ABUS1 & !B1);
+!XXL_195 = (!ABUS1 & !B1);
 
-!XXL_193 = (!ABUS2 & !B2);
+!XXL_197 = (!ABUS2 & !B2);
 
-XXL_194 = ((!ABUS10 & XXL_179)
+XXL_198 = ((!ABUS10 & XXL_183)
 	# (!B10 & !C10));
 
-XXL_195 = ((XXL_186 & XXL_194)
+XXL_199 = ((XXL_190 & XXL_198)
 	# (!ABUS11 & !B11));
 
-XXL_196 = ((XXL_185 & XXL_195)
+XXL_200 = ((XXL_189 & XXL_199)
 	# (!ABUS12 & !B12));
 
-XXL_197 = ((XXL_184 & XXL_196)
+XXL_201 = ((XXL_188 & XXL_200)
 	# (!ABUS13 & !B13));
 
-XXL_200 = ((ABUS10 & XXL_165)
+XXL_204 = ((ABUS10 & XXL_169)
 	# (B10 & C10));
 
-XXL_201 = ((XXL_181 & XXL_200)
+XXL_205 = ((XXL_185 & XXL_204)
 	# (ABUS11 & B11));
 
-XXL_202 = ((XXL_178 & XXL_201)
+XXL_206 = ((XXL_182 & XXL_205)
 	# (ABUS12 & B12));
 
-XXL_203 = ((XXL_182 & XXL_202)
+XXL_207 = ((XXL_186 & XXL_206)
 	# (ABUS13 & B13));
 
-XXL_208 = ((XXL_189 & XXL_203)
+XXL_212 = ((XXL_193 & XXL_207)
 	# (ABUS14 & B14));
 
-XXL_220 = ((XXL_183 & XXL_197)
+XXL_224 = ((XXL_187 & XXL_201)
 	# (!ABUS14 & !B14));
 
-XXL_273 = ((XXL_285 & XXL_299)
+XXL_277 = ((XXL_289 & XXL_303)
 	# (!ABUS1 & !B1));
 
-XXL_276 = ((!FUNC1 & FUNC2)
+XXL_280 = ((!FUNC1 & FUNC2)
 	# (FUNC0 & FUNC1));
 
-XXL_277 = ((ABUS1 & B1)
-	# (XXL_191 & ABUS0 & B0));
+XXL_281 = ((ABUS1 & B1)
+	# (XXL_195 & ABUS0 & B0));
 
-!XXL_284 = (ABUS2 & B2);
+!XXL_288 = (ABUS2 & B2);
 
-!XXL_285 = (ABUS1 & B1);
+!XXL_289 = (ABUS1 & B1);
 
-!XXL_286 = (!ALU_WC & CFOut.Q);
+!XXL_290 = (!ALU_WC & CFOut.Q);
 
-!XXL_299 = (ABUS0 & B0);
+!XXL_303 = (ABUS0 & B0);
 
-XXL_341 = ((XXL_193 & XXL_277)
+XXL_345 = ((XXL_197 & XXL_281)
 	# (ABUS2 & B2));
 
-XXL_342 = ((ABUS0 & !FUNC2 & !B0 & FUNC0 & !ALU_WC & CFOut.Q)
+XXL_346 = ((ABUS0 & !FUNC2 & !B0 & FUNC0 & !ALU_WC & CFOut.Q)
 	# (ABUS0 & !FUNC2 & B0 & !FUNC0 & !ALU_WC & CFOut.Q)
 	# (FUNC1 & FUNC2 & B0 & FUNC0)
 	# (FUNC1 & FUNC2 & !B0 & !FUNC0)
 	# (!ABUS0 & B0 & FUNC0 & !ALU_WC & CFOut.Q));
 
-XXL_343 = ((!ABUS0 & !FUNC1 & FUNC2 & B0)
-	# (!ABUS0 & FUNC1 & !FUNC2 & B0 & XXL_286)
+XXL_347 = ((!ABUS0 & !FUNC1 & FUNC2 & B0)
+	# (!ABUS0 & FUNC1 & !FUNC2 & B0 & XXL_290)
 	# (!ABUS0 & FUNC1 & !B0 & !FUNC0 & !ALU_WC & CFOut.Q)
-	# (!ABUS0 & !FUNC1 & !FUNC2 & !B0 & XXL_286 & FUNC0)
+	# (!ABUS0 & !FUNC1 & !FUNC2 & !B0 & XXL_290 & FUNC0)
 	# (ABUS0 & !FUNC1 & FUNC2 & !B0));
 
-XXL_344 = ((B3 & !ABUS3 & XXL_188 & !ABUS2 & !B2)
-	# (!B3 & ABUS3 & XXL_284 & XXL_273 & !FUNC2)
+XXL_348 = ((B3 & !ABUS3 & XXL_192 & !ABUS2 & !B2)
+	# (!B3 & ABUS3 & XXL_288 & XXL_277 & !FUNC2)
 	# (!B3 & ABUS3 & !ABUS2 & !B2 & !FUNC2)
-	# (!B3 & !ABUS3 & XXL_176 & XXL_341)
-	# (B3 & ABUS3 & !FUNC2 & XXL_341 & XXL_180));
+	# (!B3 & !ABUS3 & XXL_180 & XXL_345)
+	# (B3 & ABUS3 & !FUNC2 & XXL_345 & XXL_184));
 
-XXL_345 = ((!B3 & FUNC2 & !FUNC0 & FUNC1)
+XXL_349 = ((!B3 & FUNC2 & !FUNC0 & FUNC1)
 	# (ABUS3 & !FUNC0 & !FUNC1)
 	# (!B3 & ABUS3 & !FUNC2 & FUNC0 & FUNC1)
 	# (!B3 & ABUS3 & FUNC2 & !FUNC1)
-	# (B3 & !ABUS3 & XXL_276));
+	# (B3 & !ABUS3 & XXL_280));
 
-XXL_346 = ((ALU_CFLATCH & !ALU_FL & !B15 & XXL_220)
+XXL_350 = ((ALU_CFLATCH & !ALU_FL & !B15 & XXL_224)
 	# (ALU_CFLATCH & !ALU_FL & !FUNC0 & !FUNC1)
 	# (ALU_CFLATCH & !ALU_FL & FUNC2)
 	# (ALU_CFLATCH & !ALU_FL & FUNC0 & FUNC1)
 	# (ALU_CFLATCH & ALU_FL & !CFOut.Q));
 
-XXL_347 = ((!ALU_FL & ABUS15 & !B15)
-	# (!ALU_FL & ABUS15 & XXL_208)
+XXL_351 = ((!ALU_FL & ABUS15 & !B15)
+	# (!ALU_FL & ABUS15 & XXL_212)
 	# (!ALU_FL & !FUNC0 & !FUNC1)
 	# (!ALU_FL & FUNC2)
 	# (!ALU_FL & FUNC0 & FUNC1));
@@ -931,6 +939,7 @@ OVFOut.C = D_CLK_IN;
 PLCC84 Pin/Node Placement:
 ------------------------------------
 Pin 1  = ALU_FL;
+Pin 2  = UNUSED4;
 Pin 4  = CBUS2; /* MC 16 */
 Pin 5  = ZFOut; /* MC 14 */
 Pin 6  = ABUS15; /* MC 13 */
@@ -958,7 +967,9 @@ Pin 31 = ABUS1; /* MC 35 */
 Pin 33 = CBUS6; /* MC 64 */ 
 Pin 34 = CBUS5; /* MC 61 */ 
 Pin 35 = CBUS8; /* MC 59 */ 
+Pin 36 = UNUSED1; /* MC 57 */ 
 Pin 37 = CBUS7; /* MC 56 */ 
+Pin 39 = UNUSED2; /* MC 53 */ 
 Pin 40 = BBUS15; /* MC 51 */ 
 Pin 41 = BBUS13; /* MC 49 */ 
 Pin 44 = ABUS12; /* MC 65 */ 
@@ -972,6 +983,7 @@ Pin 52 = CBUS4; /* MC 80 */
 Pin 54 = ABUS8; /* MC 83 */ 
 Pin 55 = ALU_CFLATCH; /* MC 85 */ 
 Pin 56 = ALU_CFIN; /* MC 86 */ 
+Pin 57 = UNUSED3; /* MC 88 */ 
 Pin 58 = CBUS0; /* MC 91 */ 
 Pin 60 = CFOut; /* MC 93 */ 
 Pin 61 = OVFOut; /* MC 94 */ 
@@ -994,78 +1006,78 @@ Pin 80 = BBUS12; /* MC 126 */
 Pin 81 = BBUS11; /* MC 128 */ 
 Pin 83 = D_CLK_IN;
 Pin 84 = ALU_OE;
-PINNODE 314 = XXL_180; /* MC 14 Foldback */
-PINNODE 318 = XXL_284; /* MC 18 Foldback */
-PINNODE 319 = XXL_189; /* MC 19 Foldback */
-PINNODE 320 = XXL_185; /* MC 20 Foldback */
-PINNODE 321 = XXL_183; /* MC 21 Foldback */
-PINNODE 322 = XXL_180; /* MC 22 Foldback */
-PINNODE 325 = XXL_178; /* MC 25 Foldback */
-PINNODE 330 = XXL_177; /* MC 30 Foldback */
-PINNODE 333 = XXL_286; /* MC 33 Foldback */
-PINNODE 334 = XXL_186; /* MC 34 Foldback */
-PINNODE 335 = XXL_184; /* MC 35 Foldback */
-PINNODE 336 = XXL_180; /* MC 36 Foldback */
-PINNODE 341 = XXL_179; /* MC 41 Foldback */
-PINNODE 344 = XXL_177; /* MC 44 Foldback */
-PINNODE 347 = XXL_165; /* MC 47 Foldback */
-PINNODE 357 = XXL_180; /* MC 57 Foldback */
-PINNODE 362 = XXL_177; /* MC 62 Foldback */
-PINNODE 371 = XXL_299; /* MC 71 Foldback */
-PINNODE 372 = XXL_285; /* MC 72 Foldback */
-PINNODE 373 = XXL_284; /* MC 73 Foldback */
-PINNODE 374 = XXL_191; /* MC 74 Foldback */
-PINNODE 375 = XXL_180; /* MC 75 Foldback */
-PINNODE 378 = XXL_177; /* MC 78 Foldback */
-PINNODE 390 = XXL_286; /* MC 90 Foldback */
-PINNODE 393 = XXL_193; /* MC 93 Foldback */
-PINNODE 394 = XXL_177; /* MC 94 Foldback */
-PINNODE 411 = XXL_182; /* MC 111 Foldback */
-PINNODE 412 = XXL_181; /* MC 112 Foldback */
-PINNODE 617 = XXL_276; /* MC 17 Feedback */
-PINNODE 618 = XXL_188; /* MC 18 Feedback */
-PINNODE 619 = XXL_176; /* MC 19 Feedback */
-PINNODE 620 = XXL_208; /* MC 20 Feedback */
-PINNODE 621 = XXL_220; /* MC 21 Feedback */
-PINNODE 622 = XXL_202; /* MC 22 Feedback */
-PINNODE 625 = XXL_196; /* MC 25 Feedback */
+PINNODE 314 = XXL_184; /* MC 14 Foldback */
+PINNODE 318 = XXL_288; /* MC 18 Foldback */
+PINNODE 319 = XXL_193; /* MC 19 Foldback */
+PINNODE 320 = XXL_189; /* MC 20 Foldback */
+PINNODE 321 = XXL_187; /* MC 21 Foldback */
+PINNODE 322 = XXL_184; /* MC 22 Foldback */
+PINNODE 325 = XXL_182; /* MC 25 Foldback */
+PINNODE 330 = XXL_181; /* MC 30 Foldback */
+PINNODE 333 = XXL_290; /* MC 33 Foldback */
+PINNODE 334 = XXL_190; /* MC 34 Foldback */
+PINNODE 335 = XXL_188; /* MC 35 Foldback */
+PINNODE 336 = XXL_184; /* MC 36 Foldback */
+PINNODE 341 = XXL_183; /* MC 41 Foldback */
+PINNODE 344 = XXL_181; /* MC 44 Foldback */
+PINNODE 347 = XXL_169; /* MC 47 Foldback */
+PINNODE 357 = XXL_184; /* MC 57 Foldback */
+PINNODE 362 = XXL_181; /* MC 62 Foldback */
+PINNODE 371 = XXL_303; /* MC 71 Foldback */
+PINNODE 372 = XXL_289; /* MC 72 Foldback */
+PINNODE 373 = XXL_288; /* MC 73 Foldback */
+PINNODE 374 = XXL_195; /* MC 74 Foldback */
+PINNODE 375 = XXL_184; /* MC 75 Foldback */
+PINNODE 378 = XXL_181; /* MC 78 Foldback */
+PINNODE 393 = XXL_290; /* MC 93 Foldback */
+PINNODE 394 = XXL_181; /* MC 94 Foldback */
+PINNODE 410 = XXL_197; /* MC 110 Foldback */
+PINNODE 411 = XXL_186; /* MC 111 Foldback */
+PINNODE 412 = XXL_185; /* MC 112 Foldback */
+PINNODE 617 = XXL_280; /* MC 17 Feedback */
+PINNODE 618 = XXL_192; /* MC 18 Feedback */
+PINNODE 619 = XXL_180; /* MC 19 Feedback */
+PINNODE 620 = XXL_212; /* MC 20 Feedback */
+PINNODE 621 = XXL_224; /* MC 21 Feedback */
+PINNODE 622 = XXL_206; /* MC 22 Feedback */
+PINNODE 625 = XXL_200; /* MC 25 Feedback */
 PINNODE 630 = B0; /* MC 30 Feedback */
-PINNODE 631 = XXL_345; /* MC 31 Feedback */
-PINNODE 632 = XXL_344; /* MC 32 Feedback */
-PINNODE 634 = XXL_197; /* MC 34 Feedback */
-PINNODE 635 = XXL_200; /* MC 35 Feedback */
-PINNODE 636 = XXL_195; /* MC 36 Feedback */
-PINNODE 641 = XXL_194; /* MC 41 Feedback */
+PINNODE 631 = XXL_349; /* MC 31 Feedback */
+PINNODE 632 = XXL_348; /* MC 32 Feedback */
+PINNODE 634 = XXL_201; /* MC 34 Feedback */
+PINNODE 635 = XXL_204; /* MC 35 Feedback */
+PINNODE 636 = XXL_199; /* MC 36 Feedback */
+PINNODE 641 = XXL_198; /* MC 41 Feedback */
 PINNODE 644 = B1; /* MC 44 Feedback */
 PINNODE 647 = C10; /* MC 47 Feedback */
-PINNODE 648 = XXL_343; /* MC 48 Feedback */
-PINNODE 649 = B6; /* MC 49 Feedback */
-PINNODE 650 = B5; /* MC 50 Feedback */
-PINNODE 651 = B4; /* MC 51 Feedback */
-PINNODE 652 = B3; /* MC 52 Feedback */
-PINNODE 653 = B8; /* MC 53 Feedback */
-PINNODE 654 = B2; /* MC 54 Feedback */
-PINNODE 657 = B7; /* MC 57 Feedback */
-PINNODE 662 = C6; /* MC 62 Feedback */
-PINNODE 668 = B13; /* MC 68 Feedback */
-PINNODE 669 = B12; /* MC 69 Feedback */
-PINNODE 670 = B11; /* MC 70 Feedback */
-PINNODE 671 = B10; /* MC 71 Feedback */
-PINNODE 672 = B9; /* MC 72 Feedback */
-PINNODE 673 = XXL_273; /* MC 73 Feedback */
+PINNODE 648 = XXL_347; /* MC 48 Feedback */
+PINNODE 649 = B5; /* MC 49 Feedback */
+PINNODE 650 = B4; /* MC 50 Feedback */
+PINNODE 651 = B3; /* MC 51 Feedback */
+PINNODE 652 = B2; /* MC 52 Feedback */
+PINNODE 653 = C8; /* MC 53 Feedback */
+PINNODE 654 = C6; /* MC 54 Feedback */
+PINNODE 662 = C7; /* MC 62 Feedback */
+PINNODE 668 = B10; /* MC 68 Feedback */
+PINNODE 669 = B9; /* MC 69 Feedback */
+PINNODE 670 = B8; /* MC 70 Feedback */
+PINNODE 671 = B7; /* MC 71 Feedback */
+PINNODE 672 = B6; /* MC 72 Feedback */
+PINNODE 673 = XXL_281; /* MC 73 Feedback */
 PINNODE 674 = XXL_277; /* MC 74 Feedback */
 PINNODE 678 = C5; /* MC 78 Feedback */
-PINNODE 687 = XXL_341; /* MC 87 Feedback */
-PINNODE 689 = B14; /* MC 89 Feedback */
-PINNODE 690 = B15; /* MC 90 Feedback */
-PINNODE 692 = XXL_347; /* MC 92 Feedback */
+PINNODE 686 = B15; /* MC 86 Feedback */
+PINNODE 687 = B14; /* MC 87 Feedback */
+PINNODE 688 = B13; /* MC 88 Feedback */
+PINNODE 689 = B12; /* MC 89 Feedback */
+PINNODE 690 = B11; /* MC 90 Feedback */
+PINNODE 692 = XXL_351; /* MC 92 Feedback */
 PINNODE 695 = XXL_346; /* MC 95 Feedback */
-PINNODE 696 = XXL_342; /* MC 96 Feedback */
-PINNODE 707 = XXL_201; /* MC 107 Feedback */
-PINNODE 708 = XXL_203; /* MC 108 Feedback */
-PINNODE 709 = C9; /* MC 109 Feedback */
-PINNODE 710 = C7; /* MC 110 Feedback */
-PINNODE 711 = C8; /* MC 111 Feedback */
+PINNODE 696 = XXL_350; /* MC 96 Feedback */
+PINNODE 708 = XXL_207; /* MC 108 Feedback */
+PINNODE 709 = XXL_345; /* MC 109 Feedback */
+PINNODE 710 = XXL_205; /* MC 110 Feedback */
+PINNODE 711 = C9; /* MC 111 Feedback */
 PINNODE 712 = C4; /* MC 112 Feedback */
 
 ** Resource Usage **
@@ -1099,71 +1111,71 @@ MC10  0         --                 --              --        --             0   
 MC11  8    --   ABUS3       INPUT  --              --        --             0     slow
 MC12  0         --                 --              --        --             0     slow
 MC13  6    --   ABUS15      INPUT  --              --        --             0     slow
-MC14  5    on   ZFOut       Dg---  --              XXL_180   --             3     slow
+MC14  5    on   ZFOut       Dg---  --              XXL_184   --             3     slow
 MC15  0         --                 --              NA        -> CBUS2       5     slow
 MC16  4    OE0  CBUS2       C----  --              NA        --             5     slow
-MC17  22   --   ABUS10      INPUT  XXL_276  C----  --        --             2     slow
-MC18  0         --                 XXL_188  C----  XXL_284   --             3     slow
-MC19  21   --   ABUS11      INPUT  XXL_176  C----  XXL_189   --             3     slow
-MC20  0         --                 XXL_208  C----  XXL_185   --             3     slow
-MC21  20   --   ABUS13      INPUT  XXL_220  C----  XXL_183   --             3     slow
-MC22  0         --                 XXL_202  C----  XXL_180   --             3     slow
+MC17  22   --   ABUS10      INPUT  XXL_280  C----  --        --             2     slow
+MC18  0         --                 XXL_192  C----  XXL_288   --             3     slow
+MC19  21   --   ABUS11      INPUT  XXL_180  C----  XXL_193   --             3     slow
+MC20  0         --                 XXL_212  C----  XXL_189   --             3     slow
+MC21  20   --   ABUS13      INPUT  XXL_224  C----  XXL_187   --             3     slow
+MC22  0         --                 XXL_206  C----  XXL_184   --             3     slow
 MC23  0         --                 --              NA        -> CBUS15      5     slow
 MC24  18   OE0  CBUS15      C----  --              NA        --             5     slow
-MC25  17   --   BBUS14      INPUT  XXL_196  C----  XXL_178   --             3     slow
+MC25  17   --   BBUS14      INPUT  XXL_200  C----  XXL_182   --             3     slow
 MC26  0         --                 --              NA        -> CBUS12      5     slow
 MC27  16   OE0  CBUS12      C----  --              NA        --             5     slow
 MC28  0         --                 --              NA        -> CBUS14      5     slow
 MC29  15   OE0  CBUS14      C----  --              NA        --             5     slow
-MC30  0         --                 B0       C----  XXL_177   --             3     slow
-MC31  0         --                 XXL_345  C----  NA        --             5     slow
-MC32  14   --   TDI         INPUT  XXL_344  C----  NA        --             5     slow
-MC33  0         --                 --              XXL_286   --             1     slow
-MC34  0         --                 XXL_197  C----  XXL_186   --             3     slow
-MC35  31   --   ABUS1       INPUT  XXL_200  C----  XXL_184   --             3     slow
-MC36  0         --                 XXL_195  C----  XXL_180   --             3     slow
+MC30  0         --                 B0       C----  XXL_181   --             3     slow
+MC31  0         --                 XXL_349  C----  NA        --             5     slow
+MC32  14   --   TDI         INPUT  XXL_348  C----  NA        --             5     slow
+MC33  0         --                 --              XXL_290   --             1     slow
+MC34  0         --                 XXL_201  C----  XXL_190   --             3     slow
+MC35  31   --   ABUS1       INPUT  XXL_204  C----  XXL_188   --             3     slow
+MC36  0         --                 XXL_199  C----  XXL_184   --             3     slow
 MC37  30   --   ABUS0       INPUT  --              NA        -> CBUS13      5     slow
 MC38  29   OE0  CBUS13      C----  --              NA        --             5     slow
 MC39  0         --                 --              NA        -> CBUS11      5     slow
 MC40  28   OE0  CBUS11      C----  --              NA        --             5     slow
-MC41  0         --                 XXL_194  C----  XXL_179   --             3     slow
+MC41  0         --                 XXL_198  C----  XXL_183   --             3     slow
 MC42  0         --                 --              NA        -> CBUS10      5     slow
 MC43  27   OE0  CBUS10      C----  --              NA        --             5     slow
-MC44  0         --                 B1       C----  XXL_177   --             3     slow
+MC44  0         --                 B1       C----  XXL_181   --             3     slow
 MC45  25   --   ABUS14      INPUT  --              NA        -> CBUS9       5     slow
 MC46  24   OE0  CBUS9       C----  --              NA        --             5     slow
-MC47  0         --                 C10      C----  XXL_165   --             4     slow
-MC48  23   --   TMS         INPUT  XXL_343  C----  NA        --             5     slow
-MC49  41   --   BBUS13      INPUT  B6       C----  --        --             2     slow
-MC50  0         --                 B5       C----  --        --             2     slow
-MC51  40   --   BBUS15      INPUT  B4       C----  --        --             2     slow
-MC52  0         --                 B3       C----  --        --             2     slow
-MC53  39        --                 B8       C----  --        --             2     slow
-MC54  0         --                 B2       C----  --        --             2     slow
+MC47  0         --                 C10      C----  XXL_169   --             4     slow
+MC48  23   --   TMS         INPUT  XXL_347  C----  NA        --             5     slow
+MC49  41   --   BBUS13      INPUT  B5       C----  --        --             2     slow
+MC50  0         --                 B4       C----  --        --             2     slow
+MC51  40   --   BBUS15      INPUT  B3       C----  --        --             2     slow
+MC52  0         --                 B2       C----  --        --             2     slow
+MC53  39   --   UNUSED2     INPUT  C8       C----  --        --             3     slow
+MC54  0         --                 C6       C----  --        --             3     slow
 MC55  0         --                 --              NA        -> CBUS7       5     slow
 MC56  37   OE0  CBUS7       C----  --              NA        --             5     slow
-MC57  36        --                 B7       C----  XXL_180   --             3     slow
+MC57  36   on   UNUSED1     C----  --              XXL_184   --             2     slow
 MC58  0         --                 --              NA        -> CBUS8       5     slow
 MC59  35   OE0  CBUS8       C----  --              NA        --             5     slow
 MC60  0         --                 --              NA        -> CBUS5       5     slow
 MC61  34   OE0  CBUS5       C----  --              NA        --             5     slow
-MC62  0         --                 C6       C----  XXL_177   --             4     slow
+MC62  0         --                 C7       C----  XXL_181   --             4     slow
 MC63  0         --                 --              NA        -> CBUS6       5     slow
 MC64  33   OE0  CBUS6       C----  --              NA        --             5     slow
 MC65  44   --   ABUS12      INPUT  --              --        --             0     slow
 MC66  0         --                 --              --        --             0     slow
 MC67  45   --   BBUS1       INPUT  --              --        --             0     slow
-MC68  0         --                 B13      C----  --        --             2     slow
-MC69  46   --   ABUS9       INPUT  B12      C----  --        --             2     slow
-MC70  0         --                 B11      C----  --        --             2     slow
-MC71  0         --                 B10      C----  XXL_299   --             3     slow
-MC72  48   --   ABUS6       INPUT  B9       C----  XXL_285   --             3     slow
-MC73  49   --   ABUS5       INPUT  XXL_273  C----  XXL_284   --             3     slow
-MC74  0         --                 XXL_277  C----  XXL_191   --             3     slow
-MC75  50   OE0  CBUS3       C----  --              XXL_180   --             5     slow
+MC68  0         --                 B10      C----  --        --             2     slow
+MC69  46   --   ABUS9       INPUT  B9       C----  --        --             2     slow
+MC70  0         --                 B8       C----  --        --             2     slow
+MC71  0         --                 B7       C----  XXL_303   --             3     slow
+MC72  48   --   ABUS6       INPUT  B6       C----  XXL_289   --             3     slow
+MC73  49   --   ABUS5       INPUT  XXL_281  C----  XXL_288   --             3     slow
+MC74  0         --                 XXL_277  C----  XXL_195   --             3     slow
+MC75  50   OE0  CBUS3       C----  --              XXL_184   --             5     slow
 MC76  0         --                 --              NA        -> CBUS1       5     slow
 MC77  51   OE0  CBUS1       C----  --              NA        --             5     slow
-MC78  0         --                 C5       C----  XXL_177   --             4     slow
+MC78  0         --                 C5       C----  XXL_181   --             4     slow
 MC79  0         --                 --              NA        -> CBUS4       5     slow
 MC80  52   OE0  CBUS4       C----  --              NA        --             5     slow
 MC81  0         --                 --              --        --             0     slow
@@ -1171,17 +1183,17 @@ MC82  0         --                 --              --        --             0   
 MC83  54   --   ABUS8       INPUT  --              --        --             0     slow
 MC84  0         --                 --              --        --             0     slow
 MC85  55   --   ALU_CFLATCH INPUT  --              --        --             0     slow
-MC86  56   --   ALU_CFIN    INPUT  --              --        --             0     slow
-MC87  0         --                 XXL_341  C----  --        --             2     slow
-MC88  57        --                 --              --        --             0     slow
-MC89  0         --                 B14      C----  --        --             2     slow
-MC90  0         --                 B15      C----  XXL_286   --             3     slow
+MC86  56   --   ALU_CFIN    INPUT  B15      C----  --        --             2     slow
+MC87  0         --                 B14      C----  --        --             2     slow
+MC88  57   --   UNUSED3     INPUT  B13      C----  --        --             2     slow
+MC89  0         --                 B12      C----  --        --             2     slow
+MC90  0         --                 B11      C----  --        --             2     slow
 MC91  58   OE0  CBUS0       C----  --              NA        --             5     slow
-MC92  0         --                 XXL_347  C----  NA        --             5     slow
-MC93  60   on   CFOut       Dg---  --              XXL_193   --             5     slow
-MC94  61   on   OVFOut      Dg---  --              XXL_177   --             5     slow
+MC92  0         --                 XXL_351  C----  NA        --             5     slow
+MC93  60   on   CFOut       Dg---  --              XXL_290   --             5     slow
+MC94  61   on   OVFOut      Dg---  --              XXL_181   --             5     slow
 MC95  0         --                 XXL_346  C----  NA        --             5     slow
-MC96  62   --   TCK         INPUT  XXL_342  C----  NA        --             5     slow
+MC96  62   --   TCK         INPUT  XXL_350  C----  NA        --             5     slow
 MC97  63   --   ABUS7       INPUT  --              --        --             0     slow
 MC98  0         --                 --              --        --             0     slow
 MC99  64   --   BBUS0       INPUT  --              --        --             0     slow
@@ -1192,12 +1204,12 @@ MC103 0         --                 --              --        --             0   
 MC104 67   --   ABUS4       INPUT  --              --        --             0     slow
 MC105 68   --   ALU_WC      INPUT  --              --        --             0     slow
 MC106 0         --                 --              --        --             0     slow
-MC107 69   --   BBUS4       INPUT  XXL_201  C----  --        --             2     slow
-MC108 0         --                 XXL_203  C----  --        --             2     slow
-MC109 70   --   BBUS3       INPUT  C9       C----  --        --             3     slow
-MC110 0         --                 C7       C----  --        --             3     slow
-MC111 0         --                 C8       C----  XXL_182   --             4     slow
-MC112 71   --   TDO         INPUT  C4       C----  XXL_181   --             4     slow
+MC107 69   --   BBUS4       INPUT  --              --        --             0     slow
+MC108 0         --                 XXL_207  C----  --        --             2     slow
+MC109 70   --   BBUS3       INPUT  XXL_345  C----  --        --             2     slow
+MC110 0         --                 XXL_205  C----  XXL_197   --             3     slow
+MC111 0         --                 C9       C----  XXL_186   --             4     slow
+MC112 71   --   TDO         INPUT  C4       C----  XXL_185   --             4     slow
 MC113 0         --                 --              --        --             0     slow
 MC114 0         --                 --              --        --             0     slow
 MC115 73   --   BBUS7       INPUT  --              --        --             0     slow
@@ -1214,7 +1226,7 @@ MC125 79   --   BBUS10      INPUT  --              --        --             0   
 MC126 80   --   BBUS12      INPUT  --              --        --             0     slow
 MC127 0         --                 --              --        --             0     slow
 MC128 81   --   BBUS11      INPUT  --              --        --             0     slow
-MC0   2         --                 --              --        --             0     slow
+MC0   2         UNUSED4     INPUT  --              --        --             0     slow
 MC0   1         ALU_FL      INPUT  --              --        --             0     slow
 MC0   84        ALU_OE      INPUT  --              --        --             0     slow
 MC0   83        D_CLK_IN    INPUT  --              --        --             0     slow
@@ -1223,22 +1235,22 @@ Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
 A: LC1	- LC16		2/16(12%)	8/16(50%)	1/16(6%)	13/80(16%)	(28)	1
 B: LC17	- LC32		13/16(81%)	8/16(50%)	7/16(43%)	63/80(78%)	(25)	3
 C: LC33	- LC48		11/16(68%)	8/16(50%)	7/16(43%)	65/80(81%)	(25)	4
-D: LC49	- LC64		12/16(75%)	6/16(37%)	2/16(12%)	59/80(73%)	(25)	4
+D: LC49	- LC64		12/16(75%)	8/16(50%)	2/16(12%)	60/80(75%)	(25)	4
 E: LC65	- LC80		11/16(68%)	8/16(50%)	6/16(37%)	47/80(58%)	(25)	2
-F: LC81	- LC96		9/16(56%)	7/16(43%)	3/16(18%)	37/80(46%)	(24)	0
-G: LC97	- LC112		6/16(37%)	8/16(50%)	2/16(12%)	18/80(22%)	(18)	0
+F: LC81	- LC96		11/16(68%)	8/16(50%)	2/16(12%)	40/80(50%)	(24)	0
+G: LC97	- LC112		5/16(31%)	8/16(50%)	3/16(18%)	15/80(18%)	(15)	0
 H: LC113- LC128		0/16(0%)	8/16(50%)	0/16(0%)	0/80(0%)	(0)	0
 
-Total dedicated input used:	3/4 	(75%)
-Total I/O pins used		61/64 	(95%)
-Total Logic cells used 		78/128 	(60%)
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		64/64 	(100%)
+Total Logic cells used 		79/128 	(61%)
 Total Flip-Flop used 		3/128 	(2%)
 Total Foldback logic used 	28/128 	(21%)
-Total Nodes+FB/MCells 		92/128 	(71%)
+Total Nodes+FB/MCells 		93/128 	(72%)
 Total cascade used 		14
-Total input pins 		45
-Total output pins 		19
-Total Pts 			302
+Total input pins 		48
+Total output pins 		20
+Total Pts 			303
 Creating pla file C:\ALU.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS
