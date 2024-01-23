@@ -1,0 +1,321 @@
+Name	 PCPTR;
+PartNo   PCPTR;
+Date     04/18/2022;
+Revision 01;
+Designer Sponaugle;
+Company  Ratiometric;
+Assembly None;
+Location None;
+Device   f1508ispplcc84;
+      
+
+PROPERTY ATMEL {TDI_PULLUP = ON};
+PROPERTY ATMEL {TMS_PULLUP = ON};
+PROPERTY ATMEL {PREASSIGN = KEEP};
+PROPERTY ATMEL {XOR_SYNTHESIS = OFF};
+
+/* Input Pins */
+
+Pin[44,45,46]  = [PC_MODE0..2];
+Pin[2]  = ADBUS_OE;
+Pin[84]  = BBUS_OE;
+Pin[83]  = D_CLK_IN;
+Pin[1]  = RESET_IN;
+Pin[55] = CF_IN;
+Pin[57] = OVF_IN;
+Pin[56] = ZF_IN;
+Pin[60,61,63] = [JCOND0..2];
+Pin[58] = JMPINST;     /* Active Low input to indicate a jump instruction is executing */
+
+/* Output Pins */
+
+Pin[41,39,40,37,36,35,33,34,31,29,30,28,27,25,24]  = [ADBUS1..15];   
+
+/* Bidirectional Pins */
+
+Pin[20,22,21,18,17,15,16,12,11,10,8,9,6,5,4]  = [BBUS1..15];
+
+           
+
+PINNODE = [PC0..15];       /* The actual program counter register, 16 bits wide */
+PINNODE = [C2..15];
+PINNODE = [S1..15];
+
+[ADBUS1..15].oe = !ADBUS_OE;
+[BBUS1..15].oe = !BBUS_OE;
+
+[ADBUS1..15] = ((!PC_MODE2) & [PC1..15]) 
+                # (PC_MODE2 & [S1..15]);
+[BBUS1..15] = [PC1..15];
+
+
+/*
+
+        PC_MODE Inputs  2/1/0 (3 bits)
+        000          Do Nothing
+        001          Increment PC Register by 2 (bit 0 is always 0)  [FETCH]
+        010          Load PC Register from BBUS [JMP DIRECT, CALL DIRECT]
+        011          Add to PC Register from BBUS (Relative Jump), ignore bit 0 from BBUS, latch back into PC. [JMP RELATIVE, CALL RELATIVE]
+        100          Add PC Register Value to BBUS and output on AD immediatly, but don't latch back into the PC register
+
+*/
+
+
+/* Handle Jump conditions.  
+  If JMPINST == 0, that indicates we are doing a jump instruction and we need to compare the flags based
+  on the jump condition, and if a jump should occur force PC_MODE1 high.
+
+  Jump Condition Code               Condition
+  000                               Always Jump
+  001                               Jump if ZF==1
+  010                               Jump if ZF==0
+  011                               Jump if CF==1
+  100                               Jump if CF==0
+  101                               Jump if OVF==1
+  110                               Jump if OVF==0
+  111                               Always Jump
+
+  */
+
+FIELD jumpc = [JCOND0..2];
+
+/* FORCEJUMP == 1 if we want to force a jump to occur.  This happens if both JMPINST==0, and  
+   the conditions are a correct match for the jump to occur.   If this is true, FORCEJUMP will force
+   the upper bit of PC_MODE to 1, which will force either a LOAD PC or ADD PC */
+
+JUMPCONDITION =( ( jumpc:['b'000] )
+            # ( jumpc:['b'001] & ZF_IN )
+            # ( jumpc:['b'010] & !ZF_IN )
+            # ( jumpc:['b'011] & CF_IN )
+            # ( jumpc:['b'100] & !CF_IN )
+            # ( jumpc:['b'101] & OVF_IN )
+            # ( jumpc:['b'110] & !OVF_IN )
+            # ( jumpc:['b'111]));
+
+/* Let's fix up PC_MODE by creating PC_MODEJ, which as the addition of the jump modification.
+
+   If JUMPCONDITION == 0 and JMPINST == 0 (Jump instruction, but don't jump)
+     PC_MODE      PC_MODEJ
+      X00            X00
+      X01            X00
+   If JUMPCONDITION == 1 and JMPINST == 0 (Jump instructio, jump)
+    PC_MODE      PC_MODEJ
+      X00            X10
+      X01            X11
+   If JMPINST == 1
+     PC_MODE      PC_MODEJ
+      X00            X00
+      X01            X01
+
+
+ */
+
+//PINNODE = PC_MODEJ1,PC_MODEJ0;
+PC_MODEJ0 = PC_MODE0 & (JMPINST # JUMPCONDITION);
+PC_MODEJ1 = PC_MODE1 # (!JMPINST & JUMPCONDITION);
+PC_MODEJ2 = PC_MODE2;
+FIELD pcmode = [PC_MODEJ0..2];
+
+
+/* PC Adder/Subtractor Equations
+
+    To Add 1 (PC_MODE==001), set C1=1, and B1..B15=0
+    To Add Offset (PC_MODE=011 or PC_MODE=100), set C0=0, and B0..B15=BBUS0..BBUS15
+    PC must always have bit0=0, so on load we will not load bit 0, but on output
+    we will output a zero.
+
+    When we add a offset from BBUS to PC BBUS bit 0 is ignored.
+
+*/
+
+C1 = (PC_MODEJ0 & !PC_MODEJ1 & !PC_MODEJ2);  // if PC_MODE = 001, set carry in to 1, otherwise 0
+/* 
+   For the [B1..B15], we want the [B] field to be the BBUS value if we are in PC_MODE 010,011, or 1XX. 
+   IF PC_MODE is 000 or 001 the [B] field is 0.
+
+   Note that for PC_MODE 010 the result of the addition will not be used, but including that simplifies 
+   the logic.
+   */
+
+[B1..B15] = ((PC_MODEJ1#PC_MODEJ2) & [BBUS1..BBUS15].io);
+[A1..A15] = [PC1..PC15];
+
+
+P1 = A1 $ B1;
+G1 = A1 & B1;
+S1 = P1 $ C1;
+C2 = G1 # (P1&C1);
+
+P2 = A2 $ B2;
+G2 = A2 & B2;
+S2 = P2 $ C2;
+C3 = G2 # (P2&C2);
+
+P3 = A3 $ B3;
+G3 = A3 & B3;
+S3 = P3 $ C3;
+C4 = G3 # (P3&C3);
+
+P4 = A4 $ B4;
+G4 = A4 & B4;
+S4 = P4 $ C4;
+C5 = G4 # (P4&C4);
+
+P5 = A5 $ B5;
+G5 = A5 & B5;
+S5 = P5 $ C5;
+C6 = G5 # (P5&C5);
+
+P6 = A6 $ B6;
+G6 = A6 & B6;
+S6 = P6 $ C6;
+C7 = G6 # (P6&C6);
+
+P7 = A7 $ B7;
+G7 = A7 & B7;
+S7 = P7 $ C7;
+C8 = G7 # (P7&C7);
+
+P8 = A8 $ B8;
+G8 = A8 & B8;
+S8 = P8 $ C8;
+C9 = G8 # (P8&C8);
+
+P9 = A9 $ B9;
+G9 = A9 & B9;
+S9 = P9 $ C9;
+C10 = G9 # (P9&C9);
+
+P10 = A10 $ B10;
+G10 = A10 & B10;
+S10 = P10 $ C10;
+C11 = G10 # (P10&C10);
+
+P11= A11 $ B11;
+G11 = A11 & B11;
+S11 = P11 $ C11;
+C12 = G11 # (P11&C11);
+
+P12 = A12 $ B12;
+G12 = A12 & B12;
+S12 = P12 $ C12;
+C13 = G12 # (P12&C12);
+
+P13 = A13 $ B13;
+G13 = A13 & B13;
+S13 = P13 $ C13;
+C14 = G13 # (P13&C13);
+
+P14 = A14 $ B14;
+G14 = A14 & B14;
+S14 = P14 $ C14;
+C15 = G14 # (P14&C14);
+
+P15 = A15 $ B15;
+G15 = A15 & B15;
+S15 = P15 $ C15;
+
+
+
+
+
+/* Program Counter 
+
+   bit 0 is always 0 in the program counter, so bit0 is never loaded, but always output
+*/
+
+PC_STAY = pcmode:['b'X00];
+PC_ADD  = pcmode:['b'001,'b'011];
+PC_LOAD = pcmode:['b'010];
+
+PC0.d = 'd'0;
+PC0.ck = D_CLK_IN;
+PC0.ar = !RESET_IN;
+
+PC1.d = ((PC_ADD & S1) # (PC_STAY & PC1) # (PC_LOAD & BBUS1.io));
+PC1.ck = D_CLK_IN;
+PC1.ar = !RESET_IN;
+
+PC2.d = ((PC_ADD & S2) # (PC_STAY & PC2) # (PC_LOAD & BBUS2.io));
+PC2.ck = D_CLK_IN;
+PC2.ar = !RESET_IN;
+
+PC3.d = ((PC_ADD & S3) # (PC_STAY & PC3) # (PC_LOAD & BBUS3.io));
+PC3.ck = D_CLK_IN;
+PC3.ar = !RESET_IN;
+
+PC4.d = ((PC_ADD & S4) # (PC_STAY & PC4) # (PC_LOAD & BBUS4.io));
+PC4.ck = D_CLK_IN;
+PC4.ar = !RESET_IN;
+
+PC5.d = ((PC_ADD & S5) # (PC_STAY & PC5) # (PC_LOAD & BBUS5.io));
+PC5.ck = D_CLK_IN;
+PC5.ar = !RESET_IN;
+
+PC6.d = ((PC_ADD & S6) # (PC_STAY & PC6) # (PC_LOAD & BBUS6.io));
+PC6.ck = D_CLK_IN;
+PC6.ar = !RESET_IN;
+
+PC7.d = ((PC_ADD & S7) # (PC_STAY & PC7) # (PC_LOAD & BBUS7.io));
+PC7.ck = D_CLK_IN;
+PC7.ar = !RESET_IN;
+
+PC8.d = ((PC_ADD & S8) # (PC_STAY & PC8) # (PC_LOAD & BBUS8.io));
+PC8.ck = D_CLK_IN;
+PC8.ar = !RESET_IN;
+
+PC9.d = ((PC_ADD & S9) # (PC_STAY & PC9) # (PC_LOAD & BBUS9.io));
+PC9.ck = D_CLK_IN;
+PC9.ar = !RESET_IN;
+
+PC10.d = ((PC_ADD & S10) # (PC_STAY & PC10) # (PC_LOAD & BBUS10.io));
+PC10.ck = D_CLK_IN;
+PC10.ar = !RESET_IN;
+
+PC11.d = ((PC_ADD & S11) # (PC_STAY & PC11) # (PC_LOAD & BBUS11.io));
+PC11.ck = D_CLK_IN;
+PC11.ar = !RESET_IN;
+
+PC12.d = ((PC_ADD & S12) # (PC_STAY & PC12) # (PC_LOAD & BBUS12.io));
+PC12.ck = D_CLK_IN;
+PC12.ar = !RESET_IN;
+
+PC13.d = ((PC_ADD & S13) # (PC_STAY & PC13) # (PC_LOAD & BBUS13.io));
+PC13.ck = D_CLK_IN;
+PC13.ar = !RESET_IN;
+
+PC14.d = ((PC_ADD & S14) # (PC_STAY & PC14) # (PC_LOAD & BBUS14.io));
+PC14.ck = D_CLK_IN;
+PC14.ar = !RESET_IN;
+
+PC15.d = ((PC_ADD & S15) # (PC_STAY & PC15) # (PC_LOAD & BBUS15.io));
+PC15.ck = D_CLK_IN;
+PC15.ar = !RESET_IN;
+
+
+
+/*
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		44/64 	(68%)
+Total Logic cells used 		97/128 	(75%)
+Total Flip-Flop used 		16/128 	(12%)
+Total Foldback logic used 	6/128 	(4%)
+Total Nodes+FB/MCells 		102/128 	(79%)
+Total cascade used 		1
+Total input pins 		18
+Total output pins 		30
+Total Pts 			235
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+

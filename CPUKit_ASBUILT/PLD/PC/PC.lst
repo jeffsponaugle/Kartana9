@@ -1,0 +1,406 @@
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+  1:Name     PCPTR;
+  2:PartNo   PCPTR;
+  3:Date     04/18/2022;
+  4:Revision 01;
+  5:Designer Sponaugle;
+  6:Company  Ratiometric;
+  7:Assembly None;
+  8:Location None;
+  9:Device   f1508ispplcc84;
+ 10:      
+ 11:
+ 12:PROPERTY ATMEL {TDI_PULLUP = ON};
+ 13:PROPERTY ATMEL {TMS_PULLUP = ON};
+ 14:PROPERTY ATMEL {PREASSIGN = KEEP};
+ 15:PROPERTY ATMEL {XOR_SYNTHESIS = OFF};
+ 16:
+ 17:/* Input Pins */
+ 18:
+ 19:Pin[44,45,46]  = [PC_MODE0..2];
+ 20:Pin[2]  = ADBUS_OE;
+ 21:Pin[84]  = BBUS_OE;
+ 22:Pin[83]  = D_CLK_IN;
+ 23:Pin[1]  = RESET_IN;
+ 24:Pin[55] = CF_IN;
+ 25:Pin[57] = OVF_IN;
+ 26:Pin[56] = ZF_IN;
+ 27:Pin[60,61,63] = [JCOND0..2];
+ 28:Pin[58] = JMPINST;     /* Active Low input to indicate a jump instruction is executing */
+ 29:
+ 30:/* Output Pins */
+ 31:
+ 32:Pin[41,39,40,37,36,35,33,34,31,29,30,28,27,25,24]  = [ADBUS1..15];   
+ 33:
+ 34:/* Bidirectional Pins */
+ 35:
+ 36:Pin[50,20,22,21,18,17,15,16,12,11,10,8,9,6,5,4]  = [BBUS0..15];
+ 37:
+ 38:
+ 39:Pin[48] = UNUSED1;
+ 40:Pin[49] = UNUSED2;    
+ 41:Pin[51] = UNUSED4;
+ 42:Pin[52] = UNUSED5;
+ 43:Pin[54] = UNUSED6;
+ 44:Pin[64] = UNUSED7;
+ 45:Pin[65] = UNUSED8;
+ 46:Pin[67] = UNUSED9;
+ 47:Pin[68] = UNUSED10;
+ 48:Pin[69] = UNUSED11;
+ 49:Pin[70] = UNUSED12;
+ 50:Pin[73] = UNUSED13;
+ 51:Pin[74] = UNUSED14;
+ 52:Pin[75] = UNUSED15;
+ 53:Pin[76] = UNUSED16;
+
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+ 54:Pin[77] = UNUSED17;
+ 55:Pin[79] = UNUSED18;
+ 56:Pin[80] = UNUSED19;
+ 57:Pin[81] = UNUSED20;
+ 58:
+ 59:UNUSED1 = UNUSED12 # UNUSED4 # UNUSED5 # UNUSED6 & (UNUSED7 # UNUSED8 # UNUSED9 # UNUSED10 # UNUSED11);
+ 60:UNUSED2 = UNUSED13 # UNUSED14 # UNUSED15 # UNUSED16 & (UNUSED17 # UNUSED18 # UNUSED19 # UNUSED20);
+ 61:
+ 62:
+ 63:
+ 64:PINNODE [0..0] = [PC0..15];       /* The actual program counter register, 16 bits wide */
+ 65:PINNODE [0..0] = [C2..15];
+ 66:PINNODE [0..0] = [S1..15];
+ 67:
+ 68:[ADBUS1..15].oe = !ADBUS_OE;
+ 69:[BBUS1..15].oe = !BBUS_OE;
+ 70:
+ 71:
+ 72:[ADBUS1..15] = ((!PC_MODE2) & [PC1..15]) 
+ 73:                # (PC_MODE2 & [S1..15]);
+ 74:[BBUS1..15] = [PC1..15];
+ 75:BBUS0 = 'b'0;
+ 76:
+ 77:
+ 78:/*
+ 79:
+ 80:        PC_MODE Inputs  2/1/0 (3 bits)
+ 81:        000          Do Nothing
+ 82:        001          Increment PC Register by 2 (bit 0 is always 0)  [FETCH]
+ 83:        010          Load PC Register from BBUS [JMP DIRECT, CALL DIRECT]
+ 84:        011          Add to PC Register from BBUS (Relative Jump), ignore bit 0 from BBUS, latch back into PC. [JMP RELATIVE, CALL RELATIVE]
+ 85:        100          Add PC Register Value to BBUS and output on AD immediatly, but don't latch back into the PC register
+ 86:
+ 87:*/
+ 88:
+ 89:
+ 90:/* Handle Jump conditions.  
+ 91:  If JMPINST == 0, that indicates we are doing a jump instruction and we need to compare the flags based
+ 92:  on the jump condition, and if a jump should occur force PC_MODE1 high.
+ 93:
+ 94:  Jump Condition Code               Condition
+ 95:  000                               Always Jump
+ 96:  001                               Jump if ZF==1
+ 97:  010                               Jump if ZF==0
+ 98:  011                               Jump if CF==1
+ 99:  100                               Jump if CF==0
+100:  101                               Jump if OVF==1
+101:  110                               Jump if OVF==0
+102:  111                               Always Jump
+103:
+104:  */
+105:
+106:FIELD jumpc = [JCOND0..2];
+107:
+
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 3
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+108:/* FORCEJUMP == 1 if we want to force a jump to occur.  This happens if both JMPINST==0, and  
+109:   the conditions are a correct match for the jump to occur.   If this is true, FORCEJUMP will force
+110:   the upper bit of PC_MODE to 1, which will force either a LOAD PC or ADD PC */
+111:
+112:JUMPCONDITION =( ( jumpc:['b'000] )
+113:            # ( jumpc:['b'001] & ZF_IN )
+114:            # ( jumpc:['b'010] & !ZF_IN )
+115:            # ( jumpc:['b'011] & CF_IN )
+116:            # ( jumpc:['b'100] & !CF_IN )
+117:            # ( jumpc:['b'101] & OVF_IN )
+118:            # ( jumpc:['b'110] & !OVF_IN )
+119:            # ( jumpc:['b'111]));
+120:
+121:/* Let's fix up PC_MODE by creating PC_MODEJ, which as the addition of the jump modification.
+122:
+123:   If JUMPCONDITION == 0 and JMPINST == 0 (Jump instruction, but don't jump)
+124:     PC_MODE      PC_MODEJ
+125:      X00            X00
+126:      X01            X00
+127:   If JUMPCONDITION == 1 and JMPINST == 0 (Jump instructio, jump)
+128:    PC_MODE      PC_MODEJ
+129:      X00            X10
+130:      X01            X11
+131:   If JMPINST == 1
+132:     PC_MODE      PC_MODEJ
+133:      X00            X00
+134:      X01            X01
+135:
+136:
+137: */
+138:
+139://PINNODE  0  = PC_MODEJ1,PC_MODEJ0;
+
+140:PC_MODEJ0 = PC_MODE0 & (JMPINST # JUMPCONDITION);
+141:PC_MODEJ1 = PC_MODE1 # (!JMPINST & JUMPCONDITION);
+142:PC_MODEJ2 = PC_MODE2;
+143:FIELD pcmode = [PC_MODEJ0..2];
+144:
+145:
+146:/* PC Adder/Subtractor Equations
+147:
+148:    To Add 1 (PC_MODE==001), set C1=1, and B1..B15=0
+149:    To Add Offset (PC_MODE=011 or PC_MODE=100), set C0=0, and B0..B15=BBUS0..BBUS15
+150:    PC must always have bit0=0, so on load we will not load bit 0, but on output
+151:    we will output a zero.
+152:
+153:    When we add a offset from BBUS to PC BBUS bit 0 is ignored.
+154:
+155:*/
+156:
+157:C1 = (PC_MODEJ0 & !PC_MODEJ1 & !PC_MODEJ2);  // if PC_MODE = 001, set carry in to 1, otherwise 0
+
+158:/* 
+159:   For the [B1..B15], we want the [B] field to be the BBUS value if we are in PC_MODE 010,011, or 1XX. 
+160:   IF PC_MODE is 000 or 001 the [B] field is 0.
+161:
+
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 4
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+162:   Note that for PC_MODE 010 the result of the addition will not be used, but including that simplifies 
+163:   the logic.
+164:   */
+165:
+166:[B1..B15] = ((PC_MODEJ1#PC_MODEJ2) & [BBUS1..BBUS15].io);
+167:[A1..A15] = [PC1..PC15];
+168:
+169:
+170:P1 = A1 $ B1;
+171:G1 = A1 & B1;
+172:S1 = P1 $ C1;
+173:C2 = G1 # (P1&C1);
+174:
+175:P2 = A2 $ B2;
+176:G2 = A2 & B2;
+177:S2 = P2 $ C2;
+178:C3 = G2 # (P2&C2);
+179:
+180:P3 = A3 $ B3;
+181:G3 = A3 & B3;
+182:S3 = P3 $ C3;
+183:C4 = G3 # (P3&C3);
+184:
+185:P4 = A4 $ B4;
+186:G4 = A4 & B4;
+187:S4 = P4 $ C4;
+188:C5 = G4 # (P4&C4);
+189:
+190:P5 = A5 $ B5;
+191:G5 = A5 & B5;
+192:S5 = P5 $ C5;
+193:C6 = G5 # (P5&C5);
+194:
+195:P6 = A6 $ B6;
+196:G6 = A6 & B6;
+197:S6 = P6 $ C6;
+198:C7 = G6 # (P6&C6);
+199:
+200:P7 = A7 $ B7;
+201:G7 = A7 & B7;
+202:S7 = P7 $ C7;
+203:C8 = G7 # (P7&C7);
+204:
+205:P8 = A8 $ B8;
+206:G8 = A8 & B8;
+207:S8 = P8 $ C8;
+208:C9 = G8 # (P8&C8);
+209:
+210:P9 = A9 $ B9;
+211:G9 = A9 & B9;
+212:S9 = P9 $ C9;
+213:C10 = G9 # (P9&C9);
+214:
+215:P10 = A10 $ B10;
+
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 5
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+216:G10 = A10 & B10;
+217:S10 = P10 $ C10;
+218:C11 = G10 # (P10&C10);
+219:
+220:P11= A11 $ B11;
+221:G11 = A11 & B11;
+222:S11 = P11 $ C11;
+223:C12 = G11 # (P11&C11);
+224:
+225:P12 = A12 $ B12;
+226:G12 = A12 & B12;
+227:S12 = P12 $ C12;
+228:C13 = G12 # (P12&C12);
+229:
+230:P13 = A13 $ B13;
+231:G13 = A13 & B13;
+232:S13 = P13 $ C13;
+233:C14 = G13 # (P13&C13);
+234:
+235:P14 = A14 $ B14;
+236:G14 = A14 & B14;
+237:S14 = P14 $ C14;
+238:C15 = G14 # (P14&C14);
+239:
+240:P15 = A15 $ B15;
+241:G15 = A15 & B15;
+242:S15 = P15 $ C15;
+243:
+244:
+245:
+246:
+247:
+248:/* Program Counter 
+249:
+250:   bit 0 is always 0 in the program counter, so bit0 is never loaded, but always output
+251:*/
+252:
+253:PC_STAY = pcmode:['b'X00];
+254:PC_ADD  = pcmode:['b'001,'b'011];
+255:PC_LOAD = pcmode:['b'010];
+256:
+257:PC0.d = 'd'0;
+258:PC0.ck = D_CLK_IN;
+259:PC0.ar = !RESET_IN;
+260:
+261:PC1.d = ((PC_ADD & S1) # (PC_STAY & PC1) # (PC_LOAD & BBUS1.io));
+262:PC1.ck = D_CLK_IN;
+263:PC1.ar = !RESET_IN;
+264:
+265:PC2.d = ((PC_ADD & S2) # (PC_STAY & PC2) # (PC_LOAD & BBUS2.io));
+266:PC2.ck = D_CLK_IN;
+267:PC2.ar = !RESET_IN;
+268:
+269:PC3.d = ((PC_ADD & S3) # (PC_STAY & PC3) # (PC_LOAD & BBUS3.io));
+
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 6
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+270:PC3.ck = D_CLK_IN;
+271:PC3.ar = !RESET_IN;
+272:
+273:PC4.d = ((PC_ADD & S4) # (PC_STAY & PC4) # (PC_LOAD & BBUS4.io));
+274:PC4.ck = D_CLK_IN;
+275:PC4.ar = !RESET_IN;
+276:
+277:PC5.d = ((PC_ADD & S5) # (PC_STAY & PC5) # (PC_LOAD & BBUS5.io));
+278:PC5.ck = D_CLK_IN;
+279:PC5.ar = !RESET_IN;
+280:
+281:PC6.d = ((PC_ADD & S6) # (PC_STAY & PC6) # (PC_LOAD & BBUS6.io));
+282:PC6.ck = D_CLK_IN;
+283:PC6.ar = !RESET_IN;
+284:
+285:PC7.d = ((PC_ADD & S7) # (PC_STAY & PC7) # (PC_LOAD & BBUS7.io));
+286:PC7.ck = D_CLK_IN;
+287:PC7.ar = !RESET_IN;
+288:
+289:PC8.d = ((PC_ADD & S8) # (PC_STAY & PC8) # (PC_LOAD & BBUS8.io));
+290:PC8.ck = D_CLK_IN;
+291:PC8.ar = !RESET_IN;
+292:
+293:PC9.d = ((PC_ADD & S9) # (PC_STAY & PC9) # (PC_LOAD & BBUS9.io));
+294:PC9.ck = D_CLK_IN;
+295:PC9.ar = !RESET_IN;
+296:
+297:PC10.d = ((PC_ADD & S10) # (PC_STAY & PC10) # (PC_LOAD & BBUS10.io));
+298:PC10.ck = D_CLK_IN;
+299:PC10.ar = !RESET_IN;
+300:
+301:PC11.d = ((PC_ADD & S11) # (PC_STAY & PC11) # (PC_LOAD & BBUS11.io));
+302:PC11.ck = D_CLK_IN;
+303:PC11.ar = !RESET_IN;
+304:
+305:PC12.d = ((PC_ADD & S12) # (PC_STAY & PC12) # (PC_LOAD & BBUS12.io));
+306:PC12.ck = D_CLK_IN;
+307:PC12.ar = !RESET_IN;
+308:
+309:PC13.d = ((PC_ADD & S13) # (PC_STAY & PC13) # (PC_LOAD & BBUS13.io));
+310:PC13.ck = D_CLK_IN;
+311:PC13.ar = !RESET_IN;
+312:
+313:PC14.d = ((PC_ADD & S14) # (PC_STAY & PC14) # (PC_LOAD & BBUS14.io));
+314:PC14.ck = D_CLK_IN;
+315:PC14.ar = !RESET_IN;
+316:
+317:PC15.d = ((PC_ADD & S15) # (PC_STAY & PC15) # (PC_LOAD & BBUS15.io));
+318:PC15.ck = D_CLK_IN;
+319:PC15.ar = !RESET_IN;
+320:
+321:
+322:
+323:/*
+
+LISTING FOR LOGIC DESCRIPTION FILE: PC.pld                           Page 7
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jan 01 12:40:53 2024
+
+324:Total dedicated input used:     4/4     (100%)
+325:Total I/O pins used             64/64   (100%)
+326:Total Logic cells used          99/128  (77%)
+327:Total Flip-Flop used            16/128  (12%)
+328:Total Foldback logic used       7/128   (5%)
+329:Total Nodes+FB/MCells           105/128         (82%)
+330:Total cascade used              1
+331:Total input pins                36
+332:Total output pins               32
+333:Total Pts                       240
+334:*/
+335:
+336:
+337:
+338:
+339:
+340:
+341:
+342:
+343:
+344:
+345:
+346:
+
+
+

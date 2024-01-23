@@ -1,0 +1,279 @@
+{COMPONENT C:\K9MEMDCD.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Sat Dec 30 22:30:44 2023 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P MEM_L_EN {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
+   {P MEM_AS {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
+   {P MEM_RW {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
+   {P A1 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P A2 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P A3 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P A4 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P A5 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P A6 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P A7 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P A8 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P A9 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P A10 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P A11 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P A12 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P A13 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P A14 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P A15 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P MEM_H_EN {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P ROM_LOW_ {Pt "I/O"}{Lq 0}{Ploc 360 20}}
+   {P ROM_OE {Pt "I/O"}{Lq 0}{Ploc 360 40}}
+   {P ROM_WE {Pt "I/O"}{Lq 0}{Ploc 360 60}}
+   {P SW_LOW_R {Pt "I/O"}{Lq 0}{Ploc 360 80}}
+   {P SW_HIGH_ {Pt "I/O"}{Lq 0}{Ploc 360 100}}
+   {P SEVEN_LO {Pt "I/O"}{Lq 0}{Ploc 360 120}}
+   {P SEVEN_HI {Pt "I/O"}{Lq 0}{Ploc 360 140}}
+   {P UNUSED {Pt "I/O"}{Lq 0}{Ploc 360 160}}
+   {P ROM_HIGH {Pt "I/O"}{Lq 0}{Ploc 360 180}}
+   {P RAM_WE {Pt "I/O"}{Lq 0}{Ploc 360 200}}
+   {P RAM_OE {Pt "I/O"}{Lq 0}{Ploc 360 220}}
+   {P RAM_LOW_ {Pt "I/O"}{Lq 0}{Ploc 360 240}}
+   {P RAM_HIGH {Pt "I/O"}{Lq 0}{Ploc 360 260}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 230 430}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 410}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 370}
+   {Pnl 120 350}
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 340 30}
+   {Pnl 340 50}
+   {Pnl 340 70}
+   {Pnl 340 90}
+   {Pnl 340 110}
+   {Pnl 340 130}
+   {Pnl 340 150}
+   {Pnl 340 170}
+   {Pnl 340 190}
+   {Pnl 340 210}
+   {Pnl 340 230}
+   {Pnl 340 250}
+   {Pnl 340 270}
+
+   {Sd A 43 1 2 16 17 18 19 20 21 24 25 26 27 28 29 31 33 34 44 4 5 6 8 9 11 12 14 36 37 39 40 41}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 420 330 0}
+   {L 130 400 100 400}
+   {L 130 410 140 400 130 390}
+   {L 130 360 100 360}
+   {L 130 340 100 340}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 330 20 360 20}
+   {L 330 40 360 40}
+   {L 330 60 360 60}
+   {L 330 80 360 80}
+   {L 330 100 360 100}
+   {L 330 120 360 120}
+   {L 330 140 360 140}
+   {L 330 160 360 160}
+   {L 330 180 360 180}
+   {L 330 200 360 200}
+   {L 330 220 360 220}
+   {L 330 240 360 240}
+   {L 330 260 360 260}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "MEM_L_EN" 140 400}
+   {T "MEM_AS" 140 360}
+   {T "MEM_RW" 140 340}
+   {T "A1" 140 320}
+   {T "A2" 140 300}
+   {T "A3" 140 280}
+   {T "A4" 140 260}
+   {T "A5" 140 240}
+   {T "A6" 140 220}
+   {T "A7" 140 200}
+   {T "A8" 140 180}
+   {T "A9" 140 160}
+   {T "A10" 140 140}
+   {T "A11" 140 120}
+   {T "A12" 140 100}
+   {T "A13" 140 80}
+   {T "A14" 140 60}
+   {T "A15" 140 40}
+   {T "MEM_H_EN" 140 20}
+   [Tj "RC"]
+   {T "ROM_LOW_" 320 20}
+   {T "ROM_OE" 320 40}
+   {T "ROM_WE" 320 60}
+   {T "SW_LOW_R" 320 80}
+   {T "SW_HIGH_" 320 100}
+   {T "SEVEN_LO" 320 120}
+   {T "SEVEN_HI" 320 140}
+   {T "UNUSED" 320 160}
+   {T "ROM_HIGH" 320 180}
+   {T "RAM_WE" 320 200}
+   {T "RAM_OE" 320 220}
+   {T "RAM_LOW_" 320 240}
+   {T "RAM_HIGH" 320 260}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "F1504ISPPLCC44" 230 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD C:\K9MEMDCD 230 420}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N MEM_L_EN
+   }
+   {N MEM_AS
+   }
+   {N MEM_RW
+   }
+   {N A1
+   }
+   {N A2
+   }
+   {N A3
+   }
+   {N A4
+   }
+   {N A5
+   }
+   {N A6
+   }
+   {N A7
+   }
+   {N A8
+   }
+   {N A9
+   }
+   {N A10
+   }
+   {N A11
+   }
+   {N A12
+   }
+   {N A13
+   }
+   {N A14
+   }
+   {N A15
+   }
+   {N MEM_H_EN
+   }
+   {N ROM_LOW_
+   }
+   {N ROM_OE
+   }
+   {N ROM_WE
+   }
+   {N SW_LOW_R
+   }
+   {N SW_HIGH_
+   }
+   {N SEVEN_LO
+   }
+   {N SEVEN_HI
+   }
+   {N UNUSED
+   }
+   {N ROM_HIGH
+   }
+   {N RAM_WE
+   }
+   {N RAM_OE
+   }
+   {N RAM_LOW_
+   }
+   {N RAM_HIGH
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

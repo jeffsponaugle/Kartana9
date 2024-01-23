@@ -1,0 +1,378 @@
+%SIGNAL
+PIN   2 =  A0 
+PIN   3 =  A1 
+PIN   5 =  A2 
+PIN   6 =  A3 
+PIN   8 =  B0 
+PIN  10 =  B1 
+PIN  11 =  B2 
+PIN  12 =  B3 
+PIN  13 =  C0 
+PIN  14 =  C1 
+PIN  15 =  C2 
+PIN  18 =  C3 
+PIN  38 =  D0 
+PIN  39 =  D1 
+PIN  40 =  D2 
+PIN  42 =  D3 
+PIN  19 = !LEA 
+PIN  20 = !LEB 
+PIN  21 = !LEC 
+PIN  22 = !LED 
+PIN  23 =  SEGA 
+PIN  25 =  SEGB 
+PIN  27 =  SEGC 
+PIN  28 =  SEGD 
+PIN  30 =  SEGE 
+PIN  31 =  SEGF 
+PIN  33 =  SEGG 
+PIN  37 =  clk 
+PIN   0 =  icnt0 
+PIN   0 =  icnt1 
+%END
+
+%FIELD
+FIELD AADD = A3,A2,A1,A0
+FIELD BADD = B3,B2,B1,B0
+FIELD CADD = C3,C2,C1,C0
+FIELD DADD = D3,D2,D1,D0
+FIELD OUTPUT = SEGA,SEGB,SEGC,SEGD,SEGE,SEGF,SEGG
+%END
+
+%EQUATION
+ASEGA =>
+    A0 & A1 & !A2 & A3
+  # !A0 & !A1 & A2 & !A3
+  # A0 & !A1 & A2 & A3
+  # A0 & !A1 & !A2 & !A3
+
+ASEGB =>
+    !A0 & A1 & A2
+  # !A0 & A2 & A3
+  # A0 & !A1 & A2 & !A3
+  # A0 & A1 & A3
+
+ASEGC =>
+    !A0 & A1 & !A2 & !A3
+  # A1 & A2 & A3
+  # !A0 & A2 & A3
+
+ASEGD =>
+    !A0 & A1 & !A2 & A3
+  # A0 & !A1 & !A2
+  # A0 & A1 & A2
+  # !A0 & !A1 & A2 & !A3
+
+ASEGE =>
+    A0 & !A1 & !A2
+  # A0 & !A3
+  # !A1 & A2 & !A3
+
+ASEGF =>
+    A0 & !A2 & !A3
+  # A1 & !A2 & !A3
+  # A0 & A1 & !A3
+  # A0 & !A1 & A2 & A3
+
+ASEGG =>
+    !A0 & !A1 & A2 & A3
+  # A0 & A1 & A2 & !A3
+  # !A1 & !A2 & !A3
+
+BSEGA =>
+    B0 & B1 & !B2 & B3
+  # !B0 & !B1 & B2 & !B3
+  # B0 & !B1 & B2 & B3
+  # B0 & !B1 & !B2 & !B3
+
+BSEGB =>
+    !B0 & B1 & B2
+  # !B0 & B2 & B3
+  # B0 & !B1 & B2 & !B3
+  # B0 & B1 & B3
+
+BSEGC =>
+    !B0 & B1 & !B2 & !B3
+  # B1 & B2 & B3
+  # !B0 & B2 & B3
+
+BSEGD =>
+    !B0 & B1 & !B2 & B3
+  # B0 & !B1 & !B2
+  # B0 & B1 & B2
+  # !B0 & !B1 & B2 & !B3
+
+BSEGE =>
+    B0 & !B1 & !B2
+  # B0 & !B3
+  # !B1 & B2 & !B3
+
+BSEGF =>
+    B0 & !B2 & !B3
+  # B1 & !B2 & !B3
+  # B0 & B1 & !B3
+  # B0 & !B1 & B2 & B3
+
+BSEGG =>
+    !B0 & !B1 & B2 & B3
+  # B0 & B1 & B2 & !B3
+  # !B1 & !B2 & !B3
+
+CSEGA =>
+    C0 & C1 & !C2 & C3
+  # !C0 & !C1 & C2 & !C3
+  # C0 & !C1 & C2 & C3
+  # C0 & !C1 & !C2 & !C3
+
+CSEGB =>
+    !C0 & C1 & C2
+  # !C0 & C2 & C3
+  # C0 & !C1 & C2 & !C3
+  # C0 & C1 & C3
+
+CSEGC =>
+    !C0 & C1 & !C2 & !C3
+  # C1 & C2 & C3
+  # !C0 & C2 & C3
+
+CSEGD =>
+    !C0 & C1 & !C2 & C3
+  # C0 & !C1 & !C2
+  # C0 & C1 & C2
+  # !C0 & !C1 & C2 & !C3
+
+CSEGE =>
+    C0 & !C1 & !C2
+  # C0 & !C3
+  # !C1 & C2 & !C3
+
+CSEGF =>
+    C0 & !C2 & !C3
+  # C1 & !C2 & !C3
+  # C0 & C1 & !C3
+  # C0 & !C1 & C2 & C3
+
+CSEGG =>
+    !C0 & !C1 & C2 & C3
+  # C0 & C1 & C2 & !C3
+  # !C1 & !C2 & !C3
+
+DSEGA =>
+    D0 & D1 & !D2 & D3
+  # !D0 & !D1 & D2 & !D3
+  # D0 & !D1 & D2 & D3
+  # D0 & !D1 & !D2 & !D3
+
+DSEGB =>
+    !D0 & D1 & D2
+  # !D0 & D2 & D3
+  # D0 & !D1 & D2 & !D3
+  # D0 & D1 & D3
+
+DSEGC =>
+    !D0 & D1 & !D2 & !D3
+  # D1 & D2 & D3
+  # !D0 & D2 & D3
+
+DSEGD =>
+    !D0 & D1 & !D2 & D3
+  # D0 & !D1 & !D2
+  # D0 & D1 & D2
+  # !D0 & !D1 & D2 & !D3
+
+DSEGE =>
+    D0 & !D1 & !D2
+  # D0 & !D3
+  # !D1 & D2 & !D3
+
+DSEGF =>
+    D0 & !D2 & !D3
+  # D1 & !D2 & !D3
+  # D0 & D1 & !D3
+  # D0 & !D1 & D2 & D3
+
+DSEGG =>
+    !D0 & !D1 & D2 & D3
+  # D0 & D1 & D2 & !D3
+  # !D1 & !D2 & !D3
+
+LEA =>
+    !icnt0 & !icnt1
+
+LEB =>
+    icnt0 & !icnt1
+
+LEC =>
+    !icnt0 & icnt1
+
+LED =>
+    icnt0 & icnt1
+
+SEGA =>
+    D1 & D2 & icnt0 & icnt1
+  # !D0 & !D2 & icnt0 & icnt1
+  # !D0 & D3 & icnt0 & icnt1
+  # D1 & !D3 & icnt0 & icnt1
+  # C1 & C2 & !icnt0 & icnt1
+  # !C0 & !C2 & !icnt0 & icnt1
+  # !C0 & C3 & !icnt0 & icnt1
+  # C1 & !C3 & !icnt0 & icnt1
+  # B1 & B2 & icnt0 & !icnt1
+  # !B0 & !B2 & icnt0 & !icnt1
+  # !B0 & B3 & icnt0 & !icnt1
+  # B1 & !B3 & icnt0 & !icnt1
+  # A1 & A2 & !icnt0 & !icnt1
+  # !A0 & !A2 & !icnt0 & !icnt1
+  # !A0 & A3 & !icnt0 & !icnt1
+  # A1 & !A3 & !icnt0 & !icnt1
+  # !D1 & !D2 & D3 & icnt0 & icnt1
+  # D0 & D2 & !D3 & icnt0 & icnt1
+  # !C1 & !C2 & C3 & !icnt0 & icnt1
+  # C0 & C2 & !C3 & !icnt0 & icnt1
+  # !B1 & !B2 & B3 & icnt0 & !icnt1
+  # B0 & B2 & !B3 & icnt0 & !icnt1
+  # !A1 & !A2 & A3 & !icnt0 & !icnt1
+  # A0 & A2 & !A3 & !icnt0 & !icnt1
+
+SEGB =>
+    !D0 & !D2 & icnt0 & icnt1
+  # !D1 & !D2 & icnt0 & icnt1
+  # !C0 & !C2 & !icnt0 & icnt1
+  # !C1 & !C2 & !icnt0 & icnt1
+  # !B0 & !B2 & icnt0 & !icnt1
+  # !B1 & !B2 & icnt0 & !icnt1
+  # !A0 & !A2 & !icnt0 & !icnt1
+  # !A1 & !A2 & !icnt0 & !icnt1
+  # D0 & !D1 & D3 & icnt0 & icnt1
+  # D0 & D1 & !D3 & icnt0 & icnt1
+  # !D0 & !D1 & !D3 & icnt0 & icnt1
+  # C0 & !C1 & C3 & !icnt0 & icnt1
+  # C0 & C1 & !C3 & !icnt0 & icnt1
+  # !C0 & !C1 & !C3 & !icnt0 & icnt1
+  # B0 & !B1 & B3 & icnt0 & !icnt1
+  # B0 & B1 & !B3 & icnt0 & !icnt1
+  # !B0 & !B1 & !B3 & icnt0 & !icnt1
+  # A0 & !A1 & A3 & !icnt0 & !icnt1
+  # A0 & A1 & !A3 & !icnt0 & !icnt1
+  # !A0 & !A1 & !A3 & !icnt0 & !icnt1
+
+SEGC =>
+    D0 & !D1 & icnt0 & icnt1
+  # D0 & !D2 & icnt0 & icnt1
+  # !D1 & !D2 & icnt0 & icnt1
+  # !D2 & D3 & icnt0 & icnt1
+  # D2 & !D3 & icnt0 & icnt1
+  # C0 & !C1 & !icnt0 & icnt1
+  # C0 & !C2 & !icnt0 & icnt1
+  # !C1 & !C2 & !icnt0 & icnt1
+  # !C2 & C3 & !icnt0 & icnt1
+  # C2 & !C3 & !icnt0 & icnt1
+  # B0 & !B1 & icnt0 & !icnt1
+  # B0 & !B2 & icnt0 & !icnt1
+  # !B1 & !B2 & icnt0 & !icnt1
+  # !B2 & B3 & icnt0 & !icnt1
+  # B2 & !B3 & icnt0 & !icnt1
+  # A0 & !A1 & !icnt0 & !icnt1
+  # A0 & !A2 & !icnt0 & !icnt1
+  # !A1 & !A2 & !icnt0 & !icnt1
+  # !A2 & A3 & !icnt0 & !icnt1
+  # A2 & !A3 & !icnt0 & !icnt1
+
+SEGD =>
+    !D0 & D1 & D2 & icnt0 & icnt1
+  # D0 & !D1 & D2 & icnt0 & icnt1
+  # D0 & D1 & !D2 & icnt0 & icnt1
+  # !D0 & !D1 & D3 & icnt0 & icnt1
+  # !D0 & !D2 & !D3 & icnt0 & icnt1
+  # !C0 & C1 & C2 & !icnt0 & icnt1
+  # C0 & !C1 & C2 & !icnt0 & icnt1
+  # C0 & C1 & !C2 & !icnt0 & icnt1
+  # !C0 & !C1 & C3 & !icnt0 & icnt1
+  # !C0 & !C2 & !C3 & !icnt0 & icnt1
+  # !B0 & B1 & B2 & icnt0 & !icnt1
+  # B0 & !B1 & B2 & icnt0 & !icnt1
+  # B0 & B1 & !B2 & icnt0 & !icnt1
+  # !B0 & !B1 & B3 & icnt0 & !icnt1
+  # !B0 & !B2 & !B3 & icnt0 & !icnt1
+  # !A0 & A1 & A2 & !icnt0 & !icnt1
+  # A0 & !A1 & A2 & !icnt0 & !icnt1
+  # A0 & A1 & !A2 & !icnt0 & !icnt1
+  # !A0 & !A1 & A3 & !icnt0 & !icnt1
+  # !A0 & !A2 & !A3 & !icnt0 & !icnt1
+
+SEGE =>
+    !D0 & D1 & icnt0 & icnt1
+  # !D0 & !D2 & icnt0 & icnt1
+  # D1 & D3 & icnt0 & icnt1
+  # D2 & D3 & icnt0 & icnt1
+  # !C0 & C1 & !icnt0 & icnt1
+  # !C0 & !C2 & !icnt0 & icnt1
+  # C1 & C3 & !icnt0 & icnt1
+  # C2 & C3 & !icnt0 & icnt1
+  # !B0 & B1 & icnt0 & !icnt1
+  # !B0 & !B2 & icnt0 & !icnt1
+  # B1 & B3 & icnt0 & !icnt1
+  # B2 & B3 & icnt0 & !icnt1
+  # !A0 & A1 & !icnt0 & !icnt1
+  # !A0 & !A2 & !icnt0 & !icnt1
+  # A1 & A3 & !icnt0 & !icnt1
+  # A2 & A3 & !icnt0 & !icnt1
+
+SEGF =>
+    !D0 & !D1 & icnt0 & icnt1
+  # !D0 & D2 & icnt0 & icnt1
+  # D1 & D3 & icnt0 & icnt1
+  # !D2 & D3 & icnt0 & icnt1
+  # !C0 & !C1 & !icnt0 & icnt1
+  # !C0 & C2 & !icnt0 & icnt1
+  # C1 & C3 & !icnt0 & icnt1
+  # !C2 & C3 & !icnt0 & icnt1
+  # !B0 & !B1 & icnt0 & !icnt1
+  # !B0 & B2 & icnt0 & !icnt1
+  # B1 & B3 & icnt0 & !icnt1
+  # !B2 & B3 & icnt0 & !icnt1
+  # !A0 & !A1 & !icnt0 & !icnt1
+  # !A0 & A2 & !icnt0 & !icnt1
+  # A1 & A3 & !icnt0 & !icnt1
+  # !A2 & A3 & !icnt0 & !icnt1
+  # !D1 & D2 & !D3 & icnt0 & icnt1
+  # !C1 & C2 & !C3 & !icnt0 & icnt1
+  # !B1 & B2 & !B3 & icnt0 & !icnt1
+  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+
+SEGG =>
+    !D0 & D1 & icnt0 & icnt1
+  # D1 & !D2 & icnt0 & icnt1
+  # D0 & D3 & icnt0 & icnt1
+  # !D2 & D3 & icnt0 & icnt1
+  # !C0 & C1 & !icnt0 & icnt1
+  # C1 & !C2 & !icnt0 & icnt1
+  # C0 & C3 & !icnt0 & icnt1
+  # !C2 & C3 & !icnt0 & icnt1
+  # !B0 & B1 & icnt0 & !icnt1
+  # B1 & !B2 & icnt0 & !icnt1
+  # B0 & B3 & icnt0 & !icnt1
+  # !B2 & B3 & icnt0 & !icnt1
+  # !A0 & A1 & !icnt0 & !icnt1
+  # A1 & !A2 & !icnt0 & !icnt1
+  # A0 & A3 & !icnt0 & !icnt1
+  # !A2 & A3 & !icnt0 & !icnt1
+  # !D1 & D2 & !D3 & icnt0 & icnt1
+  # !C1 & C2 & !C3 & !icnt0 & icnt1
+  # !B1 & B2 & !B3 & icnt0 & !icnt1
+  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+
+icnt0.d  =>
+    !icnt0
+
+icnt0.ck  =>
+    clk
+
+icnt1.d  =>
+    !icnt0 & icnt1
+  # icnt0 & !icnt1
+
+icnt1.ck  =>
+    clk
+
+%END

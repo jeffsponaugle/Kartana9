@@ -1,0 +1,315 @@
+{COMPONENT C:\REGFILE8.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Fri Dec 29 19:29:03 2023 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P D_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 460}}
+   {P RESETIN {Pt "INPUT"}{Lq 0}{Ploc 100 420}}
+   {P ASEL0 {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
+   {P BSEL2 {Pt "INPUT"}{Lq 0}{Ploc 100 380}}
+   {P BSEL1 {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
+   {P BSEL0 {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
+   {P CSEL0 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P ASEL1 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P ASEL2 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P CSEL1 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P C_WE {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P CSEL2 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P CBUS0 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P CBUS1 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P CBUS2 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P C_ZH {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P CBUS3 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P CBUS4 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P CBUS5 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P CBUS6 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P CBUS7 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P B_OE {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P BBUS0 {Pt "I/O"}{Lq 0}{Ploc 330 20}}
+   {P BBUS1 {Pt "I/O"}{Lq 0}{Ploc 330 40}}
+   {P ABUS0 {Pt "I/O"}{Lq 0}{Ploc 330 60}}
+   {P ABUS1 {Pt "I/O"}{Lq 0}{Ploc 330 80}}
+   {P BBUS2 {Pt "I/O"}{Lq 0}{Ploc 330 100}}
+   {P BBUS3 {Pt "I/O"}{Lq 0}{Ploc 330 120}}
+   {P ABUS2 {Pt "I/O"}{Lq 0}{Ploc 330 140}}
+   {P ABUS3 {Pt "I/O"}{Lq 0}{Ploc 330 160}}
+   {P BBUS4 {Pt "I/O"}{Lq 0}{Ploc 330 180}}
+   {P BBUS5 {Pt "I/O"}{Lq 0}{Ploc 330 200}}
+   {P ABUS4 {Pt "I/O"}{Lq 0}{Ploc 330 220}}
+   {P ABUS5 {Pt "I/O"}{Lq 0}{Ploc 330 240}}
+   {P BBUS6 {Pt "I/O"}{Lq 0}{Ploc 330 260}}
+   {P BBUS7 {Pt "I/O"}{Lq 0}{Ploc 330 280}}
+   {P ABUS6 {Pt "I/O"}{Lq 0}{Ploc 330 300}}
+   {P ABUS7 {Pt "I/O"}{Lq 0}{Ploc 330 320}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 215 490}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 470}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 430}
+   {Pnl 120 410}
+   {Pnl 120 390}
+   {Pnl 120 370}
+   {Pnl 120 350}
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 310 30}
+   {Pnl 310 50}
+   {Pnl 310 70}
+   {Pnl 310 90}
+   {Pnl 310 110}
+   {Pnl 310 130}
+   {Pnl 310 150}
+   {Pnl 310 170}
+   {Pnl 310 190}
+   {Pnl 310 210}
+   {Pnl 310 230}
+   {Pnl 310 250}
+   {Pnl 310 270}
+   {Pnl 310 290}
+   {Pnl 310 310}
+   {Pnl 310 330}
+
+   {Sd A 83 1 6 10 11 12 17 21 22 25 30 31 36 39 40 41 44 45 46 48 49 84 4 5 8 9 15 16 18 20 24 27 28 29 33 34 35 37}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 480 300 0}
+   {L 130 460 100 460}
+   {L 130 470 140 460 130 450}
+   {L 130 420 100 420}
+   {L 130 400 100 400}
+   {L 130 380 100 380}
+   {L 130 360 100 360}
+   {L 130 340 100 340}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 300 20 330 20}
+   {L 300 40 330 40}
+   {L 300 60 330 60}
+   {L 300 80 330 80}
+   {L 300 100 330 100}
+   {L 300 120 330 120}
+   {L 300 140 330 140}
+   {L 300 160 330 160}
+   {L 300 180 330 180}
+   {L 300 200 330 200}
+   {L 300 220 330 220}
+   {L 300 240 330 240}
+   {L 300 260 330 260}
+   {L 300 280 330 280}
+   {L 300 300 330 300}
+   {L 300 320 330 320}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "D_CLK_IN" 140 460}
+   {T "RESETIN" 140 420}
+   {T "ASEL0" 140 400}
+   {T "BSEL2" 140 380}
+   {T "BSEL1" 140 360}
+   {T "BSEL0" 140 340}
+   {T "CSEL0" 140 320}
+   {T "ASEL1" 140 300}
+   {T "ASEL2" 140 280}
+   {T "CSEL1" 140 260}
+   {T "C_WE" 140 240}
+   {T "CSEL2" 140 220}
+   {T "CBUS0" 140 200}
+   {T "CBUS1" 140 180}
+   {T "CBUS2" 140 160}
+   {T "C_ZH" 140 140}
+   {T "CBUS3" 140 120}
+   {T "CBUS4" 140 100}
+   {T "CBUS5" 140 80}
+   {T "CBUS6" 140 60}
+   {T "CBUS7" 140 40}
+   {T "B_OE" 140 20}
+   [Tj "RC"]
+   {T "BBUS0" 290 20}
+   {T "BBUS1" 290 40}
+   {T "ABUS0" 290 60}
+   {T "ABUS1" 290 80}
+   {T "BBUS2" 290 100}
+   {T "BBUS3" 290 120}
+   {T "ABUS2" 290 140}
+   {T "ABUS3" 290 160}
+   {T "BBUS4" 290 180}
+   {T "BBUS5" 290 200}
+   {T "ABUS4" 290 220}
+   {T "ABUS5" 290 240}
+   {T "BBUS6" 290 260}
+   {T "BBUS7" 290 280}
+   {T "ABUS6" 290 300}
+   {T "ABUS7" 290 320}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "F1508ISPPLCC84" 215 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD C:\REGFILE8 215 480}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N D_CLK_IN
+   }
+   {N RESETIN
+   }
+   {N ASEL0
+   }
+   {N BSEL2
+   }
+   {N BSEL1
+   }
+   {N BSEL0
+   }
+   {N CSEL0
+   }
+   {N ASEL1
+   }
+   {N ASEL2
+   }
+   {N CSEL1
+   }
+   {N C_WE
+   }
+   {N CSEL2
+   }
+   {N CBUS0
+   }
+   {N CBUS1
+   }
+   {N CBUS2
+   }
+   {N C_ZH
+   }
+   {N CBUS3
+   }
+   {N CBUS4
+   }
+   {N CBUS5
+   }
+   {N CBUS6
+   }
+   {N CBUS7
+   }
+   {N B_OE
+   }
+   {N BBUS0
+   }
+   {N BBUS1
+   }
+   {N ABUS0
+   }
+   {N ABUS1
+   }
+   {N BBUS2
+   }
+   {N BBUS3
+   }
+   {N ABUS2
+   }
+   {N ABUS3
+   }
+   {N BBUS4
+   }
+   {N BBUS5
+   }
+   {N ABUS4
+   }
+   {N ABUS5
+   }
+   {N BBUS6
+   }
+   {N BBUS7
+   }
+   {N ABUS6
+   }
+   {N ABUS7
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

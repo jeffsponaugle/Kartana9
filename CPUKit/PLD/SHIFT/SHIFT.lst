@@ -1,0 +1,397 @@
+LISTING FOR LOGIC DESCRIPTION FILE: SHIFT.pld                        Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:18:16 2023
+
+  1:Name     SHFTR;
+  2:PartNo   SHFTR;
+  3:Date     04/18/2022;
+  4:Revision 01;
+  5:Designer Sponaugle;
+  6:Company  Ratiometric;
+  7:Assembly None;
+  8:Location None;
+  9:Device   f1508ispplcc84;
+ 10:
+ 11:PROPERTY ATMEL {TDI_PULLUP = ON};
+ 12:PROPERTY ATMEL {TMS_PULLUP = ON};
+ 13:PROPERTY ATMEL {PREASSIGN = KEEP};
+ 14:
+ 15:Pin[12] = SHFT_DIR;   /* 0 = LEFT SHIFT, 1 = RIGHT SHIFT */
+ 16:Pin[84] = SHFT_OE;
+ 17:Pin[29] = SHFT_AR;      /* Active low to indicate right shift is arethmetic (sign extend) */
+ 18:Pin[50] = CFInFromALU;      /* Carry flag in from ALU CF Flag.  This is shifted in for the special shift left with carry */
+ 19:Pin[16] = CFOutToALU;       /* Carry flag out to the ALU.  This always has the last bit shifted out either the left or right side */
+ 20:Pin[57] = SHFT_WC;   /* If this flag is 0, shift in on left shifts the value of the carry flag */
+ 21:Pin[22] = SHFT_INVERTCARRY;  /* Active low signal to invert CFIn to CFOut; */
+ 22:
+ 23:Pin[31,70,11] = [SHFT_CNT0..2];  /* Shift count, 1-8 (so 0=Shift 1, 1=Shift 2...) */
+ 24:Pin[45,46,48,49,51,52,54,55,56,60,61,63,64,67,68] = [BBUS0..15];
+ 25:Pin[4,5,6,8,9,10,15,17,18,20,21,25,27,28,30,44] = [CBUS0..15];
+ 26:
+ 27:PINNODE [0..0] = [SHFT0..15];       /* The shifted bits based on direction and count */
+ 28:
+ 29:[CBUS0..15] = [SHFT0..15];
+ 30:[CBUS0..15].oe = !SHFT_OE;
+ 31:
+ 32:FIELD shftc = [SHFT_CNT0..2];
+ 33:
+ 34:/* The shifter, which used direction and count to shift bits from B 
+ 35:
+ 36:    SHFT_DIR = 0 for left shift, 1 for right shift.  For bit 0, left shift will shift in 0
+ 37:
+ 38:*/
+ 39:SHFT0 =   ( SHFT_DIR & shftc:['d'0] & BBUS1 )    // Right shift 1
+
+ 40:        # ( SHFT_DIR & shftc:['d'1] & BBUS2 )
+ 41:        # ( SHFT_DIR & shftc:['d'2] & BBUS3 )
+ 42:        # ( SHFT_DIR & shftc:['d'3] & BBUS4 )
+ 43:        # ( SHFT_DIR & shftc:['d'4] & BBUS5 )
+ 44:        # ( SHFT_DIR & shftc:['d'5] & BBUS6 )
+ 45:        # ( SHFT_DIR & shftc:['d'6] & BBUS7 )
+ 46:        # ( SHFT_DIR & shftc:['d'7] & BBUS8 )
+ 47:        # ( !SHFT_WC & !SHFT_DIR & CFInFromALU );
+ 48:
+ 49:SHFT1 =   ( SHFT_DIR & shftc:['d'0] & BBUS2 )    // Right shift
+
+ 50:        # ( SHFT_DIR & shftc:['d'1] & BBUS3 )
+ 51:        # ( SHFT_DIR & shftc:['d'2] & BBUS4 )
+ 52:        # ( SHFT_DIR & shftc:['d'3] & BBUS5 )
+ 53:        # ( SHFT_DIR & shftc:['d'4] & BBUS6 )
+
+LISTING FOR LOGIC DESCRIPTION FILE: SHIFT.pld                        Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:18:16 2023
+
+ 54:        # ( SHFT_DIR & shftc:['d'5] & BBUS7 )
+ 55:        # ( SHFT_DIR & shftc:['d'6] & BBUS8 )
+ 56:        # ( SHFT_DIR & shftc:['d'7] & BBUS9 )
+ 57:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS0 )
+ 58:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'1..'d'7] & CFInFromALU );  // Left shift
+
+ 59:
+ 60:SHFT2 =   ( SHFT_DIR & shftc:['d'0] & BBUS3 )    // Right shift
+
+ 61:        # ( SHFT_DIR & shftc:['d'1] & BBUS4 )
+ 62:        # ( SHFT_DIR & shftc:['d'2] & BBUS5 )
+ 63:        # ( SHFT_DIR & shftc:['d'3] & BBUS6 )
+ 64:        # ( SHFT_DIR & shftc:['d'4] & BBUS7 )
+ 65:        # ( SHFT_DIR & shftc:['d'5] & BBUS8 )
+ 66:        # ( SHFT_DIR & shftc:['d'6] & BBUS9 )
+ 67:        # ( SHFT_DIR & shftc:['d'7] & BBUS10 )
+ 68:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS1 )   // Left shift
+
+ 69:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'1] & BBUS0 )
+ 70:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'2..'d'7] & CFInFromALU );
+ 71:
+ 72:SHFT3 =   ( SHFT_DIR & shftc:['d'0] & BBUS4 )    // Right shift
+
+ 73:        # ( SHFT_DIR & shftc:['d'1] & BBUS5 )
+ 74:        # ( SHFT_DIR & shftc:['d'2] & BBUS6 )
+ 75:        # ( SHFT_DIR & shftc:['d'3] & BBUS7 )
+ 76:        # ( SHFT_DIR & shftc:['d'4] & BBUS8 )
+ 77:        # ( SHFT_DIR & shftc:['d'5] & BBUS9 )
+ 78:        # ( SHFT_DIR & shftc:['d'6] & BBUS10 )
+ 79:        # ( SHFT_DIR & shftc:['d'7] & BBUS11 )
+ 80:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS2 )   // Left shift
+
+ 81:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'1] & BBUS1 )
+ 82:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'2] & BBUS0 )
+ 83:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'3..'d'7] & CFInFromALU );
+ 84:        
+ 85:
+ 86:SHFT4 =   ( SHFT_DIR & shftc:['d'0] & BBUS5 )    // Right shift
+
+ 87:        # ( SHFT_DIR & shftc:['d'1] & BBUS6 )
+ 88:        # ( SHFT_DIR & shftc:['d'2] & BBUS7 )
+ 89:        # ( SHFT_DIR & shftc:['d'3] & BBUS8 )
+ 90:        # ( SHFT_DIR & shftc:['d'4] & BBUS9 )
+ 91:        # ( SHFT_DIR & shftc:['d'5] & BBUS10 )
+ 92:        # ( SHFT_DIR & shftc:['d'6] & BBUS11 )
+ 93:        # ( SHFT_DIR & shftc:['d'7] & BBUS12 )
+ 94:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS3 )   // Left shift
+
+ 95:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'1] & BBUS2 )
+ 96:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'2] & BBUS1 )
+ 97:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'3] & BBUS0 )
+ 98:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'4..'d'7] & CFInFromALU );
+ 99:
+100:SHFT5 =   ( SHFT_DIR & shftc:['d'0] & BBUS6 )    // Right shift  
+
+101:        # ( SHFT_DIR & shftc:['d'1] & BBUS7 )
+102:        # ( SHFT_DIR & shftc:['d'2] & BBUS8 )
+103:        # ( SHFT_DIR & shftc:['d'3] & BBUS9 )
+104:        # ( SHFT_DIR & shftc:['d'4] & BBUS10 )
+105:        # ( SHFT_DIR & shftc:['d'5] & BBUS11 )
+106:        # ( SHFT_DIR & shftc:['d'6] & BBUS12 )
+107:        # ( SHFT_DIR & shftc:['d'7] & BBUS13 )
+
+LISTING FOR LOGIC DESCRIPTION FILE: SHIFT.pld                        Page 3
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:18:16 2023
+
+108:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS4 )   // Left shift
+
+109:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'1] & BBUS3 )
+110:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'2] & BBUS2 )
+111:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'3] & BBUS1 )
+112:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'4] & BBUS0 )
+113:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'5..'d'7] & CFInFromALU );
+114:
+115:SHFT6 =   ( SHFT_DIR & shftc:['d'0] & BBUS7 )    // Right shift
+
+116:       # ( SHFT_DIR & shftc:['d'1] & BBUS8 )
+117:        # ( SHFT_DIR & shftc:['d'2] & BBUS9 )
+118:        # ( SHFT_DIR & shftc:['d'3] & BBUS10 )
+119:        # ( SHFT_DIR & shftc:['d'4] & BBUS11 )
+120:        # ( SHFT_DIR & shftc:['d'5] & BBUS12 )
+121:        # ( SHFT_DIR & shftc:['d'6] & BBUS13 )
+122:        # ( SHFT_DIR & shftc:['d'7] & BBUS14 )
+123:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS5 )   // Left shift
+
+124:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'1] & BBUS4 )
+125:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'2] & BBUS3 )
+126:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'3] & BBUS2 )
+127:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'4] & BBUS1 )
+128:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'5] & BBUS0 )
+129:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'6..'d'7] & CFInFromALU );
+130:
+131:SHFT7 =   ( SHFT_DIR & shftc:['d'0] & BBUS8 )    // Right shift
+
+132:        # ( SHFT_DIR & shftc:['d'1] & BBUS9 )
+133:        # ( SHFT_DIR & shftc:['d'2] & BBUS10 )
+134:        # ( SHFT_DIR & shftc:['d'3] & BBUS11 )
+135:        # ( SHFT_DIR & shftc:['d'4] & BBUS12 )
+136:        # ( SHFT_DIR & shftc:['d'5] & BBUS13 )
+137:        # ( SHFT_DIR & shftc:['d'6] & BBUS14 )
+138:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 )
+139:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'0] & BBUS6 )   // Left shift
+
+140:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'1] & BBUS5 )
+141:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'2] & BBUS4 )
+142:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'3] & BBUS3 )
+143:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'4] & BBUS2 )
+144:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'5] & BBUS1 )
+145:        # ( SHFT_WC & !SHFT_DIR & shftc:['d'6] & BBUS0 )
+146:        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'7] & CFInFromALU );
+147:
+148:SHFT8 =   ( SHFT_DIR & shftc:['d'0] & BBUS9 )    // Right shift
+
+149:        # ( SHFT_DIR & shftc:['d'1] & BBUS10 )
+150:        # ( SHFT_DIR & shftc:['d'2] & BBUS11 )
+151:        # ( SHFT_DIR & shftc:['d'3] & BBUS12 )
+152:        # ( SHFT_DIR & shftc:['d'4] & BBUS13 )
+153:        # ( SHFT_DIR & shftc:['d'5] & BBUS14 )
+154:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 )
+155:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+156:        # ( !SHFT_DIR & shftc:['d'0] & BBUS7 )   // Left shift
+
+157:        # ( !SHFT_DIR & shftc:['d'1] & BBUS6 )
+158:        # ( !SHFT_DIR & shftc:['d'2] & BBUS5 )
+159:        # ( !SHFT_DIR & shftc:['d'3] & BBUS4 )
+160:        # ( !SHFT_DIR & shftc:['d'4] & BBUS3 )
+161:        # ( !SHFT_DIR & shftc:['d'5] & BBUS2 )
+
+LISTING FOR LOGIC DESCRIPTION FILE: SHIFT.pld                        Page 4
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:18:16 2023
+
+162:        # ( !SHFT_DIR & shftc:['d'6] & BBUS1 )
+163:        # ( !SHFT_DIR & shftc:['d'7] & BBUS0 );
+164:
+165:SHFT9 =   ( SHFT_DIR & shftc:['d'0] & BBUS10 )   // Right shift
+
+166:        # ( SHFT_DIR & shftc:['d'1] & BBUS11 )
+167:        # ( SHFT_DIR & shftc:['d'2] & BBUS12 )
+168:        # ( SHFT_DIR & shftc:['d'3] & BBUS13 )
+169:        # ( SHFT_DIR & shftc:['d'4] & BBUS14 )
+170:        # ( SHFT_DIR & shftc:['d'5] & BBUS15 )
+171:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+172:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+173:        # ( !SHFT_DIR & shftc:['d'0] & BBUS8 )   // Left shift
+
+174:        # ( !SHFT_DIR & shftc:['d'1] & BBUS7 )
+175:        # ( !SHFT_DIR & shftc:['d'2] & BBUS6 )
+176:        # ( !SHFT_DIR & shftc:['d'3] & BBUS5 )
+177:        # ( !SHFT_DIR & shftc:['d'4] & BBUS4 )
+178:        # ( !SHFT_DIR & shftc:['d'5] & BBUS3 )
+179:        # ( !SHFT_DIR & shftc:['d'6] & BBUS2 )
+180:        # ( !SHFT_DIR & shftc:['d'7] & BBUS1 );
+181:
+182:SHFT10 =   ( SHFT_DIR & shftc:['d'0] & BBUS11 )  // Right shift
+
+183:        # ( SHFT_DIR & shftc:['d'1] & BBUS12 )
+184:        # ( SHFT_DIR & shftc:['d'2] & BBUS13 )
+185:        # ( SHFT_DIR & shftc:['d'3] & BBUS14 )
+186:        # ( SHFT_DIR & shftc:['d'4] & BBUS15 )
+187:        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+188:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+189:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+190:        # ( !SHFT_DIR & shftc:['d'0] & BBUS9 )   // Left shift
+
+191:        # ( !SHFT_DIR & shftc:['d'1] & BBUS8 )
+192:        # ( !SHFT_DIR & shftc:['d'2] & BBUS7 )
+193:        # ( !SHFT_DIR & shftc:['d'3] & BBUS6 )
+194:        # ( !SHFT_DIR & shftc:['d'4] & BBUS5 )
+195:        # ( !SHFT_DIR & shftc:['d'5] & BBUS4 )
+196:        # ( !SHFT_DIR & shftc:['d'6] & BBUS3 )
+197:        # ( !SHFT_DIR & shftc:['d'7] & BBUS2 );
+198:
+199:SHFT11 =   ( SHFT_DIR & shftc:['d'0] & BBUS12 )  // Right shift
+
+200:        # ( SHFT_DIR & shftc:['d'1] & BBUS13 )
+201:        # ( SHFT_DIR & shftc:['d'2] & BBUS14 )
+202:        # ( SHFT_DIR & shftc:['d'3] & BBUS15 )
+203:        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+204:        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+205:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+206:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+207:        # ( !SHFT_DIR & shftc:['d'0] & BBUS10 )  // Left shift
+
+208:        # ( !SHFT_DIR & shftc:['d'1] & BBUS9 )
+209:        # ( !SHFT_DIR & shftc:['d'2] & BBUS8 )
+210:        # ( !SHFT_DIR & shftc:['d'3] & BBUS7 )
+211:        # ( !SHFT_DIR & shftc:['d'4] & BBUS6 )
+212:        # ( !SHFT_DIR & shftc:['d'5] & BBUS5 )
+213:        # ( !SHFT_DIR & shftc:['d'6] & BBUS4 )
+214:        # ( !SHFT_DIR & shftc:['d'7] & BBUS3 );
+215:
+
+LISTING FOR LOGIC DESCRIPTION FILE: SHIFT.pld                        Page 5
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:18:16 2023
+
+216:SHFT12 =   ( SHFT_DIR & shftc:['d'0] & BBUS13 )  // Right shift
+
+217:        # ( SHFT_DIR & shftc:['d'1] & BBUS14 )
+218:        # ( SHFT_DIR & shftc:['d'2] & BBUS15 )
+219:        # ( SHFT_DIR & shftc:['d'3] & BBUS15 & !SHFT_AR )
+220:        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+221:        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+222:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+223:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+224:        # ( !SHFT_DIR & shftc:['d'0] & BBUS11 )  // Left shift
+
+225:        # ( !SHFT_DIR & shftc:['d'1] & BBUS10 )
+226:        # ( !SHFT_DIR & shftc:['d'2] & BBUS9 )
+227:        # ( !SHFT_DIR & shftc:['d'3] & BBUS8 )
+228:        # ( !SHFT_DIR & shftc:['d'4] & BBUS7 )
+229:        # ( !SHFT_DIR & shftc:['d'5] & BBUS6 )
+230:        # ( !SHFT_DIR & shftc:['d'6] & BBUS5 )
+231:        # ( !SHFT_DIR & shftc:['d'7] & BBUS4 );
+232:
+233:SHFT13 =   ( SHFT_DIR & shftc:['d'0] & BBUS14 )  // Right shift
+
+234:        # ( SHFT_DIR & shftc:['d'1] & BBUS15 )
+235:        # ( SHFT_DIR & shftc:['d'2] & BBUS15 & !SHFT_AR )
+236:        # ( SHFT_DIR & shftc:['d'3] & BBUS15 & !SHFT_AR ) 
+237:        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+238:        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+239:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+240:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+241:        # ( !SHFT_DIR & shftc:['d'0] & BBUS12 )  // Left shift
+
+242:        # ( !SHFT_DIR & shftc:['d'1] & BBUS11 )
+243:        # ( !SHFT_DIR & shftc:['d'2] & BBUS10 )
+244:        # ( !SHFT_DIR & shftc:['d'3] & BBUS9 )
+245:        # ( !SHFT_DIR & shftc:['d'4] & BBUS8 )
+246:        # ( !SHFT_DIR & shftc:['d'5] & BBUS7 )
+247:        # ( !SHFT_DIR & shftc:['d'6] & BBUS6 )
+248:        # ( !SHFT_DIR & shftc:['d'7] & BBUS5 );
+249:
+250:SHFT14 =  ( SHFT_DIR & shftc:['d'0] & BBUS15 )  // Right shift
+
+251:        # ( SHFT_DIR & shftc:['d'1] & BBUS15 & !SHFT_AR )
+252:        # ( SHFT_DIR & shftc:['d'2] & BBUS15 & !SHFT_AR )
+253:        # ( SHFT_DIR & shftc:['d'3] & BBUS15 & !SHFT_AR )
+254:        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+255:        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+256:        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+257:        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )                // Right shift
+
+258:        # ( !SHFT_DIR & shftc:['d'0] & BBUS13 )
+259:        # ( !SHFT_DIR & shftc:['d'1] & BBUS12 )
+260:        # ( !SHFT_DIR & shftc:['d'2] & BBUS11 )
+261:        # ( !SHFT_DIR & shftc:['d'3] & BBUS10 )
+262:        # ( !SHFT_DIR & shftc:['d'4] & BBUS9 )
+263:        # ( !SHFT_DIR & shftc:['d'5] & BBUS8 )
+264:        # ( !SHFT_DIR & shftc:['d'6] & BBUS7 )
+265:        # ( !SHFT_DIR & shftc:['d'7] & BBUS6 );
+266:
+267:SHFT15 =  ( SHFT_DIR & BBUS15 & !SHFT_AR )                 // Right shift
+
+268:        # ( !SHFT_DIR & shftc:['d'0] & BBUS14 )  // Left shift
+
+269:        # ( !SHFT_DIR & shftc:['d'1] & BBUS13 )
+
+LISTING FOR LOGIC DESCRIPTION FILE: SHIFT.pld                        Page 6
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:18:16 2023
+
+270:        # ( !SHFT_DIR & shftc:['d'2] & BBUS12 )
+271:        # ( !SHFT_DIR & shftc:['d'3] & BBUS11 )
+272:        # ( !SHFT_DIR & shftc:['d'4] & BBUS10 )
+273:        # ( !SHFT_DIR & shftc:['d'5] & BBUS9 )
+274:        # ( !SHFT_DIR & shftc:['d'6] & BBUS8 )
+275:        # ( !SHFT_DIR & shftc:['d'7] & BBUS7 );
+276:
+277:CFOutToALU =
+278:            (SHFT_INVERTCARRY &    
+279:              (( SHFT_DIR & shftc:['d'0] & BBUS0 )  // Right shift
+
+280:              # ( SHFT_DIR & shftc:['d'1] & BBUS1 )
+281:              # ( SHFT_DIR & shftc:['d'2] & BBUS2 )
+282:              # ( SHFT_DIR & shftc:['d'3] & BBUS3 )
+283:              # ( SHFT_DIR & shftc:['d'4] & BBUS4 )
+284:              # ( SHFT_DIR & shftc:['d'5] & BBUS5 )
+285:              # ( SHFT_DIR & shftc:['d'6] & BBUS6 )
+286:              # ( SHFT_DIR & shftc:['d'7] & BBUS7 )                // Right shift
+
+287:              # ( !SHFT_DIR & shftc:['d'0] & BBUS15 )
+288:              # ( !SHFT_DIR & shftc:['d'1] & BBUS14 )
+289:              # ( !SHFT_DIR & shftc:['d'2] & BBUS13 )
+290:              # ( !SHFT_DIR & shftc:['d'3] & BBUS12 )
+291:              # ( !SHFT_DIR & shftc:['d'4] & BBUS11 )
+292:              # ( !SHFT_DIR & shftc:['d'5] & BBUS10 )
+293:              # ( !SHFT_DIR & shftc:['d'6] & BBUS9 )
+294:              # ( !SHFT_DIR & shftc:['d'7] & BBUS8 ))
+295:            )
+296:            #
+297:            ( !SHFT_INVERTCARRY & !CFInFromALU);
+298:
+299:/*
+300:Total dedicated input used:     1/4     (25%)
+301:Total I/O pins used             44/64   (68%)
+302:Total Logic cells used          56/128  (43%)
+303:Total Flip-Flop used            0/128   (0%)
+304:Total Foldback logic used       0/128   (0%)
+305:Total Nodes+FB/MCells           56/128  (43%)
+306:Total cascade used              0
+307:Total input pins                28
+308:Total output pins               17
+309:Total Pts                       262
+310:
+311:*/
+312:
+313:
+314:
+
+
+

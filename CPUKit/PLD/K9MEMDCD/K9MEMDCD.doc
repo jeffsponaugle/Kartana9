@@ -1,0 +1,158 @@
+
+*******************************************************************************
+                                    K9MEMCD
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          f1504ispplcc44  Library DLIB-h-40-1
+Created         Sat Dec 30 22:30:44 2023
+Name            K9MEMCD
+Partno          K9MEMCD
+Revision        01
+Date            04/18/2022
+Designer        Sponaugle
+Company         Ratiometric
+Assembly        None
+Location        None
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+RAM_ACCESS =>
+    !A4 & A15 & !MEM_AS
+  # !A5 & A15 & !MEM_AS
+  # !A6 & A15 & !MEM_AS
+  # !A7 & A15 & !MEM_AS
+  # !A8 & A15 & !MEM_AS
+  # !A9 & A15 & !MEM_AS
+  # !A10 & A15 & !MEM_AS
+  # !A11 & A15 & !MEM_AS
+  # !A12 & A15 & !MEM_AS
+  # !A14 & A15 & !MEM_AS
+  # !A13 & A15 & !MEM_AS
+
+RAM_HIGH_CS =>
+    !A15
+  # MEM_AS
+  # MEM_H_EN
+  # A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14
+
+RAM_LOW_CS =>
+    !A15
+  # MEM_AS
+  # MEM_L_EN
+  # A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14
+
+RAM_OE =>
+    !A15
+  # MEM_AS
+  # !MEM_RW
+  # A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14
+
+RAM_WE =>
+    !A15
+  # MEM_AS
+  # MEM_RW
+  # A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14
+
+ROM_ACCESS =>
+    !A15 & !MEM_AS
+
+ROM_HIGH_CS =>
+    A15
+  # MEM_AS
+  # MEM_H_EN
+
+ROM_LOW_CS =>
+    A15
+  # MEM_AS
+  # MEM_L_EN
+
+ROM_OE =>
+    A15
+  # MEM_AS
+  # !MEM_RW
+
+ROM_WE =>
+    A15
+  # MEM_AS
+  # MEM_RW
+
+SEVEN_HIGH_WRITE =>
+    !A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & 
+      A14 & A15 & !MEM_AS & !MEM_H_EN & !MEM_RW
+
+SEVEN_LOW_WRITE =>
+    !A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & 
+      A14 & A15 & !MEM_AS & !MEM_L_EN & !MEM_RW
+
+SW_HIGH_READ =>
+    !A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & 
+      A14 & A15 & !MEM_AS & !MEM_H_EN & MEM_RW
+
+SW_LOW_READ =>
+    !A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & 
+      A14 & A15 & !MEM_AS & !MEM_L_EN & MEM_RW
+
+UNUSED =>
+    A1
+  # A2
+  # A3
+  # A4
+
+addr =>
+    A1 , A2 , A3 , A4 , A5 , A6 , A7 , A8 , A9 , A10 , A11 , A12 , A13 , A14 , 
+      A15
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    A1                          16       V        -       -       -     
+    A2                          17       V        -       -       -     
+    A3                          18       V        -       -       -     
+    A4                          19       V        -       -       -     
+    A5                          20       V        -       -       -     
+    A6                          21       V        -       -       -     
+    A7                          24       V        -       -       -     
+    A8                          25       V        -       -       -     
+    A9                          26       V        -       -       -     
+    A10                         27       V        -       -       -     
+    A11                         28       V        -       -       -     
+    A12                         29       V        -       -       -     
+    A13                         31       V        -       -       -     
+    A14                         33       V        -       -       -     
+    A15                         34       V        -       -       -     
+    MEM_AS                      1        V        -       -       -     
+    MEM_H_EN                    44       V        -       -       -     
+    MEM_L_EN                    43       V        -       -       -     
+    MEM_RW                      2        V        -       -       -     
+    RAM_ACCESS                  0        I        11      -       -     
+    RAM_HIGH_CS                 41       V        4       0       2     
+    RAM_LOW_CS                  40       V        4       0       2     
+    RAM_OE                      39       V        4       0       2     
+    RAM_WE                      37       V        4       0       2     
+    ROM_ACCESS                  0        I        1       -       -     
+    ROM_HIGH_CS                 36       V        3       0       2     
+    ROM_LOW_CS                  4        V        3       0       2     
+    ROM_OE                      5        V        3       0       2     
+    ROM_WE                      6        V        3       0       2     
+    SEVEN_HIGH_WRITE            12       V        1       0       2     
+    SEVEN_LOW_WRITE             11       V        1       0       2     
+    SW_HIGH_READ                9        V        1       0       2     
+    SW_LOW_READ                 8        V        1       0       2     
+    UNUSED                      14       V        4       0       2     
+    addr                        0        F        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

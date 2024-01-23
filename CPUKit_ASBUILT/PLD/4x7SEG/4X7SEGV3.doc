@@ -1,0 +1,454 @@
+
+*******************************************************************************
+                                    6X7Seg
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          f1504isptqfp44  Library DLIB-h-40-1
+Created         Tue Dec 19 14:37:45 2023
+Name            6X7Seg
+Partno          6X7SegDriver
+Revision        01
+Date            01/10/2021
+Designer        Sponaugle
+Company         Ratiometric
+Assembly        None
+Location        None
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+AADD =>
+    A3 , A2 , A1 , A0
+
+ASEGA =>
+    A0 & A1 & !A2 & A3
+  # !A0 & !A1 & A2 & !A3
+  # A0 & !A1 & A2 & A3
+  # A0 & !A1 & !A2 & !A3
+
+ASEGB =>
+    !A0 & A1 & A2
+  # !A0 & A2 & A3
+  # A0 & !A1 & A2 & !A3
+  # A0 & A1 & A3
+
+ASEGC =>
+    !A0 & A1 & !A2 & !A3
+  # A1 & A2 & A3
+  # !A0 & A2 & A3
+
+ASEGD =>
+    !A0 & A1 & !A2 & A3
+  # A0 & !A1 & !A2
+  # A0 & A1 & A2
+  # !A0 & !A1 & A2 & !A3
+
+ASEGE =>
+    A0 & !A1 & !A2
+  # A0 & !A3
+  # !A1 & A2 & !A3
+
+ASEGF =>
+    A0 & !A2 & !A3
+  # A1 & !A2 & !A3
+  # A0 & A1 & !A3
+  # A0 & !A1 & A2 & A3
+
+ASEGG =>
+    !A0 & !A1 & A2 & A3
+  # A0 & A1 & A2 & !A3
+  # !A1 & !A2 & !A3
+
+BADD =>
+    B3 , B2 , B1 , B0
+
+BSEGA =>
+    B0 & B1 & !B2 & B3
+  # !B0 & !B1 & B2 & !B3
+  # B0 & !B1 & B2 & B3
+  # B0 & !B1 & !B2 & !B3
+
+BSEGB =>
+    !B0 & B1 & B2
+  # !B0 & B2 & B3
+  # B0 & !B1 & B2 & !B3
+  # B0 & B1 & B3
+
+BSEGC =>
+    !B0 & B1 & !B2 & !B3
+  # B1 & B2 & B3
+  # !B0 & B2 & B3
+
+BSEGD =>
+    !B0 & B1 & !B2 & B3
+  # B0 & !B1 & !B2
+  # B0 & B1 & B2
+  # !B0 & !B1 & B2 & !B3
+
+BSEGE =>
+    B0 & !B1 & !B2
+  # B0 & !B3
+  # !B1 & B2 & !B3
+
+BSEGF =>
+    B0 & !B2 & !B3
+  # B1 & !B2 & !B3
+  # B0 & B1 & !B3
+  # B0 & !B1 & B2 & B3
+
+BSEGG =>
+    !B0 & !B1 & B2 & B3
+  # B0 & B1 & B2 & !B3
+  # !B1 & !B2 & !B3
+
+CADD =>
+    C3 , C2 , C1 , C0
+
+CSEGA =>
+    C0 & C1 & !C2 & C3
+  # !C0 & !C1 & C2 & !C3
+  # C0 & !C1 & C2 & C3
+  # C0 & !C1 & !C2 & !C3
+
+CSEGB =>
+    !C0 & C1 & C2
+  # !C0 & C2 & C3
+  # C0 & !C1 & C2 & !C3
+  # C0 & C1 & C3
+
+CSEGC =>
+    !C0 & C1 & !C2 & !C3
+  # C1 & C2 & C3
+  # !C0 & C2 & C3
+
+CSEGD =>
+    !C0 & C1 & !C2 & C3
+  # C0 & !C1 & !C2
+  # C0 & C1 & C2
+  # !C0 & !C1 & C2 & !C3
+
+CSEGE =>
+    C0 & !C1 & !C2
+  # C0 & !C3
+  # !C1 & C2 & !C3
+
+CSEGF =>
+    C0 & !C2 & !C3
+  # C1 & !C2 & !C3
+  # C0 & C1 & !C3
+  # C0 & !C1 & C2 & C3
+
+CSEGG =>
+    !C0 & !C1 & C2 & C3
+  # C0 & C1 & C2 & !C3
+  # !C1 & !C2 & !C3
+
+DADD =>
+    D3 , D2 , D1 , D0
+
+DSEGA =>
+    D0 & D1 & !D2 & D3
+  # !D0 & !D1 & D2 & !D3
+  # D0 & !D1 & D2 & D3
+  # D0 & !D1 & !D2 & !D3
+
+DSEGB =>
+    !D0 & D1 & D2
+  # !D0 & D2 & D3
+  # D0 & !D1 & D2 & !D3
+  # D0 & D1 & D3
+
+DSEGC =>
+    !D0 & D1 & !D2 & !D3
+  # D1 & D2 & D3
+  # !D0 & D2 & D3
+
+DSEGD =>
+    !D0 & D1 & !D2 & D3
+  # D0 & !D1 & !D2
+  # D0 & D1 & D2
+  # !D0 & !D1 & D2 & !D3
+
+DSEGE =>
+    D0 & !D1 & !D2
+  # D0 & !D3
+  # !D1 & D2 & !D3
+
+DSEGF =>
+    D0 & !D2 & !D3
+  # D1 & !D2 & !D3
+  # D0 & D1 & !D3
+  # D0 & !D1 & D2 & D3
+
+DSEGG =>
+    !D0 & !D1 & D2 & D3
+  # D0 & D1 & D2 & !D3
+  # !D1 & !D2 & !D3
+
+LEA =>
+    !icnt0 & !icnt1
+
+LEB =>
+    icnt0 & !icnt1
+
+LEC =>
+    !icnt0 & icnt1
+
+LED =>
+    icnt0 & icnt1
+
+OUTPUT =>
+    SEGA , SEGB , SEGC , SEGD , SEGE , SEGF , SEGG
+
+SEGA =>
+    D1 & D2 & icnt0 & icnt1
+  # !D0 & !D2 & icnt0 & icnt1
+  # !D0 & D3 & icnt0 & icnt1
+  # D1 & !D3 & icnt0 & icnt1
+  # C1 & C2 & !icnt0 & icnt1
+  # !C0 & !C2 & !icnt0 & icnt1
+  # !C0 & C3 & !icnt0 & icnt1
+  # C1 & !C3 & !icnt0 & icnt1
+  # B1 & B2 & icnt0 & !icnt1
+  # !B0 & !B2 & icnt0 & !icnt1
+  # !B0 & B3 & icnt0 & !icnt1
+  # B1 & !B3 & icnt0 & !icnt1
+  # A1 & A2 & !icnt0 & !icnt1
+  # !A0 & !A2 & !icnt0 & !icnt1
+  # !A0 & A3 & !icnt0 & !icnt1
+  # A1 & !A3 & !icnt0 & !icnt1
+  # !D1 & !D2 & D3 & icnt0 & icnt1
+  # D0 & D2 & !D3 & icnt0 & icnt1
+  # !C1 & !C2 & C3 & !icnt0 & icnt1
+  # C0 & C2 & !C3 & !icnt0 & icnt1
+  # !B1 & !B2 & B3 & icnt0 & !icnt1
+  # B0 & B2 & !B3 & icnt0 & !icnt1
+  # !A1 & !A2 & A3 & !icnt0 & !icnt1
+  # A0 & A2 & !A3 & !icnt0 & !icnt1
+
+SEGB =>
+    !D0 & !D2 & icnt0 & icnt1
+  # !D1 & !D2 & icnt0 & icnt1
+  # !C0 & !C2 & !icnt0 & icnt1
+  # !C1 & !C2 & !icnt0 & icnt1
+  # !B0 & !B2 & icnt0 & !icnt1
+  # !B1 & !B2 & icnt0 & !icnt1
+  # !A0 & !A2 & !icnt0 & !icnt1
+  # !A1 & !A2 & !icnt0 & !icnt1
+  # D0 & !D1 & D3 & icnt0 & icnt1
+  # D0 & D1 & !D3 & icnt0 & icnt1
+  # !D0 & !D1 & !D3 & icnt0 & icnt1
+  # C0 & !C1 & C3 & !icnt0 & icnt1
+  # C0 & C1 & !C3 & !icnt0 & icnt1
+  # !C0 & !C1 & !C3 & !icnt0 & icnt1
+  # B0 & !B1 & B3 & icnt0 & !icnt1
+  # B0 & B1 & !B3 & icnt0 & !icnt1
+  # !B0 & !B1 & !B3 & icnt0 & !icnt1
+  # A0 & !A1 & A3 & !icnt0 & !icnt1
+  # A0 & A1 & !A3 & !icnt0 & !icnt1
+  # !A0 & !A1 & !A3 & !icnt0 & !icnt1
+
+SEGC =>
+    D0 & !D1 & icnt0 & icnt1
+  # D0 & !D2 & icnt0 & icnt1
+  # !D1 & !D2 & icnt0 & icnt1
+  # !D2 & D3 & icnt0 & icnt1
+  # D2 & !D3 & icnt0 & icnt1
+  # C0 & !C1 & !icnt0 & icnt1
+  # C0 & !C2 & !icnt0 & icnt1
+  # !C1 & !C2 & !icnt0 & icnt1
+  # !C2 & C3 & !icnt0 & icnt1
+  # C2 & !C3 & !icnt0 & icnt1
+  # B0 & !B1 & icnt0 & !icnt1
+  # B0 & !B2 & icnt0 & !icnt1
+  # !B1 & !B2 & icnt0 & !icnt1
+  # !B2 & B3 & icnt0 & !icnt1
+  # B2 & !B3 & icnt0 & !icnt1
+  # A0 & !A1 & !icnt0 & !icnt1
+  # A0 & !A2 & !icnt0 & !icnt1
+  # !A1 & !A2 & !icnt0 & !icnt1
+  # !A2 & A3 & !icnt0 & !icnt1
+  # A2 & !A3 & !icnt0 & !icnt1
+
+SEGD =>
+    !D0 & D1 & D2 & icnt0 & icnt1
+  # D0 & !D1 & D2 & icnt0 & icnt1
+  # D0 & D1 & !D2 & icnt0 & icnt1
+  # !D0 & !D1 & D3 & icnt0 & icnt1
+  # !D0 & !D2 & !D3 & icnt0 & icnt1
+  # !C0 & C1 & C2 & !icnt0 & icnt1
+  # C0 & !C1 & C2 & !icnt0 & icnt1
+  # C0 & C1 & !C2 & !icnt0 & icnt1
+  # !C0 & !C1 & C3 & !icnt0 & icnt1
+  # !C0 & !C2 & !C3 & !icnt0 & icnt1
+  # !B0 & B1 & B2 & icnt0 & !icnt1
+  # B0 & !B1 & B2 & icnt0 & !icnt1
+  # B0 & B1 & !B2 & icnt0 & !icnt1
+  # !B0 & !B1 & B3 & icnt0 & !icnt1
+  # !B0 & !B2 & !B3 & icnt0 & !icnt1
+  # !A0 & A1 & A2 & !icnt0 & !icnt1
+  # A0 & !A1 & A2 & !icnt0 & !icnt1
+  # A0 & A1 & !A2 & !icnt0 & !icnt1
+  # !A0 & !A1 & A3 & !icnt0 & !icnt1
+  # !A0 & !A2 & !A3 & !icnt0 & !icnt1
+
+SEGE =>
+    !D0 & D1 & icnt0 & icnt1
+  # !D0 & !D2 & icnt0 & icnt1
+  # D1 & D3 & icnt0 & icnt1
+  # D2 & D3 & icnt0 & icnt1
+  # !C0 & C1 & !icnt0 & icnt1
+  # !C0 & !C2 & !icnt0 & icnt1
+  # C1 & C3 & !icnt0 & icnt1
+  # C2 & C3 & !icnt0 & icnt1
+  # !B0 & B1 & icnt0 & !icnt1
+  # !B0 & !B2 & icnt0 & !icnt1
+  # B1 & B3 & icnt0 & !icnt1
+  # B2 & B3 & icnt0 & !icnt1
+  # !A0 & A1 & !icnt0 & !icnt1
+  # !A0 & !A2 & !icnt0 & !icnt1
+  # A1 & A3 & !icnt0 & !icnt1
+  # A2 & A3 & !icnt0 & !icnt1
+
+SEGF =>
+    !D0 & !D1 & icnt0 & icnt1
+  # !D0 & D2 & icnt0 & icnt1
+  # D1 & D3 & icnt0 & icnt1
+  # !D2 & D3 & icnt0 & icnt1
+  # !C0 & !C1 & !icnt0 & icnt1
+  # !C0 & C2 & !icnt0 & icnt1
+  # C1 & C3 & !icnt0 & icnt1
+  # !C2 & C3 & !icnt0 & icnt1
+  # !B0 & !B1 & icnt0 & !icnt1
+  # !B0 & B2 & icnt0 & !icnt1
+  # B1 & B3 & icnt0 & !icnt1
+  # !B2 & B3 & icnt0 & !icnt1
+  # !A0 & !A1 & !icnt0 & !icnt1
+  # !A0 & A2 & !icnt0 & !icnt1
+  # A1 & A3 & !icnt0 & !icnt1
+  # !A2 & A3 & !icnt0 & !icnt1
+  # !D1 & D2 & !D3 & icnt0 & icnt1
+  # !C1 & C2 & !C3 & !icnt0 & icnt1
+  # !B1 & B2 & !B3 & icnt0 & !icnt1
+  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+
+SEGG =>
+    !D0 & D1 & icnt0 & icnt1
+  # D1 & !D2 & icnt0 & icnt1
+  # D0 & D3 & icnt0 & icnt1
+  # !D2 & D3 & icnt0 & icnt1
+  # !C0 & C1 & !icnt0 & icnt1
+  # C1 & !C2 & !icnt0 & icnt1
+  # C0 & C3 & !icnt0 & icnt1
+  # !C2 & C3 & !icnt0 & icnt1
+  # !B0 & B1 & icnt0 & !icnt1
+  # B1 & !B2 & icnt0 & !icnt1
+  # B0 & B3 & icnt0 & !icnt1
+  # !B2 & B3 & icnt0 & !icnt1
+  # !A0 & A1 & !icnt0 & !icnt1
+  # A1 & !A2 & !icnt0 & !icnt1
+  # A0 & A3 & !icnt0 & !icnt1
+  # !A2 & A3 & !icnt0 & !icnt1
+  # !D1 & D2 & !D3 & icnt0 & icnt1
+  # !C1 & C2 & !C3 & !icnt0 & icnt1
+  # !B1 & B2 & !B3 & icnt0 & !icnt1
+  # !A1 & A2 & !A3 & !icnt0 & !icnt1
+
+icnt0.d  =>
+    !icnt0
+
+icnt0.ck  =>
+    clk
+
+icnt1.d  =>
+    !icnt0 & icnt1
+  # icnt0 & !icnt1
+
+icnt1.ck  =>
+    clk
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    A0                          2        V        -       -       -     
+    A1                          3        V        -       -       -     
+    A2                          5        V        -       -       -     
+    A3                          6        V        -       -       -     
+    AADD                        0        F        -       -       -     
+    ASEGA                       0        I        4       -       -     
+    ASEGB                       0        I        4       -       -     
+    ASEGC                       0        I        3       -       -     
+    ASEGD                       0        I        4       -       -     
+    ASEGE                       0        I        3       -       -     
+    ASEGF                       0        I        4       -       -     
+    ASEGG                       0        I        3       -       -     
+    B0                          8        V        -       -       -     
+    B1                          10       V        -       -       -     
+    B2                          11       V        -       -       -     
+    B3                          12       V        -       -       -     
+    BADD                        0        F        -       -       -     
+    BSEGA                       0        I        4       -       -     
+    BSEGB                       0        I        4       -       -     
+    BSEGC                       0        I        3       -       -     
+    BSEGD                       0        I        4       -       -     
+    BSEGE                       0        I        3       -       -     
+    BSEGF                       0        I        4       -       -     
+    BSEGG                       0        I        3       -       -     
+    C0                          13       V        -       -       -     
+    C1                          14       V        -       -       -     
+    C2                          15       V        -       -       -     
+    C3                          18       V        -       -       -     
+    CADD                        0        F        -       -       -     
+    CSEGA                       0        I        4       -       -     
+    CSEGB                       0        I        4       -       -     
+    CSEGC                       0        I        3       -       -     
+    CSEGD                       0        I        4       -       -     
+    CSEGE                       0        I        3       -       -     
+    CSEGF                       0        I        4       -       -     
+    CSEGG                       0        I        3       -       -     
+    D0                          38       V        -       -       -     
+    D1                          39       V        -       -       -     
+    D2                          40       V        -       -       -     
+    D3                          42       V        -       -       -     
+    DADD                        0        F        -       -       -     
+    DSEGA                       0        I        4       -       -     
+    DSEGB                       0        I        4       -       -     
+    DSEGC                       0        I        3       -       -     
+    DSEGD                       0        I        4       -       -     
+    DSEGE                       0        I        3       -       -     
+    DSEGF                       0        I        4       -       -     
+    DSEGG                       0        I        3       -       -     
+ !  LEA                         19       V        1       0       2     
+ !  LEB                         20       V        1       0       2     
+ !  LEC                         21       V        1       0       2     
+ !  LED                         22       V        1       0       2     
+    OUTPUT                      0        F        -       -       -     
+    SEGA                        23       V        24      0       2     
+    SEGB                        25       V        20      0       2     
+    SEGC                        27       V        20      0       2     
+    SEGD                        28       V        20      0       2     
+    SEGE                        30       V        16      0       2     
+    SEGF                        31       V        20      0       2     
+    SEGG                        33       V        20      0       2     
+    clk                         37       V        -       -       -     
+    icnt0                       0        N        -       -       -     
+    icnt0               d       0        M        1       0       2     
+    icnt0               ck      0        M        1       0       1     
+    icnt1                       0        N        -       -       -     
+    icnt1               d       0        M        2       0       2     
+    icnt1               ck      0        M        1       0       1     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

@@ -1,0 +1,1362 @@
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Mon Jan 01 12:41:03 2024
+
+
+fit1508 C:\PC.tt2 -CUPL -dev P1508C84 -JTAG ON
+
+
+****** Initial fitting strategy and property ******
+ Pla_in_file = PC.tt2
+ Pla_out_file = PC.tt3
+ Jedec_file = PC.jed
+ Vector_file = PC.tmv
+ verilog_file = PC.vt
+ Time_file = 
+ Log_file = PC.fit
+ err_file = 
+ Device_name = PLCC84
+ Module_name = 
+ Package_type = PLCC
+ Preassign_file = 
+ Property_file = 
+ Sleep_mode = 
+ Preassignment = 
+ Security_mode = OFF
+ Pin_keep_mode = ON
+ Dedicated_input_clock = 
+ Dedicated_input_reset = 
+ Dedicated_input_oe = 
+ supporter = CUPL
+ optimize = ON
+ Soft_buffer = 
+ Xor_synthesis = OFF
+ Foldback_logic =  on
+ Expander = 
+ Cascade_logic = OFF
+ Dedicated_input = 
+ Output_fast = OFF
+ *******************************
+ Power down pin 1 = OFF
+ Power down pin 2 = OFF
+ power_reset = OFF
+ JTAG = ON
+ TDI pullup = ON
+ TMS pullup = ON
+ MC_power = OFF
+ Open_collector = OFF
+ ITD0 = ON
+ ITD1 = ON
+ ITD2 = ON
+ Fast_inlatch = off
+ *******************************
+Info: C:\PC uses 95% of the pins available in device PLCC84
+  If you wish to have more pins available for future logic changes
+  Atmel  recommends using a larger device
+---------------------------------------------------------
+ Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
+ ... 
+
+Performing global Output Enable pin assignments ...
+
+Performing global pin assignments ...
+--------------------------------------
+
+
+
+Final global control pins assignment (if applicable)...
+-------------------------------------------------------
+ADBUS_OE assigned to pin  2
+D_CLK_IN assigned to pin  83
+RESET_IN assigned to pin  1
+BBUS_OE assigned to pin  84
+
+
+
+Performing input pin pre-assignments ...
+------------------------------------
+ADBUS_OE assigned to pin  2
+D_CLK_IN assigned to pin  83
+RESET_IN assigned to pin  1
+BBUS_OE assigned to pin  84
+
+Attempt to place floating signals ...
+------------------------------------
+XXL_327 is placed at feedback node 601 (MC 1)
+XXL_335 is placed at feedback node 602 (MC 2)
+BBUS8 is placed at pin 12 (MC 3)
+PC13 is placed at feedback node 604 (MC 4)
+BBUS9 is placed at pin 11 (MC 5)
+BBUS10 is placed at pin 10 (MC 6)
+PC11 is placed at feedback node 607 (MC 7)
+BBUS12 is placed at pin 9 (MC 8)
+PC9 is placed at feedback node 609 (MC 9)
+PC10 is placed at feedback node 610 (MC 10)
+BBUS11 is placed at pin 8 (MC 11)
+PC8 is placed at feedback node 612 (MC 12)
+BBUS13 is placed at pin 6 (MC 13)
+BBUS14 is placed at pin 5 (MC 14)
+S1 is placed at feedback node 615 (MC 15)
+BBUS15 is placed at pin 4 (MC 16)
+XXL_338 is placed at foldback expander node 316 (MC 16)
+BBUS2 is placed at pin 22 (MC 17)
+S2_X2 is placed at feedback node 618 (MC 18)
+BBUS3 is placed at pin 21 (MC 19)
+S4_X2 is placed at feedback node 620 (MC 20)
+BBUS1 is placed at pin 20 (MC 21)
+S5_X2 is placed at feedback node 622 (MC 22)
+S7_X2 is placed at feedback node 623 (MC 23)
+BBUS4 is placed at pin 18 (MC 24)
+BBUS5 is placed at pin 17 (MC 25)
+PC6 is placed at feedback node 626 (MC 26)
+BBUS7 is placed at pin 16 (MC 27)
+PC4 is placed at feedback node 628 (MC 28)
+BBUS6 is placed at pin 15 (MC 29)
+PC2 is placed at feedback node 630 (MC 30)
+PC1 is placed at feedback node 631 (MC 31)
+TDI is placed at pin 14 (MC 32)
+PC3 is placed at feedback node 632 (MC 32)
+XXL_338 is placed at foldback expander node 332 (MC 32)
+PC14 is placed at feedback node 634 (MC 34)
+ADBUS9 is placed at pin 31 (MC 35)
+PC0 is placed at feedback node 636 (MC 36)
+ADBUS11 is placed at pin 30 (MC 37)
+ADBUS10 is placed at pin 29 (MC 38)
+XXL_337 is placed at feedback node 639 (MC 39)
+ADBUS12 is placed at pin 28 (MC 40)
+S13_X2 is placed at feedback node 641 (MC 41)
+S15_X2 is placed at feedback node 642 (MC 42)
+ADBUS13 is placed at pin 27 (MC 43)
+ADBUS14 is placed at pin 25 (MC 45)
+ADBUS15 is placed at pin 24 (MC 46)
+PC15 is placed at feedback node 647 (MC 47)
+TMS is placed at pin 23 (MC 48)
+PC12 is placed at feedback node 648 (MC 48)
+XXL_338 is placed at foldback expander node 348 (MC 48)
+ADBUS1 is placed at pin 41 (MC 49)
+ADBUS3 is placed at pin 40 (MC 51)
+ADBUS2 is placed at pin 39 (MC 53)
+ADBUS4 is placed at pin 37 (MC 56)
+ADBUS5 is placed at pin 36 (MC 57)
+S6_X2 is placed at feedback node 658 (MC 58)
+ADBUS6 is placed at pin 35 (MC 59)
+S8_X2 is placed at feedback node 660 (MC 60)
+ADBUS8 is placed at pin 34 (MC 61)
+PC5 is placed at feedback node 662 (MC 62)
+PC7 is placed at feedback node 663 (MC 63)
+ADBUS7 is placed at pin 33 (MC 64)
+XXL_338 is placed at foldback expander node 364 (MC 64)
+PC_MODE0 is placed at pin 44 (MC 65)
+PC_MODE1 is placed at pin 45 (MC 67)
+PC_MODE2 is placed at pin 46 (MC 69)
+UNUSED1 is placed at pin 48 (MC 72)
+UNUSED2 is placed at pin 49 (MC 73)
+BBUS0 is placed at pin 50 (MC 75)
+UNUSED4 is placed at pin 51 (MC 77)
+S8 is placed at feedback node 678 (MC 78)
+S7_X1 is placed at feedback node 679 (MC 79)
+UNUSED5 is placed at pin 52 (MC 80)
+S9_X2 is placed at feedback node 680 (MC 80)
+XXL_333 is placed at foldback expander node 380 (MC 80)
+UNUSED6 is placed at pin 54 (MC 83)
+CF_IN is placed at pin 55 (MC 85)
+S3 is placed at feedback node 685 (MC 85)
+ZF_IN is placed at pin 56 (MC 86)
+S14_X1 is placed at feedback node 686 (MC 86)
+S3_X2 is placed at feedback node 687 (MC 87)
+OVF_IN is placed at pin 57 (MC 88)
+S12_X1 is placed at feedback node 688 (MC 88)
+S8_X1 is placed at feedback node 689 (MC 89)
+S15_X1 is placed at feedback node 690 (MC 90)
+JMPINST is placed at pin 58 (MC 91)
+S2_X1 is placed at feedback node 691 (MC 91)
+S3_X1 is placed at feedback node 692 (MC 92)
+JCOND0 is placed at pin 60 (MC 93)
+S1_X1 is placed at feedback node 693 (MC 93)
+JCOND1 is placed at pin 61 (MC 94)
+S4_X1 is placed at feedback node 694 (MC 94)
+S6_X1 is placed at feedback node 695 (MC 95)
+TCK is placed at pin 62 (MC 96)
+S5_X1 is placed at feedback node 696 (MC 96)
+XXL_333 is placed at foldback expander node 396 (MC 96)
+JCOND2 is placed at pin 63 (MC 97)
+UNUSED7 is placed at pin 64 (MC 99)
+S5 is placed at feedback node 699 (MC 99)
+XXL_326 is placed at feedback node 700 (MC 100)
+UNUSED8 is placed at pin 65 (MC 101)
+S2 is placed at feedback node 701 (MC 101)
+S11_X2 is placed at feedback node 702 (MC 102)
+S10_X2 is placed at feedback node 703 (MC 103)
+UNUSED9 is placed at pin 67 (MC 104)
+S12_X2 is placed at feedback node 704 (MC 104)
+UNUSED10 is placed at pin 68 (MC 105)
+S10_X1 is placed at feedback node 705 (MC 105)
+S14_X2 is placed at feedback node 706 (MC 106)
+UNUSED11 is placed at pin 69 (MC 107)
+S11_X1 is placed at feedback node 707 (MC 107)
+S13_X1 is placed at feedback node 708 (MC 108)
+UNUSED12 is placed at pin 70 (MC 109)
+S9_X1 is placed at feedback node 709 (MC 109)
+XXL_332 is placed at feedback node 710 (MC 110)
+TDO is placed at pin 71 (MC 112)
+XXL_325 is placed at feedback node 712 (MC 112)
+XXL_333 is placed at foldback expander node 412 (MC 112)
+UNUSED13 is placed at pin 73 (MC 115)
+UNUSED14 is placed at pin 74 (MC 117)
+UNUSED15 is placed at pin 75 (MC 118)
+S15 is placed at feedback node 719 (MC 119)
+UNUSED16 is placed at pin 76 (MC 120)
+S13 is placed at feedback node 720 (MC 120)
+S14 is placed at feedback node 721 (MC 121)
+S10 is placed at feedback node 722 (MC 122)
+UNUSED17 is placed at pin 77 (MC 123)
+S12 is placed at feedback node 723 (MC 123)
+S11 is placed at feedback node 724 (MC 124)
+UNUSED18 is placed at pin 79 (MC 125)
+S9 is placed at feedback node 725 (MC 125)
+UNUSED19 is placed at pin 80 (MC 126)
+S7 is placed at feedback node 726 (MC 126)
+S4 is placed at feedback node 727 (MC 127)
+UNUSED20 is placed at pin 81 (MC 128)
+S6 is placed at feedback node 728 (MC 128)
+
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+                                        A R  D   U U U   U U U                      
+                                        D EB _   N N N   N N N                      
+                       B  B B   B B B   B SB C   U U U   U U U                      
+                     B B  B B   B B B   U EU L   S S S   S S S                      
+                     B U  U U   U U U   S TS K   E E E   E E E                      
+                     U S  S S G S S S V _ __ _ G D D D V D D D                      
+                     S 1  1 1 N 1 1 1 C O IO I N 2 1 1 C 1 1 1                      
+                     9 0  2 1 D 3 4 5 C E NE N D 0 9 8 C 7 6 5                      
+                    -------------------------------------------                     
+                   / 11   9   7   5   3   1  83  81  79  77  75 \                  
+                  /    10   8   6   4   2  84  82  80  78  76    \                 
+           BBUS8 | 12                    (*)                   74 | UNUSED14        
+             VCC | 13                                          73 | UNUSED13        
+             TDI | 14                                          72 | GND             
+           BBUS6 | 15                                          71 | TDO             
+           BBUS7 | 16                                          70 | UNUSED12        
+           BBUS5 | 17                                          69 | UNUSED11        
+           BBUS4 | 18                                          68 | UNUSED10        
+             GND | 19                                          67 | UNUSED9         
+           BBUS1 | 20                                          66 | VCC             
+           BBUS3 | 21                                          65 | UNUSED8         
+           BBUS2 | 22                 ATF1508                  64 | UNUSED7         
+             TMS | 23               84-Lead PLCC               63 | JCOND2          
+         ADBUS15 | 24                                          62 | TCK             
+         ADBUS14 | 25                                          61 | JCOND1          
+             VCC | 26                                          60 | JCOND0          
+         ADBUS13 | 27                                          59 | GND             
+         ADBUS12 | 28                                          58 | JMPINST         
+         ADBUS10 | 29                                          57 | OVF_IN          
+         ADBUS11 | 30                                          56 | ZF_IN           
+          ADBUS9 | 31                                          55 | CF_IN           
+             GND | 32                                          54 | UNUSED6         
+                  \     34  36  38  40  42  44  46  48  50  52   /                 
+                   \  33  35  37  39  41  43  45  47  49  51  53/                  
+              	    --------------------------------------------                     
+                      A A A A A V A A A G V P P P G U U B U U V                     
+                      D D D D D C D D D N C C C C N N N B N N C                     
+                      B B B B B C B B B D C _ _ _ D U U U U U C                     
+                      U U U U U   U U U     M M M   S S S S S                       
+                      S S S S S   S S S     O O O   E E 0 E E                       
+                      7 8 6 5 4   2 3 1     D D D   D D   D D                       
+                                            E E E   1 2   4 5                       
+                                            0 1 2                                   
+
+
+
+VCC = Supply Voltage pin which must be connected to (5.0V or 3.0V)
+
+GND = GND pin which must be connected to ground
+
+TMS,TDI,TDO,TDI = JTAG pins which must reserved for the JTAG interface
+
+NC = Unused I/O pins which must be unconnected on the board
+
+Universal-Interconnect-Multiplexer assignments
+------------------------------------------------
+FanIn assignment for block A [27]
+{
+BBUS9,BBUS8,BBUS10,BBUS13,BBUS11,
+JMPINST,
+PC13,PC12,PC8,PC11,PC_MODE0,PC9,PC14,PC_MODE2,PC10,PC_MODE1,PC15,
+S13,S1_X1,S10,S11,S8,S9,
+XXL_337,XXL_325,XXL_332,XXL_335,
+}
+Multiplexer assignment for block A
+BBUS9			(MC4	P)   : MUX 1		Ref (A5p)
+PC13			(MC3	FB)  : MUX 2		Ref (A4fb)
+PC12			(MC15	FB)  : MUX 3		Ref (C48fb)
+PC8			(MC10	FB)  : MUX 5		Ref (A12fb)
+BBUS8			(MC2	P)   : MUX 7		Ref (A3p)
+PC11			(MC6	FB)  : MUX 8		Ref (A7fb)
+BBUS10			(MC5	P)   : MUX 9		Ref (A6p)
+XXL_337			(MC13	FB)  : MUX 10		Ref (C39fb)
+XXL_325			(MC19	FB)  : MUX 11		Ref (G112fb)
+PC_MODE0		(MC24	P)   : MUX 13		Ref (E65p)
+PC9			(MC7	FB)  : MUX 15		Ref (A9fb)
+S13			(MC20	FB)  : MUX 16		Ref (H120fb)
+XXL_332			(MC18	FB)  : MUX 17		Ref (G110fb)
+S1_X1			(MC17	FB)  : MUX 19		Ref (F93fb)
+BBUS13			(MC11	P)   : MUX 20		Ref (A13p)
+S10			(MC21	FB)  : MUX 21		Ref (H122fb)
+PC14			(MC12	FB)  : MUX 22		Ref (C34fb)
+PC_MODE2		(MC26	P)   : MUX 23		Ref (E69p)
+JMPINST			(MC27	P)   : MUX 24		Ref (F91p)
+S11			(MC22	FB)  : MUX 25		Ref (H124fb)
+PC10			(MC8	FB)  : MUX 27		Ref (A10fb)
+BBUS11			(MC9	P)   : MUX 28		Ref (A11p)
+PC_MODE1		(MC25	P)   : MUX 29		Ref (E67p)
+S8			(MC16	FB)  : MUX 35		Ref (E78fb)
+PC15			(MC14	FB)  : MUX 37		Ref (C47fb)
+XXL_335			(MC1	FB)  : MUX 38		Ref (A2fb)
+S9			(MC23	FB)  : MUX 39		Ref (H125fb)
+
+FanIn assignment for block B [28]
+{
+BBUS4,BBUS3,BBUS2,BBUS6,BBUS1,
+JMPINST,
+PC5,PC_MODE0,PC7,PC_MODE1,PC2,PC6,PC_MODE2,PC1,PC3,PC4,
+S3,S1,S2,S4_X2,S3_X2,S6,S4,S6_X2,
+XXL_327,XXL_337,XXL_335,XXL_325,
+}
+Multiplexer assignment for block B
+PC5			(MC17	FB)  : MUX 1		Ref (D62fb)
+XXL_327			(MC1	FB)  : MUX 2		Ref (A1fb)
+BBUS4			(MC8	P)   : MUX 3		Ref (B24p)
+S3			(MC19	FB)  : MUX 4		Ref (F85fb)
+S1			(MC3	FB)  : MUX 5		Ref (A15fb)
+PC_MODE0		(MC25	P)   : MUX 7		Ref (E65p)
+S2			(MC21	FB)  : MUX 8		Ref (G101fb)
+PC7			(MC18	FB)  : MUX 9		Ref (D63fb)
+XXL_337			(MC15	FB)  : MUX 10		Ref (C39fb)
+BBUS3			(MC5	P)   : MUX 11		Ref (B19p)
+BBUS2			(MC4	P)   : MUX 13		Ref (B17p)
+PC_MODE1		(MC26	P)   : MUX 15		Ref (E67p)
+BBUS6			(MC11	P)   : MUX 16		Ref (B29p)
+BBUS1			(MC7	P)   : MUX 17		Ref (B21p)
+PC2			(MC12	FB)  : MUX 19		Ref (B30fb)
+S4_X2			(MC6	FB)  : MUX 20		Ref (B20fb)
+PC6			(MC9	FB)  : MUX 21		Ref (B26fb)
+S3_X2			(MC20	FB)  : MUX 22		Ref (F87fb)
+PC_MODE2		(MC27	P)   : MUX 23		Ref (E69p)
+JMPINST			(MC28	P)   : MUX 24		Ref (F91p)
+PC1			(MC13	FB)  : MUX 25		Ref (B31fb)
+S6			(MC24	FB)  : MUX 27		Ref (H128fb)
+XXL_335			(MC2	FB)  : MUX 28		Ref (A2fb)
+PC3			(MC14	FB)  : MUX 29		Ref (B32fb)
+PC4			(MC10	FB)  : MUX 31		Ref (B28fb)
+S4			(MC23	FB)  : MUX 35		Ref (H127fb)
+XXL_325			(MC22	FB)  : MUX 37		Ref (G112fb)
+S6_X2			(MC16	FB)  : MUX 39		Ref (D58fb)
+
+FanIn assignment for block C [28]
+{
+BBUS12,BBUS15,BBUS14,
+JMPINST,
+PC11,PC12,PC_MODE2,PC_MODE0,PC_MODE1,PC9,PC13,PC14,PC10,PC15,
+S14,S11,S14_X2,S10,S15,S13,S9,S12,S12_X2,
+XXL_327,XXL_337,XXL_332,XXL_335,XXL_325,
+}
+Multiplexer assignment for block C
+PC11			(MC4	FB)  : MUX 0		Ref (A7fb)
+XXL_327			(MC1	FB)  : MUX 2		Ref (A1fb)
+BBUS12			(MC5	P)   : MUX 3		Ref (A8p)
+BBUS15			(MC9	P)   : MUX 4		Ref (A16p)
+S14			(MC20	FB)  : MUX 5		Ref (H121fb)
+S11			(MC23	FB)  : MUX 7		Ref (H124fb)
+BBUS14			(MC8	P)   : MUX 8		Ref (A14p)
+PC12			(MC13	FB)  : MUX 9		Ref (C48fb)
+XXL_337			(MC11	FB)  : MUX 10		Ref (C39fb)
+PC_MODE2		(MC27	P)   : MUX 11		Ref (E69p)
+PC_MODE0		(MC25	P)   : MUX 13		Ref (E65p)
+PC_MODE1		(MC26	P)   : MUX 15		Ref (E67p)
+JMPINST			(MC28	P)   : MUX 16		Ref (F91p)
+PC9			(MC6	FB)  : MUX 17		Ref (A9fb)
+S14_X2			(MC15	FB)  : MUX 19		Ref (G106fb)
+PC13			(MC3	FB)  : MUX 20		Ref (A4fb)
+XXL_332			(MC16	FB)  : MUX 21		Ref (G110fb)
+PC14			(MC10	FB)  : MUX 22		Ref (C34fb)
+S10			(MC21	FB)  : MUX 25		Ref (H122fb)
+S15			(MC18	FB)  : MUX 26		Ref (H119fb)
+PC10			(MC7	FB)  : MUX 27		Ref (A10fb)
+XXL_335			(MC2	FB)  : MUX 28		Ref (A2fb)
+PC15			(MC12	FB)  : MUX 29		Ref (C47fb)
+S13			(MC19	FB)  : MUX 30		Ref (H120fb)
+S9			(MC24	FB)  : MUX 33		Ref (H125fb)
+S12			(MC22	FB)  : MUX 35		Ref (H123fb)
+S12_X2			(MC14	FB)  : MUX 36		Ref (G104fb)
+XXL_325			(MC17	FB)  : MUX 37		Ref (G112fb)
+
+FanIn assignment for block D [28]
+{
+BBUS7,BBUS5,
+JMPINST,
+PC8,PC6,PC_MODE0,PC_MODE2,PC2,PC_MODE1,PC5,PC1,PC3,PC4,PC7,
+S7_X2,S5,S1,S2,S5_X2,S8,S7,S6,S3,S4,
+XXL_335,XXL_327,XXL_337,XXL_325,
+}
+Multiplexer assignment for block D
+S7_X2			(MC6	FB)  : MUX 0		Ref (B23fb)
+PC8			(MC3	FB)  : MUX 1		Ref (A12fb)
+BBUS7			(MC9	P)   : MUX 2		Ref (B27p)
+PC6			(MC8	FB)  : MUX 3		Ref (B26fb)
+S5			(MC19	FB)  : MUX 4		Ref (G99fb)
+S1			(MC4	FB)  : MUX 5		Ref (A15fb)
+PC_MODE0		(MC25	P)   : MUX 7		Ref (E65p)
+S2			(MC20	FB)  : MUX 8		Ref (G101fb)
+XXL_335			(MC2	FB)  : MUX 10		Ref (A2fb)
+PC_MODE2		(MC27	P)   : MUX 11		Ref (E69p)
+PC2			(MC11	FB)  : MUX 13		Ref (B30fb)
+BBUS5			(MC7	P)   : MUX 14		Ref (B25p)
+PC_MODE1		(MC26	P)   : MUX 15		Ref (E67p)
+S5_X2			(MC5	FB)  : MUX 16		Ref (B22fb)
+S8			(MC17	FB)  : MUX 17		Ref (E78fb)
+S7			(MC22	FB)  : MUX 19		Ref (H126fb)
+PC5			(MC15	FB)  : MUX 21		Ref (D62fb)
+XXL_327			(MC1	FB)  : MUX 22		Ref (A1fb)
+S6			(MC24	FB)  : MUX 23		Ref (H128fb)
+JMPINST			(MC28	P)   : MUX 24		Ref (F91p)
+PC1			(MC12	FB)  : MUX 25		Ref (B31fb)
+S3			(MC18	FB)  : MUX 28		Ref (F85fb)
+PC3			(MC13	FB)  : MUX 29		Ref (B32fb)
+PC4			(MC10	FB)  : MUX 31		Ref (B28fb)
+XXL_337			(MC14	FB)  : MUX 32		Ref (C39fb)
+PC7			(MC16	FB)  : MUX 35		Ref (D63fb)
+XXL_325			(MC21	FB)  : MUX 37		Ref (G112fb)
+S4			(MC23	FB)  : MUX 39		Ref (H127fb)
+
+FanIn assignment for block E [28]
+{
+BBUS8,BBUS7,
+JMPINST,
+PC7,PC_MODE1,PC_MODE2,PC8,
+S8_X2,S8_X1,
+UNUSED4,UNUSED6,UNUSED14,UNUSED5,UNUSED7,UNUSED12,UNUSED17,UNUSED8,UNUSED20,UNUSED15,UNUSED11,UNUSED13,UNUSED9,UNUSED18,UNUSED10,UNUSED16,UNUSED19,
+XXL_327,XXL_332,
+}
+Multiplexer assignment for block E
+UNUSED4			(MC11	P)   : MUX 0		Ref (E77p)
+UNUSED6			(MC13	P)   : MUX 1		Ref (F83p)
+XXL_327			(MC1	FB)  : MUX 2		Ref (A1fb)
+UNUSED14		(MC22	P)   : MUX 3		Ref (H117p)
+UNUSED5			(MC12	P)   : MUX 4		Ref (E80p)
+UNUSED7			(MC15	P)   : MUX 5		Ref (G99p)
+UNUSED12		(MC20	P)   : MUX 6		Ref (G109p)
+BBUS8			(MC2	P)   : MUX 7		Ref (A3p)
+UNUSED17		(MC25	P)   : MUX 8		Ref (H123p)
+UNUSED8			(MC16	P)   : MUX 9		Ref (G101p)
+UNUSED20		(MC28	P)   : MUX 10		Ref (H128p)
+UNUSED15		(MC23	P)   : MUX 11		Ref (H118p)
+UNUSED11		(MC19	P)   : MUX 12		Ref (G107p)
+UNUSED13		(MC21	P)   : MUX 13		Ref (H115p)
+PC7			(MC6	FB)  : MUX 15		Ref (D63fb)
+JMPINST			(MC14	P)   : MUX 16		Ref (F91p)
+UNUSED9			(MC17	P)   : MUX 17		Ref (G104p)
+UNUSED18		(MC26	P)   : MUX 18		Ref (H125p)
+BBUS7			(MC4	P)   : MUX 20		Ref (B27p)
+XXL_332			(MC8	FB)  : MUX 21		Ref (G110fb)
+UNUSED10		(MC18	P)   : MUX 24		Ref (G105p)
+S8_X2			(MC5	FB)  : MUX 25		Ref (D60fb)
+UNUSED16		(MC24	P)   : MUX 27		Ref (H120p)
+UNUSED19		(MC27	P)   : MUX 28		Ref (H126p)
+PC_MODE1		(MC9	P)   : MUX 29		Ref (E67p)
+PC_MODE2		(MC10	P)   : MUX 33		Ref (E69p)
+PC8			(MC3	FB)  : MUX 37		Ref (A12fb)
+S8_X1			(MC7	FB)  : MUX 39		Ref (F89fb)
+
+FanIn assignment for block F [28]
+{
+BBUS12,BBUS15,BBUS8,BBUS4,BBUS3,BBUS5,BBUS2,BBUS1,BBUS14,BBUS6,
+JMPINST,
+PC8,PC4,PC2,PC6,PC14,PC_MODE2,PC1,PC12,PC_MODE1,PC3,PC15,PC5,
+S2_X2,S3_X2,S3_X1,
+XXL_332,XXL_327,
+}
+Multiplexer assignment for block F
+S2_X2			(MC8	FB)  : MUX 0		Ref (B18fb)
+XXL_332			(MC25	FB)  : MUX 1		Ref (G110fb)
+XXL_327			(MC1	FB)  : MUX 2		Ref (A1fb)
+BBUS12			(MC3	P)   : MUX 3		Ref (A8p)
+BBUS15			(MC6	P)   : MUX 4		Ref (A16p)
+PC8			(MC4	FB)  : MUX 5		Ref (A12fb)
+JMPINST			(MC28	P)   : MUX 6		Ref (F91p)
+BBUS8			(MC2	P)   : MUX 7		Ref (A3p)
+S3_X2			(MC23	FB)  : MUX 8		Ref (F87fb)
+BBUS4			(MC11	P)   : MUX 9		Ref (B24p)
+BBUS3			(MC9	P)   : MUX 11		Ref (B19p)
+PC4			(MC14	FB)  : MUX 13		Ref (B28fb)
+BBUS5			(MC12	P)   : MUX 14		Ref (B25p)
+BBUS2			(MC7	P)   : MUX 15		Ref (B17p)
+BBUS1			(MC10	P)   : MUX 17		Ref (B21p)
+PC2			(MC16	FB)  : MUX 19		Ref (B30fb)
+PC6			(MC13	FB)  : MUX 21		Ref (B26fb)
+PC14			(MC19	FB)  : MUX 22		Ref (C34fb)
+PC_MODE2		(MC27	P)   : MUX 23		Ref (E69p)
+PC1			(MC17	FB)  : MUX 25		Ref (B31fb)
+BBUS14			(MC5	P)   : MUX 26		Ref (A14p)
+PC12			(MC21	FB)  : MUX 27		Ref (C48fb)
+PC_MODE1		(MC26	P)   : MUX 29		Ref (E67p)
+S3_X1			(MC24	FB)  : MUX 31		Ref (F92fb)
+BBUS6			(MC15	P)   : MUX 32		Ref (B29p)
+PC3			(MC18	FB)  : MUX 33		Ref (B32fb)
+PC15			(MC20	FB)  : MUX 37		Ref (C47fb)
+PC5			(MC22	FB)  : MUX 39		Ref (D62fb)
+
+FanIn assignment for block G [28]
+{
+BBUS9,BBUS10,BBUS11,BBUS13,
+CF_IN,
+JCOND2,JCOND1,JCOND0,JMPINST,
+OVF_IN,
+PC_MODE2,PC_MODE1,PC9,PC11,PC10,PC13,
+S10_X2,S11_X2,S9_X2,S2_X2,S13_X2,S5_X2,S5_X1,S2_X1,
+XXL_327,XXL_332,XXL_326,
+ZF_IN,
+}
+Multiplexer assignment for block G
+BBUS9			(MC3	P)   : MUX 1		Ref (A5p)
+S10_X2			(MC18	FB)  : MUX 2		Ref (G103fb)
+S11_X2			(MC17	FB)  : MUX 4		Ref (G102fb)
+CF_IN			(MC22	P)   : MUX 5		Ref (F85p)
+JCOND2			(MC28	P)   : MUX 7		Ref (G97p)
+JCOND1			(MC27	P)   : MUX 8		Ref (F94p)
+BBUS10			(MC4	P)   : MUX 9		Ref (A6p)
+BBUS11			(MC8	P)   : MUX 10		Ref (A11p)
+PC_MODE2		(MC21	P)   : MUX 11		Ref (E69p)
+JCOND0			(MC26	P)   : MUX 12		Ref (F93p)
+S9_X2			(MC13	FB)  : MUX 13		Ref (E80fb)
+S2_X2			(MC10	FB)  : MUX 14		Ref (B18fb)
+PC_MODE1		(MC20	P)   : MUX 15		Ref (E67p)
+JMPINST			(MC25	P)   : MUX 16		Ref (F91p)
+PC9			(MC6	FB)  : MUX 17		Ref (A9fb)
+ZF_IN			(MC23	P)   : MUX 19		Ref (F86p)
+BBUS13			(MC9	P)   : MUX 20		Ref (A13p)
+OVF_IN			(MC24	P)   : MUX 21		Ref (F88p)
+PC11			(MC5	FB)  : MUX 24		Ref (A7fb)
+S13_X2			(MC12	FB)  : MUX 25		Ref (C41fb)
+XXL_327			(MC1	FB)  : MUX 26		Ref (A1fb)
+PC10			(MC7	FB)  : MUX 29		Ref (A10fb)
+S5_X2			(MC11	FB)  : MUX 30		Ref (B22fb)
+XXL_332			(MC19	FB)  : MUX 31		Ref (G110fb)
+PC13			(MC2	FB)  : MUX 32		Ref (A4fb)
+S5_X1			(MC15	FB)  : MUX 33		Ref (F96fb)
+XXL_326			(MC16	FB)  : MUX 38		Ref (G100fb)
+S2_X1			(MC14	FB)  : MUX 39		Ref (F91fb)
+
+FanIn assignment for block H [20]
+{
+S13_X2,S10_X2,S4_X1,S11_X2,S6_X1,S9_X2,S6_X2,S14_X1,S15_X2,S12_X2,S11_X1,S7_X2,S7_X1,S12_X1,S10_X1,S4_X2,S9_X1,S13_X1,S15_X1,S14_X2,
+}
+Multiplexer assignment for block H
+S13_X2			(MC3	FB)  : MUX 1		Ref (C41fb)
+S10_X2			(MC14	FB)  : MUX 2		Ref (G103fb)
+S4_X1			(MC11	FB)  : MUX 3		Ref (F94fb)
+S11_X2			(MC13	FB)  : MUX 4		Ref (G102fb)
+S6_X1			(MC12	FB)  : MUX 5		Ref (F95fb)
+S9_X2			(MC7	FB)  : MUX 9		Ref (E80fb)
+S6_X2			(MC5	FB)  : MUX 11		Ref (D58fb)
+S14_X1			(MC8	FB)  : MUX 12		Ref (F86fb)
+S15_X2			(MC4	FB)  : MUX 15		Ref (C42fb)
+S12_X2			(MC15	FB)  : MUX 16		Ref (G104fb)
+S11_X1			(MC18	FB)  : MUX 17		Ref (G107fb)
+S7_X2			(MC2	FB)  : MUX 18		Ref (B23fb)
+S7_X1			(MC6	FB)  : MUX 19		Ref (E79fb)
+S12_X1			(MC9	FB)  : MUX 20		Ref (F88fb)
+S10_X1			(MC16	FB)  : MUX 21		Ref (G105fb)
+S4_X2			(MC1	FB)  : MUX 24		Ref (B20fb)
+S9_X1			(MC20	FB)  : MUX 25		Ref (G109fb)
+S13_X1			(MC19	FB)  : MUX 29		Ref (G108fb)
+S15_X1			(MC10	FB)  : MUX 35		Ref (F90fb)
+S14_X2			(MC17	FB)  : MUX 39		Ref (G106fb)
+
+Creating JEDEC file C:\PC.jed ...
+
+PLCC84 programmed logic:
+-----------------------------------
+BBUS1 = PC1.Q;
+
+BBUS0 = 0;
+
+BBUS2 = PC2.Q;
+
+BBUS3 = PC3.Q;
+
+BBUS4 = PC4.Q;
+
+BBUS6 = PC6.Q;
+
+BBUS5 = PC5.Q;
+
+BBUS7 = PC7.Q;
+
+BBUS9 = PC9.Q;
+
+BBUS8 = PC8.Q;
+
+BBUS10 = PC10.Q;
+
+BBUS12 = PC12.Q;
+
+BBUS11 = PC11.Q;
+
+BBUS13 = PC13.Q;
+
+BBUS14 = PC14.Q;
+
+PC0.D = 0;
+
+BBUS15 = PC15.Q;
+
+S1_X1 = ((PC1.Q & !BBUS1.PIN)
+	# (!PC1.Q & BBUS1.PIN & XXL_327)
+	# (PC1.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S5_X1 = ((PC5.Q & !BBUS5.PIN)
+	# (!PC5.Q & BBUS5.PIN & XXL_327)
+	# (PC5.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S2_X1 = ((PC2.Q & !BBUS2.PIN)
+	# (!PC2.Q & BBUS2.PIN & XXL_327)
+	# (PC2.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S3_X1 = ((PC3.Q & !BBUS3.PIN)
+	# (!PC3.Q & BBUS3.PIN & XXL_327)
+	# (PC3.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S7_X1 = ((PC7.Q & !BBUS7.PIN)
+	# (!PC7.Q & BBUS7.PIN & XXL_327)
+	# (PC7.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S4_X1 = ((PC4.Q & !BBUS4.PIN)
+	# (!PC4.Q & BBUS4.PIN & XXL_327)
+	# (PC4.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S6_X1 = ((PC6.Q & !BBUS6.PIN)
+	# (!PC6.Q & BBUS6.PIN & XXL_327)
+	# (PC6.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S9_X1 = ((PC9.Q & !BBUS9.PIN)
+	# (!PC9.Q & BBUS9.PIN & XXL_327)
+	# (PC9.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S8_X1 = ((PC8.Q & !BBUS8.PIN)
+	# (!PC8.Q & BBUS8.PIN & XXL_327)
+	# (PC8.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S10_X1 = ((PC10.Q & !BBUS10.PIN)
+	# (!PC10.Q & BBUS10.PIN & XXL_327)
+	# (PC10.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S13_X1 = ((PC13.Q & !BBUS13.PIN)
+	# (!PC13.Q & BBUS13.PIN & XXL_327)
+	# (PC13.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S11_X1 = ((PC11.Q & !BBUS11.PIN)
+	# (!PC11.Q & BBUS11.PIN & XXL_327)
+	# (PC11.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S12_X1 = ((PC12.Q & !BBUS12.PIN)
+	# (!PC12.Q & BBUS12.PIN & XXL_327)
+	# (PC12.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S14_X1 = ((PC14.Q & !BBUS14.PIN)
+	# (!PC14.Q & BBUS14.PIN & XXL_327)
+	# (PC14.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+S15_X1 = ((PC15.Q & !BBUS15.PIN)
+	# (!PC15.Q & BBUS15.PIN & XXL_327)
+	# (PC15.Q & !PC_MODE1 & !PC_MODE2 & XXL_333));
+
+!UNUSED1 = ((!UNUSED4 & !UNUSED5 & !UNUSED12 & !UNUSED6)
+	# (!UNUSED4 & !UNUSED5 & !UNUSED12 & !UNUSED7 & !UNUSED8 & !UNUSED9 & !UNUSED10 & !UNUSED11));
+
+!UNUSED2 = ((!UNUSED13 & !UNUSED14 & !UNUSED15 & !UNUSED16)
+	# (!UNUSED13 & !UNUSED14 & !UNUSED15 & !UNUSED17 & !UNUSED18 & !UNUSED19 & !UNUSED20));
+
+S2_X2 = ((PC1.Q & JMPINST & PC_MODE0 & !PC_MODE1 & !PC_MODE2)
+	# (PC1.Q & BBUS1.PIN & XXL_327));
+
+S1 = ((!JMPINST & S1_X1)
+	# (!PC_MODE0 & S1_X1)
+	# (PC_MODE1 & S1_X1)
+	# (PC_MODE2 & S1_X1)
+	# (JMPINST & PC_MODE0 & !PC_MODE1 & !PC_MODE2 & !S1_X1));
+
+S3_X2 = ((BBUS2.PIN & XXL_327 & S2_X2)
+	# (PC2.Q & S2_X2)
+	# (BBUS2.PIN & XXL_327 & PC2.Q));
+
+S2 = ((S2_X2 & !S2_X1)
+	# (!S2_X2 & S2_X1));
+
+PC1.D = ((!PC_MODE2 & BBUS1.PIN & XXL_335)
+	# (PC1.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S1 & XXL_338));
+
+ADBUS1 = ((PC_MODE2 & S1)
+	# (PC1.Q & !PC_MODE2));
+
+ADBUS2 = ((PC_MODE2 & S2)
+	# (PC2.Q & !PC_MODE2));
+
+S3 = ((S3_X2 & !S3_X1)
+	# (!S3_X2 & S3_X1));
+
+PC2.D = ((!PC_MODE2 & BBUS2.PIN & XXL_335)
+	# (PC2.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S2 & XXL_338));
+
+S4_X2 = ((BBUS3.PIN & XXL_327 & S3_X2)
+	# (PC3.Q & S3_X2)
+	# (BBUS3.PIN & XXL_327 & PC3.Q));
+
+S5_X2 = ((BBUS4.PIN & XXL_327 & S4_X2)
+	# (PC4.Q & S4_X2)
+	# (BBUS4.PIN & XXL_327 & PC4.Q));
+
+ADBUS3 = ((PC_MODE2 & S3)
+	# (PC3.Q & !PC_MODE2));
+
+PC3.D = ((!PC_MODE2 & BBUS3.PIN & XXL_335)
+	# (PC3.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S3 & XXL_338));
+
+S4 = ((S4_X2 & !S4_X1)
+	# (!S4_X2 & S4_X1));
+
+ADBUS4 = ((PC_MODE2 & S4)
+	# (PC4.Q & !PC_MODE2));
+
+S5 = ((S5_X2 & !S5_X1)
+	# (!S5_X2 & S5_X1));
+
+PC4.D = ((!PC_MODE2 & BBUS4.PIN & XXL_335)
+	# (PC4.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S4 & XXL_338));
+
+S6_X2 = ((BBUS5.PIN & XXL_327 & S5_X2)
+	# (PC5.Q & S5_X2)
+	# (BBUS5.PIN & XXL_327 & PC5.Q));
+
+S7_X2 = ((BBUS6.PIN & XXL_327 & S6_X2)
+	# (PC6.Q & S6_X2)
+	# (BBUS6.PIN & XXL_327 & PC6.Q));
+
+ADBUS5 = ((PC_MODE2 & S5)
+	# (PC5.Q & !PC_MODE2));
+
+PC5.D = ((!PC_MODE2 & BBUS5.PIN & XXL_335)
+	# (PC5.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S5 & XXL_338));
+
+S6 = ((S6_X2 & !S6_X1)
+	# (!S6_X2 & S6_X1));
+
+PC6.D = ((!PC_MODE2 & BBUS6.PIN & XXL_335)
+	# (PC6.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S6 & XXL_338));
+
+ADBUS6 = ((PC_MODE2 & S6)
+	# (PC6.Q & !PC_MODE2));
+
+S8_X2 = ((BBUS7.PIN & XXL_327 & S7_X2)
+	# (PC7.Q & S7_X2)
+	# (BBUS7.PIN & XXL_327 & PC7.Q));
+
+S7 = ((S7_X2 & !S7_X1)
+	# (!S7_X2 & S7_X1));
+
+ADBUS7 = ((PC_MODE2 & S7)
+	# (PC7.Q & !PC_MODE2));
+
+S8 = ((S8_X2 & !S8_X1)
+	# (!S8_X2 & S8_X1));
+
+PC7.D = ((!PC_MODE2 & BBUS7.PIN & XXL_335)
+	# (PC7.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S7 & XXL_338));
+
+S9_X2 = ((BBUS8.PIN & XXL_327 & S8_X2)
+	# (PC8.Q & S8_X2)
+	# (BBUS8.PIN & XXL_327 & PC8.Q));
+
+S10_X2 = ((BBUS9.PIN & XXL_327 & S9_X2)
+	# (PC9.Q & S9_X2)
+	# (BBUS9.PIN & XXL_327 & PC9.Q));
+
+ADBUS8 = ((PC_MODE2 & S8)
+	# (PC8.Q & !PC_MODE2));
+
+PC8.D = ((!PC_MODE2 & BBUS8.PIN & XXL_335)
+	# (PC8.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S8 & XXL_338));
+
+S9 = ((S9_X2 & !S9_X1)
+	# (!S9_X2 & S9_X1));
+
+PC9.D = ((!PC_MODE2 & BBUS9.PIN & XXL_335)
+	# (PC9.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S9 & XXL_338));
+
+ADBUS9 = ((PC_MODE2 & S9)
+	# (PC9.Q & !PC_MODE2));
+
+S11_X2 = ((BBUS10.PIN & XXL_327 & S10_X2)
+	# (PC10.Q & S10_X2)
+	# (BBUS10.PIN & XXL_327 & PC10.Q));
+
+S10 = ((S10_X2 & !S10_X1)
+	# (!S10_X2 & S10_X1));
+
+ADBUS10 = ((PC_MODE2 & S10)
+	# (PC10.Q & !PC_MODE2));
+
+S11 = ((S11_X2 & !S11_X1)
+	# (!S11_X2 & S11_X1));
+
+PC10.D = ((!PC_MODE2 & BBUS10.PIN & XXL_335)
+	# (PC10.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S10 & XXL_338));
+
+S12_X2 = ((BBUS11.PIN & XXL_327 & S11_X2)
+	# (PC11.Q & S11_X2)
+	# (BBUS11.PIN & XXL_327 & PC11.Q));
+
+S13_X2 = ((BBUS12.PIN & XXL_327 & S12_X2)
+	# (PC12.Q & S12_X2)
+	# (BBUS12.PIN & XXL_327 & PC12.Q));
+
+ADBUS11 = ((PC_MODE2 & S11)
+	# (PC11.Q & !PC_MODE2));
+
+PC11.D = ((!PC_MODE2 & BBUS11.PIN & XXL_335)
+	# (PC11.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S11 & XXL_338));
+
+S12 = ((S12_X2 & !S12_X1)
+	# (!S12_X2 & S12_X1));
+
+PC12.D = ((!PC_MODE2 & BBUS12.PIN & XXL_335)
+	# (PC12.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S12 & XXL_338));
+
+ADBUS12 = ((PC_MODE2 & S12)
+	# (PC12.Q & !PC_MODE2));
+
+S14_X2 = ((BBUS13.PIN & XXL_327 & S13_X2)
+	# (PC13.Q & S13_X2)
+	# (BBUS13.PIN & XXL_327 & PC13.Q));
+
+S13 = ((S13_X2 & !S13_X1)
+	# (!S13_X2 & S13_X1));
+
+ADBUS13 = ((PC_MODE2 & S13)
+	# (PC13.Q & !PC_MODE2));
+
+S14 = ((S14_X2 & !S14_X1)
+	# (!S14_X2 & S14_X1));
+
+PC13.D = ((!PC_MODE2 & BBUS13.PIN & XXL_335)
+	# (PC13.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S13 & XXL_338));
+
+S15_X2 = ((BBUS14.PIN & XXL_327 & S14_X2)
+	# (PC14.Q & S14_X2)
+	# (BBUS14.PIN & XXL_327 & PC14.Q));
+
+S15 = ((S15_X2 & !S15_X1)
+	# (!S15_X2 & S15_X1));
+
+ADBUS14 = ((PC_MODE2 & S14)
+	# (PC14.Q & !PC_MODE2));
+
+PC14.D = ((!PC_MODE2 & BBUS14.PIN & XXL_335)
+	# (PC14.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S14 & XXL_338));
+
+ADBUS15 = ((PC_MODE2 & S15)
+	# (PC15.Q & !PC_MODE2));
+
+PC15.D = ((!PC_MODE2 & BBUS15.PIN & XXL_335)
+	# (PC15.Q & !PC_MODE1 & XXL_337)
+	# (!PC_MODE2 & PC_MODE0 & S15 & XXL_338));
+
+XXL_325 = ((!JCOND0 & !JCOND2 & !ZF_IN)
+	# (JCOND0 & CF_IN & JCOND1)
+	# (JCOND0 & JCOND2 & OVF_IN)
+	# (JCOND1 & JCOND2 & !OVF_IN)
+	# (!JCOND1 & !JCOND2 & ZF_IN)
+	# (!JCOND0 & !CF_IN & !JCOND1));
+
+XXL_326 = ((!JCOND2 & !ZF_IN)
+	# (JCOND2 & !OVF_IN));
+
+XXL_327 = (PC_MODE1
+	# PC_MODE2
+	# (!JMPINST & XXL_325));
+
+XXL_332 = ((JCOND1 & JCOND0 & !CF_IN & !JCOND2)
+	# (!JCOND1 & JCOND0 & XXL_326)
+	# (!JCOND1 & !JCOND0 & CF_IN & JCOND2)
+	# (JCOND1 & !JCOND0 & !XXL_326));
+
+!XXL_333 = (!JMPINST & !XXL_332);
+
+XXL_335 = ((!PC_MODE0 & PC_MODE1)
+	# (!JMPINST & PC_MODE1 & XXL_332)
+	# (!PC_MODE0 & !JMPINST & XXL_325));
+
+XXL_337 = ((JMPINST & !PC_MODE0)
+	# (!JMPINST & XXL_332));
+
+!XXL_338 = (!JMPINST & !XXL_325);
+
+BBUS1.OE = !BBUS_OE;
+
+BBUS2.OE = !BBUS_OE;
+
+BBUS3.OE = !BBUS_OE;
+
+BBUS4.OE = !BBUS_OE;
+
+BBUS6.OE = !BBUS_OE;
+
+BBUS5.OE = !BBUS_OE;
+
+BBUS7.OE = !BBUS_OE;
+
+BBUS9.OE = !BBUS_OE;
+
+BBUS8.OE = !BBUS_OE;
+
+BBUS10.OE = !BBUS_OE;
+
+BBUS12.OE = !BBUS_OE;
+
+BBUS11.OE = !BBUS_OE;
+
+BBUS13.OE = !BBUS_OE;
+
+BBUS14.OE = !BBUS_OE;
+
+PC0.C = D_CLK_IN;
+
+PC0.AR = !RESET_IN;
+
+BBUS15.OE = !BBUS_OE;
+
+PC1.C = D_CLK_IN;
+
+PC1.AR = !RESET_IN;
+
+ADBUS1.OE = !ADBUS_OE;
+
+ADBUS2.OE = !ADBUS_OE;
+
+PC2.C = D_CLK_IN;
+
+PC2.AR = !RESET_IN;
+
+ADBUS3.OE = !ADBUS_OE;
+
+PC3.C = D_CLK_IN;
+
+PC3.AR = !RESET_IN;
+
+ADBUS4.OE = !ADBUS_OE;
+
+PC4.C = D_CLK_IN;
+
+PC4.AR = !RESET_IN;
+
+ADBUS5.OE = !ADBUS_OE;
+
+PC5.C = D_CLK_IN;
+
+PC5.AR = !RESET_IN;
+
+PC6.C = D_CLK_IN;
+
+PC6.AR = !RESET_IN;
+
+ADBUS6.OE = !ADBUS_OE;
+
+ADBUS7.OE = !ADBUS_OE;
+
+PC7.C = D_CLK_IN;
+
+PC7.AR = !RESET_IN;
+
+ADBUS8.OE = !ADBUS_OE;
+
+PC8.C = D_CLK_IN;
+
+PC8.AR = !RESET_IN;
+
+PC9.C = D_CLK_IN;
+
+PC9.AR = !RESET_IN;
+
+ADBUS9.OE = !ADBUS_OE;
+
+ADBUS10.OE = !ADBUS_OE;
+
+PC10.C = D_CLK_IN;
+
+PC10.AR = !RESET_IN;
+
+ADBUS11.OE = !ADBUS_OE;
+
+PC11.C = D_CLK_IN;
+
+PC11.AR = !RESET_IN;
+
+PC12.C = D_CLK_IN;
+
+PC12.AR = !RESET_IN;
+
+ADBUS12.OE = !ADBUS_OE;
+
+ADBUS13.OE = !ADBUS_OE;
+
+PC13.C = D_CLK_IN;
+
+PC13.AR = !RESET_IN;
+
+ADBUS14.OE = !ADBUS_OE;
+
+PC14.C = D_CLK_IN;
+
+PC14.AR = !RESET_IN;
+
+ADBUS15.OE = !ADBUS_OE;
+
+PC15.C = D_CLK_IN;
+
+PC15.AR = !RESET_IN;
+
+
+PLCC84 Pin/Node Placement:
+------------------------------------
+Pin 1  = RESET_IN;
+Pin 2  = ADBUS_OE;
+Pin 4  = BBUS15; /* MC 16 */
+Pin 5  = BBUS14; /* MC 14 */
+Pin 6  = BBUS13; /* MC 13 */
+Pin 8  = BBUS11; /* MC 11 */
+Pin 9  = BBUS12; /* MC 8 */
+Pin 10 = BBUS10; /* MC  6 */
+Pin 11 = BBUS9; /* MC  5 */
+Pin 12 = BBUS8; /* MC  3 */
+Pin 14 = TDI; /* MC 32 */ 
+Pin 15 = BBUS6; /* MC 29 */ 
+Pin 16 = BBUS7; /* MC 27 */ 
+Pin 17 = BBUS5; /* MC 25 */ 
+Pin 18 = BBUS4; /* MC 24 */ 
+Pin 20 = BBUS1; /* MC 21 */ 
+Pin 21 = BBUS3; /* MC 19 */ 
+Pin 22 = BBUS2; /* MC 17 */ 
+Pin 23 = TMS; /* MC 48 */ 
+Pin 24 = ADBUS15; /* MC 46 */ 
+Pin 25 = ADBUS14; /* MC 45 */ 
+Pin 27 = ADBUS13; /* MC 43 */ 
+Pin 28 = ADBUS12; /* MC 40 */ 
+Pin 29 = ADBUS10; /* MC 38 */ 
+Pin 30 = ADBUS11; /* MC 37 */ 
+Pin 31 = ADBUS9; /* MC 35 */ 
+Pin 33 = ADBUS7; /* MC 64 */ 
+Pin 34 = ADBUS8; /* MC 61 */ 
+Pin 35 = ADBUS6; /* MC 59 */ 
+Pin 36 = ADBUS5; /* MC 57 */ 
+Pin 37 = ADBUS4; /* MC 56 */ 
+Pin 39 = ADBUS2; /* MC 53 */ 
+Pin 40 = ADBUS3; /* MC 51 */ 
+Pin 41 = ADBUS1; /* MC 49 */ 
+Pin 44 = PC_MODE0; /* MC 65 */ 
+Pin 45 = PC_MODE1; /* MC 67 */ 
+Pin 46 = PC_MODE2; /* MC 69 */ 
+Pin 48 = UNUSED1; /* MC 72 */ 
+Pin 49 = UNUSED2; /* MC 73 */ 
+Pin 50 = BBUS0; /* MC 75 */ 
+Pin 51 = UNUSED4; /* MC 77 */ 
+Pin 52 = UNUSED5; /* MC 80 */ 
+Pin 54 = UNUSED6; /* MC 83 */ 
+Pin 55 = CF_IN; /* MC 85 */ 
+Pin 56 = ZF_IN; /* MC 86 */ 
+Pin 57 = OVF_IN; /* MC 88 */ 
+Pin 58 = JMPINST; /* MC 91 */ 
+Pin 60 = JCOND0; /* MC 93 */ 
+Pin 61 = JCOND1; /* MC 94 */ 
+Pin 62 = TCK; /* MC 96 */ 
+Pin 63 = JCOND2; /* MC 97 */ 
+Pin 64 = UNUSED7; /* MC 99 */ 
+Pin 65 = UNUSED8; /* MC 101 */ 
+Pin 67 = UNUSED9; /* MC 104 */ 
+Pin 68 = UNUSED10; /* MC 105 */ 
+Pin 69 = UNUSED11; /* MC 107 */ 
+Pin 70 = UNUSED12; /* MC 109 */ 
+Pin 71 = TDO; /* MC 112 */ 
+Pin 73 = UNUSED13; /* MC 115 */ 
+Pin 74 = UNUSED14; /* MC 117 */ 
+Pin 75 = UNUSED15; /* MC 118 */ 
+Pin 76 = UNUSED16; /* MC 120 */ 
+Pin 77 = UNUSED17; /* MC 123 */ 
+Pin 79 = UNUSED18; /* MC 125 */ 
+Pin 80 = UNUSED19; /* MC 126 */ 
+Pin 81 = UNUSED20; /* MC 128 */ 
+Pin 83 = D_CLK_IN;
+Pin 84 = BBUS_OE;
+PINNODE 316 = XXL_338; /* MC 16 Foldback */
+PINNODE 332 = XXL_338; /* MC 32 Foldback */
+PINNODE 348 = XXL_338; /* MC 48 Foldback */
+PINNODE 364 = XXL_338; /* MC 64 Foldback */
+PINNODE 380 = XXL_333; /* MC 80 Foldback */
+PINNODE 396 = XXL_333; /* MC 96 Foldback */
+PINNODE 412 = XXL_333; /* MC 112 Foldback */
+PINNODE 601 = XXL_327; /* MC 1 Feedback */
+PINNODE 602 = XXL_335; /* MC 2 Feedback */
+PINNODE 604 = PC13; /* MC 4 Feedback */
+PINNODE 607 = PC11; /* MC 7 Feedback */
+PINNODE 609 = PC9; /* MC 9 Feedback */
+PINNODE 610 = PC10; /* MC 10 Feedback */
+PINNODE 612 = PC8; /* MC 12 Feedback */
+PINNODE 615 = S1; /* MC 15 Feedback */
+PINNODE 618 = S2_X2; /* MC 18 Feedback */
+PINNODE 620 = S4_X2; /* MC 20 Feedback */
+PINNODE 622 = S5_X2; /* MC 22 Feedback */
+PINNODE 623 = S7_X2; /* MC 23 Feedback */
+PINNODE 626 = PC6; /* MC 26 Feedback */
+PINNODE 628 = PC4; /* MC 28 Feedback */
+PINNODE 630 = PC2; /* MC 30 Feedback */
+PINNODE 631 = PC1; /* MC 31 Feedback */
+PINNODE 632 = PC3; /* MC 32 Feedback */
+PINNODE 634 = PC14; /* MC 34 Feedback */
+PINNODE 636 = PC0; /* MC 36 Feedback */
+PINNODE 639 = XXL_337; /* MC 39 Feedback */
+PINNODE 641 = S13_X2; /* MC 41 Feedback */
+PINNODE 642 = S15_X2; /* MC 42 Feedback */
+PINNODE 647 = PC15; /* MC 47 Feedback */
+PINNODE 648 = PC12; /* MC 48 Feedback */
+PINNODE 658 = S6_X2; /* MC 58 Feedback */
+PINNODE 660 = S8_X2; /* MC 60 Feedback */
+PINNODE 662 = PC5; /* MC 62 Feedback */
+PINNODE 663 = PC7; /* MC 63 Feedback */
+PINNODE 678 = S8; /* MC 78 Feedback */
+PINNODE 679 = S7_X1; /* MC 79 Feedback */
+PINNODE 680 = S9_X2; /* MC 80 Feedback */
+PINNODE 685 = S3; /* MC 85 Feedback */
+PINNODE 686 = S14_X1; /* MC 86 Feedback */
+PINNODE 687 = S3_X2; /* MC 87 Feedback */
+PINNODE 688 = S12_X1; /* MC 88 Feedback */
+PINNODE 689 = S8_X1; /* MC 89 Feedback */
+PINNODE 690 = S15_X1; /* MC 90 Feedback */
+PINNODE 691 = S2_X1; /* MC 91 Feedback */
+PINNODE 692 = S3_X1; /* MC 92 Feedback */
+PINNODE 693 = S1_X1; /* MC 93 Feedback */
+PINNODE 694 = S4_X1; /* MC 94 Feedback */
+PINNODE 695 = S6_X1; /* MC 95 Feedback */
+PINNODE 696 = S5_X1; /* MC 96 Feedback */
+PINNODE 699 = S5; /* MC 99 Feedback */
+PINNODE 700 = XXL_326; /* MC 100 Feedback */
+PINNODE 701 = S2; /* MC 101 Feedback */
+PINNODE 702 = S11_X2; /* MC 102 Feedback */
+PINNODE 703 = S10_X2; /* MC 103 Feedback */
+PINNODE 704 = S12_X2; /* MC 104 Feedback */
+PINNODE 705 = S10_X1; /* MC 105 Feedback */
+PINNODE 706 = S14_X2; /* MC 106 Feedback */
+PINNODE 707 = S11_X1; /* MC 107 Feedback */
+PINNODE 708 = S13_X1; /* MC 108 Feedback */
+PINNODE 709 = S9_X1; /* MC 109 Feedback */
+PINNODE 710 = XXL_332; /* MC 110 Feedback */
+PINNODE 712 = XXL_325; /* MC 112 Feedback */
+PINNODE 719 = S15; /* MC 119 Feedback */
+PINNODE 720 = S13; /* MC 120 Feedback */
+PINNODE 721 = S14; /* MC 121 Feedback */
+PINNODE 722 = S10; /* MC 122 Feedback */
+PINNODE 723 = S12; /* MC 123 Feedback */
+PINNODE 724 = S11; /* MC 124 Feedback */
+PINNODE 725 = S9; /* MC 125 Feedback */
+PINNODE 726 = S7; /* MC 126 Feedback */
+PINNODE 727 = S4; /* MC 127 Feedback */
+PINNODE 728 = S6; /* MC 128 Feedback */
+
+** Resource Usage **
+
+
+DCERP Field = Summary of Allocations.
+|||||
+|||||_Preset [p,-]       ==  p = PT preset, - No Preset.
+||||
+||||__Reset [g,r,-]      ==  g= Global AR, r = PT reset, - No reset.
+|||
+|||___Clock Enable [e,-] ==  e = Product Term, - always enabled, - none.
+||
+||____Clock [c,g,-],     ==  c = Product term, g = Global term, - No Clock.
+|
+|_____Type [C,D,L,T],    ==  Register type C= combin, D=dff, L=latch, T=tff.
+
+For input only = INPUT.
+
+MCell Pin# Oe   PinDrive  DCERP  FBDrive  DCERP  Foldback  CascadeOut     TotPT output_slew
+MC1   0         --               XXL_327  C----  --        --             3     slow
+MC2   0         --               XXL_335  C----  --        --             3     slow
+MC3   12   OE0  BBUS8     C----  --              --        --             1     slow
+MC4   0         --               PC13     Dg-g-  --        --             3     slow
+MC5   11   OE0  BBUS9     C----  --              --        --             1     slow
+MC6   10   OE0  BBUS10    C----  --              --        --             1     slow
+MC7   0         --               PC11     Dg-g-  --        --             3     slow
+MC8   9    OE0  BBUS12    C----  --              --        --             1     slow
+MC9   0         --               PC9      Dg-g-  --        --             3     slow
+MC10  0         --               PC10     Dg-g-  --        --             3     slow
+MC11  8    OE0  BBUS11    C----  --              --        --             1     slow
+MC12  0         --               PC8      Dg-g-  --        --             3     slow
+MC13  6    OE0  BBUS13    C----  --              --        --             1     slow
+MC14  5    OE0  BBUS14    C----  --              --        --             1     slow
+MC15  0         --               S1       C----  NA        --             5     slow
+MC16  4    OE0  BBUS15    C----  --              XXL_338   --             2     slow
+MC17  22   OE0  BBUS2     C----  --              --        --             1     slow
+MC18  0         --               S2_X2    C----  --        --             2     slow
+MC19  21   OE0  BBUS3     C----  --              --        --             1     slow
+MC20  0         --               S4_X2    C----  --        --             3     slow
+MC21  20   OE0  BBUS1     C----  --              --        --             1     slow
+MC22  0         --               S5_X2    C----  --        --             3     slow
+MC23  0         --               S7_X2    C----  --        --             3     slow
+MC24  18   OE0  BBUS4     C----  --              --        --             1     slow
+MC25  17   OE0  BBUS5     C----  --              --        --             1     slow
+MC26  0         --               PC6      Dg-g-  --        --             3     slow
+MC27  16   OE0  BBUS7     C----  --              --        --             1     slow
+MC28  0         --               PC4      Dg-g-  --        --             3     slow
+MC29  15   OE0  BBUS6     C----  --              --        --             1     slow
+MC30  0         --               PC2      Dg-g-  --        --             3     slow
+MC31  0         --               PC1      Dg-g-  --        --             3     slow
+MC32  14   --   TDI       INPUT  PC3      Dg-g-  XXL_338   --             4     slow
+MC33  0         --               --              --        --             0     slow
+MC34  0         --               PC14     Dg-g-  --        --             3     slow
+MC35  31   OE3  ADBUS9    C----  --              --        --             2     slow
+MC36  0         --               PC0      Dg-g-  --        --             0     slow
+MC37  30   OE3  ADBUS11   C----  --              --        --             2     slow
+MC38  29   OE3  ADBUS10   C----  --              --        --             2     slow
+MC39  0         --               XXL_337  C----  --        --             2     slow
+MC40  28   OE3  ADBUS12   C----  --              --        --             2     slow
+MC41  0         --               S13_X2   C----  --        --             3     slow
+MC42  0         --               S15_X2   C----  --        --             3     slow
+MC43  27   OE3  ADBUS13   C----  --              --        --             2     slow
+MC44  0         --               --              --        --             0     slow
+MC45  25   OE3  ADBUS14   C----  --              --        --             2     slow
+MC46  24   OE3  ADBUS15   C----  --              --        --             2     slow
+MC47  0         --               PC15     Dg-g-  --        --             3     slow
+MC48  23   --   TMS       INPUT  PC12     Dg-g-  XXL_338   --             4     slow
+MC49  41   OE3  ADBUS1    C----  --              --        --             2     slow
+MC50  0         --               --              --        --             0     slow
+MC51  40   OE3  ADBUS3    C----  --              --        --             2     slow
+MC52  0         --               --              --        --             0     slow
+MC53  39   OE3  ADBUS2    C----  --              --        --             2     slow
+MC54  0         --               --              --        --             0     slow
+MC55  0         --               --              --        --             0     slow
+MC56  37   OE3  ADBUS4    C----  --              --        --             2     slow
+MC57  36   OE3  ADBUS5    C----  --              --        --             2     slow
+MC58  0         --               S6_X2    C----  --        --             3     slow
+MC59  35   OE3  ADBUS6    C----  --              --        --             2     slow
+MC60  0         --               S8_X2    C----  --        --             3     slow
+MC61  34   OE3  ADBUS8    C----  --              --        --             2     slow
+MC62  0         --               PC5      Dg-g-  --        --             3     slow
+MC63  0         --               PC7      Dg-g-  --        --             3     slow
+MC64  33   OE3  ADBUS7    C----  --              XXL_338   --             3     slow
+MC65  44   --   PC_MODE0  INPUT  --              --        --             0     slow
+MC66  0         --               --              --        --             0     slow
+MC67  45   --   PC_MODE1  INPUT  --              --        --             0     slow
+MC68  0         --               --              --        --             0     slow
+MC69  46   --   PC_MODE2  INPUT  --              --        --             0     slow
+MC70  0         --               --              --        --             0     slow
+MC71  0         --               --              --        --             0     slow
+MC72  48   on   UNUSED1   C----  --              --        --             2     slow
+MC73  49   on   UNUSED2   C----  --              --        --             2     slow
+MC74  0         --               --              --        --             0     slow
+MC75  50   on   BBUS0     C----  --              --        --             0     slow
+MC76  0         --               --              --        --             0     slow
+MC77  51   --   UNUSED4   INPUT  --              --        --             0     slow
+MC78  0         --               S8       C----  --        --             2     slow
+MC79  0         --               S7_X1    C----  --        --             3     slow
+MC80  52   --   UNUSED5   INPUT  S9_X2    C----  XXL_333   --             4     slow
+MC81  0         --               --              --        --             0     slow
+MC82  0         --               --              --        --             0     slow
+MC83  54   --   UNUSED6   INPUT  --              --        --             0     slow
+MC84  0         --               --              --        --             0     slow
+MC85  55   --   CF_IN     INPUT  S3       C----  --        --             2     slow
+MC86  56   --   ZF_IN     INPUT  S14_X1   C----  --        --             3     slow
+MC87  0         --               S3_X2    C----  --        --             3     slow
+MC88  57   --   OVF_IN    INPUT  S12_X1   C----  --        --             3     slow
+MC89  0         --               S8_X1    C----  --        --             3     slow
+MC90  0         --               S15_X1   C----  --        --             3     slow
+MC91  58   --   JMPINST   INPUT  S2_X1    C----  --        --             3     slow
+MC92  0         --               S3_X1    C----  --        --             3     slow
+MC93  60   --   JCOND0    INPUT  S1_X1    C----  --        --             3     slow
+MC94  61   --   JCOND1    INPUT  S4_X1    C----  --        --             3     slow
+MC95  0         --               S6_X1    C----  --        --             3     slow
+MC96  62   --   TCK       INPUT  S5_X1    C----  XXL_333   --             4     slow
+MC97  63   --   JCOND2    INPUT  --              --        --             0     slow
+MC98  0         --               --              --        --             0     slow
+MC99  64   --   UNUSED7   INPUT  S5       C----  --        --             2     slow
+MC100 0         --               XXL_326  C----  --        --             2     slow
+MC101 65   --   UNUSED8   INPUT  S2       C----  --        --             2     slow
+MC102 0         --               S11_X2   C----  --        --             3     slow
+MC103 0         --               S10_X2   C----  --        --             3     slow
+MC104 67   --   UNUSED9   INPUT  S12_X2   C----  --        --             3     slow
+MC105 68   --   UNUSED10  INPUT  S10_X1   C----  --        --             3     slow
+MC106 0         --               S14_X2   C----  --        --             3     slow
+MC107 69   --   UNUSED11  INPUT  S11_X1   C----  --        --             3     slow
+MC108 0         --               S13_X1   C----  --        --             3     slow
+MC109 70   --   UNUSED12  INPUT  S9_X1    C----  --        --             3     slow
+MC110 0         --               XXL_332  C----  --        --             4     slow
+MC111 0         --               --              --        -> XXL_325     5     slow
+MC112 71   --   TDO       INPUT  XXL_325  C----  XXL_333   --             2     slow
+MC113 0         --               --              --        --             0     slow
+MC114 0         --               --              --        --             0     slow
+MC115 73   --   UNUSED13  INPUT  --              --        --             0     slow
+MC116 0         --               --              --        --             0     slow
+MC117 74   --   UNUSED14  INPUT  --              --        --             0     slow
+MC118 75   --   UNUSED15  INPUT  --              --        --             0     slow
+MC119 0         --               S15      C----  --        --             2     slow
+MC120 76   --   UNUSED16  INPUT  S13      C----  --        --             2     slow
+MC121 0         --               S14      C----  --        --             2     slow
+MC122 0         --               S10      C----  --        --             2     slow
+MC123 77   --   UNUSED17  INPUT  S12      C----  --        --             2     slow
+MC124 0         --               S11      C----  --        --             2     slow
+MC125 79   --   UNUSED18  INPUT  S9       C----  --        --             2     slow
+MC126 80   --   UNUSED19  INPUT  S7       C----  --        --             2     slow
+MC127 0         --               S4       C----  --        --             2     slow
+MC128 81   --   UNUSED20  INPUT  S6       C----  --        --             2     slow
+MC0   2         ADBUS_OE  INPUT  --              --        --             0     slow
+MC0   1         RESET_IN  INPUT  --              --        --             0     slow
+MC0   84        BBUS_OE   INPUT  --              --        --             0     slow
+MC0   83        D_CLK_IN  INPUT  --              --        --             0     slow
+
+Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
+A: LC1	- LC16		16/16(100%)	8/16(50%)	1/16(6%)	35/80(43%)	(27)	0
+B: LC17	- LC32		16/16(100%)	8/16(50%)	1/16(6%)	34/80(42%)	(28)	0
+C: LC33	- LC48		14/16(87%)	8/16(50%)	1/16(6%)	32/80(40%)	(28)	0
+D: LC49	- LC64		12/16(75%)	8/16(50%)	1/16(6%)	29/80(36%)	(28)	0
+E: LC65	- LC80		6/16(37%)	8/16(50%)	1/16(6%)	13/80(16%)	(28)	0
+F: LC81	- LC96		12/16(75%)	8/16(50%)	1/16(6%)	36/80(45%)	(28)	0
+G: LC97	- LC112		13/16(81%)	8/16(50%)	1/16(6%)	41/80(51%)	(28)	1
+H: LC113- LC128		10/16(62%)	8/16(50%)	0/16(0%)	20/80(25%)	(20)	0
+
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		64/64 	(100%)
+Total Logic cells used 		100/128 	(78%)
+Total Flip-Flop used 		16/128 	(12%)
+Total Foldback logic used 	7/128 	(5%)
+Total Nodes+FB/MCells 		106/128 	(82%)
+Total cascade used 		1
+Total input pins 		35
+Total output pins 		33
+Total Pts 			240
+Creating pla file C:\PC.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+
+----------------  End fitter, Design FITS
+$Device PLCC84 fits 
+FIT1508 completed in 0.00 seconds

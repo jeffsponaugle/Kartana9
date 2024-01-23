@@ -1,0 +1,1123 @@
+%SIGNAL
+PIN  50 =  AD0 
+PIN  52 =  ADBUS0 
+PIN  51 =  ADBUS1 
+PIN  40 =  ADBUS2 
+PIN  41 =  ADBUS3 
+PIN  39 =  ADBUS4 
+PIN  36 =  ADBUS5 
+PIN  37 =  ADBUS6 
+PIN  35 =  ADBUS7 
+PIN  33 =  ADBUS8 
+PIN  34 =  ADBUS9 
+PIN  31 =  ADBUS10 
+PIN  30 =  ADBUS11 
+PIN  29 =  ADBUS12 
+PIN  28 =  ADBUS13 
+PIN  25 =  ADBUS14 
+PIN  27 =  ADBUS15 
+PIN   2 =  ADBUS_IB_OE 
+PIN  48 =  ADBUS_SP_OE 
+PIN  24 =  BBUS0 
+PIN  20 =  BBUS1 
+PIN  22 =  BBUS2 
+PIN  21 =  BBUS3 
+PIN  18 =  BBUS4 
+PIN  17 =  BBUS5 
+PIN  15 =  BBUS6 
+PIN  16 =  BBUS7 
+PIN  12 =  BBUS8 
+PIN  10 =  BBUS9 
+PIN  11 =  BBUS10 
+PIN   9 =  BBUS11 
+PIN   6 =  BBUS12 
+PIN   8 =  BBUS13 
+PIN   4 =  BBUS14 
+PIN   5 =  BBUS15 
+PIN  84 =  BBUS_OE 
+PIN   0 =  C2 
+PIN   0 =  C3 
+PIN   0 =  C4 
+PIN   0 =  C5 
+PIN   0 =  C6 
+PIN   0 =  C7 
+PIN   0 =  C8 
+PIN   0 =  C9 
+PIN   0 =  C10 
+PIN   0 =  C11 
+PIN   0 =  C12 
+PIN   0 =  C13 
+PIN   0 =  C14 
+PIN   0 =  C15 
+PIN  54 =  DABUS0 
+PIN  55 =  DABUS1 
+PIN  57 =  DABUS2 
+PIN  58 =  DABUS3 
+PIN  56 =  DABUS4 
+PIN  61 =  DABUS5 
+PIN  63 =  DABUS6 
+PIN  60 =  DABUS7 
+PIN  64 =  DABUS8 
+PIN  65 =  DABUS9 
+PIN  67 =  DABUS10 
+PIN  73 =  DABUS11 
+PIN  74 =  DABUS12 
+PIN  75 =  DABUS13 
+PIN  77 =  DABUS14 
+PIN  76 =  DABUS15 
+PIN  83 =  D_CLK_IN 
+PIN  49 =  IR2_LATCH 
+PIN  46 =  IR2_OE 
+PIN   0 =  IRTWO0 
+PIN   0 =  IRTWO1 
+PIN   0 =  IRTWO2 
+PIN   0 =  IRTWO3 
+PIN   0 =  IRTWO4 
+PIN   0 =  IRTWO5 
+PIN   0 =  IRTWO6 
+PIN   0 =  IRTWO7 
+PIN   0 =  IRTWO8 
+PIN   0 =  IRTWO9 
+PIN   0 =  IRTWO10 
+PIN   0 =  IRTWO11 
+PIN   0 =  IRTWO12 
+PIN   0 =  IRTWO13 
+PIN   0 =  IRTWO14 
+PIN   0 =  IRTWO15 
+PIN   1 =  RESET_IN 
+PIN   0 =  SP0 
+PIN   0 =  SP1 
+PIN   0 =  SP2 
+PIN   0 =  SP3 
+PIN   0 =  SP4 
+PIN   0 =  SP5 
+PIN   0 =  SP6 
+PIN   0 =  SP7 
+PIN   0 =  SP8 
+PIN   0 =  SP9 
+PIN   0 =  SP10 
+PIN   0 =  SP11 
+PIN   0 =  SP12 
+PIN   0 =  SP13 
+PIN   0 =  SP14 
+PIN   0 =  SP15 
+PIN  45 =  SP_MODE0 
+PIN  44 =  SP_MODE1 
+PIN  68 =  UNUSED1 
+PIN  69 =  UNUSED2 
+PIN  70 =  UNUSED3 
+PIN  79 =  UNUSED4 
+PIN  80 =  UNUSED5 
+PIN  81 =  UNUSED6 
+%END
+
+%FIELD
+FIELD spmode = SP_MODE0,SP_MODE1
+%END
+
+%EQUATION
+A1 =>
+    SP1
+
+A2 =>
+    SP2
+
+A3 =>
+    SP3
+
+A4 =>
+    SP4
+
+A5 =>
+    SP5
+
+A6 =>
+    SP6
+
+A7 =>
+    SP7
+
+A8 =>
+    SP8
+
+A9 =>
+    SP9
+
+A10 =>
+    SP10
+
+A11 =>
+    SP11
+
+A12 =>
+    SP12
+
+A13 =>
+    SP13
+
+A14 =>
+    SP14
+
+A15 =>
+    SP15
+
+AD0 =>
+    BBUS0.io 
+
+ADBUS0 =>
+    !ADBUS_IB_OE & BBUS0.io 
+  # !ADBUS_SP_OE & SP0
+
+ADBUS0.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS1 =>
+    !ADBUS_IB_OE & BBUS1.io 
+  # !ADBUS_SP_OE & SP1
+
+ADBUS1.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS2 =>
+    !ADBUS_IB_OE & BBUS2.io 
+  # !ADBUS_SP_OE & SP2
+
+ADBUS2.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS3 =>
+    !ADBUS_IB_OE & BBUS3.io 
+  # !ADBUS_SP_OE & SP3
+
+ADBUS3.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS4 =>
+    !ADBUS_IB_OE & BBUS4.io 
+  # !ADBUS_SP_OE & SP4
+
+ADBUS4.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS5 =>
+    !ADBUS_IB_OE & BBUS5.io 
+  # !ADBUS_SP_OE & SP5
+
+ADBUS5.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS6 =>
+    !ADBUS_IB_OE & BBUS6.io 
+  # !ADBUS_SP_OE & SP6
+
+ADBUS6.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS7 =>
+    !ADBUS_IB_OE & BBUS7.io 
+  # !ADBUS_SP_OE & SP7
+
+ADBUS7.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS8 =>
+    !ADBUS_IB_OE & BBUS8.io 
+  # !ADBUS_SP_OE & SP8
+
+ADBUS8.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS9 =>
+    !ADBUS_IB_OE & BBUS9.io 
+  # !ADBUS_SP_OE & SP9
+
+ADBUS9.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS10 =>
+    !ADBUS_IB_OE & BBUS10.io 
+  # !ADBUS_SP_OE & SP10
+
+ADBUS10.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS11 =>
+    !ADBUS_IB_OE & BBUS11.io 
+  # !ADBUS_SP_OE & SP11
+
+ADBUS11.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS12 =>
+    !ADBUS_IB_OE & BBUS12.io 
+  # !ADBUS_SP_OE & SP12
+
+ADBUS12.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS13 =>
+    !ADBUS_IB_OE & BBUS13.io 
+  # !ADBUS_SP_OE & SP13
+
+ADBUS13.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS14 =>
+    !ADBUS_IB_OE & BBUS14.io 
+  # !ADBUS_SP_OE & SP14
+
+ADBUS14.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+ADBUS15 =>
+    !ADBUS_IB_OE & BBUS15.io 
+  # !ADBUS_SP_OE & SP15
+
+ADBUS15.oe  =>
+    !ADBUS_SP_OE
+  # !ADBUS_IB_OE
+
+B1 =>
+    SP_MODE1
+
+B2 =>
+    SP_MODE1
+
+B3 =>
+    SP_MODE1
+
+B4 =>
+    SP_MODE1
+
+B5 =>
+    SP_MODE1
+
+B6 =>
+    SP_MODE1
+
+B7 =>
+    SP_MODE1
+
+B8 =>
+    SP_MODE1
+
+B9 =>
+    SP_MODE1
+
+B10 =>
+    SP_MODE1
+
+B11 =>
+    SP_MODE1
+
+B12 =>
+    SP_MODE1
+
+B13 =>
+    SP_MODE1
+
+B14 =>
+    SP_MODE1
+
+B15 =>
+    SP_MODE1
+
+BBUS0 =>
+    !IR2_OE & IRTWO0
+  # IR2_OE & SP0
+
+BBUS0.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS1 =>
+    !IR2_OE & IRTWO1
+  # IR2_OE & SP1
+
+BBUS1.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS2 =>
+    !IR2_OE & IRTWO2
+  # IR2_OE & SP2
+
+BBUS2.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS3 =>
+    !IR2_OE & IRTWO3
+  # IR2_OE & SP3
+
+BBUS3.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS4 =>
+    !IR2_OE & IRTWO4
+  # IR2_OE & SP4
+
+BBUS4.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS5 =>
+    !IR2_OE & IRTWO5
+  # IR2_OE & SP5
+
+BBUS5.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS6 =>
+    !IR2_OE & IRTWO6
+  # IR2_OE & SP6
+
+BBUS6.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS7 =>
+    !IR2_OE & IRTWO7
+  # IR2_OE & SP7
+
+BBUS7.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS8 =>
+    !IR2_OE & IRTWO8
+  # IR2_OE & SP8
+
+BBUS8.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS9 =>
+    !IR2_OE & IRTWO9
+  # IR2_OE & SP9
+
+BBUS9.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS10 =>
+    !IR2_OE & IRTWO10
+  # IR2_OE & SP10
+
+BBUS10.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS11 =>
+    !IR2_OE & IRTWO11
+  # IR2_OE & SP11
+
+BBUS11.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS12 =>
+    !IR2_OE & IRTWO12
+  # IR2_OE & SP12
+
+BBUS12.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS13 =>
+    !IR2_OE & IRTWO13
+  # IR2_OE & SP13
+
+BBUS13.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS14 =>
+    !IR2_OE & IRTWO14
+  # IR2_OE & SP14
+
+BBUS14.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+BBUS15 =>
+    !IR2_OE & IRTWO15
+  # IR2_OE & SP15
+
+BBUS15.oe  =>
+    !BBUS_OE
+  # !IR2_OE
+
+C1 =>
+    !SP_MODE1
+
+C2 =>
+    SP1
+
+C3 =>
+    C2 & SP2
+  # C2 & SP_MODE1
+  # SP2 & SP_MODE1
+
+C4 =>
+    C3 & SP3
+  # C3 & SP_MODE1
+  # SP3 & SP_MODE1
+
+C5 =>
+    C4 & SP4
+  # C4 & SP_MODE1
+  # SP4 & SP_MODE1
+
+C6 =>
+    C5 & SP5
+  # C5 & SP_MODE1
+  # SP5 & SP_MODE1
+
+C7 =>
+    C6 & SP6
+  # C6 & SP_MODE1
+  # SP6 & SP_MODE1
+
+C8 =>
+    C7 & SP7
+  # C7 & SP_MODE1
+  # SP7 & SP_MODE1
+
+C9 =>
+    C8 & SP8
+  # C8 & SP_MODE1
+  # SP8 & SP_MODE1
+
+C10 =>
+    C9 & SP9
+  # C9 & SP_MODE1
+  # SP9 & SP_MODE1
+
+C11 =>
+    C10 & SP10
+  # C10 & SP_MODE1
+  # SP10 & SP_MODE1
+
+C12 =>
+    C11 & SP11
+  # C11 & SP_MODE1
+  # SP11 & SP_MODE1
+
+C13 =>
+    C12 & SP12
+  # C12 & SP_MODE1
+  # SP12 & SP_MODE1
+
+C14 =>
+    C13 & SP13
+  # C13 & SP_MODE1
+  # SP13 & SP_MODE1
+
+C15 =>
+    C14 & SP14
+  # C14 & SP_MODE1
+  # SP14 & SP_MODE1
+
+G1 =>
+    SP1 & SP_MODE1
+
+G2 =>
+    SP2 & SP_MODE1
+
+G3 =>
+    SP3 & SP_MODE1
+
+G4 =>
+    SP4 & SP_MODE1
+
+G5 =>
+    SP5 & SP_MODE1
+
+G6 =>
+    SP6 & SP_MODE1
+
+G7 =>
+    SP7 & SP_MODE1
+
+G8 =>
+    SP8 & SP_MODE1
+
+G9 =>
+    SP9 & SP_MODE1
+
+G10 =>
+    SP10 & SP_MODE1
+
+G11 =>
+    SP11 & SP_MODE1
+
+G12 =>
+    SP12 & SP_MODE1
+
+G13 =>
+    SP13 & SP_MODE1
+
+G14 =>
+    SP14 & SP_MODE1
+
+G15 =>
+    SP15 & SP_MODE1
+
+IRTWO0.d  =>
+    DABUS0 & !IR2_LATCH
+  # IR2_LATCH & IRTWO0
+
+IRTWO0.ar  =>
+    !RESET_IN
+
+IRTWO0.ck  =>
+    D_CLK_IN
+
+IRTWO1.d  =>
+    DABUS1 & !IR2_LATCH
+  # IR2_LATCH & IRTWO1
+
+IRTWO1.ar  =>
+    !RESET_IN
+
+IRTWO1.ck  =>
+    D_CLK_IN
+
+IRTWO2.d  =>
+    DABUS2 & !IR2_LATCH
+  # IR2_LATCH & IRTWO2
+
+IRTWO2.ar  =>
+    !RESET_IN
+
+IRTWO2.ck  =>
+    D_CLK_IN
+
+IRTWO3.d  =>
+    DABUS3 & !IR2_LATCH
+  # IR2_LATCH & IRTWO3
+
+IRTWO3.ar  =>
+    !RESET_IN
+
+IRTWO3.ck  =>
+    D_CLK_IN
+
+IRTWO4.d  =>
+    DABUS4 & !IR2_LATCH
+  # IR2_LATCH & IRTWO4
+
+IRTWO4.ar  =>
+    !RESET_IN
+
+IRTWO4.ck  =>
+    D_CLK_IN
+
+IRTWO5.d  =>
+    DABUS5 & !IR2_LATCH
+  # IR2_LATCH & IRTWO5
+
+IRTWO5.ar  =>
+    !RESET_IN
+
+IRTWO5.ck  =>
+    D_CLK_IN
+
+IRTWO6.d  =>
+    DABUS6 & !IR2_LATCH
+  # IR2_LATCH & IRTWO6
+
+IRTWO6.ar  =>
+    !RESET_IN
+
+IRTWO6.ck  =>
+    D_CLK_IN
+
+IRTWO7.d  =>
+    DABUS7 & !IR2_LATCH
+  # IR2_LATCH & IRTWO7
+
+IRTWO7.ar  =>
+    !RESET_IN
+
+IRTWO7.ck  =>
+    D_CLK_IN
+
+IRTWO8.d  =>
+    DABUS8 & !IR2_LATCH
+  # IR2_LATCH & IRTWO8
+
+IRTWO8.ar  =>
+    !RESET_IN
+
+IRTWO8.ck  =>
+    D_CLK_IN
+
+IRTWO9.d  =>
+    DABUS9 & !IR2_LATCH
+  # IR2_LATCH & IRTWO9
+
+IRTWO9.ar  =>
+    !RESET_IN
+
+IRTWO9.ck  =>
+    D_CLK_IN
+
+IRTWO10.d  =>
+    DABUS10 & !IR2_LATCH
+  # IR2_LATCH & IRTWO10
+
+IRTWO10.ar  =>
+    !RESET_IN
+
+IRTWO10.ck  =>
+    D_CLK_IN
+
+IRTWO11.d  =>
+    DABUS11 & !IR2_LATCH
+  # IR2_LATCH & IRTWO11
+
+IRTWO11.ar  =>
+    !RESET_IN
+
+IRTWO11.ck  =>
+    D_CLK_IN
+
+IRTWO12.d  =>
+    DABUS12 & !IR2_LATCH
+  # IR2_LATCH & IRTWO12
+
+IRTWO12.ar  =>
+    !RESET_IN
+
+IRTWO12.ck  =>
+    D_CLK_IN
+
+IRTWO13.d  =>
+    DABUS13 & !IR2_LATCH
+  # IR2_LATCH & IRTWO13
+
+IRTWO13.ar  =>
+    !RESET_IN
+
+IRTWO13.ck  =>
+    D_CLK_IN
+
+IRTWO14.d  =>
+    DABUS14 & !IR2_LATCH
+  # IR2_LATCH & IRTWO14
+
+IRTWO14.ar  =>
+    !RESET_IN
+
+IRTWO14.ck  =>
+    D_CLK_IN
+
+IRTWO15.d  =>
+    DABUS15 & !IR2_LATCH
+  # IR2_LATCH & IRTWO15
+
+IRTWO15.ar  =>
+    !RESET_IN
+
+IRTWO15.ck  =>
+    D_CLK_IN
+
+P1 =>
+    SP1 & !SP_MODE1
+  # !SP1 & SP_MODE1
+
+P2 =>
+    SP2 & !SP_MODE1
+  # !SP2 & SP_MODE1
+
+P3 =>
+    SP3 & !SP_MODE1
+  # !SP3 & SP_MODE1
+
+P4 =>
+    SP4 & !SP_MODE1
+  # !SP4 & SP_MODE1
+
+P5 =>
+    SP5 & !SP_MODE1
+  # !SP5 & SP_MODE1
+
+P6 =>
+    SP6 & !SP_MODE1
+  # !SP6 & SP_MODE1
+
+P7 =>
+    SP7 & !SP_MODE1
+  # !SP7 & SP_MODE1
+
+P8 =>
+    SP8 & !SP_MODE1
+  # !SP8 & SP_MODE1
+
+P9 =>
+    SP9 & !SP_MODE1
+  # !SP9 & SP_MODE1
+
+P10 =>
+    SP10 & !SP_MODE1
+  # !SP10 & SP_MODE1
+
+P11 =>
+    SP11 & !SP_MODE1
+  # !SP11 & SP_MODE1
+
+P12 =>
+    SP12 & !SP_MODE1
+  # !SP12 & SP_MODE1
+
+P13 =>
+    SP13 & !SP_MODE1
+  # !SP13 & SP_MODE1
+
+P14 =>
+    SP14 & !SP_MODE1
+  # !SP14 & SP_MODE1
+
+P15 =>
+    SP15 & !SP_MODE1
+  # !SP15 & SP_MODE1
+
+S1 =>
+    !SP1
+
+S2 =>
+    !C2 & !SP2 & SP_MODE1
+  # !C2 & SP2 & !SP_MODE1
+  # C2 & !SP2 & !SP_MODE1
+  # C2 & SP2 & SP_MODE1
+
+S3 =>
+    !C3 & !SP3 & SP_MODE1
+  # !C3 & SP3 & !SP_MODE1
+  # C3 & !SP3 & !SP_MODE1
+  # C3 & SP3 & SP_MODE1
+
+S4 =>
+    !C4 & !SP4 & SP_MODE1
+  # !C4 & SP4 & !SP_MODE1
+  # C4 & !SP4 & !SP_MODE1
+  # C4 & SP4 & SP_MODE1
+
+S5 =>
+    !C5 & !SP5 & SP_MODE1
+  # !C5 & SP5 & !SP_MODE1
+  # C5 & !SP5 & !SP_MODE1
+  # C5 & SP5 & SP_MODE1
+
+S6 =>
+    !C6 & !SP6 & SP_MODE1
+  # !C6 & SP6 & !SP_MODE1
+  # C6 & !SP6 & !SP_MODE1
+  # C6 & SP6 & SP_MODE1
+
+S7 =>
+    !C7 & !SP7 & SP_MODE1
+  # !C7 & SP7 & !SP_MODE1
+  # C7 & !SP7 & !SP_MODE1
+  # C7 & SP7 & SP_MODE1
+
+S8 =>
+    !C8 & !SP8 & SP_MODE1
+  # !C8 & SP8 & !SP_MODE1
+  # C8 & !SP8 & !SP_MODE1
+  # C8 & SP8 & SP_MODE1
+
+S9 =>
+    !C9 & !SP9 & SP_MODE1
+  # !C9 & SP9 & !SP_MODE1
+  # C9 & !SP9 & !SP_MODE1
+  # C9 & SP9 & SP_MODE1
+
+S10 =>
+    !C10 & !SP10 & SP_MODE1
+  # !C10 & SP10 & !SP_MODE1
+  # C10 & !SP10 & !SP_MODE1
+  # C10 & SP10 & SP_MODE1
+
+S11 =>
+    !C11 & !SP11 & SP_MODE1
+  # !C11 & SP11 & !SP_MODE1
+  # C11 & !SP11 & !SP_MODE1
+  # C11 & SP11 & SP_MODE1
+
+S12 =>
+    !C12 & !SP12 & SP_MODE1
+  # !C12 & SP12 & !SP_MODE1
+  # C12 & !SP12 & !SP_MODE1
+  # C12 & SP12 & SP_MODE1
+
+S13 =>
+    !C13 & !SP13 & SP_MODE1
+  # !C13 & SP13 & !SP_MODE1
+  # C13 & !SP13 & !SP_MODE1
+  # C13 & SP13 & SP_MODE1
+
+S14 =>
+    !C14 & !SP14 & SP_MODE1
+  # !C14 & SP14 & !SP_MODE1
+  # C14 & !SP14 & !SP_MODE1
+  # C14 & SP14 & SP_MODE1
+
+S15 =>
+    !C15 & !SP15 & SP_MODE1
+  # !C15 & SP15 & !SP_MODE1
+  # C15 & !SP15 & !SP_MODE1
+  # C15 & SP15 & SP_MODE1
+
+SP0.d  =>
+    0 
+
+SP0.ar  =>
+    !RESET_IN
+
+SP0.ck  =>
+    D_CLK_IN
+
+SP1.d  =>
+    !SP1 & SP_MODE0
+  # BBUS1.io  & !SP_MODE0 & SP_MODE1
+  # SP1 & !SP_MODE0 & !SP_MODE1
+
+SP1.ar  =>
+    !RESET_IN
+
+SP1.ck  =>
+    D_CLK_IN
+
+SP2.d  =>
+    BBUS2.io  & !SP_MODE0 & SP_MODE1
+  # !C2 & SP2 & !SP_MODE1
+  # SP2 & !SP_MODE0 & !SP_MODE1
+  # C2 & SP2 & SP_MODE0 & SP_MODE1
+  # !C2 & !SP2 & SP_MODE0 & SP_MODE1
+  # C2 & !SP2 & SP_MODE0 & !SP_MODE1
+
+SP2.ar  =>
+    !RESET_IN
+
+SP2.ck  =>
+    D_CLK_IN
+
+SP3.d  =>
+    BBUS3.io  & !SP_MODE0 & SP_MODE1
+  # !C3 & SP3 & !SP_MODE1
+  # SP3 & !SP_MODE0 & !SP_MODE1
+  # C3 & SP3 & SP_MODE0 & SP_MODE1
+  # !C3 & !SP3 & SP_MODE0 & SP_MODE1
+  # C3 & !SP3 & SP_MODE0 & !SP_MODE1
+
+SP3.ar  =>
+    !RESET_IN
+
+SP3.ck  =>
+    D_CLK_IN
+
+SP4.d  =>
+    BBUS4.io  & !SP_MODE0 & SP_MODE1
+  # !C4 & SP4 & !SP_MODE1
+  # SP4 & !SP_MODE0 & !SP_MODE1
+  # C4 & SP4 & SP_MODE0 & SP_MODE1
+  # !C4 & !SP4 & SP_MODE0 & SP_MODE1
+  # C4 & !SP4 & SP_MODE0 & !SP_MODE1
+
+SP4.ar  =>
+    !RESET_IN
+
+SP4.ck  =>
+    D_CLK_IN
+
+SP5.d  =>
+    BBUS5.io  & !SP_MODE0 & SP_MODE1
+  # !C5 & SP5 & !SP_MODE1
+  # SP5 & !SP_MODE0 & !SP_MODE1
+  # C5 & SP5 & SP_MODE0 & SP_MODE1
+  # !C5 & !SP5 & SP_MODE0 & SP_MODE1
+  # C5 & !SP5 & SP_MODE0 & !SP_MODE1
+
+SP5.ar  =>
+    !RESET_IN
+
+SP5.ck  =>
+    D_CLK_IN
+
+SP6.d  =>
+    BBUS6.io  & !SP_MODE0 & SP_MODE1
+  # !C6 & SP6 & !SP_MODE1
+  # SP6 & !SP_MODE0 & !SP_MODE1
+  # C6 & SP6 & SP_MODE0 & SP_MODE1
+  # !C6 & !SP6 & SP_MODE0 & SP_MODE1
+  # C6 & !SP6 & SP_MODE0 & !SP_MODE1
+
+SP6.ar  =>
+    !RESET_IN
+
+SP6.ck  =>
+    D_CLK_IN
+
+SP7.d  =>
+    BBUS7.io  & !SP_MODE0 & SP_MODE1
+  # !C7 & SP7 & !SP_MODE1
+  # SP7 & !SP_MODE0 & !SP_MODE1
+  # C7 & SP7 & SP_MODE0 & SP_MODE1
+  # !C7 & !SP7 & SP_MODE0 & SP_MODE1
+  # C7 & !SP7 & SP_MODE0 & !SP_MODE1
+
+SP7.ar  =>
+    !RESET_IN
+
+SP7.ck  =>
+    D_CLK_IN
+
+SP8.d  =>
+    BBUS8.io  & !SP_MODE0 & SP_MODE1
+  # !C8 & SP8 & !SP_MODE1
+  # SP8 & !SP_MODE0 & !SP_MODE1
+  # C8 & SP8 & SP_MODE0 & SP_MODE1
+  # !C8 & !SP8 & SP_MODE0 & SP_MODE1
+  # C8 & !SP8 & SP_MODE0 & !SP_MODE1
+
+SP8.ar  =>
+    !RESET_IN
+
+SP8.ck  =>
+    D_CLK_IN
+
+SP9.d  =>
+    BBUS9.io  & !SP_MODE0 & SP_MODE1
+  # !C9 & SP9 & !SP_MODE1
+  # SP9 & !SP_MODE0 & !SP_MODE1
+  # C9 & SP9 & SP_MODE0 & SP_MODE1
+  # !C9 & !SP9 & SP_MODE0 & SP_MODE1
+  # C9 & !SP9 & SP_MODE0 & !SP_MODE1
+
+SP9.ar  =>
+    !RESET_IN
+
+SP9.ck  =>
+    D_CLK_IN
+
+SP10.d  =>
+    BBUS10.io  & !SP_MODE0 & SP_MODE1
+  # !C10 & SP10 & !SP_MODE1
+  # SP10 & !SP_MODE0 & !SP_MODE1
+  # C10 & SP10 & SP_MODE0 & SP_MODE1
+  # !C10 & !SP10 & SP_MODE0 & SP_MODE1
+  # C10 & !SP10 & SP_MODE0 & !SP_MODE1
+
+SP10.ar  =>
+    !RESET_IN
+
+SP10.ck  =>
+    D_CLK_IN
+
+SP11.d  =>
+    BBUS11.io  & !SP_MODE0 & SP_MODE1
+  # !C11 & SP11 & !SP_MODE1
+  # SP11 & !SP_MODE0 & !SP_MODE1
+  # C11 & SP11 & SP_MODE0 & SP_MODE1
+  # !C11 & !SP11 & SP_MODE0 & SP_MODE1
+  # C11 & !SP11 & SP_MODE0 & !SP_MODE1
+
+SP11.ar  =>
+    !RESET_IN
+
+SP11.ck  =>
+    D_CLK_IN
+
+SP12.d  =>
+    BBUS12.io  & !SP_MODE0 & SP_MODE1
+  # !C12 & SP12 & !SP_MODE1
+  # SP12 & !SP_MODE0 & !SP_MODE1
+  # C12 & SP12 & SP_MODE0 & SP_MODE1
+  # !C12 & !SP12 & SP_MODE0 & SP_MODE1
+  # C12 & !SP12 & SP_MODE0 & !SP_MODE1
+
+SP12.ar  =>
+    !RESET_IN
+
+SP12.ck  =>
+    D_CLK_IN
+
+SP13.d  =>
+    BBUS13.io  & !SP_MODE0 & SP_MODE1
+  # !C13 & SP13 & !SP_MODE1
+  # SP13 & !SP_MODE0 & !SP_MODE1
+  # C13 & SP13 & SP_MODE0 & SP_MODE1
+  # !C13 & !SP13 & SP_MODE0 & SP_MODE1
+  # C13 & !SP13 & SP_MODE0 & !SP_MODE1
+
+SP13.ar  =>
+    !RESET_IN
+
+SP13.ck  =>
+    D_CLK_IN
+
+SP14.d  =>
+    BBUS14.io  & !SP_MODE0 & SP_MODE1
+  # !C14 & SP14 & !SP_MODE1
+  # SP14 & !SP_MODE0 & !SP_MODE1
+  # C14 & SP14 & SP_MODE0 & SP_MODE1
+  # !C14 & !SP14 & SP_MODE0 & SP_MODE1
+  # C14 & !SP14 & SP_MODE0 & !SP_MODE1
+
+SP14.ar  =>
+    !RESET_IN
+
+SP14.ck  =>
+    D_CLK_IN
+
+SP15.d  =>
+    BBUS15.io  & !SP_MODE0 & SP_MODE1
+  # !C15 & SP15 & !SP_MODE1
+  # SP15 & !SP_MODE0 & !SP_MODE1
+  # C15 & SP15 & SP_MODE0 & SP_MODE1
+  # !C15 & !SP15 & SP_MODE0 & SP_MODE1
+  # C15 & !SP15 & SP_MODE0 & !SP_MODE1
+
+SP15.ar  =>
+    !RESET_IN
+
+SP15.ck  =>
+    D_CLK_IN
+
+SP_INCDEC =>
+    SP_MODE0
+
+SP_LOAD =>
+    !SP_MODE0 & SP_MODE1
+
+SP_STAY =>
+    !SP_MODE0 & !SP_MODE1
+
+UNUSED1 =>
+    UNUSED2
+  # UNUSED3
+  # UNUSED4
+  # UNUSED5
+  # UNUSED6
+
+%END

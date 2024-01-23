@@ -1,0 +1,712 @@
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+  1:Name     IRCTRL;
+  2:PartNo   IRCTRL;
+  3:Date     04/18/2022;
+  4:Revision 01;
+  5:Designer Sponaugle;
+  6:Company  Ratiometric;
+  7:Assembly None;
+  8:Location None;
+  9:Device   f1508ispplcc84;
+ 10:
+ 11:PROPERTY ATMEL {TDI_PULLUP = ON};
+ 12:PROPERTY ATMEL {TMS_PULLUP = ON};
+ 13:PROPERTY ATMEL {PREASSIGN = KEEP};
+ 14:
+ 15:/* All of the instructions as $DEFINES in the format needed for signal generation */
+ 16:
+ 17:$DEFINE INST_NOP (SM_EX1 & opcf:['b'0000000])
+ 18:$DEFINE INST_HALT (SM_EX1 & opcf:['b'0000001])
+ 19:$DEFINE INST_SUB_A_B_C (SM_EX1 & opcf:['b'0000010])
+ 20:$DEFINE INST_SUBC_A_B_C (SM_EX1 & opcf:['b'0000011])
+ 21:$DEFINE INST_ADD_A_B_C (SM_EX1 & opcf:['b'0000100])
+ 22:$DEFINE INST_ADDC_A_B_B (SM_EX1 & opcf:['b'0000101])
+ 23:$DEFINE INST_XOR_A_B_C (SM_EX1 & opcf:['b'0000110])
+ 24:$DEFINE INST_OR_A_B_C (SM_EX1 & opcf:['b'0001000])
+ 25:$DEFINE INST_AND_A_B_C (SM_EX1 & opcf:['b'0001010])
+ 26:$DEFINE INST_NOT_B_C (SM_EX1 & opcf:['b'0001100])
+ 27:$DEFINE INST_STOREW_A_INDB (SM_EX1 & opcf:['b'0010000])
+ 28:$DEFINE INST_STOREB_A_INDB (SM_EX1 & opcf:['b'0010001])
+ 29:$DEFINE INST_CMP_A_B (SM_EX1 & opcf:['b'0010010])
+ 30:$DEFINE INST_CMPC (SM_EX1 & opcf:['b'0010011])
+ 31:$DEFINE INST_LOADW_INDB_C (SM_EX1 & opcf:['b'0010100])
+ 32:$DEFINE INST_LOADB_INDB_C (SM_EX1 & opcf:['b'0010101])
+ 33:$DEFINE INST_JMP_INDB (SM_EX1 & opcf:['b'0011000])
+ 34:$DEFINE INST_JZ_INDB (SM_EX1 & opcf:['b'0011001])
+ 35:$DEFINE INST_JNZ_INDB (SM_EX1 & opcf:['b'0011010])
+ 36:$DEFINE INST_JC_INDB (SM_EX1 & opcf:['b'0011011])
+ 37:$DEFINE INST_JNC_INDB (SM_EX1 & opcf:['b'0011100])
+ 38:$DEFINE INST_JV_INDB (SM_EX1 & opcf:['b'0011101])
+ 39:$DEFINE INST_JNV_INDB (SM_EX1 & opcf:['b'0011110])
+ 40:$DEFINE INST_SHL_B_C_CNT (SM_EX1 & opcf:['b'0100010])
+ 41:$DEFINE INST_SHR_B_C_CNT (SM_EX1 & opcf:['b'0100011])
+ 42:$DEFINE INST_SHLC_B_C_CNT (SM_EX1 & opcf:['b'0100100])
+ 43:$DEFINE INST_SHRA_B_C_CNT (SM_EX1 & opcf:['b'0100101])
+ 44:$DEFINE INST_MOV_SP_C (SM_EX1 & opcf:['b'0101010])
+ 45:$DEFINE INST_MOV_B_SP (SM_EX1 & opcf:['b'0101011])
+ 46:$DEFINE INST_MOV_B_C (SM_EX1 & opcf:['b'0101100])
+ 47:$DEFINE INST_MOV_PC_C (SM_EX1 & opcf:['b'0101101])
+ 48:$DEFINE INST_PUSH_B (SM_EX1 & opcf:['b'0101110])
+ 49:$DEFINE INST_POP_C (SM_EX1 & opcf:['b'0110000])
+ 50:$DEFINE INST_POP_C_2 (SM_EX2 & opcf:['b'0110000])
+ 51:$DEFINE INST_CALL_B (SM_EX1 & opcf:['b'0110100])
+ 52:$DEFINE INST_CALL_B_2 (SM_EX2 & opcf:['b'0110100])
+ 53:$DEFINE INST_CALL_INDB (SM_EX1 & opcf:['b'0110110])
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+ 54:$DEFINE INST_CALL_INDB_2 (SM_EX2 & opcf:['b'0110110])
+ 55:$DEFINE INST_RET (SM_EX1 & opcf:['b'0111000])
+ 56:$DEFINE INST_RET_2 (SM_EX2 & opcf:['b'0111000])
+ 57:$DEFINE INST_SUB_A_I16_C (SM_EX1 & opcf:['b'1000010])
+ 58:$DEFINE INST_SUBC_A_I16_C (SM_EX1 & opcf:['b'1000011])
+ 59:$DEFINE INST_ADD_A_II16_C (SM_EX1 & opcf:['b'1000100])
+ 60:$DEFINE INST_ADDC_A_I16_C (SM_EX1 & opcf:['b'1000101])
+ 61:$DEFINE INST_XOR_A_I16_C (SM_EX1 & opcf:['b'1000110])
+ 62:$DEFINE INST_OR_A_I16_C (SM_EX1 & opcf:['b'1001000])
+ 63:$DEFINE INST_AND_A_I16_C (SM_EX1 & opcf:['b'1001010])
+ 64:$DEFINE INST_STOREW_A_INDI16 (SM_EX1 & opcf:['b'1010000])
+ 65:$DEFINE INST_STOREB_A_INDI16 (SM_EX1 & opcf:['b'1010001])
+ 66:$DEFINE INST_LOADW_INDI16_C (SM_EX1 & opcf:['b'1010100])
+ 67:$DEFINE INST_LOADB_INDI16_C (SM_EX1 & opcf:['b'1010101])
+ 68:$DEFINE INST_JMP_I16 (SM_EX1 & opcf:['b'1011000])
+ 69:$DEFINE INST_JZ_I16 (SM_EX1 & opcf:['b'1011001])
+ 70:$DEFINE INST_JNZ_I16 (SM_EX1 & opcf:['b'1011010])
+ 71:$DEFINE INST_JC_I16 (SM_EX1 & opcf:['b'1011011])
+ 72:$DEFINE INST_JNC_I16 (SM_EX1 & opcf:['b'1011100])
+ 73:$DEFINE INST_JV_I16 (SM_EX1 & opcf:['b'1011101])
+ 74:$DEFINE INST_JNV_I16 (SM_EX1 & opcf:['b'1011110])
+ 75:$DEFINE INST_STOREW_A_RI16 (SM_EX1 & opcf:['b'1100000])
+ 76:$DEFINE INST_STOREB_A_RI16 (SM_EX1 & opcf:['b'1100001])
+ 77:$DEFINE INST_LOADW_RI16_C (SM_EX1 & opcf:['b'1100100])
+ 78:$DEFINE INST_LOADB_RI16_C (SM_EX1 & opcf:['b'1100101])
+ 79:$DEFINE INST_LOADI_C_I16 (SM_EX1 & opcf:['b'1100110])
+ 80:$DEFINE INST_JMP_INDI16 (SM_EX1 & opcf:['b'1101000])
+ 81:$DEFINE INST_JZ_INDI16 (SM_EX1 & opcf:['b'1101001])
+ 82:$DEFINE INST_JNZ_INDI16 (SM_EX1 & opcf:['b'1101010])
+ 83:$DEFINE INST_JC_INDI16 (SM_EX1 & opcf:['b'1101011])
+ 84:$DEFINE INST_JNC_INDI16 (SM_EX1 & opcf:['b'1101100])
+ 85:$DEFINE INST_JV_INDI16 (SM_EX1 & opcf:['b'1101101])
+ 86:$DEFINE INST_JNV_INDI16 (SM_EX1 & opcf:['b'1101110])
+ 87:$DEFINE INST_CALL_INDI16 (SM_EX1 & opcf:['b'1110110])
+ 88:$DEFINE INST_CALL_I16 (SM_EX1 & opcf:['b'1111000])
+ 89:$DEFINE INST_CALL_I16_2 (SM_EX2 & opcf:['b'1111000])
+ 90:$DEFINE INST_CALL_RI16 (SM_EX1 & opcf:['b'1111001])
+ 91:$DEFINE INST_CALL_RI16_2 (SM_EX2 & opcf:['b'1111001])
+ 92:
+ 93:$DEFINE INST_ALL_1_CYCLE_LONG (SM_EX1 & isize & icycles:['d'0,'d'1,'d'2])
+ 94:$DEFINE INST_ALL_JMP_RI16 (SM_EX1 & opcf:['b'1101XXX])
+ 95:$DEFINE INST_ALL_JMP ((SM_EX1 & opcf:['b'X011XXX])#(SM_EX1 & opcf:['b'1101XXX]))
+ 96:$DEFINE INST_ALL_MATHOPS (SM_EX1 & opcf:['b'X00XXXX] & !(opcf:['b'0000000]))
+ 97:$DEFINE INST_ALL_SHIFT (SM_EX1 & opcf:['b'0100XXX])
+ 98:$DEFINE INST_ALL_FIRST32 (SM_EX1 & opcf:['b'00XXXXX])
+ 99:
+100:
+101:Pin[2] = D_CLK_IN;
+102:Pin[83] = A_CLK_IN;
+103:Pin  0  = B_CLK_IN;
+104:Pin  0  = C_CLK_IN;
+105:Pin[1]  = RESET_IN;
+106:Pin[56,44,55,45,54,57,58] = [OPCB0..6];      /* Bits 0 to 6 of the low Instruction Register #1 */
+107:Pin[60] = AD0;             /* Address Bus Bit 0 from BtoA buffer, for Byte Address Writes */
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 3
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+108:Pin[63] = OPCSIZEHINT;          /* A preview of the SIZE bit from the opcode section taken directly from the databus */
+109:/* Control Signal Outputs */
+110:
+111:Pin[40,52,41] = [ALU_FUNC0..2];
+112:Pin[12] = IR2_OE;
+113:Pin[16] = PC_BBOE;
+114:Pin[48] = PC_ADOE;
+115:Pin[39,35,31] = [PC_MODE0..2];
+116:Pin[22] = SP_BBOE;
+117:Pin[18] = SP_ADOE;
+118:Pin[34,33] = [SP_MODE0..1];
+119:Pin[37] = B2A_OE;
+120:Pin[15] = RF_CWE;
+121:Pin[30] = RF_FHZ;
+122:Pin[46] = RF_BOE;
+123:Pin[4] = ALU_OE;
+124:Pin[5] = ALU_FL;
+125:Pin[8] = ALU_WC;
+126:Pin[28] = SHFT_OE;
+127:Pin[17] = SFT_DIR;
+128:Pin[20] = SHFT_AR;
+129:Pin[6] = DBH_OE;
+130:Pin[9] = DB_DIR;
+131:Pin[50] = DBL_OE;
+132:Pin[29] = H2L_DIR;
+133:Pin[11] = H2L_OE;
+134:Pin[49] = MEM_RW;
+135:Pin[36] = MEM_AS;
+136:Pin[25] = MEM_H_EN;
+137:Pin[27] = MEM_L_EN;
+138:Pin[51] = IR1_LATCH;
+139:Pin[10] = IR2_LATCH;
+140:Pin[67] = JMPINST;
+141:Pin[24] = ALU_CFLATCH;
+142:Pin[21] = SHFT_WC;
+143:Pin[69] = HALT;
+144:Pin  0  = UNUSED;
+145:Pin[68] = SHFT_INVERTCARRY;
+146:
+147:/* Statment to force B_CLK_IN to be instantiated */
+148:
+149:UNUSED = B_CLK_IN & HALT # C_CLK_IN;
+150:
+151:/* The core internal CPU state machine:
+152:
+153:    State       Operation       Next State
+154:    0           Fetch 0         1(S==1) or 2(S==0)
+155:    1           Fetch 1         2
+156:    2           Execute 0       3(C==1) or 0(C==0) 
+157:    3           Execute 1       0
+158:
+159:    S=1 for 32 bit instruction, 0 for 16 bit instruction
+160:    C=1 for 2 cycle instruction, 0 for 1 cycle instruction
+161:    
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 4
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+162:
+163:    Implementation, S=Instruction size bit, C=Exec Cycles bit.
+164:
+165:    State   Next Bit0   Next Bit1   
+166:    0       S           /S          
+167:    1       0           1           
+168:    2       C           C         
+169:    3       0           0          
+170:    
+171:
+172:*/
+173:
+174:PIN[61,70] =  [CSM0..1];
+175:FIELD stm = [CSM0..1];
+176:
+177:/* 
+178:   preisize is the instuction size hint directly from the data bus, and is only valid at the end of the F1 machine cycle
+179:   isize is the instruction size that is valid during the entire execution of the instruction 
+180:*/
+181:
+182:preisize = OPCSIZEHINT;   /* 0 = 16 bit instruction, 1 = 32 bit instruction */
+183:isize = OPCB6;
+184:FIELD icycles = [OPCB5..OPCB4]; /* 00,01,10 for single cycle, 11 for two cycle instruction */
+185:
+186:[CSM0..1].ck = D_CLK_IN;
+187:[CSM0..1].ar = !RESET_IN # !HALT;         // It is critical that RESET unassert at D_CLK_IN^ 
+
+188:
+189:/* If HALT == 0, we are in a HALT state, so the state machine will never advance past state 0 */
+190:
+191:CSM0.d = (stm:['d'0] & preisize) 
+192:       # (stm:['d'2] & icycles:['b'11]);
+193:
+194:CSM1.d = (stm:['d'0] & !preisize)
+195:       # (stm:['d'1]) 
+196:       # (stm:['d'2] & icycles:['b'11]);
+197:
+198:/* These 4 flags are 1 in each of the 4 states.   
+199:    SM_F1 and SM_F2 for fetch cycle 1 and 2
+200:    SM_EX1 and SM_EX2 for execute cycle 1 and 2.
+201:*/
+202:
+203:SM_F1 = stm:['d'0];
+204:SM_F2 = stm:['d'1];
+205:SM_EX1 = stm:['d'2];
+206:SM_EX2 = stm:['d'3];
+207:
+208:/* OPC is the instruction opcode */
+209:FIELD opcf=[OPCB0..6];
+210:
+211:/* For every control output we will clock those output pins on the A clock */
+212:
+213:[ALU_FUNC0..2].ck = A_CLK_IN;
+214:[ALU_FUNC0..2].ar = !RESET_IN;
+215:IR2_OE.ck = A_CLK_IN;
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 5
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+216:IR2_OE.ap = !RESET_IN;
+217:PC_BBOE.ck = A_CLK_IN;
+218:PC_BBOE.ap = !RESET_IN;
+219:PC_ADOE.ck = A_CLK_IN;
+220:PC_ADOE.ap = !RESET_IN;
+221:[PC_MODE0..2].ck = A_CLK_IN;
+222:[PC_MODE0..2].ar = !RESET_IN # !HALT;            // IF HALT MODE, PCMODE is stuck at 00 which means no increment
+
+223:SP_BBOE.ck = A_CLK_IN;
+224:SP_BBOE.ap = !RESET_IN;
+225:SP_ADOE.ck = A_CLK_IN;
+226:SP_ADOE.ap = !RESET_IN;
+227:[SP_MODE0..1].ck = A_CLK_IN;
+228:[SP_MODE0..1].ar = !RESET_IN;
+229:B2A_OE.ck = A_CLK_IN;
+230:B2A_OE.ap = !RESET_IN;
+231:RF_CWE.ck = A_CLK_IN;
+232:RF_CWE.ap = !RESET_IN;
+233:RF_FHZ.ck = A_CLK_IN;
+234:RF_FHZ.ap = !RESET_IN;
+235:RF_BOE.ck = A_CLK_IN;
+236:RF_BOE.ap = !RESET_IN;
+237:ALU_OE.ck = A_CLK_IN;
+238:ALU_OE.ap = !RESET_IN;
+239:ALU_FL.ck = A_CLK_IN;
+240:ALU_FL.ap = !RESET_IN;
+241:ALU_WC.ck = A_CLK_IN;
+242:ALU_WC.ap = !RESET_IN;
+243:SHFT_OE.ck = A_CLK_IN;
+244:SHFT_OE.ap = !RESET_IN;
+245:SFT_DIR.ck = A_CLK_IN;
+246:SFT_DIR.ap = !RESET_IN;
+247:SHFT_AR.ck = A_CLK_IN;
+248:SHFT_AR.ap = !RESET_IN;
+249:DBH_OE.ck = A_CLK_IN;
+250:DBH_OE.ap = !RESET_IN;
+251:DB_DIR.ck = A_CLK_IN;
+252:DB_DIR.ap = !RESET_IN;
+253:DBL_OE.ck = A_CLK_IN;
+254:DBL_OE.ap = !RESET_IN;
+255:H2L_DIR.ck = A_CLK_IN;
+256:H2L_DIR.ap = !RESET_IN;
+257:H2L_OE.ck = A_CLK_IN;
+258:H2L_OE.ap = !RESET_IN;
+259:MEM_RW.ck = A_CLK_IN;
+260:MEM_RW.ap = !RESET_IN;
+261:MEM_AS.ck = A_CLK_IN;
+262:MEM_AS.ap = !RESET_IN;
+263:MEM_H_EN.ck = A_CLK_IN;
+264:MEM_H_EN.ap = !RESET_IN;
+265:MEM_L_EN.ck = A_CLK_IN;
+266:MEM_L_EN.ap = !RESET_IN;
+267:IR1_LATCH.ck = A_CLK_IN;
+268:IR1_LATCH.ap = !RESET_IN;
+269:IR2_LATCH.ck = A_CLK_IN;
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 6
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+270:IR2_LATCH.ap = !RESET_IN;
+271:JMPINST.ck = A_CLK_IN;
+272:JMPINST.ap = !RESET_IN;
+273:ALU_CFLATCH.ck = A_CLK_IN;
+274:ALU_CFLATCH.ap = !RESET_IN;
+275:SHFT_WC.ck = A_CLK_IN;
+276:SHFT_WC.ap = !RESET_IN;
+277:HALT.ck = A_CLK_IN;
+278:HALT.ap = !RESET_IN;
+279:SHFT_INVERTCARRY.ck = A_CLK_IN;
+280:SHFT_INVERTCARRY.ap = !RESET_IN;
+281:
+282:/* ALU Function derived from opcode.   
+283:   If OPCB5 == 0,  ALU_FUNC0..2 = OPCB1..3
+284:   If OPCB5 == 1,  ALU_FUNC0..2 = OPCB3 # OPCB2 # OPCB1
+285:
+286:   OPCB
+287:   000XXXX  }
+288:   001XXXX   }
+289:   100XXXX    }  All of these should pass thru B1,2,3 for ALU function.       
+290:   101XXXX  }
+291:
+292:   010XXXX  }
+293:   011XXXX   }
+294:   110XXXX    }  All of these should set ALU function to the OR of B1,2,3 (so if all three are 0, ALU gets 000)
+295:   111XXXX  }
+296:
+297:   This translates to all instructions that start with 000,001,100, and 101 have the ALU function based on OPCB1..3
+298:   while the rest of the instructions have ALU function 111 if any of OPCB1,2,3 is 1, otherwise 000.
+299:   
+300:   This makes the first 32 instrutions of each 64 instruction segment have all of the ALU functions, while the second
+301:   bank of 32 instructions has the ALU Function Pass_A or Pass_B.
+302: */
+303:
+304:ALU_FUNC0.d = (OPCB1#OPCB5) & ( !OPCB5 # OPCB3 # OPCB2 # OPCB1);
+305:ALU_FUNC1.d = (OPCB2#OPCB5) & ( !OPCB5 # OPCB3 # OPCB2 # OPCB1);
+306:ALU_FUNC2.d = (OPCB3#OPCB5) & ( !OPCB5 # OPCB3 # OPCB2 # OPCB1);
+307:
+308:
+309:/* Output Enable for instructions that have imm16 values in the second instruction word */
+310:IR2_OE.d = !(   (SM_EX2 & opcf:['b'0111000])                             
+311:              # (SM_EX2 & opcf:['b'1111000])                          
+312:              # (SM_EX2 & opcf:['b'1111001])
+313:              # (SM_EX1 & isize & icycles:['d'0,'d'1,'d'2])           
+314:            );
+315:/* Program Counter on BBUS output enable */
+316:PC_BBOE.d = !(  (SM_EX1 & opcf:['b'0101101])                                       
+317:              # (SM_EX1 & opcf:['b'0110100])
+318:              # (SM_EX1 & opcf:['b'1111000])
+319:              # (SM_EX1 & opcf:['b'1111001])                         
+320:             );
+321:/* Program Counter on ADBUS output enable */
+322:PC_ADOE.d = !(SM_F1 # SM_F2
+323:              # (SM_EX1 & opcf:['b'1100000])
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 7
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+324:              # (SM_EX1 & opcf:['b'1100001])
+325:              # (SM_EX1 & opcf:['b'1100100])
+326:              # (SM_EX1 & opcf:['b'1100101]) );
+327:
+328:/* 
+329:       PC_MODE Inputs  2/1/0 (3 bits)
+330:        000          Do Nothing
+331:        001          Increment PC Register by 2 (bit 0 is always 0)  [FETCH]
+332:        010          Load PC Register from BBUS [JMP DIRECT, CALL DIRECT]
+333:        011          Add to PC Register from BBUS (Relative Jump), ignore bit 0 from BBUS, latch back into PC. [JMP RELATIVE, CALL RELATIVE]
+334:        100          Add PC Register Value to BBUS and output on AD immediatly, but don't latch back into the PC register
+335:
+336:
+337:       When in SM_F1 or SM_F2, PC_MODE is 001 (increment).
+338:       If a JUMP instruction is active, the JMPINST flag is sent to the PC CPLD which allows it to set the PC_MODE1 to 1 if the 
+339:          jump should happen, and to PC_MODE0 if it should not.  As a result on this side we just need to set PC_MODE0 to the correct
+340:          value for either a direct or relative jump, as well as the default increment for instruction fetch.
+341:
+342:
+343:       If we are in EX1 for the relative JMP instructions (1011XXX) PC_MODE0 is 1 (add to PC if JMPINST asserted).
+344:       If we are in EX2 for the CALL B, RET, or CALL imm16 PCMODE1 is 1
+345:
+346:       PC_MODE2 is used for the relative LOAD and STORE instructions, as those need the PC+imm16 put on the address
+347:       bus, but NOT relatched back into the prorgram counter. (since it is not a jmp/call)
+348:
+349:*/
+350:
+351:PC_MODE0.d = ( (SM_F1 # SM_F2)
+352:              # (SM_EX1 & opcf:['b'1101XXX])         
+353:              # (SM_EX2 & opcf:['b'1111001])         
+354:              );
+355:PC_MODE1.d = (  (SM_EX2 & opcf:['b'0110100])           
+356:              # (SM_EX2 & opcf:['b'0111000])
+357:              # (SM_EX2 & opcf:['b'1111000])   
+358:              # (SM_EX2 & opcf:['b'1111001])  
+359:              ); 
+360:
+361:PC_MODE2.d = ( (SM_EX1 & opcf:['b'1100000])
+362:              # (SM_EX1 & opcf:['b'1100001])
+363:              # (SM_EX1 & opcf:['b'1100100])
+364:              # (SM_EX1 & opcf:['b'1100101]));
+365:
+366:
+367:
+368:
+369:/* Stack Pointer on BBUS output enable */
+370:SP_BBOE.d = !((SM_EX1 & opcf:['b'0101010]));             // 'MOV SP,C'
+
+371:
+372:/* Stack Pointer on ADBUS output enable */
+373:SP_ADOE.d = !(   (SM_EX1 & opcf:['b'0101110])         
+374:              #  (SM_EX2 & opcf:['b'0110000])          
+375:              #  (SM_EX1 & opcf:['b'0110100])         
+376:              #  (SM_EX1 & opcf:['b'0111000])
+377:              #  (SM_EX1 & opcf:['b'1111000]) 
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 8
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+378:              #  (SM_EX1 & opcf:['b'1111001])
+379:              );
+380:
+381:SP_MODE0.d = !(  (SM_EX1 & opcf:['b'0101110])         
+382:              #  (SM_EX1 & opcf:['b'0110000])         
+383:              #  (SM_EX1 & opcf:['b'0110100])         
+384:              #  (SM_EX1 & opcf:['b'0111000])
+385:              #  (SM_EX1 & opcf:['b'1111000]) 
+386:              #  (SM_EX1 & opcf:['b'1111001])          
+387:              );
+388:
+389:
+390:SP_MODE1.d = !(  (SM_EX1 & opcf:['b'0101011])
+391:              #  (SM_EX1 & opcf:['b'0101110])                 
+392:              #  (SM_EX1 & opcf:['b'0110100])         
+393:              #  (SM_EX1 & opcf:['b'1111000]) 
+394:              #  (SM_EX1 & opcf:['b'1111001])            
+395:              );
+396:
+397:
+398:
+399:B2A_OE.d =   !( (SM_EX1 & opcf:['b'0010000])
+400:              # (SM_EX1 & opcf:['b'0010001])
+401:              # (SM_EX1 & opcf:['b'0010100])
+402:              # (SM_EX1 & opcf:['b'0010101])
+403:              # (SM_EX1 & opcf:['b'1010000])
+404:              # (SM_EX1 & opcf:['b'1010001])
+405:              # (SM_EX1 & opcf:['b'1010100])
+406:              # (SM_EX1 & opcf:['b'1010101])
+407:              );
+408:
+409:RF_CWE.d = !(   (SM_EX1 & opcf:['b'X00XXXX] & !(opcf:['b'0000000]))
+410:              # (SM_EX1 & opcf:['b'0010100]) # (SM_EX1 & opcf:['b'0010101])
+411:              # (SM_EX1 & opcf:['b'0100XXX]) 
+412:              # (SM_EX1 & opcf:['b'0101010])
+413:              # (SM_EX1 & opcf:['b'0101100])
+414:              # (SM_EX1 & opcf:['b'0101101])
+415:              # (SM_EX2 & opcf:['b'0110000])
+416:              # (SM_EX1 & opcf:['b'1010100]) # (SM_EX1 & opcf:['b'1010101])
+417:              # (SM_EX1 & opcf:['b'1100100]) # (SM_EX1 & opcf:['b'1100101]) 
+418:              # (SM_EX1 & opcf:['b'1100110]) 
+419:              );
+420:
+421:RF_FHZ.d = !( (SM_EX1 & opcf:['b'0010101]) # (SM_EX1 & opcf:['b'1010101]) # (SM_EX1 & opcf:['b'1100101]) );     
+422:
+423:RF_BOE.d = !(   (SM_EX1 & opcf:['b'00XXXXX])          // First 32 instructions - Math, Jump
+
+424:              # (SM_EX1 & opcf:['b'0100XXX])
+425:              # (SM_EX1 & opcf:['b'0101110])
+426:              # (SM_EX2 & opcf:['b'0110100])
+427:              # (SM_EX1 & opcf:['b'0101100])
+428:              # (SM_EX1 & opcf:['b'0101011])
+429:              );
+430:
+431:ALU_OE.d = !(   (SM_EX1 & opcf:['b'X00XXXX] & !(opcf:['b'0000000]))
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 9
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+432:              # (SM_EX1 & opcf:['b'0010000]) # (SM_EX1 & opcf:['b'0010001])
+433:              # (SM_EX1 & opcf:['b'0101010])
+434:              # (SM_EX1 & opcf:['b'0101100])
+435:              # (SM_EX1 & opcf:['b'0101101])
+436:              # (SM_EX1 & opcf:['b'0101110])
+437:              # (SM_EX1 & opcf:['b'1010000]) # (SM_EX1 & opcf:['b'1010001])
+438:              # (SM_EX1 & opcf:['b'1100000]) # (SM_EX1 & opcf:['b'1100001])
+439:              # (SM_EX1 & opcf:['b'1100110])
+440:              );
+441:
+442:/* ALU_FL - ALU Change Flags on this operation */
+443:
+444:ALU_FL.d = !(   (SM_EX1 & opcf:['b'X00XXXX] & !(opcf:['b'0000000]))
+445:              # (SM_EX1 & opcf:['b'0010010])
+446:              # (SM_EX1 & opcf:['b'0101010])
+447:              # (SM_EX1 & opcf:['b'0101100])
+448:              # (SM_EX1 & opcf:['b'0101101])
+449:              );
+450:
+451:ALU_WC.d =  !(  (SM_EX1 & opcf:['b'0000011])
+452:              # (SM_EX1 & opcf:['b'0000101])
+453:              # (SM_EX1 & opcf:['b'1000011])
+454:              # (SM_EX1 & opcf:['b'1000101])      
+455:              );
+456:
+457:ALU_CFLATCH.d = !( (SM_EX1 & opcf:['b'0010011])
+458:                 # (SM_EX1 & opcf:['b'0100XXX])
+459:              );
+460:
+461:SHFT_INVERTCARRY.d = !( (SM_EX1 & opcf:['b'0010011]) );      
+462:SHFT_OE.d =  !( (SM_EX1 & opcf:['b'0100XXX]) );  
+463:SFT_DIR.d = !(  (SM_EX1 & opcf:['b'0100010]) # (SM_EX1 & opcf:['b'0100100]) );
+464:SHFT_AR.d = !( (SM_EX1 & opcf:['b'0100101]) );
+465:SHFT_WC.d = !( (SM_EX1 & opcf:['b'0100100]));
+466:      
+467:DBH_OE.d = !(   (SM_EX1 & opcf:['b'0010000])
+468:              # (SM_EX1 & opcf:['b'0010100])
+469:              # (SM_EX1 & opcf:['b'0101110])
+470:              # (SM_EX2 & opcf:['b'0110000])
+471:              # (SM_EX1 & opcf:['b'1010000])
+472:              # (SM_EX1 & opcf:['b'1010100])
+473:              # (SM_EX1 & opcf:['b'1100000])
+474:              # (SM_EX1 & opcf:['b'1100100])
+475:              );
+476:DBL_OE.d = !(   (SM_EX1 & opcf:['b'0010000]) 
+477:              # ((SM_EX1 & opcf:['b'0010001]) & !AD0)
+478:              # (SM_EX1 & opcf:['b'0010100])
+479:              # ((SM_EX1 & opcf:['b'0010101]) & !AD0)
+480:              # (SM_EX1 & opcf:['b'0101110])
+481:              # (SM_EX2 & opcf:['b'0110000])
+482:              # (SM_EX1 & opcf:['b'1010000]) 
+483:              # ((SM_EX1 & opcf:['b'1010001]) & !AD0)
+484:              # (SM_EX1 & opcf:['b'1010100])
+485:              # ((SM_EX1 & opcf:['b'1010101]) & !AD0)
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 10
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+486:              # (SM_EX1 & opcf:['b'1100000]) 
+487:              # ((SM_EX1 & opcf:['b'1100001]) & !AD0)
+488:              # (SM_EX1 & opcf:['b'1100100])
+489:              # ((SM_EX1 & opcf:['b'1100101]) & !AD0)
+490:              );
+491:
+492:DB_DIR.d = !(   (SM_EX1 & opcf:['b'0010000]) # (SM_EX1 & opcf:['b'0010001])
+493:              # (SM_EX1 & opcf:['b'0101110])
+494:              # (SM_EX1 & opcf:['b'1010000]) # (SM_EX1 & opcf:['b'1010001])
+495:              # (SM_EX1 & opcf:['b'1100000]) # (SM_EX1 & opcf:['b'1100001])
+496:              );
+497:
+498:H2L_OE.d = !(   ((SM_EX1 & opcf:['b'0010001]) & AD0)
+499:              # ((SM_EX1 & opcf:['b'0010101]) & AD0)
+500:              # ((SM_EX1 & opcf:['b'1010001]) & AD0)
+501:              # ((SM_EX1 & opcf:['b'1010101]) & AD0)
+502:              # ((SM_EX1 & opcf:['b'1100001]) & AD0)
+503:              # ((SM_EX1 & opcf:['b'1100101]) & AD0)
+504:              );
+505:
+506:
+507:H2L_DIR.d = !(  (SM_EX1 & opcf:['b'0010001])
+508:              # (SM_EX1 & opcf:['b'1010001])
+509:              # (SM_EX1 & opcf:['b'1100001]));
+510:
+511:
+512:MEM_RW.d = !(   (SM_EX1 & opcf:['b'0010000])
+513:              # (SM_EX1 & opcf:['b'0010001])  
+514:              # (SM_EX1 & opcf:['b'0101110])
+515:              # (SM_EX1 & opcf:['b'0110100])
+516:              # (SM_EX1 & opcf:['b'1010000])
+517:              # (SM_EX1 & opcf:['b'1010001])
+518:              # (SM_EX1 & opcf:['b'1100000])
+519:              # (SM_EX1 & opcf:['b'1100001])
+520:              );
+521:
+522:MEM_AS.d = !(  (SM_F1 # SM_F2)
+523:              # (SM_EX1 & opcf:['b'0010000])
+524:              # (SM_EX1 & opcf:['b'0010001])
+525:              # (SM_EX1 & opcf:['b'0010100])
+526:              # (SM_EX1 & opcf:['b'0010101])
+527:              # (SM_EX1 & opcf:['b'0101110])
+528:              # (SM_EX2 & opcf:['b'0110000])
+529:              # (SM_EX1 & opcf:['b'0110100])
+530:              # (SM_EX1 & opcf:['b'0111000])
+531:              # (SM_EX1 & opcf:['b'1010000])
+532:              # (SM_EX1 & opcf:['b'1010001])
+533:              # (SM_EX1 & opcf:['b'1010100])
+534:              # (SM_EX1 & opcf:['b'1010101])
+535:              # (SM_EX1 & opcf:['b'1100000])
+536:              # (SM_EX1 & opcf:['b'1100001])
+537:              # (SM_EX1 & opcf:['b'1100100])
+538:              # (SM_EX1 & opcf:['b'1100101]) 
+539:              # (SM_EX1 & opcf:['b'1111000])
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 11
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+540:              # (SM_EX1 & opcf:['b'1111001])
+541:              );
+542:
+543:MEM_L_EN.d = !( (SM_F1 # SM_F2)
+544:               # (SM_EX1 & opcf:['b'0010000])
+545:              # ((SM_EX1 & opcf:['b'0010001]) & !AD0)
+546:              # (SM_EX1 & opcf:['b'0010100])   
+547:              # ((SM_EX1 & opcf:['b'0010101]) & !AD0)
+548:              # (SM_EX1 & opcf:['b'0101110])
+549:              # (SM_EX2 & opcf:['b'0110000])
+550:              # (SM_EX1 & opcf:['b'0110100])
+551:              # (SM_EX1 & opcf:['b'0111000])
+552:              # (SM_EX1 & opcf:['b'1010000])
+553:              # ((SM_EX1 & opcf:['b'1010001]) & !AD0)
+554:              # (SM_EX1 & opcf:['b'1010100])
+555:              # ((SM_EX1 & opcf:['b'1010101]) & !AD0)
+556:              # (SM_EX1 & opcf:['b'1100000])
+557:              # ((SM_EX1 & opcf:['b'1100001]) & !AD0)
+558:              # (SM_EX1 & opcf:['b'1100100])
+559:              # ((SM_EX1 & opcf:['b'1100101]) & !AD0)
+560:              # (SM_EX1 & opcf:['b'1111000])
+561:              # (SM_EX1 & opcf:['b'1111001]) 
+562:              );
+563:
+564:MEM_H_EN.d = !( (SM_F1 # SM_F2)
+565:              # (SM_EX1 & opcf:['b'0010000])
+566:              # ((SM_EX1 & opcf:['b'0010001]) & AD0)
+567:              # (SM_EX1 & opcf:['b'0010100])   
+568:              # ((SM_EX1 & opcf:['b'0010101]) & AD0)
+569:              # (SM_EX1 & opcf:['b'0101110])
+570:              # (SM_EX2 & opcf:['b'0110000])
+571:              # (SM_EX1 & opcf:['b'0110100])
+572:              # (SM_EX1 & opcf:['b'0111000])
+573:              # (SM_EX1 & opcf:['b'1010000])
+574:              # ((SM_EX1 & opcf:['b'1010001]) & AD0)
+575:              # (SM_EX1 & opcf:['b'1010100])
+576:              # ((SM_EX1 & opcf:['b'1010101]) & AD0)
+577:              # (SM_EX1 & opcf:['b'1100000])
+578:              # ((SM_EX1 & opcf:['b'1100001]) & AD0)
+579:              # (SM_EX1 & opcf:['b'1100100])
+580:              # ((SM_EX1 & opcf:['b'1100101]) & AD0)
+581:              # (SM_EX1 & opcf:['b'1111000])
+582:              # (SM_EX1 & opcf:['b'1111001]) 
+583:              );
+584:
+585:IR1_LATCH.d = !( SM_F1 );
+586:IR2_LATCH.d = !( ( SM_F2 )
+587:              #  (SM_EX1 & opcf:['b'0111000])
+588:              );     
+589:JMPINST.d = !(((SM_EX1 & opcf:['b'X011XXX])#(SM_EX1 & opcf:['b'1101XXX])));
+590:HALT.d = !( (SM_EX1 & opcf:['b'0000001]) );             
+591:
+592:
+593:
+
+LISTING FOR LOGIC DESCRIPTION FILE: IRCTRL.pld                       Page 12
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Dec 29 16:16:33 2023
+
+594:
+595:/*
+596:Total dedicated input used:     3/4     (75%)
+597:Total I/O pins used             57/64   (89%)
+598:Total Logic cells used          54/128  (42%)
+599:Total Flip-Flop used            41/128  (32%)
+600:Total Foldback logic used       4/128   (3%)
+601:Total Nodes+FB/MCells           57/128  (44%)
+602:Total cascade used              1
+603:Total input pins                18
+604:Total output pins               42
+605:Total Pts                       192
+606:*/
+607:
+608:
+609:
+610:
+
+
+
