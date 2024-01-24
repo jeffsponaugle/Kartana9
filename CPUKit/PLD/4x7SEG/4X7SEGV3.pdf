@@ -1,11 +1,11 @@
-{COMPONENT C:\SRC\4X7SEGV3.SYM
+{COMPONENT C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.SYM
 
  {ENVIRONMENT
   {PDIFvrev 3.00}
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Thu Jan 11 16:53:59 2024 "}
+  {DBtime "Tue Jan 23 09:42:31 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -50,10 +50,10 @@
    {P D1 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
    {P D2 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
    {P D3 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
-   {P LEA {Pt "I/O"}{Lq 0}{Ploc 280 20}}
-   {P LEB {Pt "I/O"}{Lq 0}{Ploc 280 40}}
-   {P LEC {Pt "I/O"}{Lq 0}{Ploc 280 60}}
-   {P LED {Pt "I/O"}{Lq 0}{Ploc 280 80}}
+   {P LED {Pt "I/O"}{Lq 0}{Ploc 280 20}}
+   {P LEC {Pt "I/O"}{Lq 0}{Ploc 280 40}}
+   {P LEB {Pt "I/O"}{Lq 0}{Ploc 280 60}}
+   {P LEA {Pt "I/O"}{Lq 0}{Ploc 280 80}}
    {P SEGA {Pt "I/O"}{Lq 0}{Ploc 280 100}}
    {P SEGB {Pt "I/O"}{Lq 0}{Ploc 280 120}}
    {P SEGC {Pt "I/O"}{Lq 0}{Ploc 280 140}}
@@ -169,10 +169,10 @@
    {T "D2" 140 40}
    {T "D3" 140 20}
    [Tj "RC"]
-   {T "LEA" 240 20}
-   {T "LEB" 240 40}
-   {T "LEC" 240 60}
-   {T "LED" 240 80}
+   {T "LED" 240 20}
+   {T "LEC" 240 40}
+   {T "LEB" 240 60}
+   {T "LEA" 240 80}
    {T "SEGA" 240 100}
    {T "SEGB" 240 120}
    {T "SEGC" 240 140}
@@ -197,7 +197,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD C:\SRC\4X7SEGV3 190 380}
+    {At PLD C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3 190 380}
    }
   }
  }
@@ -241,13 +241,13 @@
    }
    {N D3
    }
-   {N LEA
-   }
-   {N LEB
+   {N LED
    }
    {N LEC
    }
-   {N LED
+   {N LEB
+   }
+   {N LEA
    }
    {N SEGA
    }

@@ -1,4 +1,4 @@
-CHIP "C:\SRC\4X7SEGV3" ASSIGNED TO AN TQFP44
+CHIP "C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3" ASSIGNED TO AN TQFP44
 A3					: 6
 XXL_51					: 601
 XXL_41					: 602
@@ -36,10 +36,10 @@ XXL_54					: 631
 TMS					: 7
 XXL_55					: 632
 C3					: 18
-LEA					: 19
-LEB					: 20
-LEC					: 21
-LED					: 22
+LED					: 19
+LEC					: 20
+LEB					: 21
+LEA					: 22
 SEGA					: 23
 SEGB					: 25
 TCK					: 26

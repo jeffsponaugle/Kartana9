@@ -101,7 +101,7 @@ PINNODE = [C2..15];
 PINNODE = [S1..15];
 
 [ADBUS1..15].oe = !ADBUS_OE;
-[BBUS1..15].oe = !BBUS_OE;
+[BBUS0..15].oe = !BBUS_OE;
 
 /* The ADBUS output can be either the curent PC value, or the output from the internal adder. */
 

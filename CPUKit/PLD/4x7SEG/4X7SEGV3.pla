@@ -1,7 +1,7 @@
 #$ TOOL CUPL
 # Berkeley PLA format generated using CUPL(WM) 5.0a
 # Serial#  60008009
-# Created  Thu Jan 11 16:53:59 2024
+# Created  Tue Jan 23 09:42:31 2024
 #
 #    Name        6X7Seg
 #    Partno      6X7SegDriver
@@ -20,7 +20,7 @@
 #$ MODULE  6X7Seg
 #$ JEDECFILE  6X7Seg
 #$ DEVICE  f1504isptqfp44
-#$ PINS  32 A0+:2 A1+:3 A2+:5 A3+:6 B0+:8 B1+:10 B2+:11 B3+:12 C0+:13 C1+:14 C2+:15 C3+:18 D0+:38 D1+:39 D2+:40 D3+:42 LEA+:19 LEA2+:34 LEB+:20 LEB2+:35 LEC+:21 LEC2+:43 LED+:22 LED2+:44 SEGA+:23 SEGB+:25 SEGC+:27 SEGD+:28 SEGE+:30 SEGF+:31 SEGG+:33 clk+:37 
+#$ PINS  32 A0+:2 A1+:3 A2+:5 A3+:6 B0+:8 B1+:10 B2+:11 B3+:12 C0+:13 C1+:14 C2+:15 C3+:18 D0+:38 D1+:39 D2+:40 D3+:42 LEA+:22 LEA2+:34 LEB+:21 LEB2+:35 LEC+:20 LEC2+:43 LED+:19 LED2+:44 SEGA+:23 SEGB+:25 SEGC+:27 SEGD+:28 SEGE+:30 SEGF+:31 SEGG+:33 clk+:37 
 #$ NODES  2 icnt0+ icnt1+ 
 .i 19
 .o 19

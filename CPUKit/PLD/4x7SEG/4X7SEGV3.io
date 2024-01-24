@@ -1,4 +1,4 @@
-CHIP "C:\SRC\4X7SEGV3"
+CHIP "C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3"
 BEGIN
 
     DEVICE = "TQFP44";
@@ -39,10 +39,10 @@ BEGIN
     "TMS"                                     : INPUT_PIN = 7 ;
     "XXL_55"                                  : NODE_NUM = 632 ;
     "C3"                                      : INPUT_PIN = 18 ;
-    "LEA"                                     : OUTPUT_PIN = 19 ;
-    "LEB"                                     : OUTPUT_PIN = 20 ;
-    "LEC"                                     : OUTPUT_PIN = 21 ;
-    "LED"                                     : OUTPUT_PIN = 22 ;
+    "LED"                                     : OUTPUT_PIN = 19 ;
+    "LEC"                                     : OUTPUT_PIN = 20 ;
+    "LEB"                                     : OUTPUT_PIN = 21 ;
+    "LEA"                                     : OUTPUT_PIN = 22 ;
     "SEGA"                                    : OUTPUT_PIN = 23 ;
     "SEGB"                                    : OUTPUT_PIN = 25 ;
     "TCK"                                     : INPUT_PIN = 26 ;

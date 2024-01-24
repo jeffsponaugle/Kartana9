@@ -1,7 +1,7 @@
-Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Thu Jan 11 16:53:59 2024
+Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Tue Jan 23 09:42:32 2024
 
 
-fit1504 C:\SRC\4X7SEGV3.tt2 -CUPL -dev P1504T44 -JTAG ON
+fit1504 C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.tt2 -CUPL -dev P1504T44 -JTAG ON
 
 
 ****** Initial fitting strategy and property ******
@@ -48,7 +48,7 @@ fit1504 C:\SRC\4X7SEGV3.tt2 -CUPL -dev P1504T44 -JTAG ON
  ITD2 = ON
  Fast_inlatch = off
  *******************************
-Info: C:\SRC\4X7SEGV3 uses 95% of the pins available in device TQFP44
+Info: C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3 uses 95% of the pins available in device TQFP44
   If you wish to have more pins available for future logic changes
   Atmel  recommends using a larger device
 ---------------------------------------------------------
@@ -119,10 +119,10 @@ XXL_54 is placed at feedback node 631 (MC 31)
 TMS is placed at pin 7 (MC 32)
 XXL_55 is placed at feedback node 632 (MC 32)
 C3 is placed at pin 18 (MC 33)
-LEA is placed at pin 19 (MC 35)
-LEB is placed at pin 20 (MC 36)
-LEC is placed at pin 21 (MC 37)
-LED is placed at pin 22 (MC 40)
+LED is placed at pin 19 (MC 35)
+LEC is placed at pin 20 (MC 36)
+LEB is placed at pin 21 (MC 37)
+LEA is placed at pin 22 (MC 40)
 SEGA is placed at pin 23 (MC 41)
 SEGB is placed at pin 25 (MC 46)
 TCK is placed at pin 26 (MC 48)
@@ -160,7 +160,7 @@ LEB2 is placed at pin 35 (MC 64)
               \____________________________________/             
                  B  C  C  C  G  V  C  L  L  L  L                 
                  3  0  1  2  N  C  3  E  E  E  E                 
-                             D  C     A  B  C  D                 
+                             D  C     D  C  B  A                 
 
 
 
@@ -280,7 +280,7 @@ icnt0			(MC10	FB)  : MUX 33		Ref (B27fb)
 XXL_44			(MC9	FB)  : MUX 35		Ref (A16fb)
 D3			(MC21	P)   : MUX 36		Ref (A16p)
 
-Creating JEDEC file C:\SRC\4X7SEGV3.jed ...
+Creating JEDEC file C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.jed ...
 
 TQFP44 programmed logic:
 -----------------------------------
@@ -469,10 +469,10 @@ Pin 13 = C0; /* MC 20 */
 Pin 14 = C1; /* MC 19 */ 
 Pin 15 = C2; /* MC 17 */ 
 Pin 18 = C3; /* MC 33 */ 
-Pin 19 = LEA; /* MC 35 */ 
-Pin 20 = LEB; /* MC 36 */ 
-Pin 21 = LEC; /* MC 37 */ 
-Pin 22 = LED; /* MC 40 */ 
+Pin 19 = LED; /* MC 35 */ 
+Pin 20 = LEC; /* MC 36 */ 
+Pin 21 = LEB; /* MC 37 */ 
+Pin 22 = LEA; /* MC 40 */ 
 Pin 23 = SEGA; /* MC 41 */ 
 Pin 25 = SEGB; /* MC 46 */ 
 Pin 26 = TCK; /* MC 48 */ 
@@ -564,12 +564,12 @@ MC31  0         --               XXL_54   C----  NA        --             5     
 MC32  7    --   TMS       INPUT  XXL_55   C----  NA        --             5     fast
 MC33  18   --   C3        INPUT  --              --        --             0     fast
 MC34  0         --               --              --        --             0     fast
-MC35  19   on   LEA       C----  --              --        --             1     fast
-MC36  20   on   LEB       C----  --              --        --             1     fast
-MC37  21   on   LEC       C----  --              --        --             1     fast
+MC35  19   on   LED       C----  --              --        --             1     fast
+MC36  20   on   LEC       C----  --              --        --             1     fast
+MC37  21   on   LEB       C----  --              --        --             1     fast
 MC38  0         --               --              --        --             0     fast
 MC39  0         --               --              --        --             0     fast
-MC40  22   on   LED       C----  --              --        --             1     fast
+MC40  22   on   LEA       C----  --              --        --             1     fast
 MC41  23   on   SEGA      C----  --              --        --             4     fast
 MC42  0         --               --              --        --             0     fast
 MC43  0         --               --              --        --             0     fast
@@ -615,7 +615,7 @@ Total cascade used 		0
 Total input pins 		21
 Total output pins 		15
 Total Pts 			129
-Creating pla file C:\SRC\4X7SEGV3.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+Creating pla file C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS
 $Device TQFP44 fits 
