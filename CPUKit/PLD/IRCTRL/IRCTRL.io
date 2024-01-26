@@ -1,4 +1,4 @@
-CHIP "C:\IRCTRL"
+CHIP "C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL"
 BEGIN
 
     DEVICE = "PLCC84";
@@ -62,14 +62,14 @@ BEGIN
     "CSM0"                                    : OUTPUT_PIN = 61 ;
     "TCK"                                     : INPUT_PIN = 62 ;
     "OPCSIZEHINT"                             : INPUT_PIN = 63 ;
-    "C_CLK_IN"                                : INPUT_PIN = 64 ;
+    "B_CLK_IN"                                : INPUT_PIN = 64 ;
     "UNUSED1"                                 : OUTPUT_PIN = 65 ;
     "JMPINST"                                 : OUTPUT_PIN = 67 ;
     "SHFT_INVERTCARRY"                        : OUTPUT_PIN = 68 ;
     "HALT"                                    : OUTPUT_PIN = 69 ;
     "CSM1"                                    : OUTPUT_PIN = 70 ;
     "TDO"                                     : INPUT_PIN = 71 ;
-    "B_CLK_IN"                                : INPUT_PIN = 73 ;
+    "C_CLK_IN"                                : INPUT_PIN = 73 ;
     "UNUSED2"                                 : INPUT_PIN = 74 ;
     "UNUSED3"                                 : INPUT_PIN = 75 ;
     "UNUSED4"                                 : INPUT_PIN = 76 ;

@@ -73,15 +73,18 @@ FIELD stm = CSM0,CSM1
 
 %EQUATION
 ALU_CFLATCH.d  =>
-    CSM0
-  # !CSM1
-  # OPCB3
-  # OPCB6
+    OPCB3
   # !OPCB0 & OPCB4
   # !OPCB1 & OPCB4
   # OPCB2 & OPCB4
   # OPCB4 & OPCB5
+  # !OPCB0 & !OPCB5
+  # !OPCB1 & !OPCB5
+  # OPCB2 & !OPCB5
   # !OPCB4 & !OPCB5
+  # OPCB6
+  # CSM0
+  # !CSM1
 
 ALU_CFLATCH.ap  =>
     !RESET_IN
@@ -90,18 +93,21 @@ ALU_CFLATCH.ck  =>
     A_CLK_IN
 
 ALU_FL.d  =>
-    CSM0
-  # !CSM1
+    OPCB0 & OPCB1 & OPCB5
+  # OPCB1 & OPCB2 & OPCB5
+  # OPCB0 & !OPCB2 & OPCB5
+  # !OPCB1 & !OPCB2 & OPCB5
+  # !OPCB3 & OPCB5
   # OPCB0 & OPCB4
+  # !OPCB1 & OPCB4
   # OPCB2 & OPCB4
   # OPCB3 & OPCB4
-  # !OPCB3 & OPCB5
+  # OPCB4 & OPCB5
+  # !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5 & !OPCB6
   # OPCB4 & OPCB6
   # OPCB5 & OPCB6
-  # OPCB0 & OPCB1 & OPCB5
-  # OPCB1 & OPCB2 & OPCB5
-  # !OPCB1 & !OPCB2 & OPCB5
-  # !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB6
+  # CSM0
+  # !CSM1
 
 ALU_FL.ap  =>
     !RESET_IN
@@ -110,9 +116,9 @@ ALU_FL.ck  =>
     A_CLK_IN
 
 ALU_FUNC0.d  =>
-    OPCB1
+    OPCB3 & OPCB5
   # OPCB2 & OPCB5
-  # OPCB3 & OPCB5
+  # OPCB1
 
 ALU_FUNC0.ar  =>
     !RESET_IN
@@ -121,9 +127,9 @@ ALU_FUNC0.ck  =>
     A_CLK_IN
 
 ALU_FUNC1.d  =>
-    OPCB2
+    OPCB3 & OPCB5
+  # OPCB2
   # OPCB1 & OPCB5
-  # OPCB3 & OPCB5
 
 ALU_FUNC1.ar  =>
     !RESET_IN
@@ -133,8 +139,8 @@ ALU_FUNC1.ck  =>
 
 ALU_FUNC2.d  =>
     OPCB3
-  # OPCB1 & OPCB5
   # OPCB2 & OPCB5
+  # OPCB1 & OPCB5
 
 ALU_FUNC2.ar  =>
     !RESET_IN
@@ -143,19 +149,26 @@ ALU_FUNC2.ck  =>
     A_CLK_IN
 
 ALU_OE.d  =>
-    CSM0
-  # !CSM1
+    OPCB0 & OPCB1 & OPCB5
+  # OPCB0 & OPCB2 & !OPCB3 & OPCB5
+  # OPCB0 & OPCB2 & OPCB5 & OPCB6
+  # !OPCB1 & OPCB2 & !OPCB3 & OPCB5
+  # !OPCB1 & OPCB2 & OPCB5 & OPCB6
+  # OPCB1 & !OPCB2 & !OPCB3 & OPCB5
+  # OPCB1 & !OPCB2 & OPCB5 & OPCB6
+  # OPCB0 & !OPCB2 & OPCB3 & OPCB5
+  # !OPCB1 & !OPCB2 & OPCB3 & OPCB5
+  # OPCB3 & OPCB4
+  # OPCB3 & OPCB5 & OPCB6
   # OPCB1 & OPCB4
   # OPCB2 & OPCB4
-  # OPCB3 & OPCB4
   # OPCB4 & OPCB5
-  # OPCB0 & OPCB1 & OPCB5
-  # OPCB3 & OPCB5 & OPCB6
+  # OPCB0 & !OPCB2 & OPCB5 & !OPCB6
+  # !OPCB1 & !OPCB2 & OPCB5 & !OPCB6
+  # !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5 & !OPCB6
   # !OPCB3 & OPCB5 & !OPCB6
-  # !OPCB1 & !OPCB2 & OPCB3 & OPCB5
-  # !OPCB1 & OPCB2 & !OPCB3 & OPCB5
-  # OPCB1 & !OPCB2 & !OPCB3 & OPCB5
-  # !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB6
+  # CSM0
+  # !CSM1
 
 ALU_OE.ap  =>
     !RESET_IN
@@ -164,14 +177,14 @@ ALU_OE.ck  =>
     A_CLK_IN
 
 ALU_WC.d  =>
-    CSM0
-  # !CSM1
-  # !OPCB0
+    !OPCB0
+  # OPCB1 & OPCB2
+  # !OPCB1 & !OPCB2
   # OPCB3
   # OPCB4
   # OPCB5
-  # OPCB1 & OPCB2
-  # !OPCB1 & !OPCB2
+  # CSM0
+  # !CSM1
 
 ALU_WC.ap  =>
     !RESET_IN
@@ -180,12 +193,12 @@ ALU_WC.ck  =>
     A_CLK_IN
 
 B2A_OE.d  =>
-    CSM0
-  # !CSM1
-  # OPCB1
+    OPCB1
   # OPCB3
   # !OPCB4
   # OPCB5
+  # CSM0
+  # !CSM1
 
 B2A_OE.ap  =>
     !RESET_IN
@@ -205,8 +218,8 @@ CSM0.ck  =>
     D_CLK_IN
 
 CSM1.d  =>
-    CSM0 & !CSM1
-  # !CSM1 & !OPCSIZEHINT
+    !CSM0 & !CSM1 & !OPCSIZEHINT
+  # CSM0 & !CSM1
   # !CSM0 & CSM1 & OPCB4 & OPCB5
 
 CSM1.ar  =>
@@ -217,19 +230,36 @@ CSM1.ck  =>
     D_CLK_IN
 
 DBH_OE.d  =>
-    !CSM1
-  # OPCB0
-  # !OPCB1 & OPCB3
+    OPCB0
+  # OPCB1 & !OPCB2
   # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
+  # OPCB1 & !OPCB5
+  # OPCB1 & OPCB6
+  # CSM0 & OPCB1
+  # !OPCB1 & OPCB3
+  # !OPCB2 & OPCB3
+  # OPCB3 & OPCB4
+  # OPCB3 & !OPCB5
+  # OPCB3 & OPCB6
+  # CSM0 & OPCB3
+  # OPCB2 & OPCB4 & OPCB5
+  # OPCB4 & OPCB5 & OPCB6
+  # !CSM0 & OPCB4 & OPCB5
+  # !OPCB4 & !OPCB5
+  # !OPCB1 & OPCB2 & OPCB5 & !OPCB6
+  # OPCB2 & !OPCB3 & OPCB5 & !OPCB6
+  # !OPCB1 & !OPCB4 & !OPCB6
+  # !OPCB2 & !OPCB4 & !OPCB6
+  # !OPCB3 & !OPCB4 & !OPCB6
+  # !CSM0 & !OPCB1 & OPCB5 & !OPCB6
+  # !CSM0 & !OPCB2 & OPCB5 & !OPCB6
+  # !CSM0 & !OPCB3 & OPCB5 & !OPCB6
+  # CSM0 & OPCB2
   # CSM0 & !OPCB4
   # CSM0 & !OPCB5
-  # !OPCB4 & !OPCB5
   # CSM0 & OPCB6
-  # OPCB1 & OPCB6
-  # !CSM0 & OPCB4 & OPCB5
-  # !OPCB2 & !OPCB4 & !OPCB6
-  # !OPCB1 & OPCB2 & OPCB5 & !OPCB6
+  # !CSM1
 
 DBH_OE.ap  =>
     !RESET_IN
@@ -238,20 +268,42 @@ DBH_OE.ck  =>
     A_CLK_IN
 
 DBL_OE.d  =>
-    !CSM1
-  # AD0 & OPCB0
-  # !OPCB1 & OPCB3
+    AD0 & OPCB0
+  # OPCB0 & OPCB1
+  # OPCB1 & !OPCB2
   # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
-  # CSM0 & !OPCB4
-  # CSM0 & !OPCB5
-  # !OPCB4 & !OPCB5
-  # CSM0 & OPCB6
+  # OPCB1 & !OPCB5
   # OPCB1 & OPCB6
+  # CSM0 & OPCB1
+  # OPCB0 & OPCB3
+  # !OPCB1 & OPCB3
+  # !OPCB2 & OPCB3
+  # OPCB3 & OPCB4
+  # OPCB3 & !OPCB5
+  # OPCB3 & OPCB6
+  # CSM0 & OPCB3
+  # OPCB0 & OPCB4 & OPCB5
+  # OPCB2 & OPCB4 & OPCB5
+  # OPCB4 & OPCB5 & OPCB6
   # !CSM0 & OPCB4 & OPCB5
-  # !OPCB2 & !OPCB4 & !OPCB6
+  # !OPCB4 & !OPCB5
+  # OPCB0 & !OPCB4 & !OPCB6
   # OPCB0 & OPCB5 & !OPCB6
   # !OPCB1 & OPCB2 & OPCB5 & !OPCB6
+  # OPCB2 & !OPCB3 & OPCB5 & !OPCB6
+  # !OPCB1 & !OPCB4 & !OPCB6
+  # !OPCB2 & !OPCB4 & !OPCB6
+  # !OPCB3 & !OPCB4 & !OPCB6
+  # !CSM0 & !OPCB1 & OPCB5 & !OPCB6
+  # !CSM0 & !OPCB2 & OPCB5 & !OPCB6
+  # !CSM0 & !OPCB3 & OPCB5 & !OPCB6
+  # CSM0 & OPCB0
+  # CSM0 & OPCB2
+  # CSM0 & !OPCB4
+  # CSM0 & !OPCB5
+  # CSM0 & OPCB6
+  # !CSM1
 
 DBL_OE.ap  =>
     !RESET_IN
@@ -260,17 +312,36 @@ DBL_OE.ck  =>
     A_CLK_IN
 
 DB_DIR.d  =>
-    CSM0
-  # !CSM1
-  # OPCB0 & OPCB1
-  # !OPCB1 & OPCB2
+    OPCB0 & OPCB1
   # OPCB1 & !OPCB2
-  # !OPCB1 & OPCB3
+  # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
+  # OPCB1 & !OPCB5
+  # OPCB1 & OPCB6
+  # OPCB0 & OPCB2
+  # !OPCB1 & OPCB2
+  # OPCB2 & !OPCB3
+  # OPCB2 & OPCB4
+  # OPCB2 & !OPCB5
+  # OPCB2 & OPCB6
+  # OPCB0 & OPCB3
+  # !OPCB1 & OPCB3
+  # !OPCB2 & OPCB3
+  # OPCB3 & OPCB4
+  # OPCB3 & !OPCB5
+  # OPCB3 & OPCB6
   # OPCB4 & OPCB5
   # !OPCB4 & !OPCB5
-  # OPCB1 & OPCB6
+  # OPCB0 & !OPCB4 & !OPCB6
+  # OPCB0 & OPCB5 & !OPCB6
+  # !OPCB1 & !OPCB4 & !OPCB6
+  # !OPCB1 & OPCB5 & !OPCB6
+  # !OPCB2 & !OPCB4 & !OPCB6
+  # !OPCB2 & OPCB5 & !OPCB6
   # !OPCB3 & !OPCB4 & !OPCB6
+  # !OPCB3 & OPCB5 & !OPCB6
+  # CSM0
+  # !CSM1
 
 DB_DIR.ap  =>
     !RESET_IN
@@ -279,15 +350,16 @@ DB_DIR.ck  =>
     A_CLK_IN
 
 H2L_DIR.d  =>
-    CSM0
-  # !CSM1
-  # !OPCB0
+    !OPCB0
   # OPCB1
   # OPCB2
   # OPCB3
   # OPCB4 & OPCB5
   # !OPCB4 & !OPCB5
   # !OPCB4 & !OPCB6
+  # OPCB5 & !OPCB6
+  # CSM0
+  # !CSM1
 
 H2L_DIR.ap  =>
     !RESET_IN
@@ -297,14 +369,15 @@ H2L_DIR.ck  =>
 
 H2L_OE.d  =>
     !AD0
-  # CSM0
-  # !CSM1
   # !OPCB0
   # OPCB1
   # OPCB3
   # OPCB4 & OPCB5
   # !OPCB4 & !OPCB5
   # !OPCB4 & !OPCB6
+  # OPCB5 & !OPCB6
+  # CSM0
+  # !CSM1
 
 H2L_OE.ap  =>
     !RESET_IN
@@ -340,15 +413,22 @@ IR1_LATCH.ck  =>
     A_CLK_IN
 
 IR2_LATCH.d  =>
-    CSM0 & CSM1
-  # !CSM0 & !CSM1
-  # !CSM0 & OPCB0
+    !CSM0 & OPCB0
+  # CSM1 & OPCB0
   # !CSM0 & OPCB1
+  # CSM1 & OPCB1
   # !CSM0 & OPCB2
+  # CSM1 & OPCB2
   # !CSM0 & !OPCB3
+  # CSM1 & !OPCB3
   # !CSM0 & !OPCB4
+  # CSM1 & !OPCB4
   # !CSM0 & !OPCB5
+  # CSM1 & !OPCB5
   # !CSM0 & OPCB6
+  # CSM1 & OPCB6
+  # CSM0 & CSM1
+  # !CSM0 & !CSM1
 
 IR2_LATCH.ap  =>
     !RESET_IN
@@ -357,15 +437,23 @@ IR2_LATCH.ck  =>
     A_CLK_IN
 
 IR2_OE.d  =>
-    !CSM1
+    OPCB1 & OPCB4 & OPCB5
+  # OPCB2 & OPCB4 & OPCB5
+  # !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & OPCB4 & OPCB5
+  # OPCB0 & !OPCB6
+  # OPCB1 & !OPCB6
+  # OPCB2 & !OPCB6
+  # !OPCB3 & !OPCB6
+  # !OPCB4 & !OPCB6
+  # !OPCB5 & !OPCB6
+  # !CSM0 & !OPCB6
   # CSM0 & OPCB1
   # CSM0 & OPCB2
   # CSM0 & !OPCB3
-  # !CSM0 & OPCB4
-  # !OPCB4 & OPCB5
+  # CSM0 & !OPCB4
   # CSM0 & !OPCB5
-  # !CSM0 & !OPCB6
-  # OPCB0 & !OPCB6
+  # !CSM1
 
 IR2_OE.ap  =>
     !RESET_IN
@@ -374,12 +462,13 @@ IR2_OE.ck  =>
     A_CLK_IN
 
 JMPINST.d  =>
-    CSM0
-  # !CSM1
-  # !OPCB3
+    !OPCB3
   # OPCB4 & OPCB5
   # !OPCB4 & !OPCB5
   # !OPCB4 & !OPCB6
+  # OPCB5 & !OPCB6
+  # CSM0
+  # !CSM1
 
 JMPINST.ap  =>
     !RESET_IN
@@ -388,20 +477,41 @@ JMPINST.ck  =>
     A_CLK_IN
 
 MEM_AS.d  =>
-    CSM0 & CSM1 & OPCB2
+    CSM1 & OPCB0 & OPCB1
   # CSM1 & OPCB1 & !OPCB2
-  # CSM0 & CSM1 & OPCB3
   # CSM1 & OPCB1 & !OPCB3
-  # CSM0 & CSM1 & !OPCB4
-  # CSM0 & CSM1 & !OPCB5
+  # CSM1 & OPCB1 & OPCB4
+  # CSM1 & OPCB1 & !OPCB5
+  # CSM1 & OPCB1 & OPCB6
+  # CSM0 & CSM1 & OPCB1
+  # CSM1 & OPCB0 & OPCB2 & OPCB3
+  # CSM1 & !OPCB1 & OPCB2 & OPCB3
+  # CSM1 & OPCB2 & OPCB3 & OPCB4
+  # CSM1 & OPCB2 & OPCB3 & OPCB6
+  # CSM1 & OPCB0 & OPCB2 & OPCB4 & OPCB5
+  # CSM1 & OPCB2 & OPCB4 & OPCB5 & OPCB6
+  # CSM1 & OPCB0 & !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5
+  # CSM1 & !OPCB3 & OPCB4 & OPCB5 & OPCB6
+  # CSM1 & OPCB0 & OPCB3 & !OPCB4
+  # CSM1 & !OPCB1 & OPCB3 & !OPCB4
+  # CSM1 & !OPCB2 & OPCB3 & !OPCB4
+  # CSM1 & OPCB3 & !OPCB4 & OPCB6
   # CSM1 & OPCB3 & !OPCB5
   # CSM1 & !OPCB4 & !OPCB5
-  # CSM1 & OPCB2 & OPCB3 & OPCB4
-  # CSM1 & OPCB3 & !OPCB4 & OPCB6
-  # CSM1 & !OPCB1 & !OPCB4 & !OPCB6
+  # CSM1 & OPCB0 & OPCB3 & !OPCB6
+  # CSM1 & OPCB0 & !OPCB4 & !OPCB6
   # CSM1 & OPCB0 & OPCB5 & !OPCB6
-  # CSM1 & !OPCB3 & OPCB4 & OPCB5 & OPCB6
-  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB5 & !OPCB6
+  # CSM1 & !OPCB1 & !OPCB4 & !OPCB6
+  # CSM1 & !OPCB2 & !OPCB4 & !OPCB6
+  # CSM1 & !OPCB3 & !OPCB4 & !OPCB6
+  # CSM0 & CSM1 & OPCB0
+  # CSM0 & CSM1 & OPCB2
+  # CSM0 & CSM1 & OPCB3
+  # CSM0 & CSM1 & !OPCB4
+  # CSM0 & CSM1 & !OPCB5
+  # CSM0 & CSM1 & OPCB6
 
 MEM_AS.ap  =>
     !RESET_IN
@@ -410,21 +520,46 @@ MEM_AS.ck  =>
     A_CLK_IN
 
 MEM_H_EN.d  =>
-    CSM0 & CSM1 & OPCB2
+    CSM1 & OPCB0 & OPCB1
   # CSM1 & OPCB1 & !OPCB2
-  # CSM0 & CSM1 & OPCB3
   # CSM1 & OPCB1 & !OPCB3
-  # CSM0 & CSM1 & !OPCB4
-  # CSM0 & CSM1 & !OPCB5
+  # CSM1 & OPCB1 & OPCB4
+  # CSM1 & OPCB1 & !OPCB5
+  # CSM1 & OPCB1 & OPCB6
+  # CSM0 & CSM1 & OPCB1
+  # !AD0 & CSM1 & OPCB0 & OPCB2
+  # CSM1 & OPCB0 & OPCB2 & OPCB3
+  # CSM1 & !OPCB1 & OPCB2 & OPCB3
+  # CSM1 & OPCB2 & OPCB3 & OPCB4
+  # CSM1 & OPCB2 & OPCB3 & OPCB6
+  # CSM1 & OPCB0 & OPCB2 & OPCB4 & OPCB5
+  # CSM1 & OPCB2 & OPCB4 & OPCB5 & OPCB6
+  # !AD0 & CSM1 & OPCB0 & !OPCB3
+  # CSM1 & OPCB0 & !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5
+  # CSM1 & !OPCB3 & OPCB4 & OPCB5 & OPCB6
+  # !AD0 & CSM1 & OPCB0 & !OPCB4
+  # CSM1 & OPCB0 & OPCB3 & !OPCB4
+  # CSM1 & !OPCB1 & OPCB3 & !OPCB4
+  # CSM1 & !OPCB2 & OPCB3 & !OPCB4
+  # CSM1 & OPCB3 & !OPCB4 & OPCB6
+  # !AD0 & CSM1 & OPCB0 & !OPCB5
   # CSM1 & OPCB3 & !OPCB5
   # CSM1 & !OPCB4 & !OPCB5
-  # !AD0 & CSM1 & OPCB0 & !OPCB3
-  # CSM1 & OPCB2 & OPCB3 & OPCB4
-  # CSM1 & OPCB3 & !OPCB4 & OPCB6
-  # CSM1 & !OPCB1 & !OPCB4 & !OPCB6
+  # !AD0 & CSM1 & OPCB0 & !OPCB6
+  # CSM1 & OPCB0 & OPCB3 & !OPCB6
+  # CSM1 & OPCB0 & !OPCB4 & !OPCB6
   # CSM1 & OPCB0 & OPCB5 & !OPCB6
-  # CSM1 & !OPCB3 & OPCB4 & OPCB5 & OPCB6
-  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB5 & !OPCB6
+  # CSM1 & !OPCB1 & !OPCB4 & !OPCB6
+  # CSM1 & !OPCB2 & !OPCB4 & !OPCB6
+  # CSM1 & !OPCB3 & !OPCB4 & !OPCB6
+  # CSM0 & CSM1 & OPCB0
+  # CSM0 & CSM1 & OPCB2
+  # CSM0 & CSM1 & OPCB3
+  # CSM0 & CSM1 & !OPCB4
+  # CSM0 & CSM1 & !OPCB5
+  # CSM0 & CSM1 & OPCB6
 
 MEM_H_EN.ap  =>
     !RESET_IN
@@ -433,21 +568,46 @@ MEM_H_EN.ck  =>
     A_CLK_IN
 
 MEM_L_EN.d  =>
-    CSM0 & CSM1 & OPCB2
+    CSM1 & OPCB0 & OPCB1
   # CSM1 & OPCB1 & !OPCB2
-  # CSM0 & CSM1 & OPCB3
   # CSM1 & OPCB1 & !OPCB3
-  # CSM0 & CSM1 & !OPCB4
-  # CSM0 & CSM1 & !OPCB5
+  # CSM1 & OPCB1 & OPCB4
+  # CSM1 & OPCB1 & !OPCB5
+  # CSM1 & OPCB1 & OPCB6
+  # CSM0 & CSM1 & OPCB1
+  # AD0 & CSM1 & OPCB0 & OPCB2
+  # CSM1 & OPCB0 & OPCB2 & OPCB3
+  # CSM1 & !OPCB1 & OPCB2 & OPCB3
+  # CSM1 & OPCB2 & OPCB3 & OPCB4
+  # CSM1 & OPCB2 & OPCB3 & OPCB6
+  # CSM1 & OPCB0 & OPCB2 & OPCB4 & OPCB5
+  # CSM1 & OPCB2 & OPCB4 & OPCB5 & OPCB6
+  # AD0 & CSM1 & OPCB0 & !OPCB3
+  # CSM1 & OPCB0 & !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5
+  # CSM1 & !OPCB3 & OPCB4 & OPCB5 & OPCB6
+  # AD0 & CSM1 & OPCB0 & !OPCB4
+  # CSM1 & OPCB0 & OPCB3 & !OPCB4
+  # CSM1 & !OPCB1 & OPCB3 & !OPCB4
+  # CSM1 & !OPCB2 & OPCB3 & !OPCB4
+  # CSM1 & OPCB3 & !OPCB4 & OPCB6
+  # AD0 & CSM1 & OPCB0 & !OPCB5
   # CSM1 & OPCB3 & !OPCB5
   # CSM1 & !OPCB4 & !OPCB5
-  # AD0 & CSM1 & OPCB0 & !OPCB3
-  # CSM1 & OPCB2 & OPCB3 & OPCB4
-  # CSM1 & OPCB3 & !OPCB4 & OPCB6
-  # CSM1 & !OPCB1 & !OPCB4 & !OPCB6
+  # AD0 & CSM1 & OPCB0 & !OPCB6
+  # CSM1 & OPCB0 & OPCB3 & !OPCB6
+  # CSM1 & OPCB0 & !OPCB4 & !OPCB6
   # CSM1 & OPCB0 & OPCB5 & !OPCB6
-  # CSM1 & !OPCB3 & OPCB4 & OPCB5 & OPCB6
-  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & CSM1 & !OPCB2 & !OPCB3 & OPCB5 & !OPCB6
+  # CSM1 & !OPCB1 & !OPCB4 & !OPCB6
+  # CSM1 & !OPCB2 & !OPCB4 & !OPCB6
+  # CSM1 & !OPCB3 & !OPCB4 & !OPCB6
+  # CSM0 & CSM1 & OPCB0
+  # CSM0 & CSM1 & OPCB2
+  # CSM0 & CSM1 & OPCB3
+  # CSM0 & CSM1 & !OPCB4
+  # CSM0 & CSM1 & !OPCB5
+  # CSM0 & CSM1 & OPCB6
 
 MEM_L_EN.ap  =>
     !RESET_IN
@@ -456,19 +616,35 @@ MEM_L_EN.ck  =>
     A_CLK_IN
 
 MEM_RW.d  =>
-    CSM0
-  # !CSM1
-  # OPCB0 & OPCB2
+    OPCB0 & OPCB1
   # OPCB1 & !OPCB2
-  # !OPCB1 & OPCB3
   # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
-  # OPCB2 & !OPCB5
-  # !OPCB4 & !OPCB5
-  # OPCB2 & OPCB6
+  # OPCB1 & !OPCB5
+  # OPCB1 & OPCB6
+  # OPCB0 & OPCB2
   # !OPCB1 & OPCB2 & !OPCB4
+  # OPCB2 & !OPCB3 & !OPCB4
+  # OPCB2 & !OPCB5
+  # OPCB2 & OPCB6
+  # OPCB0 & OPCB3
+  # !OPCB1 & OPCB3
+  # !OPCB2 & OPCB3
+  # OPCB3 & OPCB4
+  # OPCB3 & !OPCB5
+  # OPCB3 & OPCB6
+  # OPCB0 & OPCB4 & OPCB5
   # !OPCB2 & OPCB4 & OPCB5
+  # OPCB4 & OPCB5 & OPCB6
+  # !OPCB4 & !OPCB5
+  # OPCB0 & !OPCB4 & !OPCB6
+  # OPCB0 & OPCB5 & !OPCB6
+  # !OPCB2 & !OPCB4 & !OPCB6
   # !OPCB2 & OPCB5 & !OPCB6
+  # !OPCB1 & !OPCB4 & !OPCB6
+  # !OPCB3 & !OPCB4 & !OPCB6
+  # CSM0
+  # !CSM1
 
 MEM_RW.ap  =>
     !RESET_IN
@@ -477,12 +653,12 @@ MEM_RW.ck  =>
     A_CLK_IN
 
 PC_ADOE.d  =>
-    CSM0 & CSM1
-  # CSM1 & OPCB1
+    CSM1 & OPCB1
   # CSM1 & OPCB3
   # CSM1 & OPCB4
   # CSM1 & !OPCB5
   # CSM1 & !OPCB6
+  # CSM0 & CSM1
 
 PC_ADOE.ap  =>
     !RESET_IN
@@ -491,17 +667,25 @@ PC_ADOE.ck  =>
     A_CLK_IN
 
 PC_BBOE.d  =>
-    CSM0
-  # !CSM1
-  # OPCB1
-  # !OPCB5
+    OPCB1
+  # OPCB0 & OPCB2 & OPCB4
+  # !OPCB0 & OPCB2 & OPCB3
+  # OPCB2 & OPCB3 & OPCB4
+  # OPCB2 & OPCB6
+  # OPCB0 & !OPCB3
   # !OPCB2 & !OPCB3
+  # !OPCB3 & OPCB6
+  # !OPCB0 & !OPCB4
   # !OPCB2 & !OPCB4
   # !OPCB3 & !OPCB4
-  # OPCB2 & OPCB6
+  # !OPCB4 & OPCB6
+  # !OPCB5
+  # OPCB0 & OPCB4 & !OPCB6
   # !OPCB2 & !OPCB6
-  # !OPCB0 & OPCB2 & OPCB3
-  # OPCB0 & OPCB2 & OPCB4
+  # !OPCB0 & OPCB3 & !OPCB6
+  # OPCB3 & OPCB4 & !OPCB6
+  # CSM0
+  # !CSM1
 
 PC_BBOE.ap  =>
     !RESET_IN
@@ -511,8 +695,8 @@ PC_BBOE.ck  =>
 
 PC_MODE0.d  =>
     !CSM1
-  # !CSM0 & OPCB3 & !OPCB4 & OPCB5 & OPCB6
-  # CSM0 & OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6
+  # !CSM0 & CSM1 & OPCB3 & !OPCB4 & OPCB5 & OPCB6
+  # CSM0 & CSM1 & OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6
 
 PC_MODE0.ar  =>
     !RESET_IN
@@ -522,9 +706,9 @@ PC_MODE0.ck  =>
     A_CLK_IN
 
 PC_MODE1.d  =>
-    CSM0 & CSM1 & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5
-  # CSM0 & CSM1 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6
-  # CSM0 & CSM1 & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6
+    CSM0 & CSM1 & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6
+  # CSM0 & CSM1 & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5
+  # CSM0 & CSM1 & OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6
 
 PC_MODE1.ar  =>
     !RESET_IN
@@ -544,18 +728,23 @@ PC_MODE2.ck  =>
     A_CLK_IN
 
 RF_BOE.d  =>
-    !CSM1
+    !OPCB0 & !OPCB2 & OPCB3 & OPCB5
+  # OPCB0 & !OPCB1 & OPCB3 & OPCB5
+  # !OPCB1 & !OPCB2 & OPCB3 & OPCB5
+  # OPCB0 & OPCB2 & OPCB3 & OPCB5
+  # OPCB0 & OPCB4 & OPCB5
+  # OPCB1 & OPCB4 & OPCB5
+  # !OPCB2 & OPCB4 & OPCB5
+  # OPCB3 & OPCB4 & OPCB5
+  # !CSM0 & OPCB4 & OPCB5
+  # CSM0 & !OPCB5
   # OPCB6
   # CSM0 & OPCB0
   # CSM0 & OPCB1
   # CSM0 & !OPCB2
   # CSM0 & OPCB3
   # CSM0 & !OPCB4
-  # CSM0 & !OPCB5
-  # !CSM0 & OPCB4 & OPCB5
-  # OPCB0 & !OPCB1 & OPCB3 & OPCB5
-  # OPCB0 & OPCB2 & OPCB3 & OPCB5
-  # !OPCB0 & !OPCB2 & OPCB3 & OPCB5
+  # !CSM1
 
 RF_BOE.ap  =>
     !RESET_IN
@@ -564,21 +753,32 @@ RF_BOE.ck  =>
     A_CLK_IN
 
 RF_CWE.d  =>
-    !CSM1
-  # CSM0 & OPCB0
-  # CSM0 & OPCB2
-  # OPCB1 & OPCB4
-  # OPCB3 & OPCB4
-  # CSM0 & !OPCB4
-  # !CSM0 & OPCB4 & OPCB5
+    OPCB0 & OPCB1 & OPCB3 & OPCB5
+  # OPCB0 & OPCB1 & OPCB5 & OPCB6
+  # OPCB0 & !OPCB2 & OPCB3 & OPCB5
+  # OPCB0 & !OPCB2 & OPCB4
   # !OPCB2 & OPCB4 & !OPCB5
+  # !OPCB2 & OPCB4 & OPCB6
   # !OPCB2 & OPCB5 & OPCB6
-  # OPCB3 & OPCB5 & OPCB6
-  # OPCB0 & OPCB1 & OPCB3 & OPCB5
+  # !CSM0 & !OPCB2 & OPCB4
   # OPCB1 & OPCB2 & OPCB3 & OPCB5
   # !OPCB1 & !OPCB2 & OPCB3 & OPCB5
-  # OPCB0 & OPCB1 & OPCB5 & OPCB6
-  # !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB5 & !OPCB6
+  # OPCB3 & OPCB4
+  # OPCB3 & OPCB5 & OPCB6
+  # CSM0 & OPCB3
+  # OPCB1 & OPCB4
+  # OPCB0 & OPCB4 & OPCB5
+  # OPCB2 & OPCB4 & OPCB5
+  # OPCB4 & OPCB5 & OPCB6
+  # !CSM0 & OPCB4 & OPCB5
+  # !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5 & !OPCB6
+  # CSM0 & OPCB0
+  # CSM0 & OPCB1
+  # CSM0 & OPCB2
+  # CSM0 & !OPCB4
+  # CSM0 & !OPCB5
+  # CSM0 & OPCB6
+  # !CSM1
 
 RF_CWE.ap  =>
     !RESET_IN
@@ -587,15 +787,16 @@ RF_CWE.ck  =>
     A_CLK_IN
 
 RF_FHZ.d  =>
-    CSM0
-  # !CSM1
-  # !OPCB0
+    !OPCB0
   # OPCB1
   # !OPCB2
   # OPCB3
   # OPCB4 & OPCB5
   # !OPCB4 & !OPCB5
   # !OPCB4 & !OPCB6
+  # OPCB5 & !OPCB6
+  # CSM0
+  # !CSM1
 
 RF_FHZ.ap  =>
     !RESET_IN
@@ -604,15 +805,15 @@ RF_FHZ.ck  =>
     A_CLK_IN
 
 SFT_DIR.d  =>
-    CSM0
-  # !CSM1
-  # OPCB0
+    OPCB0
+  # OPCB1 & OPCB2
+  # !OPCB1 & !OPCB2
   # OPCB3
   # OPCB4
   # !OPCB5
   # OPCB6
-  # OPCB1 & OPCB2
-  # !OPCB1 & !OPCB2
+  # CSM0
+  # !CSM1
 
 SFT_DIR.ap  =>
     !RESET_IN
@@ -698,19 +899,32 @@ SM_F2 =>
     CSM0 & !CSM1
 
 SP_ADOE.d  =>
-    !CSM1
-  # !OPCB5
-  # CSM0 & OPCB2
+    OPCB0 & OPCB1
   # OPCB1 & !OPCB2
-  # CSM0 & OPCB3
   # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
-  # !OPCB1 & !OPCB4
   # OPCB1 & OPCB6
-  # !OPCB3 & OPCB6
-  # OPCB0 & !OPCB6
+  # CSM0 & OPCB1
+  # OPCB0 & OPCB2
   # !OPCB1 & OPCB2 & OPCB3
+  # OPCB2 & OPCB3 & OPCB4
+  # OPCB2 & OPCB6
+  # OPCB0 & !OPCB3
   # !CSM0 & !OPCB2 & !OPCB3
+  # !OPCB3 & OPCB6
+  # OPCB0 & !OPCB4
+  # !OPCB1 & !OPCB4
+  # !OPCB2 & !OPCB4
+  # !OPCB3 & !OPCB4
+  # !OPCB4 & OPCB6
+  # CSM0 & !OPCB4
+  # !OPCB5
+  # OPCB0 & !OPCB6
+  # CSM0 & OPCB0
+  # CSM0 & OPCB2
+  # CSM0 & OPCB3
+  # CSM0 & OPCB6
+  # !CSM1
 
 SP_ADOE.ap  =>
     !RESET_IN
@@ -736,17 +950,26 @@ SP_BBOE.ck  =>
     A_CLK_IN
 
 SP_MODE0.d  =>
-    CSM0
-  # !CSM1
-  # !OPCB5
+    OPCB0 & OPCB1
   # OPCB1 & !OPCB2
   # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
-  # !OPCB1 & !OPCB4
   # OPCB1 & OPCB6
-  # !OPCB3 & OPCB6
-  # OPCB0 & !OPCB6
+  # OPCB0 & OPCB2
   # !OPCB1 & OPCB2 & OPCB3
+  # OPCB2 & OPCB3 & OPCB4
+  # OPCB2 & OPCB6
+  # OPCB0 & !OPCB3
+  # !OPCB3 & OPCB6
+  # OPCB0 & !OPCB4
+  # !OPCB1 & !OPCB4
+  # !OPCB2 & !OPCB4
+  # !OPCB3 & !OPCB4
+  # !OPCB4 & OPCB6
+  # !OPCB5
+  # OPCB0 & !OPCB6
+  # CSM0
+  # !CSM1
 
 SP_MODE0.ar  =>
     !RESET_IN
@@ -755,18 +978,31 @@ SP_MODE0.ck  =>
     A_CLK_IN
 
 SP_MODE1.d  =>
-    CSM0
-  # !CSM1
-  # !OPCB5
-  # OPCB0 & OPCB2
+    !OPCB0 & OPCB1 & !OPCB2
   # OPCB1 & !OPCB3
   # OPCB1 & OPCB4
-  # !OPCB1 & !OPCB4
   # OPCB1 & OPCB6
-  # !OPCB3 & OPCB6
+  # OPCB0 & OPCB2
   # !OPCB1 & OPCB2 & OPCB3
+  # OPCB2 & OPCB3 & OPCB4
+  # OPCB2 & OPCB6
+  # OPCB0 & !OPCB3
+  # !OPCB2 & !OPCB3
+  # !OPCB3 & OPCB6
+  # !OPCB1 & !OPCB4
+  # !OPCB0 & !OPCB2 & !OPCB4
+  # !OPCB3 & !OPCB4
+  # !OPCB4 & OPCB6
+  # !OPCB5
   # OPCB0 & !OPCB1 & !OPCB6
+  # OPCB0 & OPCB4 & !OPCB6
   # !OPCB0 & !OPCB2 & !OPCB6
+  # !OPCB1 & !OPCB2 & !OPCB6
+  # !OPCB2 & OPCB4 & !OPCB6
+  # !OPCB1 & OPCB3 & !OPCB6
+  # OPCB3 & OPCB4 & !OPCB6
+  # CSM0
+  # !CSM1
 
 SP_MODE1.ar  =>
     !RESET_IN
@@ -775,8 +1011,8 @@ SP_MODE1.ck  =>
     A_CLK_IN
 
 UNUSED1 =>
-    C_CLK_IN
-  # B_CLK_IN & HALT
+    B_CLK_IN & HALT
+  # C_CLK_IN
   # UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9
 
 isize =>

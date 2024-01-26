@@ -1,11 +1,11 @@
-{COMPONENT C:\IRCTRL.SYM
+{COMPONENT C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.SYM
 
  {ENVIRONMENT
   {PDIFvrev 3.00}
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Wed Jan 03 16:52:51 2024 "}
+  {DBtime "Wed Jan 24 13:47:27 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -317,7 +317,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD C:\IRCTRL 225 1300}
+    {At PLD C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL 225 1300}
    }
   }
  }

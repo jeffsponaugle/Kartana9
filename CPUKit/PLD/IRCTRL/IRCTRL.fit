@@ -1,7 +1,7 @@
-Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Wed Jan 03 16:52:51 2024
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Wed Jan 24 13:47:27 2024
 
 
-fit1508 C:\IRCTRL.tt2 -CUPL -dev P1508C84 -JTAG ON
+fit1508 C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt2 -CUPL -dev P1508C84 -JTAG ON
 
 
 ****** Initial fitting strategy and property ******
@@ -48,7 +48,7 @@ fit1508 C:\IRCTRL.tt2 -CUPL -dev P1508C84 -JTAG ON
  ITD2 = ON
  Fast_inlatch = off
  *******************************
-Info: C:\IRCTRL uses 95% of the pins available in device PLCC84
+Info: C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL uses 95% of the pins available in device PLCC84
   If you wish to have more pins available for future logic changes
   Atmel  recommends using a larger device
 ---------------------------------------------------------
@@ -146,7 +146,7 @@ CSM0 is placed at pin 61 (MC 94)
 TCK is placed at pin 62 (MC 96)
 Com_Ctrl_229 is placed at foldback expander node 396 (MC 96)
 OPCSIZEHINT is placed at pin 63 (MC 97)
-C_CLK_IN is placed at pin 64 (MC 99)
+B_CLK_IN is placed at pin 64 (MC 99)
 UNUSED1 is placed at pin 65 (MC 101)
 JMPINST is placed at pin 67 (MC 104)
 SHFT_INVERTCARRY is placed at pin 68 (MC 105)
@@ -154,7 +154,7 @@ HALT is placed at pin 69 (MC 107)
 CSM1 is placed at pin 70 (MC 109)
 TDO is placed at pin 71 (MC 112)
 Com_Ctrl_229 is placed at foldback expander node 412 (MC 112)
-B_CLK_IN is placed at pin 73 (MC 115)
+C_CLK_IN is placed at pin 73 (MC 115)
 UNUSED2 is placed at pin 74 (MC 117)
 UNUSED3 is placed at pin 75 (MC 118)
 UNUSED4 is placed at pin 76 (MC 120)
@@ -180,7 +180,7 @@ UNUSED8 is placed at pin 81 (MC 128)
                    / 11   9   7   5   3   1  83  81  79  77  75 \                  
                   /    10   8   6   4   2  84  82  80  78  76    \                 
           IR2_OE | 12                    (*)                   74 | UNUSED2         
-             VCC | 13                                          73 | B_CLK_IN        
+             VCC | 13                                          73 | C_CLK_IN        
              TDI | 14                                          72 | GND             
           RF_CWE | 15                                          71 | TDO             
          PC_BBOE | 16                                          70 | CSM1            
@@ -189,7 +189,7 @@ UNUSED8 is placed at pin 81 (MC 128)
              GND | 19                                          67 | JMPINST         
          SHFT_AR | 20                                          66 | VCC             
          SHFT_WC | 21                                          65 | UNUSED1         
-         SP_BBOE | 22                 ATF1508                  64 | C_CLK_IN        
+         SP_BBOE | 22                 ATF1508                  64 | B_CLK_IN        
              TMS | 23               84-Lead PLCC               63 | OPCSIZEHINT     
      ALU_CFLATCH | 24                                          62 | TCK             
         MEM_H_EN | 25                                          61 | CSM0            
@@ -366,12 +366,12 @@ Multiplexer assignment for block G
 OPCB0			(MC11	P)   : MUX 1		Ref (F86p)
 RESET_IN		(MC6	FB)  : MUX 2		Ref (GCLR)
 UNUSED2			(MC15	P)   : MUX 3		Ref (H117p)
-C_CLK_IN		(MC13	P)   : MUX 5		Ref (G99p)
+B_CLK_IN		(MC13	P)   : MUX 5		Ref (G99p)
 OPCSIZEHINT		(MC12	P)   : MUX 7		Ref (G97p)
 UNUSED6			(MC19	P)   : MUX 8		Ref (H125p)
 UNUSED3			(MC16	P)   : MUX 11		Ref (H118p)
 HALT			(MC2	P)   : MUX 12		Ref (G107p)
-B_CLK_IN		(MC14	P)   : MUX 13		Ref (H115p)
+C_CLK_IN		(MC14	P)   : MUX 13		Ref (H115p)
 CSM0			(MC1	P)   : MUX 14		Ref (F94p)
 OPCB3			(MC9	P)   : MUX 15		Ref (E67p)
 OPCB5			(MC5	P)   : MUX 17		Ref (F88p)
@@ -386,7 +386,7 @@ OPCB6			(MC10	P)   : MUX 34		Ref (F91p)
 UNUSED9			(MC22	FB)  : MUX 35		Ref (OE1)
 OPCB1			(MC7	P)   : MUX 39		Ref (E65p)
 
-Creating JEDEC file C:\IRCTRL.jed ...
+Creating JEDEC file C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.jed ...
 
 PLCC84 programmed logic:
 -----------------------------------
@@ -425,16 +425,16 @@ CSM0.D = ((!CSM0.Q & CSM1.Q & OPCB4 & OPCB5)
 	# (!CSM0.Q & !CSM1.Q & OPCSIZEHINT));
 
 CSM1.D = ((CSM1.Q & !CSM0.Q & OPCB4 & OPCB5)
-	# (!CSM1.Q & CSM0.Q)
-	# (!CSM1.Q & !OPCSIZEHINT));
+	# (!CSM1.Q & !OPCSIZEHINT)
+	# (!CSM1.Q & CSM0.Q));
 
-!DBH_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
+!DBH_OE.D = ((CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
 
 !DBL_OE.D = (XXL_231
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2));
 
 !DB_DIR.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
@@ -453,9 +453,10 @@ CSM1.D = ((CSM1.Q & !CSM0.Q & OPCB4 & OPCB5)
 !IR2_LATCH.D = ((CSM0.Q & !CSM1.Q)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB6));
 
-!IR2_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6)
-	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB1 & !OPCB2 & OPCB3 & !OPCB0)
-	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB1 & !OPCB2 & OPCB3 & OPCB6));
+!IR2_OE.D = ((CSM0.Q & CSM1.Q & OPCB5 & OPCB4 & !OPCB1 & !OPCB2 & OPCB3 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB5 & OPCB6)
+	# (CSM0.Q & CSM1.Q & OPCB5 & OPCB4 & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3));
 
 !JMPINST.D = ((!CSM0.Q & CSM1.Q & OPCB3 & OPCB4 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6));
@@ -487,9 +488,9 @@ PC_MODE0.D = (!CSM1.Q
 	# (!CSM0.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6)
 	# (CSM0.Q & OPCB3 & OPCB4 & OPCB5 & OPCB6 & OPCB0 & !OPCB1 & !OPCB2));
 
-PC_MODE1.D = ((CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
-	# (CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
-	# (CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0));
+PC_MODE1.D = ((CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
+	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6)
+	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5));
 
 PC_MODE2.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6);
 
@@ -526,8 +527,8 @@ PC_MODE2.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6);
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
 
-UNUSED1 = (C_CLK_IN
-	# (B_CLK_IN & HALT.Q)
+UNUSED1 = ((B_CLK_IN & HALT.Q)
+	# C_CLK_IN
 	# (UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9));
 
 !Com_Ctrl_229 = (HALT.Q & RESET_IN);
@@ -538,11 +539,11 @@ XXL_230 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & !OPCB2 & !OPCB6 & OPCB1 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3));
 
-XXL_231 = ((!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
+XXL_231 = ((CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
 
 XXL_232 = ((CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2)
@@ -574,28 +575,28 @@ XXL_236 = ((!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !OPCB0)
 	# !CSM1.Q);
 
-XXL_237 = ((!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & OPCB0 & !OPCB2 & OPCB1)
-	# (CSM0.Q & CSM1.Q & !OPCB6 & OPCB4 & !OPCB3 & !OPCB0 & OPCB2 & !OPCB1 & OPCB5)
+XXL_237 = ((!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB0 & OPCB2)
+	# (CSM0.Q & CSM1.Q & !OPCB6 & OPCB4 & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB0 & OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB3));
+	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB3)
+	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & OPCB0 & OPCB1 & !OPCB2));
 
 XXL_238 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB6 & !OPCB0 & !OPCB2 & OPCB1)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & !OPCB0 & OPCB2)
-	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB6 & !OPCB3 & !OPCB0 & !OPCB2 & !OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & OPCB2 & !OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB6 & OPCB2 & !OPCB1)
+	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB6 & !OPCB3 & !OPCB2 & !OPCB1 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6));
 
-XXL_239 = ((!CSM0.Q & CSM1.Q & !OPCB3 & OPCB2 & !OPCB1 & !OPCB4)
-	# (!CSM0.Q & CSM1.Q & OPCB2 & !OPCB1 & !OPCB4 & !OPCB6)
+XXL_239 = ((!CSM0.Q & CSM1.Q & !OPCB2 & OPCB1 & !OPCB4 & !OPCB0 & !OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB3 & OPCB2 & !OPCB4 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & OPCB5 & !OPCB3 & !OPCB4 & !OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB4 & OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & OPCB2 & !OPCB1));
 
 XXL_240 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6)
+	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6));
 
 ALU_CFLATCH.C = A_CLK_IN;
@@ -816,14 +817,14 @@ Pin 60 = AD0; /* MC 93 */
 Pin 61 = CSM0; /* MC 94 */ 
 Pin 62 = TCK; /* MC 96 */ 
 Pin 63 = OPCSIZEHINT; /* MC 97 */ 
-Pin 64 = C_CLK_IN; /* MC 99 */ 
+Pin 64 = B_CLK_IN; /* MC 99 */ 
 Pin 65 = UNUSED1; /* MC 101 */ 
 Pin 67 = JMPINST; /* MC 104 */ 
 Pin 68 = SHFT_INVERTCARRY; /* MC 105 */ 
 Pin 69 = HALT; /* MC 107 */ 
 Pin 70 = CSM1; /* MC 109 */ 
 Pin 71 = TDO; /* MC 112 */ 
-Pin 73 = B_CLK_IN; /* MC 115 */ 
+Pin 73 = C_CLK_IN; /* MC 115 */ 
 Pin 74 = UNUSED2; /* MC 117 */ 
 Pin 75 = UNUSED3; /* MC 118 */ 
 Pin 76 = UNUSED4; /* MC 120 */ 
@@ -869,7 +870,7 @@ For input only = INPUT.
 MCell Pin# Oe   PinDrive         DCERP  FBDrive  DCERP  Foldback     CascadeOut     TotPT output_slew
 MC1   0         --                      XXL_239  C----  NA           --             5     slow
 MC2   0         --                      XXL_233  C----  NA           --             5     slow
-MC3   12   on   IR2_OE           Dg--p  --              --           --             4     slow
+MC3   12   on   IR2_OE           Dg--p  --              NA           --             5     slow
 MC4   0         --                      XXL_237  C----  NA           --             5     slow
 MC5   11   on   H2L_OE           Dg--p  --              --           --             3     slow
 MC6   10   on   IR2_LATCH        Dg--p  --              --           --             3     slow
@@ -965,7 +966,7 @@ MC95  0         --                      --              --           --         
 MC96  62   --   TCK              INPUT  --              Com_Ctrl_229 --             1     slow
 MC97  63   --   OPCSIZEHINT      INPUT  --              --           --             0     slow
 MC98  0         --                      --              --           --             0     slow
-MC99  64   --   C_CLK_IN         INPUT  --              --           --             0     slow
+MC99  64   --   B_CLK_IN         INPUT  --              --           --             0     slow
 MC100 0         --                      --              --           --             0     slow
 MC101 65   on   UNUSED1          C----  --              --           --             3     slow
 MC102 0         --                      --              --           --             0     slow
@@ -981,7 +982,7 @@ MC111 0         --                      --              --           --         
 MC112 71   --   TDO              INPUT  --              Com_Ctrl_229 --             1     slow
 MC113 0         --                      --              --           --             0     slow
 MC114 0         --                      --              --           --             0     slow
-MC115 73   --   B_CLK_IN         INPUT  --              --           --             0     slow
+MC115 73   --   C_CLK_IN         INPUT  --              --           --             0     slow
 MC116 0         --                      --              --           --             0     slow
 MC117 74   --   UNUSED2          INPUT  --              --           --             0     slow
 MC118 75   --   UNUSED3          INPUT  --              --           --             0     slow
@@ -1001,7 +1002,7 @@ MC0   84        UNUSED9          INPUT  --              --           --         
 MC0   83        A_CLK_IN         INPUT  --              --           --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		15/16(93%)	8/16(50%)	0/16(0%)	71/80(88%)	(12)	1
+A: LC1	- LC16		15/16(93%)	8/16(50%)	0/16(0%)	72/80(90%)	(12)	1
 B: LC17	- LC32		11/16(68%)	8/16(50%)	0/16(0%)	38/80(47%)	(13)	0
 C: LC33	- LC48		7/16(43%)	8/16(50%)	1/16(6%)	20/80(25%)	(15)	0
 D: LC49	- LC64		8/16(50%)	8/16(50%)	1/16(6%)	28/80(35%)	(12)	0
@@ -1019,8 +1020,8 @@ Total Nodes+FB/MCells 		57/128 	(44%)
 Total cascade used 		1
 Total input pins 		26
 Total output pins 		42
-Total Pts 			193
-Creating pla file C:\IRCTRL.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+Total Pts 			194
+Creating pla file C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS
 $Device PLCC84 fits 

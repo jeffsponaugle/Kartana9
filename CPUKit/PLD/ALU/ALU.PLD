@@ -155,7 +155,7 @@ CarryOut = C16;
               # aluop:['d'2] & ([S0..15]) 
               # aluop:['d'3] & ([A0..15] $ [B0..15])
               # aluop:['d'4] & ([A0..15] # [B0..15])
-              # aluop:['d'5] & ([A0..15] $ [B0..15])
+              # aluop:['d'5] & ([A0..15] & [B0..15])
               # aluop:['d'6] & !([B0..15])
               # aluop:['d'7] & ([B0..15]);
 
@@ -185,14 +185,14 @@ OVFOut.ck = D_CLK_IN;
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		64/64 	(100%)
-Total Logic cells used 		79/128 	(61%)
+Total Logic cells used 		92/128 	(71%)
 Total Flip-Flop used 		3/128 	(2%)
-Total Foldback logic used 	28/128 	(21%)
-Total Nodes+FB/MCells 		93/128 	(72%)
-Total cascade used 		14
+Total Foldback logic used 	24/128 	(18%)
+Total Nodes+FB/MCells 		116/128 	(90%)
+Total cascade used 		0
 Total input pins 		48
 Total output pins 		20
-Total Pts 			303
+Total Pts 			340
 
 */
 
