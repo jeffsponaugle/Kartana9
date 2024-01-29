@@ -1,8 +1,9 @@
 ; newline comment
+
 start:
         nop
-        loadimm r0,32
-        loadimm r1,77
+        loadimm r0,#1234
+        loadimm r1,#6789
         add r0,r1,r2
  mid:   add r7,r2,r3   ; mid comment
         add r2,r3,r4
@@ -23,6 +24,10 @@ start:
         jmpri mid
         storewi r1,4567
         loadwi #1453,r5
-
+        loadwri data,r6
+        storewri r6,data
+ data:       
+        nop 
+        nop
 
 
