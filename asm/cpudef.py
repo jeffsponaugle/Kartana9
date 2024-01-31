@@ -128,7 +128,7 @@ def getimmnumber(operandstring,operandnumber):
             # rn is now the hex number with the pound sign removed
             rni=int(rn,16)
         else:
-            if (ro.isdecimal()):
+            if (ro.strip('-').isdecimal()):
                 rni=int(ro)
             else:
                 errortxt="Immediate number is not a decimal number"
@@ -146,16 +146,20 @@ import sys
 srcfilename = sys.argv[1]
 
 if (len(srcfilename)==0):
-    print("ERROR: Must specifiy source file name.")
-    exit()
+    ErrorExit("ERROR: Must specifiy source file name.")
 
 srcfilenameroot = srcfilename.split(".")[0]
 parsed = list()
 labels = dict()
 srcfilerecord = list()
 
-srcfile = open(srcfilename ,"r")
+try:
+    srcfile = open(srcfilename ,"r")
+except:
+    ErrorExit("Could not open specified input file:"+srcfilename)
+
 address = 0
+maxaddress = 0
 srcln = 1
 print("*** Starting Phase 1 loop")
 for srcline in srcfile:
@@ -180,13 +184,21 @@ for srcline in srcfile:
         # there is an instruction to parse
         i = srcline.split(" ",1)
         inst = i[0].strip()
-        size = instmnu[inst]["size"]
+
+        try:
+            size = instmnu[inst]["size"]
+        except KeyError:
+            ErrorExit("Invalid Instruction:"+inst+" ... From line:"+srcln)
+
         if (len(i)>1):
             # there is also an operand
             operand=i[1].strip()
-        parseline = {"inst":inst, "operand":operand, "address":address , "size":size, "srcln":srcln, "iw0":0, "iw1":0}
+        b0 = (0).to_bytes(2,byteorder='little')
+        b1 = (0).to_bytes(2,byteorder='little')
+        parseline = {"inst":inst, "operand":operand, "address":address , "size":size, "srcln":srcln, "iw0":0, "iw1":0, "w0":b0, "w1":b1}
         parsed.append(parseline)
         address = address + (2*size)
+        if (address>maxaddress): maxaddress=address
     srcln = srcln + 1    
     # lets add what we have to the parsed table
     
@@ -245,25 +257,76 @@ for parseinstdata in parsed:
     inst_enc0 = ((opcode<<9) | (sela) | (selb<<3) | (selc<<6))
     inst_enc1 = imm16val
     parseinstdata["iw0"] = inst_enc0
+    parseinstdata["w0"] = (inst_enc0).to_bytes(2,byteorder='little')
     parseinstdata["iw1"] = inst_enc1
-
-print("*** Creating List File")
+    parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=True)
+# **** Create the listing file ****
+    
+try:
+    listfile = open(srcfilenameroot+".lst","w")
+except:
+    ErrorExit("Could not open list file - "+srcfilenameroot+".lst")
+print("max:"+str(maxaddress))
+binimage = bytearray(((int(maxaddress/16))+1)*16)
+binimagel = bytearray(((int(maxaddress/16))+1)*8)
+binimageh = bytearray(((int(maxaddress/16))+1)*8)
+listfile.write("*** List File:"+srcfilename+"\r\n")
 parsedindex=0
 srclineindex=1
 
 for srcline in srcfilerecord:
+    if (parsedindex < len(parsed)):
+        if (parsed[parsedindex]["srcln"] != srclineindex):
+            # we will continue to print the source output in list file until we get to a src line that has
+            # an enrty in the parsed list.  Since the parsed list is ordered by srcline, we only need to do
+            # one compare until we find a match, then increment to the next parsed list item
+            lst="{:3d}                           {:40.40s}".format(srclineindex,srcline)
+        else:
+            # if the srcline and srcln are the same
+            w0low=parsed[parsedindex]["w0"][0]
+            w0high=parsed[parsedindex]["w0"][1]
+            address=parsed[parsedindex]["address"]
+            print("add:"+str(address))
+            binimage[address]=w0low
+            binimage[address+1]=w0high
+            binimagel[address>>1]=w0low
+            binimageh[address>>1]=w0high
+            if(parsed[parsedindex]["size"]==1):
+                lst="{:3d} {:2.2s}{:2.2s}                     {:40.40s}".format(srclineindex,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),srcline)
+            else:
+                w1low=parsed[parsedindex]["w1"][0]
+                w1high=parsed[parsedindex]["w1"][1]
+                binimage[address+2]=w1low
+                binimage[address+3]=w1high
+                binimagel[(address>>1)+1]=w1low
+                binimageh[(address>>1)+1]=w1high
+                lst="{:3d} {:2.2s}{:2.2s} {:2.2s}{:2.2s}                {:40.40s}".format(srclineindex,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),hex(w1high)[2:].rjust(2, "0"),hex(w1low)[2:].rjust(2, "0"),srcline)
+            parsedindex = parsedindex + 1
+        listfile.write(lst.rstrip()+"\r\n")
+        srclineindex = srclineindex +1
 
-    if (parsed[parsedindex]["srcln"] != srclineindex):
-        # we will continue to print the source output in list file until we get to a src line that has
-        # an enrty in the parsed list.  Since the parsed list is ordered by srcline, we only need to do
-        # one compare until we find a match, then increment to the next parsed list item
-        print('\t\t\t\t',srcline,end=" ")
-    else:
-        # if the srcline and srcln are the same
-        print('\t\t\t\t',srcline,end=" ")
-        print("*****",parsed[parsedindex]["inst"], parsed[parsedindex]["operand"])
-        parsedindex = parsedindex + 1
-    srclineindex = srclineindex +1
+listfile.close()
+
+# output binary files
+
+binfile=open(srcfilenameroot+".bin","wb")
+binfileh=open(srcfilenameroot+".binh","wb")
+binfilel=open(srcfilenameroot+".binl","wb")
+binfile.write(binimage)
+binfilel.write(binimagel)
+binfileh.write(binimageh)
+binfile.close()
+binfileh.close()
+binfilel.close()
+
+    
+ 
+
+
+#binfile=open(srcfilenameroot+".bin","w")
+#binfileh=open(srcfilenameroot+".binh","w")
+#binfilel=open(srcfilenameroot+".binl","w")
+
 
 
     #print("[",hex(instaddr),"]",parseinstdata["inst"],opcode,"0x"+hex(inst_enc0)[2:].rjust(4,"0"), ",0x"+hex(inst_enc1)[2:].rjust(4,"0") )

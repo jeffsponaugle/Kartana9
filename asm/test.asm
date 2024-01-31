@@ -23,6 +23,7 @@ start:
  frd:   pop r2
         jmpri mid
         storewi r1,4567
+        storewi r2,-2
         loadwi #1453,r5
         loadwri data,r6
         storewri r6,data

@@ -1,0 +1,33 @@
+*** List File:test.asm
+  1                           ; newline comment
+  2
+  3                           start:
+  4 0000                             nop
+  5 cc00 122e                        loadimm r0,#1234
+  6 cc40 677f                        loadimm r1,#6789
+  7 0888                             add r0,r1,r2
+  8 08d7                      mid:   add r7,r2,r3   ; mid comment
+  9 091a                             add r2,r3,r4
+ 10 1191                             or r1,r2,r6
+ 11 19f0                             not r6,r7
+ 12 448d                             shl r1,r2,5
+ 13 2600                             cmpc
+ 14 1591                             and r1,r2,r6
+ 15 2425                             cmp r5,r4
+ 16 8503 00e3                        subi r3,227,r4
+ 17 b000 000c                        jmpi mid
+ 18 b000 0000                        jmpi start
+ 19 3028                             jmpr r5
+ 20 d000 0006                        jmpri frd
+ 21 5c28                             push r5
+ 22 b000 0000                        jmpi start
+ 23 6080                      frd:   pop r2
+ 24 d000 ffd2                        jmpri mid
+ 25 a001 11d7                        storewi r1,4567
+ 26 a002 fffe                        storewi r2,-2
+ 27 a940 1453                        loadwi #1453,r5
+ 28 c980 0004                        loadwri data,r6
+ 29 c006 0000                        storewri r6,data
+ 30                            data:
+ 31 0000                             nop
+ 32 0000                             nop
