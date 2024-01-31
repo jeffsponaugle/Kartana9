@@ -2,33 +2,41 @@
 
 start:
         nop
-        loadimm r0,#1234
-        loadimm r1,#6789
+        loadimm r0,0
+        loadimm r1,1
         add r0,r1,r2
- mid:   add r7,r2,r3   ; mid comment
+        add r1,r2,r3
         add r2,r3,r4
-        or r1,r2,r6
-        not r6,r7
-        shl r1,r2,5
-        cmpc
-        and r1,r2,r6
-        cmp r5,r4
-        subi r3,227,r4
-        jmpi mid
+        add r3,r4,r5
+        add r4,r5,r6
+        add r5,r6,r7
+        loadimm r0,#aa55
+        shr r0,r1,1
+        shr r1,r2,1
+        shr r2,r3,1
+        shr r3,r4,1
+        shr r4,r5,1
+        loadimm r6,#55aa
+        shr r6,r6,2
+        shr r6,r6,2
+        shr r6,r6,2
+        shr r6,r6,2
+mid:    loadimm r3,16
+        loadimm r2,1
+        sub r3,r2,r3
+        jnzri mid
+        loadimm r4,#1234
+mid2:   shr r4,r4,1
+        jnzri mid
+        loadimm r5,#aa
+        loadwi #FFF0,r6
+        storewi r6,#FFF0
         jmpi start
-        jmpr r5
-        jmpri frd
-        push r5
-        jmpi start
- frd:   pop r2
-        jmpri mid
-        storewi r1,4567
-        storewi r2,-2
-        loadwi #1453,r5
-        loadwri data,r6
-        storewri r6,data
- data:       
-        nop 
+        
+data:
+        nop
+        nop
+        nop
         nop
 
 

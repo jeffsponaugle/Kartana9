@@ -58,10 +58,10 @@ instmnu =      {"nop"    :{"numops":0,"op1":"","op2":"","op3":"","size":1, "opco
                 "storebri":{"numops":2,"op1":"rega","op2":"imm16r","op3":"","size":2, "opcode":0x61 },
                 "loadwri" :{"numops":2,"op1":"imm16r","op2":"regc","op3":"","size":2, "opcode":0x64 },
                 "loadbri" :{"numops":2,"op1":"imm16r","op2":"regc","op3":"","size":2, "opcode":0x65 },
-                "loadimm" :{"numops":2,"op1":"regc","op2":"imm16r","op3":"","size":2, "opcode":0x66 },
+                "loadimm" :{"numops":2,"op1":"regc","op2":"imm16","op3":"","size":2, "opcode":0x66 },
                 "jmpri"   :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x68 },
                 "jzri"    :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x69 },
-                "jnzi"    :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x6A },
+                "jnzri"    :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x6A },
                 "jcri"    :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x6B },
                 "jncri"   :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x6C },
                 "jvri"   :{"numops":1,"op1":"imm16r","op2":"","op3":"","size":2, "opcode":0x06D },
@@ -165,7 +165,6 @@ print("*** Starting Phase 1 loop")
 for srcline in srcfile:
     # we will save the source file in a list so we can generate a .lst output
     srcfilerecord.append(srcline)
-    print("Adding",len(srcline),"characters in a line")
     inst=""
     operand=""
     # for each line we read in, strip of extra spaces, convert to lower case and remove comments
@@ -188,7 +187,7 @@ for srcline in srcfile:
         try:
             size = instmnu[inst]["size"]
         except KeyError:
-            ErrorExit("Invalid Instruction:"+inst+" ... From line:"+srcln)
+            ErrorExit("Invalid Instruction:"+inst+" ... From line:"+str(srcln))
 
         if (len(i)>1):
             # there is also an operand
@@ -259,17 +258,22 @@ for parseinstdata in parsed:
     parseinstdata["iw0"] = inst_enc0
     parseinstdata["w0"] = (inst_enc0).to_bytes(2,byteorder='little')
     parseinstdata["iw1"] = inst_enc1
-    parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=True)
+    if (inst_enc1<0):
+        parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=True)
+    else:
+        parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=False)
+
 # **** Create the listing file ****
     
 try:
     listfile = open(srcfilenameroot+".lst","w")
 except:
     ErrorExit("Could not open list file - "+srcfilenameroot+".lst")
-print("max:"+str(maxaddress))
-binimage = bytearray(((int(maxaddress/16))+1)*16)
-binimagel = bytearray(((int(maxaddress/16))+1)*8)
-binimageh = bytearray(((int(maxaddress/16))+1)*8)
+# create three bytearrays, one for the regular binary file, one for the low byte file and one for the high byte file
+# we will make the bytearray the size based the max address used rounded up to the nearest 32/16 bytes.
+binimage = bytearray(((int(maxaddress/16))+1)*32)
+binimagel = bytearray(((int(maxaddress/16))+1)*16)
+binimageh = bytearray(((int(maxaddress/16))+1)*16)
 listfile.write("*** List File:"+srcfilename+"\r\n")
 parsedindex=0
 srclineindex=1
@@ -286,7 +290,6 @@ for srcline in srcfilerecord:
             w0low=parsed[parsedindex]["w0"][0]
             w0high=parsed[parsedindex]["w0"][1]
             address=parsed[parsedindex]["address"]
-            print("add:"+str(address))
             binimage[address]=w0low
             binimage[address+1]=w0high
             binimagel[address>>1]=w0low

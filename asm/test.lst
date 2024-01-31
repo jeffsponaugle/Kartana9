@@ -3,31 +3,39 @@
   2
   3                           start:
   4 0000                             nop
-  5 cc00 122e                        loadimm r0,#1234
-  6 cc40 677f                        loadimm r1,#6789
+  5 cc00 0000                        loadimm r0,0
+  6 cc40 0001                        loadimm r1,1
   7 0888                             add r0,r1,r2
-  8 08d7                      mid:   add r7,r2,r3   ; mid comment
+  8 08d1                             add r1,r2,r3
   9 091a                             add r2,r3,r4
- 10 1191                             or r1,r2,r6
- 11 19f0                             not r6,r7
- 12 448d                             shl r1,r2,5
- 13 2600                             cmpc
- 14 1591                             and r1,r2,r6
- 15 2425                             cmp r5,r4
- 16 8503 00e3                        subi r3,227,r4
- 17 b000 000c                        jmpi mid
- 18 b000 0000                        jmpi start
- 19 3028                             jmpr r5
- 20 d000 0006                        jmpri frd
- 21 5c28                             push r5
- 22 b000 0000                        jmpi start
- 23 6080                      frd:   pop r2
- 24 d000 ffd2                        jmpri mid
- 25 a001 11d7                        storewi r1,4567
- 26 a002 fffe                        storewi r2,-2
- 27 a940 1453                        loadwi #1453,r5
- 28 c980 0004                        loadwri data,r6
- 29 c006 0000                        storewri r6,data
- 30                            data:
- 31 0000                             nop
- 32 0000                             nop
+ 10 0963                             add r3,r4,r5
+ 11 09ac                             add r4,r5,r6
+ 12 09f5                             add r5,r6,r7
+ 13 cc00 aa55                        loadimm r0,#aa55
+ 14 4641                             shr r0,r1,1
+ 15 4689                             shr r1,r2,1
+ 16 46d1                             shr r2,r3,1
+ 17 4719                             shr r3,r4,1
+ 18 4761                             shr r4,r5,1
+ 19 cd80 55aa                        loadimm r6,#55aa
+ 20 47b2                             shr r6,r6,2
+ 21 47b2                             shr r6,r6,2
+ 22 47b2                             shr r6,r6,2
+ 23 47b2                             shr r6,r6,2
+ 24 ccc0 0010                mid:    loadimm r3,16
+ 25 cc80 0001                        loadimm r2,1
+ 26 04d3                             sub r3,r2,r3
+ 27 d400 fff2                        jnzri mid
+ 28 cd00 1234                        loadimm r4,#1234
+ 29 4721                     mid2:   shr r4,r4,1
+ 30 d400 ffe8                        jnzri mid
+ 31 cd40 00aa                        loadimm r5,#aa
+ 32 a980 fff0                        loadwi #FFF0,r6
+ 33 a006 fff0                        storewi r6,#FFF0
+ 34 b000 0000                        jmpi start
+ 35
+ 36                           data:
+ 37 0000                             nop
+ 38 0000                             nop
+ 39 0000                             nop
+ 40 0000                             nop
