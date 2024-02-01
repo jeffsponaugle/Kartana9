@@ -350,13 +350,13 @@ for srcline in srcfilerecord:
                 binimage[address]=w0low
                 binimage[address+1]=w0high
                 if(parsed[parsedindex]["size"]==1):
-                    lst="{:3d} {:04X}  {:2.2s}{:2.2s}                      {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),srcline)
+                    lst="{:3d} {:04X}  {:2.2s}{:2.2s}                      {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0").upper(),hex(w0low)[2:].rjust(2, "0").upper(),srcline)
                 else:
                     w1low=parsed[parsedindex]["w1"][0]
                     w1high=parsed[parsedindex]["w1"][1]
                     binimage[address+2]=w1low
                     binimage[address+3]=w1high
-                    lst="{:3d} {:04X}  {:2.2s}{:2.2s} {:2.2s}{:2.2s}                 {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),hex(w1high)[2:].rjust(2, "0"),hex(w1low)[2:].rjust(2, "0"),srcline)
+                    lst="{:3d} {:04X}  {:2.2s}{:2.2s} {:2.2s}{:2.2s}                 {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0").upper(),hex(w0low)[2:].rjust(2, "0").upper(),hex(w1high)[2:].rjust(2, "0").upper(),hex(w1low)[2:].rjust(2, "0").upper(),srcline)
                 listfile.write(lst.rstrip()+"\r\n")
             elif (parsed[parsedindex]["type"]=="data"):
                 # handle a data element in the parsed data list.
@@ -370,7 +370,7 @@ for srcline in srcfilerecord:
                 while (dbaleft>0):
                     lst="{:3d} {:04X}  ".format(srclineindex,address+offset)
                     for id in range(min(dbaleft,8)):
-                        lst+="{:2.2s} ".format(hex(dba[id+offset])[2:].rjust(2, "0"))
+                        lst+="{:2.2s} ".format(hex(dba[id+offset])[2:].rjust(2, "0").upper())
                         binimage[address+id+offset]=dba[id+offset]
                     spacer=" "* (26-3*min(dbaleft,8))
                     if (offset==0):
@@ -425,32 +425,4 @@ except:
     ErrorExit("ERROR: Could not write binary output file- "+srcfilenameroot+".binl")
 
 print("Assembly Complete!")
-
-
-
-
-    
- 
-
-
-#binfile=open(srcfilenameroot+".bin","w")
-#binfileh=open(srcfilenameroot+".binh","w")
-#binfilel=open(srcfilenameroot+".binl","w")
-
-
-
-    #print("[",hex(instaddr),"]",parseinstdata["inst"],opcode,"0x"+hex(inst_enc0)[2:].rjust(4,"0"), ",0x"+hex(inst_enc1)[2:].rjust(4,"0") )
-                
-
-
-
-    
-
-
-
-
-
-               
-
-
 

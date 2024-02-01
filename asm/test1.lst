@@ -1,0 +1,65 @@
+
+*** Start of List File:test1.asm     Completed        2024-02-01 11:14:15.301864
+
+LN# ADDR  DATA                    SOURCE
+------------------------------------------------------------------------------------------------------------------------------------
+  1                                ; test the ALU and Flags
+  2
+  3                                start:
+  4 0000  0000                              nop
+  5 0002  CC00 0000                         loadimm r0,0
+  6 0006  CC40 0001                         loadimm r1,1
+  7 000A  0888                              add r0,r1,r2    ; should have 1 in r2, zero flag cleared.
+  8 000C  CC00 00FF                         loadimm r0,255
+  9 0010  0888                              add r0,r1,r2    ; should have 256 in r2, zero flag cleared.
+ 10 0012  CC40 0001                         loadimm r1,1
+ 11 0016  CC00 0001                         loadimm r0,1
+ 12 001A  0481                              sub r1,r0,r2    ; should have 0 in r2, zero flag set
+ 13 001C  CC80 AA55                         loadimm r2,#aa55
+ 14 0020  CC00 FFFF                         loadimm r0,#FFFF
+ 15 0024  CC40 0001                         loadimm r1,1
+ 16 0028  0888                              add r0,r1,r2    ; should have 0 in r2, zero flag, and carry flag
+ 17 002A  2600                              cmpc            ; invert the carry flag, so it should be off.
+ 18 002C  2600                              cmpc            ; invert it again so it should be on now.
+ 19 002E  CC00 0000                         loadimm r0,0
+ 20 0032  CC40 0001                         loadimm r1,1
+ 21 0036  0A88                              addc r0,r1,r2   ; r2 should be 2, since 1+0+CF = 2 CF will clear
+ 22 0038  0000                              nop
+ 23 003A  CC00 F000                         loadimm r0,#F000
+ 24 003E  CC40 2000                         loadimm r1,#2000
+ 25 0042  0948                              add r0,r1,r5     ;r5=#1000, ovf=1, cf=1
+ 26 0044  CC00 000A                         loadimm r0,10
+ 27 0048  CC40 0002                         loadimm r1,2
+ 28 004C  0488                              sub r0,r1,r2    ; r2=8, ZF,CF,OV=0
+ 29 004E  CC00 000A                         loadimm r0,10
+ 30 0052  CC40 000B                         loadimm r1,11
+ 31 0056  0488                              sub r0,r1,r2    ; r2=FFFF, CF=1, OV=1, ZF=0
+ 32 0058  0000                              nop
+ 33 005A  0688                              subc r0,r1,r2   ; since carry flag should be 1 coming in, this should subtract and
+ 34 005C  0000                              nop
+ 35 005E  B000 0000                         jmpi start
+ 36
+ 37                                data:
+ 38 0062  41 42 43 44 45 46 47 48           db 65,66,67,68,69,70,71,72,73,65,66,67,68,69,70,71,72,73,65,66,67,68,69,70,71,72,7
+ 38 006A  49 41 42 43 44 45 46 47
+ 38 0072  48 49 41 42 43 44 45 46
+ 38 007A  47 48 49
+ 39 007D  41 43 FF FE                       db 65,67,-1,-2
+ 40 0081  55 AA 22 11 33 22 44 33           dw #aa55,#1122,#2233,#3344,#21,1,-1
+ 40 0089  21 00 01 00 FF FF
+ 41 008F  74 65 73 74 69 6E 67 20           ds "Testing 1 2 3 This is a test string"
+ 41 0097  31 20 32 20 33 20 74 68
+ 41 009F  69 73 20 69 73 20 61 20
+ 41 00A7  74 65 73 74 20 73 74 72
+ 41 00AF  69 6E 67
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Table of Label Values
+------------------------------------------------------------------------------------------------------------------------------------
+Label              Address
+--------------------------
+start              0000
+data               0062
+
+*** End of List File:test1.asm     Completed        2024-02-01 11:14:15.301989
