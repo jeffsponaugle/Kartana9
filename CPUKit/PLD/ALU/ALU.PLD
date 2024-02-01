@@ -185,14 +185,14 @@ OVFOut.ck = D_CLK_IN;
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		64/64 	(100%)
-Total Logic cells used 		92/128 	(71%)
+Total Logic cells used 		106/128 	(82%)
 Total Flip-Flop used 		3/128 	(2%)
-Total Foldback logic used 	24/128 	(18%)
-Total Nodes+FB/MCells 		116/128 	(90%)
+Total Foldback logic used 	36/128 	(28%)
+Total Nodes+FB/MCells 		142/128 	(110%)
 Total cascade used 		0
 Total input pins 		48
 Total output pins 		20
-Total Pts 			340
+Total Pts 			393
 
 */
 
