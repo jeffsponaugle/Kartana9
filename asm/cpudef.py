@@ -118,11 +118,17 @@ def getimmnumber(operandstring,operandnumber):
 
     return (rni,errortxt)
 
+def getstringfromoperand(operandstring):
+    errortxt=""
+    if (operandstring.count("\"")==2):
+        ro=operandstring.split("\"")[1]
+    else:
+        errortxt="Could not find string expected after data string declaration"
+    return (ro,errortxt)
      
 def ErrorExit(errortxt):
     print("TERMINATING: Error", errortxt)
     exit(1)
-
 
 import sys
 from datetime import datetime as dt
@@ -181,7 +187,8 @@ for srcline in srcfile:
                     case "dw":
                         size=2*opcount
                     case "ds":
-                        size=len(operand)
+                        (gs,errortxt) = getstringfromoperand(operand)
+                        size=len(gs)
                 parseline = {"type":"data","inst":inst,"operand":operand, "address":address , "size":size, "srcln":srcln, "data":bytearray()}
                 parsed.append(parseline)
                 address = address + size
@@ -297,7 +304,13 @@ for parseinstdata in parsed:
                         ba.extend((val).to_bytes(2,byteorder='little',signed=False))
                 # once we have built up the byte array, we will put it back in the parsed data
                 parseinstdata["data"]=ba
-        print(parseinstdata)
+            case "ds":
+                (dsop,errortxt)=getstringfromoperand(operand)
+                if (len(errortxt)!=0):
+                    ErrorExit(errortxt)
+                ba.extend(dsop.encode())
+                parseinstdata["data"]=ba
+        
 
 
 
@@ -326,7 +339,7 @@ for srcline in srcfilerecord:
             # we will continue to print the source output in list file until we get to a src line that has
             # an enrty in the parsed list.  Since the parsed list is ordered by srcline, we only need to do
             # one compare until we find a match, then increment to the next parsed list item
-            lst="{:3d}                               {:90.90s}".format(srclineindex,srcline)
+            lst="{:3d}                                {:90.90s}".format(srclineindex,srcline)
             listfile.write(lst.rstrip()+"\r\n")
         else:
             # if the srcline and srcln are the same
@@ -337,13 +350,13 @@ for srcline in srcfilerecord:
                 binimage[address]=w0low
                 binimage[address+1]=w0high
                 if(parsed[parsedindex]["size"]==1):
-                    lst="{:3d} {:04X}  {:2.2s}{:2.2s}                     {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),srcline)
+                    lst="{:3d} {:04X}  {:2.2s}{:2.2s}                      {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),srcline)
                 else:
                     w1low=parsed[parsedindex]["w1"][0]
                     w1high=parsed[parsedindex]["w1"][1]
                     binimage[address+2]=w1low
                     binimage[address+3]=w1high
-                    lst="{:3d} {:04X}  {:2.2s}{:2.2s} {:2.2s}{:2.2s}                {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),hex(w1high)[2:].rjust(2, "0"),hex(w1low)[2:].rjust(2, "0"),srcline)
+                    lst="{:3d} {:04X}  {:2.2s}{:2.2s} {:2.2s}{:2.2s}                 {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),hex(w1high)[2:].rjust(2, "0"),hex(w1low)[2:].rjust(2, "0"),srcline)
                 listfile.write(lst.rstrip()+"\r\n")
             elif (parsed[parsedindex]["type"]=="data"):
                 # handle a data element in the parsed data list.
@@ -353,14 +366,13 @@ for srcline in srcfilerecord:
                 address=parsed[parsedindex]["address"]
                 # we need to be able to handle more than 8 bytes, so we will iterate over each 8 byte chunk.
                 dbaleft=sizedba
-                print("size=",sizedba)
                 offset=0
                 while (dbaleft>0):
                     lst="{:3d} {:04X}  ".format(srclineindex,address+offset)
                     for id in range(min(dbaleft,8)):
                         lst+="{:2.2s} ".format(hex(dba[id+offset])[2:].rjust(2, "0"))
                         binimage[address+id+offset]=dba[id+offset]
-                    spacer=" "* (25-3*min(dbaleft,8))
+                    spacer=" "* (26-3*min(dbaleft,8))
                     if (offset==0):
                         lst+=spacer+"{:90.90s}".format(srcline)
                     if (dbaleft>8): dbaleft=dbaleft-8
@@ -375,12 +387,10 @@ for srcline in srcfilerecord:
 listfile.write("\r\n"+"\r\n"+"-"*132+"\r\n")
 listfile.write("Table of Label Values"+"\r\n")
 listfile.write("-"*132+"\r\n")
-listfile.write("Label          Address"+"\r\n")
-listfile.write("----------------------"+"\r\n")
+listfile.write("Label              Address"+"\r\n")
+listfile.write("--------------------------"+"\r\n")
 for (index,pair) in enumerate(labels.items()):
-    print(pair[0])
-    print(pair[1])
-    lst="{:12.12s}   {:04X}".format(pair[0],pair[1])
+    lst="{:12.12s}       {:04X}".format(pair[0],pair[1])
     listfile.write(lst.rstrip()+"\r\n")
 
 listfile.write("\r\n")

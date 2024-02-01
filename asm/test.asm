@@ -10,6 +10,7 @@ start:
         add r3,r4,r5
         add r4,r5,r6
         add r5,r6,r7
+        sub r7,r6,r0
         loadimm r0,#aa55
         shr r0,r1,1
         shr r1,r2,1
@@ -37,5 +38,7 @@ data:
         db 65,66,67,68,69,70,71,72,73,65,66,67,68,69,70,71,72,73,65,66,67,68,69,70,71,72,73
         db 65,67,-1,-2
         dw #aa55,#1122,#2233,#3344,#21,1,-1
+        ds "Testing 1 2 3 This is a test string"
+
 
 
