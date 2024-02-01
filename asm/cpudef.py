@@ -73,28 +73,11 @@ instmnu =      {"nop"    :{"numops":0,"op1":"","op2":"","op3":"","size":1, "opco
 
 def getsingleoperand(operandstring,operandnumber):
     errortxt=""
-    match operandnumber:
-
-        case 1:
-            ro=operandstring.split(",")[0].strip()
-
-        case 2:
-            ro=operandstring.split(",")
-            if (len(ro)>=2):
-                ro=ro[1].strip()
-            else:
-                errortxt="Instruction needs 2 operands but found less than 2"
-                ro=""
-                return (0,errortxt)
-        
-        case 3:
-            ro=operandstring.split(",")
-            if (len(ro)>=3):
-                ro=ro[2].strip()
-            else:
-                errortxt="Instruction needs 2 operands but found less than 2"
-                ro=""
-                return (0,errortxt)
+    ro=""
+    if (operandnumber > len(operandstring.split(","))):
+        errortxt="This instruction or directive needs "+str(operandnumber)+" operands, but less are present."
+    else:
+            ro=operandstring.split(",")[operandnumber-1].strip()
     return (ro,errortxt)
 
 
@@ -142,9 +125,9 @@ def ErrorExit(errortxt):
 
 
 import sys
+from datetime import datetime as dt
 
 srcfilename = sys.argv[1]
-
 if (len(srcfilename)==0):
     ErrorExit("ERROR: Must specifiy source file name.")
 
@@ -157,7 +140,8 @@ try:
     srcfile = open(srcfilename ,"r")
 except:
     ErrorExit("Could not open specified input file:"+srcfilename)
-
+    
+# Phase 1 - Initial read of src, generation of address, parsed data, and label data
 address = 0
 maxaddress = 0
 srcln = 1
@@ -179,102 +163,160 @@ for srcline in srcfile:
             srcline = srcline.split(":",1)[1].strip()
         else:
             srcline = ""
+    # at this point we should have an instruction or a blank line if there is no instruction
     if (len(srcline)!=0):
-        # there is an instruction to parse
+        # there is an instruction/declaration to parse, so lets split it from the rest of the line
         i = srcline.split(" ",1)
         inst = i[0].strip()
 
-        try:
-            size = instmnu[inst]["size"]
-        except KeyError:
-            ErrorExit("Invalid Instruction:"+inst+" ... From line:"+str(srcln))
-
-        if (len(i)>1):
-            # there is also an operand
-            operand=i[1].strip()
-        b0 = (0).to_bytes(2,byteorder='little')
-        b1 = (0).to_bytes(2,byteorder='little')
-        parseline = {"inst":inst, "operand":operand, "address":address , "size":size, "srcln":srcln, "iw0":0, "iw1":0, "w0":b0, "w1":b1}
-        parsed.append(parseline)
-        address = address + (2*size)
-        if (address>maxaddress): maxaddress=address
+        # We will first check and see if this is a data definition, db,dw, or ds
+        if ( (inst=="db") or (inst=="dw") or (inst=="ds") ):
+            if (len(i)>1):
+                # there is also an operand
+                operand=i[1].strip()
+                opcount=operand.count(',')+1
+                match inst:
+                    case "db":
+                        size=1*opcount
+                    case "dw":
+                        size=2*opcount
+                    case "ds":
+                        size=len(operand)
+                parseline = {"type":"data","inst":inst,"operand":operand, "address":address , "size":size, "srcln":srcln, "data":bytearray()}
+                parsed.append(parseline)
+                address = address + size
+        else:
+                try:
+                    size = instmnu[inst]["size"]
+                except KeyError:
+                    ErrorExit("Invalid Instruction:"+inst+" ... From line:"+str(srcln))
+                # we need to make sure the address is an even address since instructions have to start on an even address
+                if ((address&1)==1): address=address+1
+                if (len(i)>1):
+                    # there is also an operand
+                    operand=i[1].strip()
+                b0 = (0).to_bytes(2,byteorder='little')
+                b1 = (0).to_bytes(2,byteorder='little')
+                parseline = {"type":"inst","inst":inst, "operand":operand, "address":address , "size":size, "srcln":srcln, "iw0":0, "iw1":0, "w0":b0, "w1":b1}
+                parsed.append(parseline)
+                address = address + (2*size)
+                if (address>maxaddress): maxaddress=address
     srcln = srcln + 1    
     # lets add what we have to the parsed table
     
 print("*** Starting Phase 2 loop")
 
 for parseinstdata in parsed:
+    type = parseinstdata["type"]
     instruction = parseinstdata["inst"]
     operand = parseinstdata["operand"]
     srclinenumber = parseinstdata["srcln"]
     instaddr = parseinstdata["address"]
+    if (type=="inst"):
+       
+        opcode = instmnu[instruction]["opcode"]
+        numops = instmnu[instruction]["numops"]
+        instsize = instmnu[instruction]["size"]
 
-    opcode = instmnu[instruction]["opcode"]
-    numops = instmnu[instruction]["numops"]
-    instsize = instmnu[instruction]["size"]
+        opnum = 1
+        sela=0
+        selb=0
+        selc=0
+        imm16val=0
 
-    opnum = 1
-    sela=0
-    selb=0
-    selc=0
-    imm16val=0
+        while ( numops >= 1):
+            optype = instmnu[instruction]["op"+str(opnum)]
+            match optype:
+                case "rega":
+                    sela,errortxt = getregisternumber(operand,opnum)
+                    if (len(errortxt)!=0):
+                        ErrorExit(errortxt)
+                case "regb":
+                    selb,errortxt = getregisternumber(operand,opnum)
+                    if (len(errortxt)!=0):
+                        ErrorExit(errortxt)
+                case "regc":
+                    selc,errortxt = getregisternumber(operand,opnum)
+                    if (len(errortxt)!=0):
+                        ErrorExit(errortxt)
+                case "imm16":
+                    imm16val,errortxt = getimmnumber(operand,opnum)
+                    if (len(errortxt)!=0):
+                        # if the imm16 value is not a number, it might be a label.
+                        labelv,errortxt = getsingleoperand(operand,opnum)   
+                        imm16val = labels[labelv]      
+                case "imm3a":
+                    sela,errortxt = getimmnumber(operand,opnum)
+                case "imm16r":
+                    imm16val,errortxt = getimmnumber(operand,opnum)
+                    if (len(errortxt)!=0):
+                        # if the imm16 value is not a number, it might be a label.
+                        labelv,errortxt = getsingleoperand(operand,opnum)   
+                        imm16val = labels[labelv] 
+                    # since this is an imm16 relative instruction we will subtract (the current address+4)   
+                    imm16val = (imm16val-instaddr)-4
+                
+            numops = numops-1
+            opnum = opnum+1
+        inst_enc0 = ((opcode<<9) | (sela) | (selb<<3) | (selc<<6))
+        inst_enc1 = imm16val
+        parseinstdata["iw0"] = inst_enc0
+        parseinstdata["w0"] = (inst_enc0).to_bytes(2,byteorder='little')
+        parseinstdata["iw1"] = inst_enc1
+        if (inst_enc1<0):
+            parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=True)
+        else:
+            parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=False)
+    elif (type=="data"):
+        ba = bytearray()
+        numops = operand.count(',')+1
+        match instruction:
+            case "db":
+                # The number of operands for db and dw is based on how many commas are in the operand.
+                for opnum in range(0,numops):
+                    val,errortxt = getimmnumber(operand,opnum+1)
+                    if (len(errortxt)!=0):
+                        ErrorExit(errortxt)
+                    # if we have a valid value, lets add it to the byte array we are building for this particular line
+                    if (val<0):
+                        ba.extend((val).to_bytes(1,byteorder='little',signed=True))
+                    else:
+                        ba.extend((val).to_bytes(1,byteorder='little',signed=False))
+                # once we have built up the byte array, we will put it back in the parsed data
+                parseinstdata["data"]=ba
+            case "dw":
+                for opnum in range(numops):
+                    val,errortxt = getimmnumber(operand,opnum+1)
+                    if (len(errortxt)!=0):
+                        ErrorExit(errortxt)
+                    # if we have a valid value, lets add it to the byte array we are building for this particular line
+                    # if it is a negative number we will encode it as a signed 2s-complement form, otherwise as unsigned
+                    if (val<0):
+                        ba.extend((val).to_bytes(2,byteorder='little',signed=True))
+                    else:
+                        ba.extend((val).to_bytes(2,byteorder='little',signed=False))
+                # once we have built up the byte array, we will put it back in the parsed data
+                parseinstdata["data"]=ba
+        print(parseinstdata)
 
-    while ( numops >= 1):
-        optype = instmnu[instruction]["op"+str(opnum)]
-        match optype:
-            case "rega":
-                sela,errortxt = getregisternumber(operand,opnum)
-                if (len(errortxt)!=0):
-                    ErrorExit(errortxt)
-            case "regb":
-                selb,errortxt = getregisternumber(operand,opnum)
-                if (len(errortxt)!=0):
-                    ErrorExit(errortxt)
-            case "regc":
-                selc,errortxt = getregisternumber(operand,opnum)
-                if (len(errortxt)!=0):
-                    ErrorExit(errortxt)
-            case "imm16":
-                imm16val,errortxt = getimmnumber(operand,opnum)
-                if (len(errortxt)!=0):
-                    # if the imm16 value is not a number, it might be a label.
-                    labelv,errortxt = getsingleoperand(operand,opnum)   
-                    imm16val = labels[labelv]      
-            case "imm3a":
-                sela,errortxt = getimmnumber(operand,opnum)
-            case "imm16r":
-                imm16val,errortxt = getimmnumber(operand,opnum)
-                if (len(errortxt)!=0):
-                    # if the imm16 value is not a number, it might be a label.
-                    labelv,errortxt = getsingleoperand(operand,opnum)   
-                    imm16val = labels[labelv] 
-                # since this is an imm16 relative instruction we will subtract (the current address+4)   
-                imm16val = (imm16val-instaddr)-4
-            
-        numops = numops-1
-        opnum = opnum+1
-    inst_enc0 = ((opcode<<9) | (sela) | (selb<<3) | (selc<<6))
-    inst_enc1 = imm16val
-    parseinstdata["iw0"] = inst_enc0
-    parseinstdata["w0"] = (inst_enc0).to_bytes(2,byteorder='little')
-    parseinstdata["iw1"] = inst_enc1
-    if (inst_enc1<0):
-        parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=True)
-    else:
-        parseinstdata["w1"] = (inst_enc1).to_bytes(2,byteorder='little',signed=False)
 
-# **** Create the listing file ****
-    
+
+# **** Create the listing and binary output files ****
+
 try:
     listfile = open(srcfilenameroot+".lst","w")
 except:
-    ErrorExit("Could not open list file - "+srcfilenameroot+".lst")
+    ErrorExit("ERROR: Could not open list file - "+srcfilenameroot+".lst")
 # create three bytearrays, one for the regular binary file, one for the low byte file and one for the high byte file
 # we will make the bytearray the size based the max address used rounded up to the nearest 32/16 bytes.
 binimage = bytearray(((int(maxaddress/16))+1)*32)
 binimagel = bytearray(((int(maxaddress/16))+1)*16)
 binimageh = bytearray(((int(maxaddress/16))+1)*16)
-listfile.write("*** List File:"+srcfilename+"\r\n")
+listfile.write("\r\n")
+listfile.write("*** Start of List File:"+srcfilename+"     Completed        "+str(dt.now())+"\r\n")
+listfile.write("\r\n")
+listfile.write("LN# ADDR  DATA                    SOURCE"+"\r\n")
+listfile.write("-"*132+"\r\n")
 parsedindex=0
 srclineindex=1
 
@@ -284,43 +326,98 @@ for srcline in srcfilerecord:
             # we will continue to print the source output in list file until we get to a src line that has
             # an enrty in the parsed list.  Since the parsed list is ordered by srcline, we only need to do
             # one compare until we find a match, then increment to the next parsed list item
-            lst="{:3d}                           {:40.40s}".format(srclineindex,srcline)
+            lst="{:3d}                               {:90.90s}".format(srclineindex,srcline)
+            listfile.write(lst.rstrip()+"\r\n")
         else:
             # if the srcline and srcln are the same
-            w0low=parsed[parsedindex]["w0"][0]
-            w0high=parsed[parsedindex]["w0"][1]
-            address=parsed[parsedindex]["address"]
-            binimage[address]=w0low
-            binimage[address+1]=w0high
-            binimagel[address>>1]=w0low
-            binimageh[address>>1]=w0high
-            if(parsed[parsedindex]["size"]==1):
-                lst="{:3d} {:2.2s}{:2.2s}                     {:40.40s}".format(srclineindex,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),srcline)
-            else:
-                w1low=parsed[parsedindex]["w1"][0]
-                w1high=parsed[parsedindex]["w1"][1]
-                binimage[address+2]=w1low
-                binimage[address+3]=w1high
-                binimagel[(address>>1)+1]=w1low
-                binimageh[(address>>1)+1]=w1high
-                lst="{:3d} {:2.2s}{:2.2s} {:2.2s}{:2.2s}                {:40.40s}".format(srclineindex,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),hex(w1high)[2:].rjust(2, "0"),hex(w1low)[2:].rjust(2, "0"),srcline)
-            parsedindex = parsedindex + 1
-        listfile.write(lst.rstrip()+"\r\n")
-        srclineindex = srclineindex +1
+            if (parsed[parsedindex]["type"]=="inst"):
+                w0low=parsed[parsedindex]["w0"][0]
+                w0high=parsed[parsedindex]["w0"][1]
+                address=parsed[parsedindex]["address"]
+                binimage[address]=w0low
+                binimage[address+1]=w0high
+                if(parsed[parsedindex]["size"]==1):
+                    lst="{:3d} {:04X}  {:2.2s}{:2.2s}                     {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),srcline)
+                else:
+                    w1low=parsed[parsedindex]["w1"][0]
+                    w1high=parsed[parsedindex]["w1"][1]
+                    binimage[address+2]=w1low
+                    binimage[address+3]=w1high
+                    lst="{:3d} {:04X}  {:2.2s}{:2.2s} {:2.2s}{:2.2s}                {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0"),hex(w0low)[2:].rjust(2, "0"),hex(w1high)[2:].rjust(2, "0"),hex(w1low)[2:].rjust(2, "0"),srcline)
+                listfile.write(lst.rstrip()+"\r\n")
+            elif (parsed[parsedindex]["type"]=="data"):
+                # handle a data element in the parsed data list.
+                # First build the item for the list file
+                dba=parsed[parsedindex]["data"]
+                sizedba=parsed[parsedindex]["size"]
+                address=parsed[parsedindex]["address"]
+                # we need to be able to handle more than 8 bytes, so we will iterate over each 8 byte chunk.
+                dbaleft=sizedba
+                print("size=",sizedba)
+                offset=0
+                while (dbaleft>0):
+                    lst="{:3d} {:04X}  ".format(srclineindex,address+offset)
+                    for id in range(min(dbaleft,8)):
+                        lst+="{:2.2s} ".format(hex(dba[id+offset])[2:].rjust(2, "0"))
+                        binimage[address+id+offset]=dba[id+offset]
+                    spacer=" "* (25-3*min(dbaleft,8))
+                    if (offset==0):
+                        lst+=spacer+"{:90.90s}".format(srcline)
+                    if (dbaleft>8): dbaleft=dbaleft-8
+                    else: dbaleft=0
+                    offset=offset+8
+                    listfile.write(lst.rstrip()+"\r\n")
+                # now put the data elements into the actual binary images
 
+            parsedindex = parsedindex + 1
+        
+        srclineindex = srclineindex +1
+listfile.write("\r\n"+"\r\n"+"-"*132+"\r\n")
+listfile.write("Table of Label Values"+"\r\n")
+listfile.write("-"*132+"\r\n")
+listfile.write("Label          Address"+"\r\n")
+listfile.write("----------------------"+"\r\n")
+for (index,pair) in enumerate(labels.items()):
+    print(pair[0])
+    print(pair[1])
+    lst="{:12.12s}   {:04X}".format(pair[0],pair[1])
+    listfile.write(lst.rstrip()+"\r\n")
+
+listfile.write("\r\n")
+listfile.write("*** End of List File:"+srcfilename+"     Completed        "+str(dt.now())+"\r\n")
 listfile.close()
+
+# build the low and high binimage
+
+for index in range(len(binimagel)):
+    binimagel[index]=binimage[index*2]
+    binimageh[index]=binimage[index*2+1]
 
 # output binary files
 
-binfile=open(srcfilenameroot+".bin","wb")
-binfileh=open(srcfilenameroot+".binh","wb")
-binfilel=open(srcfilenameroot+".binl","wb")
-binfile.write(binimage)
-binfilel.write(binimagel)
-binfileh.write(binimageh)
-binfile.close()
-binfileh.close()
-binfilel.close()
+try:
+    binfile=open(srcfilenameroot+".bin","wb")
+    binfile.write(binimage)
+    binfile.close()
+except:
+    ErrorExit("ERROR: Could not write binary output file- "+srcfilenameroot+".bin")
+try:
+    binfileh=open(srcfilenameroot+".binh","wb")
+    binfileh.write(binimageh)
+    binfileh.close()
+except:
+    ErrorExit("ERROR: Could not write binary output file- "+srcfilenameroot+".binh")
+try:
+    binfilel=open(srcfilenameroot+".binl","wb")
+    binfilel.write(binimagel)
+    binfilel.close()
+except:
+    ErrorExit("ERROR: Could not write binary output file- "+srcfilenameroot+".binl")
+
+print("Assembly Complete!")
+
+
+
 
     
  
