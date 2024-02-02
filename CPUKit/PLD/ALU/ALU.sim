@@ -81,7 +81,7 @@ PIN  12 =  FUNC0
 PIN  11 =  FUNC1 
 PIN  10 =  FUNC2 
 PIN  61 =  OVFOut 
-PIN  36 =  UNUSED1 
+PIN  36 =  RESET_IN 
 PIN  39 =  UNUSED2 
 PIN  57 =  UNUSED3 
 PIN   2 =  UNUSED4 
@@ -244,20 +244,62 @@ C0 =>
 
 C1 =>
     ABUS0 & B0
+  # !ABUS0 & !ALU_WC & B0 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ALU_WC & !B0 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ALU_WC & B0 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ALU_WC & !B0 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & B0 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !B0 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 C2 =>
     ABUS1 & B1
   # ABUS0 & !ABUS1 & B0 & B1
   # ABUS0 & ABUS1 & B0 & !B1
+  # !ABUS0 & !ABUS1 & !ALU_WC & B0 & B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ALU_WC & B0 & !B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ALU_WC & !B0 & B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ALU_WC & !B0 & !B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ALU_WC & B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ALU_WC & B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ALU_WC & !B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ALU_WC & !B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !B0 & B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !B0 & !B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & B0 & B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & B0 & !B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 C3 =>
     ABUS2 & B2
   # ABUS1 & !ABUS2 & B1 & B2
   # ABUS1 & ABUS2 & B1 & !B2
-  # ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & B2
-  # ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & !B2
   # ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & B2
   # ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & !B2
+  # ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & B2
+  # ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & !B2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & B0 & B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & B0 & B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ALU_WC & B0 & !B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ALU_WC & B0 & !B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & !B0 & B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & !B0 & B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ALU_WC & !B0 & !B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ALU_WC & !B0 & !B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ALU_WC & B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ALU_WC & B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ALU_WC & B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & !B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ALU_WC & !B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ALU_WC & !B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ALU_WC & !B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !B0 & B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !B0 & B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !B0 & !B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !B0 & !B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 C4 =>
     ABUS3 & B3
@@ -267,14 +309,62 @@ C4 =>
   # ABUS1 & !ABUS2 & ABUS3 & B1 & B2 & !B3
   # ABUS1 & ABUS2 & !ABUS3 & B1 & !B2 & B3
   # ABUS1 & ABUS2 & ABUS3 & B1 & !B2 & !B3
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & B3
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & !B3
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & B3
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & !B3
   # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & B3
   # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & !B3
   # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & B3
   # ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & !B3
-  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & B3
-  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & !B3
-  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & B3
-  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & !B3
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B0 & B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & B0 & B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & B0 & B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !ALU_WC & B0 & B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B0 & !B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & B0 & !B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & B0 & !B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & !ALU_WC & B0 & !B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & !B0 & B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !ALU_WC & !B0 & B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & ALU_WC & B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & ALU_WC & B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & ALU_WC & B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & ALU_WC & B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & ALU_WC & B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & ALU_WC & !B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & ALU_WC & !B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B0 & B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !B0 & B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !B0 & B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !B0 & !B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !B0 & !B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !B0 & !B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & !B0 & !B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 C5 =>
     ABUS4 & B4
@@ -590,18 +680,38 @@ CBUS0.oe  =>
 
 CBUS1 =>
     ABUS1 & !FUNC0 & !FUNC1
-  # ABUS0 & ABUS1 & B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & !ABUS1 & B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & B1 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & ABUS1 & !B1 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS1 & !B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & !B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & ABUS1 & B0 & B1 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ALU_WC & B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ALU_WC & B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ALU_WC & !B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ALU_WC & !B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !B0 & !B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !B0 & B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & B0 & B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & B0 & !B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ALU_WC & B1 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ALU_WC & !B1 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & !ALU_WC & !B0 & B1 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS1 & !ALU_WC & !B0 & !B1 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & !ABUS1 & B0 & !B1 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & B1 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & ABUS1 & !B1 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS1 & !B0 & !B1 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & !B0 & B1 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & B0 & B1 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ALU_WC & B0 & !B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ALU_WC & B0 & B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ALU_WC & !B0 & !B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ALU_WC & !B0 & B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & B1 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !B1 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !B0 & B1 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS1 & !B0 & !B1 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ALU_WC & B1 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ALU_WC & !B1 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & ALU_WC & !B0 & B1 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS1 & ALU_WC & !B0 & !B1 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !B0 & B1 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !B0 & !B1 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & B1 & FUNC0 & FUNC1 & !FUNC2
   # ABUS1 & !B1 & FUNC0 & FUNC1 & !FUNC2
   # B1 & !FUNC0 & !FUNC1 & FUNC2
@@ -616,36 +726,76 @@ CBUS2 =>
     ABUS2 & !FUNC0 & !FUNC1
   # ABUS1 & !ABUS2 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS1 & ABUS2 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS2 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & ABUS2 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS2 & !B0 & B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & ABUS2 & !B0 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ALU_WC & B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ALU_WC & B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ALU_WC & B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & !B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ALU_WC & !B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ALU_WC & !B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ALU_WC & !B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !B0 & B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !B0 & B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !B0 & !B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !B0 & !B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & !B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !ALU_WC & !B1 & B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS2 & !ALU_WC & !B1 & !B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & !ALU_WC & !B0 & B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & ABUS2 & !ALU_WC & !B0 & !B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS2 & !ALU_WC & !B0 & !B1 & B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS2 & !ALU_WC & !B0 & !B1 & !B2 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !B0 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !B0 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS2 & !B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS1 & !ABUS2 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS1 & ABUS2 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS2 & !B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS2 & !B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS1 & !ABUS2 & B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS1 & ABUS2 & B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS2 & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & ABUS2 & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS2 & !B0 & B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & ABUS2 & !B0 & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & B0 & B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & B0 & B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ALU_WC & B0 & !B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ALU_WC & B0 & !B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & !B0 & B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & !B0 & B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ALU_WC & !B0 & !B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ALU_WC & !B0 & !B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !B1 & B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS2 & !B1 & !B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & !B0 & B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & ABUS2 & !B0 & !B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS2 & !B0 & !B1 & B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS2 & !B0 & !B1 & !B2 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ALU_WC & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & ALU_WC & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS2 & ALU_WC & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & ALU_WC & !B0 & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & ABUS2 & ALU_WC & !B0 & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS2 & ALU_WC & !B0 & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS2 & ALU_WC & !B0 & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !B0 & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !B0 & !B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !B0 & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS2 & !B0 & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & !ABUS2 & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & ABUS2 & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS2 & !B0 & !B1 & !B2 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS2 & !B0 & !B1 & B2 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS2 & B2 & FUNC0 & FUNC1 & !FUNC2
   # ABUS2 & !B2 & FUNC0 & FUNC1 & !FUNC2
   # B2 & !FUNC0 & !FUNC1 & FUNC2
@@ -664,72 +814,152 @@ CBUS3 =>
   # ABUS1 & !ABUS2 & ABUS3 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS1 & ABUS2 & !ABUS3 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS1 & ABUS2 & ABUS3 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & ALU_WC & B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & ALU_WC & B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & ALU_WC & B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & ALU_WC & B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & ALU_WC & B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & ALU_WC & !B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & ALU_WC & !B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B0 & B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !B0 & B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !B0 & B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !B0 & !B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !B0 & !B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !B0 & !B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & !B0 & !B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS3 & !ALU_WC & !B2 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS3 & !ALU_WC & !B2 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !ABUS3 & !ALU_WC & !B1 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & ABUS3 & !ALU_WC & !B1 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS3 & !ALU_WC & !B1 & !B2 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS3 & !ALU_WC & !B1 & !B2 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS3 & !ALU_WC & !B0 & !B2 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS1 & ABUS3 & !ALU_WC & !B0 & !B2 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & !B3 & CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS3 & !B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS3 & !B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS1 & !ABUS2 & !ABUS3 & !B1 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS1 & !ABUS2 & ABUS3 & !B1 & !B3 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS1 & !ABUS3 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS1 & ABUS3 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS2 & !ABUS3 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # !ABUS2 & ABUS3 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # ABUS3 & !B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
-  # !ABUS3 & !B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
   # ABUS2 & !ABUS3 & B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS2 & ABUS3 & B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS1 & !ABUS2 & !ABUS3 & B1 & B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS1 & !ABUS2 & ABUS3 & B1 & B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS1 & ABUS2 & !ABUS3 & B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS1 & ABUS2 & ABUS3 & B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B0 & B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & B0 & B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & B0 & B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !ALU_WC & B0 & B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B0 & !B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & B0 & !B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & B0 & !B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & !ALU_WC & B0 & !B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & !B0 & B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !ALU_WC & !B0 & B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS3 & !B0 & !B1 & !B2 & B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS3 & !B0 & !B1 & !B2 & !B3 & !CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS3 & ALU_WC & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS3 & ALU_WC & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !ABUS3 & ALU_WC & !B1 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & ABUS3 & ALU_WC & !B1 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS3 & ALU_WC & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS3 & ALU_WC & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & !ABUS3 & ALU_WC & !B0 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS1 & ABUS3 & ALU_WC & !B0 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS3 & ALU_WC & !B0 & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS3 & ALU_WC & !B0 & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS3 & !B0 & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS3 & !B0 & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & !ABUS2 & !ABUS3 & !B1 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & !ABUS2 & ABUS3 & !B1 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & !ABUS3 & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS1 & ABUS3 & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS2 & !ABUS3 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS2 & ABUS3 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # ABUS3 & !B0 & !B1 & !B2 & !B3 & !FUNC0 & FUNC1 & !FUNC2
-  # !ABUS3 & !B0 & !B1 & !B2 & B3 & !FUNC0 & FUNC1 & !FUNC2
   # !ABUS3 & B3 & FUNC0 & FUNC1 & !FUNC2
   # ABUS3 & !B3 & FUNC0 & FUNC1 & !FUNC2
   # B3 & !FUNC0 & !FUNC1 & FUNC2
@@ -2150,6 +2380,9 @@ CFOut.d  =>
   # !ABUS10 & !ABUS11 & !ABUS12 & !ABUS13 & !ABUS14 & ABUS15 & ALU_CFLATCH & !ALU_FL & B10 & B11 & B12 & B13 & B14 & !B15 & C10 & FUNC0 & !FUNC1 & !FUNC2
   # ALU_CFIN & !ALU_CFLATCH
 
+CFOut.ar  =>
+    !RESET_IN
+
 CFOut.ck  =>
     D_CLK_IN
 
@@ -2585,6 +2818,9 @@ OVFOut.d  =>
   # !ABUS10 & !ABUS11 & !ABUS12 & !ABUS13 & !ABUS14 & !ABUS15 & !ALU_FL & B10 & B11 & B12 & B13 & B14 & !B15 & C10 & !FUNC0 & FUNC1 & !FUNC2
   # ALU_FL & OVFOut
 
+OVFOut.ar  =>
+    !RESET_IN
+
 OVFOut.ck  =>
     D_CLK_IN
 
@@ -2679,68 +2915,390 @@ S0 =>
   # ABUS0 & B0 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 S1 =>
-    !ABUS0 & !ABUS1 & B1
-  # !ABUS0 & ABUS1 & !B1
-  # !ABUS1 & !B0 & B1
-  # ABUS1 & !B0 & !B1
+    !ABUS0 & !ABUS1 & !ALU_WC & B1 & CFOut & FUNC0
+  # !ABUS0 & ABUS1 & !ALU_WC & !B1 & CFOut & FUNC0
+  # !ABUS1 & !ALU_WC & !B0 & B1 & CFOut & FUNC0
+  # ABUS1 & !ALU_WC & !B0 & !B1 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & !ALU_WC & B1 & CFOut & !FUNC1
+  # !ABUS0 & ABUS1 & !ALU_WC & !B1 & CFOut & !FUNC1
+  # !ABUS1 & !ALU_WC & !B0 & B1 & CFOut & !FUNC1
+  # ABUS1 & !ALU_WC & !B0 & !B1 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & B1 & !CFOut & !FUNC0
+  # !ABUS0 & ABUS1 & !B1 & !CFOut & !FUNC0
+  # !ABUS1 & !B0 & B1 & !CFOut & !FUNC0
+  # ABUS1 & !B0 & !B1 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & ALU_WC & B1 & !FUNC0
+  # !ABUS0 & ABUS1 & ALU_WC & !B1 & !FUNC0
+  # !ABUS1 & ALU_WC & !B0 & B1 & !FUNC0
+  # ABUS1 & ALU_WC & !B0 & !B1 & !FUNC0
+  # !ABUS0 & !ABUS1 & B1 & !FUNC0 & !FUNC1
+  # !ABUS0 & ABUS1 & !B1 & !FUNC0 & !FUNC1
+  # !ABUS1 & !B0 & B1 & !FUNC0 & !FUNC1
+  # ABUS1 & !B0 & !B1 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & B1 & !CFOut & FUNC1
+  # !ABUS0 & ABUS1 & !B1 & !CFOut & FUNC1
+  # !ABUS1 & !B0 & B1 & !CFOut & FUNC1
+  # ABUS1 & !B0 & !B1 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & ALU_WC & B1 & FUNC1
+  # !ABUS0 & ABUS1 & ALU_WC & !B1 & FUNC1
+  # !ABUS1 & ALU_WC & !B0 & B1 & FUNC1
+  # ABUS1 & ALU_WC & !B0 & !B1 & FUNC1
+  # !ABUS0 & !ABUS1 & B1 & FUNC0 & FUNC1
+  # !ABUS0 & ABUS1 & !B1 & FUNC0 & FUNC1
+  # !ABUS1 & !B0 & B1 & FUNC0 & FUNC1
+  # ABUS1 & !B0 & !B1 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & B1 & FUNC2
+  # !ABUS0 & ABUS1 & !B1 & FUNC2
+  # !ABUS0 & !ABUS1 & !B0 & B1
+  # !ABUS0 & ABUS1 & !B0 & !B1
+  # !ABUS1 & !B0 & B1 & FUNC2
+  # ABUS1 & !B0 & !B1 & FUNC2
   # ABUS0 & !ABUS1 & B0 & !B1
   # ABUS0 & ABUS1 & B0 & B1
+  # !ABUS0 & !ABUS1 & !ALU_WC & B0 & !B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ALU_WC & B0 & B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ALU_WC & !B0 & !B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ALU_WC & !B0 & B1 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ALU_WC & B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ALU_WC & B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ALU_WC & !B0 & !B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ALU_WC & !B0 & B1 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !B0 & !B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !B0 & B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & B0 & !B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & B0 & B1 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 S2 =>
-    !ABUS0 & !ABUS1 & !ABUS2 & B2
-  # !ABUS0 & !ABUS1 & ABUS2 & !B2
-  # !ABUS0 & !ABUS2 & !B1 & B2
-  # !ABUS0 & ABUS2 & !B1 & !B2
-  # !ABUS1 & !ABUS2 & !B0 & B2
-  # !ABUS1 & ABUS2 & !B0 & !B2
+    !ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & B2 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & !B2 & CFOut & FUNC0
+  # !ABUS0 & !ABUS2 & !ALU_WC & !B1 & B2 & CFOut & FUNC0
+  # !ABUS0 & ABUS2 & !ALU_WC & !B1 & !B2 & CFOut & FUNC0
+  # !ABUS1 & !ABUS2 & !ALU_WC & !B0 & B2 & CFOut & FUNC0
+  # !ABUS1 & ABUS2 & !ALU_WC & !B0 & !B2 & CFOut & FUNC0
+  # !ABUS2 & !ALU_WC & !B0 & !B1 & B2 & CFOut & FUNC0
+  # ABUS2 & !ALU_WC & !B0 & !B1 & !B2 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & B2 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & !B2 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS2 & !ALU_WC & !B1 & B2 & CFOut & !FUNC1
+  # !ABUS0 & ABUS2 & !ALU_WC & !B1 & !B2 & CFOut & !FUNC1
+  # !ABUS1 & !ABUS2 & !ALU_WC & !B0 & B2 & CFOut & !FUNC1
+  # !ABUS1 & ABUS2 & !ALU_WC & !B0 & !B2 & CFOut & !FUNC1
+  # !ABUS2 & !ALU_WC & !B0 & !B1 & B2 & CFOut & !FUNC1
+  # ABUS2 & !ALU_WC & !B0 & !B1 & !B2 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS2 & !B1 & B2 & !CFOut & !FUNC0
+  # !ABUS0 & ABUS2 & !B1 & !B2 & !CFOut & !FUNC0
+  # !ABUS1 & !ABUS2 & !B0 & B2 & !CFOut & !FUNC0
+  # !ABUS1 & ABUS2 & !B0 & !B2 & !CFOut & !FUNC0
+  # !ABUS2 & !B0 & !B1 & B2 & !CFOut & !FUNC0
+  # ABUS2 & !B0 & !B1 & !B2 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & B2 & !FUNC0
+  # !ABUS0 & !ABUS1 & ABUS2 & ALU_WC & !B2 & !FUNC0
+  # !ABUS0 & !ABUS2 & ALU_WC & !B1 & B2 & !FUNC0
+  # !ABUS0 & ABUS2 & ALU_WC & !B1 & !B2 & !FUNC0
+  # !ABUS1 & !ABUS2 & ALU_WC & !B0 & B2 & !FUNC0
+  # !ABUS1 & ABUS2 & ALU_WC & !B0 & !B2 & !FUNC0
+  # !ABUS2 & ALU_WC & !B0 & !B1 & B2 & !FUNC0
+  # ABUS2 & ALU_WC & !B0 & !B1 & !B2 & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS2 & !B1 & B2 & !FUNC0 & !FUNC1
+  # !ABUS0 & ABUS2 & !B1 & !B2 & !FUNC0 & !FUNC1
+  # !ABUS1 & !ABUS2 & !B0 & B2 & !FUNC0 & !FUNC1
+  # !ABUS1 & ABUS2 & !B0 & !B2 & !FUNC0 & !FUNC1
+  # !ABUS2 & !B0 & !B1 & B2 & !FUNC0 & !FUNC1
+  # ABUS2 & !B0 & !B1 & !B2 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS2 & !B1 & B2 & !CFOut & FUNC1
+  # !ABUS0 & ABUS2 & !B1 & !B2 & !CFOut & FUNC1
+  # !ABUS1 & !ABUS2 & !B0 & B2 & !CFOut & FUNC1
+  # !ABUS1 & ABUS2 & !B0 & !B2 & !CFOut & FUNC1
+  # !ABUS2 & !B0 & !B1 & B2 & !CFOut & FUNC1
+  # ABUS2 & !B0 & !B1 & !B2 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & B2 & FUNC1
+  # !ABUS0 & !ABUS1 & ABUS2 & ALU_WC & !B2 & FUNC1
+  # !ABUS0 & !ABUS2 & ALU_WC & !B1 & B2 & FUNC1
+  # !ABUS0 & ABUS2 & ALU_WC & !B1 & !B2 & FUNC1
+  # !ABUS1 & !ABUS2 & ALU_WC & !B0 & B2 & FUNC1
+  # !ABUS1 & ABUS2 & ALU_WC & !B0 & !B2 & FUNC1
+  # !ABUS2 & ALU_WC & !B0 & !B1 & B2 & FUNC1
+  # ABUS2 & ALU_WC & !B0 & !B1 & !B2 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS2 & !B1 & B2 & FUNC0 & FUNC1
+  # !ABUS0 & ABUS2 & !B1 & !B2 & FUNC0 & FUNC1
+  # !ABUS1 & !ABUS2 & !B0 & B2 & FUNC0 & FUNC1
+  # !ABUS1 & ABUS2 & !B0 & !B2 & FUNC0 & FUNC1
+  # !ABUS2 & !B0 & !B1 & B2 & FUNC0 & FUNC1
+  # ABUS2 & !B0 & !B1 & !B2 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & B2 & FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !B2 & FUNC2
+  # !ABUS0 & !ABUS2 & !B1 & B2 & FUNC2
+  # !ABUS0 & ABUS2 & !B1 & !B2 & FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !B0 & B2
+  # !ABUS0 & !ABUS1 & ABUS2 & !B0 & !B2
+  # !ABUS0 & !ABUS2 & !B0 & !B1 & B2
+  # !ABUS0 & ABUS2 & !B0 & !B1 & !B2
+  # !ABUS1 & !ABUS2 & !B0 & B2 & FUNC2
+  # !ABUS1 & ABUS2 & !B0 & !B2 & FUNC2
   # !ABUS1 & !ABUS2 & !B1 & B2
   # !ABUS1 & ABUS2 & !B1 & !B2
-  # !ABUS2 & !B0 & !B1 & B2
-  # ABUS2 & !B0 & !B1 & !B2
+  # !ABUS2 & !B0 & !B1 & B2 & FUNC2
+  # ABUS2 & !B0 & !B1 & !B2 & FUNC2
   # ABUS1 & !ABUS2 & B1 & !B2
   # ABUS1 & ABUS2 & B1 & B2
-  # ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & !B2
-  # ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & B2
   # ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2
   # ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2
+  # ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & !B2
+  # ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & B2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & B0 & B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & B0 & B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ALU_WC & B0 & !B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ALU_WC & B0 & !B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ALU_WC & !B0 & B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ALU_WC & !B0 & B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ALU_WC & !B0 & !B1 & !B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ALU_WC & !B0 & !B1 & B2 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ALU_WC & B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ALU_WC & B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ALU_WC & B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ALU_WC & !B0 & B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ALU_WC & !B0 & B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ALU_WC & !B0 & !B1 & !B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ALU_WC & !B0 & !B1 & B2 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !B0 & B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !B0 & B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !B0 & !B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !B0 & !B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & B0 & !B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & B0 & !B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & B0 & B1 & !B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & B0 & B1 & B2 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 S3 =>
-    !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3
-  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3
-  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3
-  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3
-  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3
-  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3
-  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3
-  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3
-  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3
-  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3
-  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3
-  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3
+    !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS3 & !ALU_WC & !B2 & B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & ABUS3 & !ALU_WC & !B2 & !B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS2 & !ABUS3 & !ALU_WC & !B1 & B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS2 & ABUS3 & !ALU_WC & !B1 & !B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS3 & !ALU_WC & !B1 & !B2 & B3 & CFOut & FUNC0
+  # !ABUS0 & ABUS3 & !ALU_WC & !B1 & !B2 & !B3 & CFOut & FUNC0
+  # !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & B3 & CFOut & FUNC0
+  # !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B3 & CFOut & FUNC0
+  # !ABUS1 & !ABUS3 & !ALU_WC & !B0 & !B2 & B3 & CFOut & FUNC0
+  # !ABUS1 & ABUS3 & !ALU_WC & !B0 & !B2 & !B3 & CFOut & FUNC0
+  # !ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & B3 & CFOut & FUNC0
+  # !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & !B3 & CFOut & FUNC0
+  # !ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & B3 & CFOut & FUNC0
+  # ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & !B3 & CFOut & FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS3 & !ALU_WC & !B2 & B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & ABUS3 & !ALU_WC & !B2 & !B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS2 & !ABUS3 & !ALU_WC & !B1 & B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS2 & ABUS3 & !ALU_WC & !B1 & !B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS3 & !ALU_WC & !B1 & !B2 & B3 & CFOut & !FUNC1
+  # !ABUS0 & ABUS3 & !ALU_WC & !B1 & !B2 & !B3 & CFOut & !FUNC1
+  # !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & B3 & CFOut & !FUNC1
+  # !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B3 & CFOut & !FUNC1
+  # !ABUS1 & !ABUS3 & !ALU_WC & !B0 & !B2 & B3 & CFOut & !FUNC1
+  # !ABUS1 & ABUS3 & !ALU_WC & !B0 & !B2 & !B3 & CFOut & !FUNC1
+  # !ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & B3 & CFOut & !FUNC1
+  # !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & !B3 & CFOut & !FUNC1
+  # !ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & B3 & CFOut & !FUNC1
+  # ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & !B3 & CFOut & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & !CFOut & !FUNC0
+  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & !CFOut & !FUNC0
+  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & !CFOut & !FUNC0
+  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & !CFOut & !FUNC0
+  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & !CFOut & !FUNC0
+  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & !CFOut & !FUNC0
+  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & !CFOut & !FUNC0
+  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & !CFOut & !FUNC0
+  # !ABUS3 & !B0 & !B1 & !B2 & B3 & !CFOut & !FUNC0
+  # ABUS3 & !B0 & !B1 & !B2 & !B3 & !CFOut & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B3 & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B3 & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS3 & ALU_WC & !B2 & B3 & !FUNC0
+  # !ABUS0 & !ABUS1 & ABUS3 & ALU_WC & !B2 & !B3 & !FUNC0
+  # !ABUS0 & !ABUS2 & !ABUS3 & ALU_WC & !B1 & B3 & !FUNC0
+  # !ABUS0 & !ABUS2 & ABUS3 & ALU_WC & !B1 & !B3 & !FUNC0
+  # !ABUS0 & !ABUS3 & ALU_WC & !B1 & !B2 & B3 & !FUNC0
+  # !ABUS0 & ABUS3 & ALU_WC & !B1 & !B2 & !B3 & !FUNC0
+  # !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & B3 & !FUNC0
+  # !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & !B3 & !FUNC0
+  # !ABUS1 & !ABUS3 & ALU_WC & !B0 & !B2 & B3 & !FUNC0
+  # !ABUS1 & ABUS3 & ALU_WC & !B0 & !B2 & !B3 & !FUNC0
+  # !ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & B3 & !FUNC0
+  # !ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & !B3 & !FUNC0
+  # !ABUS3 & ALU_WC & !B0 & !B1 & !B2 & B3 & !FUNC0
+  # ABUS3 & ALU_WC & !B0 & !B1 & !B2 & !B3 & !FUNC0
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & !FUNC0 & !FUNC1
+  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & !FUNC0 & !FUNC1
+  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & !FUNC0 & !FUNC1
+  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS3 & !B0 & !B1 & !B2 & B3 & !FUNC0 & !FUNC1
+  # ABUS3 & !B0 & !B1 & !B2 & !B3 & !FUNC0 & !FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & !CFOut & FUNC1
+  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & !CFOut & FUNC1
+  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & !CFOut & FUNC1
+  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & !CFOut & FUNC1
+  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & !CFOut & FUNC1
+  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & !CFOut & FUNC1
+  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & !CFOut & FUNC1
+  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & !CFOut & FUNC1
+  # !ABUS3 & !B0 & !B1 & !B2 & B3 & !CFOut & FUNC1
+  # ABUS3 & !B0 & !B1 & !B2 & !B3 & !CFOut & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B3 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B3 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS3 & ALU_WC & !B2 & B3 & FUNC1
+  # !ABUS0 & !ABUS1 & ABUS3 & ALU_WC & !B2 & !B3 & FUNC1
+  # !ABUS0 & !ABUS2 & !ABUS3 & ALU_WC & !B1 & B3 & FUNC1
+  # !ABUS0 & !ABUS2 & ABUS3 & ALU_WC & !B1 & !B3 & FUNC1
+  # !ABUS0 & !ABUS3 & ALU_WC & !B1 & !B2 & B3 & FUNC1
+  # !ABUS0 & ABUS3 & ALU_WC & !B1 & !B2 & !B3 & FUNC1
+  # !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & B3 & FUNC1
+  # !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & !B3 & FUNC1
+  # !ABUS1 & !ABUS3 & ALU_WC & !B0 & !B2 & B3 & FUNC1
+  # !ABUS1 & ABUS3 & ALU_WC & !B0 & !B2 & !B3 & FUNC1
+  # !ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & B3 & FUNC1
+  # !ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & !B3 & FUNC1
+  # !ABUS3 & ALU_WC & !B0 & !B1 & !B2 & B3 & FUNC1
+  # ABUS3 & ALU_WC & !B0 & !B1 & !B2 & !B3 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & FUNC0 & FUNC1
+  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & FUNC0 & FUNC1
+  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & FUNC0 & FUNC1
+  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & FUNC0 & FUNC1
+  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & FUNC0 & FUNC1
+  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & FUNC0 & FUNC1
+  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & FUNC0 & FUNC1
+  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & FUNC0 & FUNC1
+  # !ABUS3 & !B0 & !B1 & !B2 & B3 & FUNC0 & FUNC1
+  # ABUS3 & !B0 & !B1 & !B2 & !B3 & FUNC0 & FUNC1
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B3 & FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B3 & FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B2 & B3 & FUNC2
+  # !ABUS0 & !ABUS1 & ABUS3 & !B2 & !B3 & FUNC2
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B1 & B3 & FUNC2
+  # !ABUS0 & !ABUS2 & ABUS3 & !B1 & !B3 & FUNC2
+  # !ABUS0 & !ABUS3 & !B1 & !B2 & B3 & FUNC2
+  # !ABUS0 & ABUS3 & !B1 & !B2 & !B3 & FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3
+  # !ABUS0 & !ABUS1 & !ABUS3 & !B0 & !B2 & B3
+  # !ABUS0 & !ABUS1 & ABUS3 & !B0 & !B2 & !B3
+  # !ABUS0 & !ABUS2 & !ABUS3 & !B0 & !B1 & B3
+  # !ABUS0 & !ABUS2 & ABUS3 & !B0 & !B1 & !B3
+  # !ABUS0 & !ABUS3 & !B0 & !B1 & !B2 & B3
+  # !ABUS0 & ABUS3 & !B0 & !B1 & !B2 & !B3
+  # !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B3 & FUNC2
+  # !ABUS1 & !ABUS2 & ABUS3 & !B0 & !B3 & FUNC2
+  # !ABUS1 & !ABUS3 & !B0 & !B2 & B3 & FUNC2
+  # !ABUS1 & ABUS3 & !B0 & !B2 & !B3 & FUNC2
   # !ABUS1 & !ABUS2 & !ABUS3 & !B1 & B3
   # !ABUS1 & !ABUS2 & ABUS3 & !B1 & !B3
   # !ABUS1 & !ABUS3 & !B1 & !B2 & B3
   # !ABUS1 & ABUS3 & !B1 & !B2 & !B3
-  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3
-  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3
+  # !ABUS2 & !ABUS3 & !B0 & !B1 & B3 & FUNC2
+  # !ABUS2 & ABUS3 & !B0 & !B1 & !B3 & FUNC2
   # !ABUS2 & !ABUS3 & !B2 & B3
   # !ABUS2 & ABUS3 & !B2 & !B3
-  # !ABUS3 & !B0 & !B1 & !B2 & B3
-  # ABUS3 & !B0 & !B1 & !B2 & !B3
+  # !ABUS3 & !B0 & !B1 & !B2 & B3 & FUNC2
+  # ABUS3 & !B0 & !B1 & !B2 & !B3 & FUNC2
   # ABUS2 & !ABUS3 & B2 & !B3
   # ABUS2 & ABUS3 & B2 & B3
   # ABUS1 & !ABUS2 & !ABUS3 & B1 & B2 & !B3
   # ABUS1 & !ABUS2 & ABUS3 & B1 & B2 & B3
   # ABUS1 & ABUS2 & !ABUS3 & B1 & !B2 & !B3
   # ABUS1 & ABUS2 & ABUS3 & B1 & !B2 & B3
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3
   # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & !B3
   # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & B3
   # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & !B3
   # ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & B3
-  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3
-  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3
-  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3
-  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B0 & B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & B0 & B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & B0 & B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !ALU_WC & B0 & B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & B0 & !B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & B0 & !B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & B0 & !B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & !ALU_WC & B0 & !B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & !B0 & B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !ALU_WC & !B0 & B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & !B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & !ALU_WC & !B0 & !B1 & !B2 & B3 & CFOut & !FUNC0 & FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & ALU_WC & B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & ALU_WC & B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & ALU_WC & B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & ALU_WC & B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & ALU_WC & B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & ALU_WC & !B0 & B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & ALU_WC & !B0 & B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & ALU_WC & !B0 & !B1 & !B2 & !B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & ALU_WC & !B0 & !B1 & !B2 & B3 & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & !B0 & B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & !B0 & B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & !B0 & B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & !ABUS1 & ABUS2 & ABUS3 & !B0 & B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & !B0 & !B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & !ABUS2 & ABUS3 & !B0 & !B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & !ABUS3 & !B0 & !B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # ABUS0 & ABUS1 & ABUS2 & ABUS3 & !B0 & !B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & !ABUS3 & B0 & !B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & !ABUS2 & ABUS3 & B0 & !B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & !ABUS3 & B0 & !B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & ABUS1 & ABUS2 & ABUS3 & B0 & !B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & !ABUS3 & B0 & B1 & !B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & ABUS2 & ABUS3 & B0 & B1 & !B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & !ABUS3 & B0 & B1 & B2 & !B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
+  # !ABUS0 & !ABUS1 & !ABUS2 & ABUS3 & B0 & B1 & B2 & B3 & !CFOut & FUNC0 & !FUNC1 & !FUNC2
 
 S4 =>
     !ABUS4 & B4 & !C4
@@ -3270,14 +3828,16 @@ S15 =>
   # !ABUS10 & !ABUS11 & !ABUS12 & !ABUS13 & !ABUS14 & !ABUS15 & B10 & B11 & B12 & B13 & B14 & !B15 & C10
   # !ABUS10 & !ABUS11 & !ABUS12 & !ABUS13 & !ABUS14 & ABUS15 & B10 & B11 & B12 & B13 & B14 & B15 & C10
 
-UNUSED1 =>
-    UNUSED2
-  # UNUSED3
+UNUSED2 =>
+    UNUSED3
   # UNUSED4
 
 ZFOut.d  =>
     !ALU_FL & !CBUS0 & !CBUS1 & !CBUS2 & !CBUS3 & !CBUS4 & !CBUS5 & !CBUS6 & !CBUS7 & !CBUS8 & !CBUS9 & !CBUS10 & !CBUS11 & !CBUS12 & !CBUS13 & !CBUS14 & !CBUS15
   # ALU_FL & ZFOut
+
+ZFOut.ar  =>
+    !RESET_IN
 
 ZFOut.ck  =>
     D_CLK_IN
