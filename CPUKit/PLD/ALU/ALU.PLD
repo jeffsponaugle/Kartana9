@@ -31,12 +31,12 @@ Pin[60]  = CFOut;
 Pin[61]  = OVFOut;
 Pin[5]  = ZFOut;
 
-Pin[36] = UNUSED1;
+Pin[36] = RESET_IN;
 Pin[39] = UNUSED2;
 Pin[57] = UNUSED3;
 Pin[2]  = UNUSED4;
 
-UNUSED1 = UNUSED2 # UNUSED3 # UNUSED4;
+UNUSED2 = UNUSED3 # UNUSED4;
 
 /* Internal Nodes */
 PINNODE = [C4..10];
@@ -168,18 +168,21 @@ CarryOut = C16;
 
 CFOut.d = ( ALU_CFLATCH & ((aluop:['d'1,'d'2] & !ALU_FL & CarryOut) # ( (ALU_FL) & CFOut))) # (!ALU_CFLATCH & ALU_CFIN);
 CFOut.ck = D_CLK_IN;
+CFOut.ar = !RESET_IN;
 
 ZeroValue = CBUS0 # CBUS1 # CBUS2 # CBUS3 # CBUS4 # CBUS5 # CBUS6 # CBUS7 # CBUS8 
             # CBUS9 # CBUS10 # CBUS11 # CBUS12 # CBUS13 # CBUS14 # CBUS15;
             
 ZFOut.d = (!ALU_FL & (!ZeroValue)) # ( (ALU_FL) & ZFOut);
 ZFOut.ck = D_CLK_IN;
+ZFOut.ar = !RESET_IN;
 
 /* Overflow is calcualted by XOR of Carry Into the sign bit with the Carry Out of the sign bit.
    The overflow flag is set on ADD or SUB, and cleaed during AND,OR,XOR, NOT operations */
 
 OVFOut.d = (aluop:['d'1,'d'2] & !ALU_FL & (C15 $ C16)) # ( (ALU_FL) & OVFOut);
 OVFOut.ck = D_CLK_IN;
+OVFOut.ar = !RESET_IN;
 
 /*
 
