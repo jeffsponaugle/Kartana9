@@ -166,7 +166,12 @@ CarryOut = C16;
    ALU_CFIN.  This is used to set the carry flag during shift operations, as well as a complement carry 
    instruction. */
 
-CFOut.d = ( ALU_CFLATCH & ((aluop:['d'1,'d'2] & !ALU_FL & CarryOut) # ( (ALU_FL) & CFOut))) # (!ALU_CFLATCH & ALU_CFIN);
+CFOut.d =   (ALU_CFLATCH & (
+                         (aluop:['d'1] & !ALU_FL & !CarryOut) 
+                       # (aluop:['d'2] & !ALU_FL & CarryOut)
+                       # ( (ALU_FL) & CFOut))
+            ) 
+          # (!ALU_CFLATCH & ALU_CFIN);
 CFOut.ck = D_CLK_IN;
 CFOut.ar = !RESET_IN;
 
