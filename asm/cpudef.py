@@ -328,7 +328,7 @@ binimageh = bytearray(((int(maxaddress/16))+1)*16)
 listfile.write("\r\n")
 listfile.write("*** Start of List File:"+srcfilename+"     Completed        "+str(dt.now())+"\r\n")
 listfile.write("\r\n")
-listfile.write("LN# ADDR  DATA                    SOURCE"+"\r\n")
+listfile.write("LN# ADDR  OPCD DATA                    SOURCE"+"\r\n")
 listfile.write("-"*132+"\r\n")
 parsedindex=0
 srclineindex=1
@@ -347,16 +347,17 @@ for srcline in srcfilerecord:
                 w0low=parsed[parsedindex]["w0"][0]
                 w0high=parsed[parsedindex]["w0"][1]
                 address=parsed[parsedindex]["address"]
+                opcode=instmnu[parsed[parsedindex]["inst"]]["opcode"]
                 binimage[address]=w0low
                 binimage[address+1]=w0high
                 if(parsed[parsedindex]["size"]==1):
-                    lst="{:3d} {:04X}  {:2.2s}{:2.2s}                      {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0").upper(),hex(w0low)[2:].rjust(2, "0").upper(),srcline)
+                    lst="{:3d} {:04X}  ({:02X}) {:2.2s}{:2.2s}                      {:90.90s}".format(srclineindex,address,opcode,hex(w0high)[2:].rjust(2, "0").upper(),hex(w0low)[2:].rjust(2, "0").upper(),srcline)
                 else:
                     w1low=parsed[parsedindex]["w1"][0]
                     w1high=parsed[parsedindex]["w1"][1]
                     binimage[address+2]=w1low
                     binimage[address+3]=w1high
-                    lst="{:3d} {:04X}  {:2.2s}{:2.2s} {:2.2s}{:2.2s}                 {:90.90s}".format(srclineindex,address,hex(w0high)[2:].rjust(2, "0").upper(),hex(w0low)[2:].rjust(2, "0").upper(),hex(w1high)[2:].rjust(2, "0").upper(),hex(w1low)[2:].rjust(2, "0").upper(),srcline)
+                    lst="{:3d} {:04X}  ({:02X}) {:2.2s}{:2.2s} {:2.2s}{:2.2s}                 {:90.90s}".format(srclineindex,address,opcode, hex(w0high)[2:].rjust(2, "0").upper(),hex(w0low)[2:].rjust(2, "0").upper(),hex(w1high)[2:].rjust(2, "0").upper(),hex(w1low)[2:].rjust(2, "0").upper(),srcline)
                 listfile.write(lst.rstrip()+"\r\n")
             elif (parsed[parsedindex]["type"]=="data"):
                 # handle a data element in the parsed data list.
@@ -368,7 +369,7 @@ for srcline in srcfilerecord:
                 dbaleft=sizedba
                 offset=0
                 while (dbaleft>0):
-                    lst="{:3d} {:04X}  ".format(srclineindex,address+offset)
+                    lst="{:3d} {:04X}       ".format(srclineindex,address+offset)
                     for id in range(min(dbaleft,8)):
                         lst+="{:2.2s} ".format(hex(dba[id+offset])[2:].rjust(2, "0").upper())
                         binimage[address+id+offset]=dba[id+offset]

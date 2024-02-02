@@ -20,18 +20,21 @@ start:
         loadimm r1,1
         addc r0,r1,r2   ; r2 should be 2, since 1+0+CF = 2 CF will clear
         nop
-        loadimm r0,#F000
-        loadimm r1,#2000
-        add r0,r1,r5     ;r5=#1000, ovf=1, cf=1
+        loadimm r0,#9000
+        loadimm r1,#A000
+        add r0,r1,r5     ;r5=#3000, ovf=1, cf=1
         loadimm r0,10
         loadimm r1,2
         sub r0,r1,r2    ; r2=8, ZF,CF,OV=0
         loadimm r0,10
         loadimm r1,11   
-        sub r0,r1,r2    ; r2=FFFF, CF=1, OV=1, ZF=0
+        sub r0,r1,r2    ; r2=FFFF, CF=1, OV=0, ZF=0
         nop
         subc r0,r1,r2   ; since carry flag should be 1 coming in, this should subtract and additional vluae, r2=fffe
         nop
+        loadimm r0,#9000
+        loadimm r1,#4000
+        sub r0,r1,r2    ; r2=5000, CF=0, OV=1, ZF=0
         jmpi start
         
 data:
