@@ -1,4 +1,4 @@
-Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Wed Jan 24 13:47:27 2024
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Fri Feb 02 20:16:15 2024
 
 
 fit1508 C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt2 -CUPL -dev P1508C84 -JTAG ON
@@ -58,6 +58,10 @@ Info: C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL uses 95% of the pins available in
 ---------------------------------------------------------
  Fitter_Pass 2, Preassign = KEEP, CASCADE_LOGIC : (TRY) 
  ... 
+ ## Warning : Placement fail 
+---------------------------------------------------------
+ Fitter_Pass 3, Preassign = KEEP, CASCADE_LOGIC : (OFF) 
+ ... 
 
 Performing global Output Enable pin assignments ...
 
@@ -83,33 +87,36 @@ UNUSED9 assigned to pin  84
 
 Attempt to place floating signals ...
 ------------------------------------
-XXL_239 is placed at feedback node 601 (MC 1)
-XXL_233 is placed at feedback node 602 (MC 2)
+XXL_238 is placed at feedback node 601 (MC 1)
+XXL_237 is placed at feedback node 602 (MC 2)
 IR2_OE is placed at pin 12 (MC 3)
-XXL_237 is placed at feedback node 604 (MC 4)
+XXL_236 is placed at feedback node 604 (MC 4)
 H2L_OE is placed at pin 11 (MC 5)
 IR2_LATCH is placed at pin 10 (MC 6)
-XXL_230 is placed at feedback node 607 (MC 7)
+XXL_232 is placed at feedback node 607 (MC 7)
 DB_DIR is placed at pin 9 (MC 8)
-XXL_236 is placed at feedback node 609 (MC 9)
-XXL_234 is placed at feedback node 610 (MC 10)
+XXL_230 is placed at feedback node 609 (MC 9)
+XXL_235 is placed at feedback node 610 (MC 10)
 ALU_WC is placed at pin 8 (MC 11)
-XXL_231 is placed at feedback node 612 (MC 12)
+XXL_233 is placed at feedback node 612 (MC 12)
 DBH_OE is placed at pin 6 (MC 13)
 ALU_FL is placed at pin 5 (MC 14)
+XXL_231 is placed at feedback node 615 (MC 15)
 ALU_OE is placed at pin 4 (MC 16)
 SP_BBOE is placed at pin 22 (MC 17)
 SHFT_WC is placed at pin 21 (MC 19)
 SHFT_AR is placed at pin 20 (MC 21)
+XXL_243 is placed at feedback node 623 (MC 23)
 SP_ADOE is placed at pin 18 (MC 24)
 SFT_DIR is placed at pin 17 (MC 25)
+XXL_241 is placed at feedback node 626 (MC 26)
 PC_BBOE is placed at pin 16 (MC 27)
-XXL_235 is placed at feedback node 628 (MC 28)
+XXL_234 is placed at feedback node 628 (MC 28)
 RF_CWE is placed at pin 15 (MC 29)
-XXL_232 is placed at feedback node 630 (MC 30)
-XXL_240 is placed at feedback node 631 (MC 31)
+XXL_242 is placed at feedback node 630 (MC 30)
+XXL_239 is placed at feedback node 631 (MC 31)
 TDI is placed at pin 14 (MC 32)
-XXL_238 is placed at feedback node 632 (MC 32)
+XXL_240 is placed at feedback node 632 (MC 32)
 PC_MODE2 is placed at pin 31 (MC 35)
 RF_FHZ is placed at pin 30 (MC 37)
 H2L_DIR is placed at pin 29 (MC 38)
@@ -225,117 +232,128 @@ NC = Unused I/O pins which must be unconnected on the board
 
 Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
-FanIn assignment for block A [12]
+FanIn assignment for block A [15]
 {
 AD0,
+B_CLK_IN,
 CSM0,CSM1,
-OPCB0,OPCB1,OPCB3,OPCB2,OPCB5,OPCB6,OPCB4,
+OPCB1,OPCB0,OPCB2,OPCB3,OPCB5,OPCB4,OPCB6,
 RESET_IN,
-XXL_230,
+XXL_241,XXL_230,XXL_240,
 }
 Multiplexer assignment for block A
-XXL_230			(MC1	FB)  : MUX 0		Ref (A7fb)
-OPCB0			(MC11	P)   : MUX 1		Ref (F86p)
-AD0			(MC12	P)   : MUX 4		Ref (F93p)
-OPCB1			(MC7	P)   : MUX 7		Ref (E65p)
-CSM0			(MC2	P)   : MUX 8		Ref (F94p)
-OPCB3			(MC9	P)   : MUX 11		Ref (E67p)
-OPCB2			(MC8	P)   : MUX 13		Ref (F85p)
-RESET_IN		(MC6	FB)  : MUX 14		Ref (GCLR)
-OPCB5			(MC5	P)   : MUX 21		Ref (F88p)
-CSM1			(MC3	P)   : MUX 22		Ref (G109p)
-OPCB6			(MC10	P)   : MUX 24		Ref (F91p)
-OPCB4			(MC4	P)   : MUX 27		Ref (F83p)
+XXL_241			(MC2	FB)  : MUX 3		Ref (B26fb)
+AD0			(MC15	P)   : MUX 4		Ref (F93p)
+OPCB1			(MC10	P)   : MUX 7		Ref (E65p)
+CSM0			(MC4	P)   : MUX 8		Ref (F94p)
+OPCB0			(MC9	P)   : MUX 11		Ref (F86p)
+OPCB2			(MC13	P)   : MUX 13		Ref (F85p)
+RESET_IN		(MC8	FB)  : MUX 14		Ref (GCLR)
+OPCB3			(MC11	P)   : MUX 15		Ref (E67p)
+OPCB5			(MC7	P)   : MUX 17		Ref (F88p)
+CSM1			(MC5	P)   : MUX 22		Ref (G109p)
+B_CLK_IN		(MC14	P)   : MUX 23		Ref (G99p)
+OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
+XXL_230			(MC1	FB)  : MUX 31		Ref (A9fb)
+OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
+XXL_240			(MC3	FB)  : MUX 37		Ref (B32fb)
 
 FanIn assignment for block B [13]
 {
 CSM1,CSM0,
-OPCB4,OPCB5,OPCB0,OPCB2,OPCB3,OPCB6,OPCB1,
+OPCB0,OPCB5,OPCB3,OPCB4,OPCB6,OPCB2,OPCB1,
 RESET_IN,
-XXL_238,XXL_240,XXL_239,
+XXL_237,XXL_239,XXL_238,
 }
 Multiplexer assignment for block B
-OPCB4			(MC6	P)   : MUX 1		Ref (F83p)
+OPCB0			(MC9	P)   : MUX 1		Ref (F86p)
 RESET_IN		(MC8	FB)  : MUX 2		Ref (GCLR)
 OPCB5			(MC7	P)   : MUX 3		Ref (F88p)
 CSM1			(MC5	P)   : MUX 4		Ref (G109p)
-XXL_238			(MC3	FB)  : MUX 7		Ref (B32fb)
 CSM0			(MC4	P)   : MUX 8		Ref (F94p)
-OPCB0			(MC13	P)   : MUX 11		Ref (F86p)
-XXL_240			(MC2	FB)  : MUX 25		Ref (B31fb)
-XXL_239			(MC1	FB)  : MUX 26		Ref (A1fb)
-OPCB2			(MC10	P)   : MUX 31		Ref (F85p)
-OPCB3			(MC11	P)   : MUX 33		Ref (E67p)
-OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
-OPCB1			(MC9	P)   : MUX 39		Ref (E65p)
+XXL_237			(MC2	FB)  : MUX 10		Ref (A2fb)
+OPCB3			(MC11	P)   : MUX 11		Ref (E67p)
+OPCB4			(MC6	P)   : MUX 13		Ref (F83p)
+OPCB6			(MC12	P)   : MUX 16		Ref (F91p)
+XXL_239			(MC3	FB)  : MUX 25		Ref (B31fb)
+XXL_238			(MC1	FB)  : MUX 26		Ref (A1fb)
+OPCB2			(MC13	P)   : MUX 31		Ref (F85p)
+OPCB1			(MC10	P)   : MUX 39		Ref (E65p)
 
-FanIn assignment for block C [15]
+FanIn assignment for block C [16]
 {
+B_CLK_IN,
 CSM0,CSM1,
 HALT,
-OPCB5,OPCB1,OPCB0,OPCB4,OPCB3,OPCB6,OPCB2,
+OPCB0,OPCB5,OPCB1,OPCB2,OPCB4,OPCB6,OPCB3,
 RESET_IN,
-XXL_235,XXL_233,XXL_236,XXL_234,
+XXL_232,XXL_234,XXL_235,XXL_233,
 }
 Multiplexer assignment for block C
+XXL_232			(MC1	FB)  : MUX 0		Ref (A7fb)
+OPCB0			(MC11	P)   : MUX 1		Ref (F86p)
 OPCB5			(MC9	P)   : MUX 3		Ref (F88p)
-OPCB1			(MC11	P)   : MUX 7		Ref (E65p)
+B_CLK_IN		(MC16	P)   : MUX 5		Ref (G99p)
+HALT			(MC6	P)   : MUX 6		Ref (G107p)
+OPCB1			(MC12	P)   : MUX 7		Ref (E65p)
 CSM0			(MC5	P)   : MUX 8		Ref (F94p)
-XXL_235			(MC4	FB)  : MUX 9		Ref (B28fb)
-XXL_233			(MC1	FB)  : MUX 10		Ref (A2fb)
-OPCB0			(MC15	P)   : MUX 11		Ref (F86p)
-OPCB4			(MC8	P)   : MUX 13		Ref (F83p)
-OPCB3			(MC13	P)   : MUX 15		Ref (E67p)
-OPCB6			(MC14	P)   : MUX 16		Ref (F91p)
-XXL_236			(MC2	FB)  : MUX 17		Ref (A9fb)
+XXL_234			(MC4	FB)  : MUX 9		Ref (B28fb)
+OPCB2			(MC15	P)   : MUX 13		Ref (F85p)
+RESET_IN		(MC10	FB)  : MUX 14		Ref (GCLR)
+OPCB4			(MC8	P)   : MUX 21		Ref (F83p)
 CSM1			(MC7	P)   : MUX 22		Ref (G109p)
-HALT			(MC6	P)   : MUX 28		Ref (G107p)
-XXL_234			(MC3	FB)  : MUX 29		Ref (A10fb)
-OPCB2			(MC12	P)   : MUX 31		Ref (F85p)
-RESET_IN		(MC10	FB)  : MUX 34		Ref (GCLR)
+OPCB6			(MC14	P)   : MUX 24		Ref (F91p)
+XXL_235			(MC2	FB)  : MUX 27		Ref (A10fb)
+OPCB3			(MC13	P)   : MUX 29		Ref (E67p)
+XXL_233			(MC3	FB)  : MUX 37		Ref (A12fb)
 
-FanIn assignment for block D [12]
+FanIn assignment for block D [14]
 {
+B_CLK_IN,
 CSM0,CSM1,
 HALT,
-OPCB2,OPCB3,OPCB1,OPCB0,OPCB5,OPCB4,OPCB6,
+OPCB1,OPCB3,OPCB2,OPCB0,OPCB5,OPCB4,OPCB6,
 RESET_IN,
-XXL_232,
+XXL_243,XXL_242,
 }
 Multiplexer assignment for block D
-OPCB2			(MC9	P)   : MUX 5		Ref (F85p)
-HALT			(MC3	P)   : MUX 6		Ref (G107p)
-CSM0			(MC2	P)   : MUX 8		Ref (F94p)
-OPCB3			(MC10	P)   : MUX 11		Ref (E67p)
-OPCB1			(MC8	P)   : MUX 13		Ref (E65p)
-RESET_IN		(MC7	FB)  : MUX 14		Ref (GCLR)
-OPCB0			(MC12	P)   : MUX 19		Ref (F86p)
-OPCB5			(MC6	P)   : MUX 21		Ref (F88p)
-CSM1			(MC4	P)   : MUX 22		Ref (G109p)
-OPCB4			(MC5	P)   : MUX 27		Ref (F83p)
-OPCB6			(MC11	P)   : MUX 34		Ref (F91p)
-XXL_232			(MC1	FB)  : MUX 37		Ref (B30fb)
+XXL_243			(MC1	FB)  : MUX 0		Ref (B23fb)
+B_CLK_IN		(MC14	P)   : MUX 5		Ref (G99p)
+HALT			(MC4	P)   : MUX 6		Ref (G107p)
+OPCB1			(MC10	P)   : MUX 7		Ref (E65p)
+CSM0			(MC3	P)   : MUX 8		Ref (F94p)
+OPCB3			(MC11	P)   : MUX 11		Ref (E67p)
+OPCB2			(MC13	P)   : MUX 13		Ref (F85p)
+RESET_IN		(MC8	FB)  : MUX 14		Ref (GCLR)
+OPCB0			(MC9	P)   : MUX 19		Ref (F86p)
+OPCB5			(MC7	P)   : MUX 21		Ref (F88p)
+CSM1			(MC5	P)   : MUX 22		Ref (G109p)
+OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
+OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
+XXL_242			(MC2	FB)  : MUX 37		Ref (B30fb)
 
-FanIn assignment for block E [12]
+FanIn assignment for block E [13]
 {
+B_CLK_IN,
 CSM0,CSM1,
-OPCB4,OPCB2,OPCB3,OPCB1,OPCB0,OPCB5,OPCB6,
+OPCB0,OPCB1,OPCB3,OPCB2,OPCB5,OPCB4,OPCB6,
 RESET_IN,
-XXL_237,XXL_231,
+XXL_236,XXL_231,
 }
 Multiplexer assignment for block E
-OPCB4			(MC5	P)   : MUX 1		Ref (F83p)
+OPCB0			(MC8	P)   : MUX 1		Ref (F86p)
 RESET_IN		(MC7	FB)  : MUX 2		Ref (GCLR)
-OPCB2			(MC9	P)   : MUX 5		Ref (F85p)
+B_CLK_IN		(MC13	P)   : MUX 5		Ref (G99p)
+OPCB1			(MC9	P)   : MUX 7		Ref (E65p)
 OPCB3			(MC10	P)   : MUX 11		Ref (E67p)
-OPCB1			(MC8	P)   : MUX 13		Ref (E65p)
+OPCB2			(MC12	P)   : MUX 13		Ref (F85p)
 CSM0			(MC3	P)   : MUX 14		Ref (F94p)
-OPCB0			(MC12	P)   : MUX 19		Ref (F86p)
-XXL_237			(MC1	FB)  : MUX 20		Ref (A4fb)
+XXL_236			(MC1	FB)  : MUX 20		Ref (A4fb)
 OPCB5			(MC6	P)   : MUX 21		Ref (F88p)
 CSM1			(MC4	P)   : MUX 22		Ref (G109p)
+XXL_231			(MC2	FB)  : MUX 25		Ref (A15fb)
+OPCB4			(MC5	P)   : MUX 27		Ref (F83p)
 OPCB6			(MC11	P)   : MUX 34		Ref (F91p)
-XXL_231			(MC2	FB)  : MUX 37		Ref (A12fb)
 
 FanIn assignment for block F [7]
 {
@@ -358,16 +376,15 @@ FanIn assignment for block G [22]
 B_CLK_IN,
 C_CLK_IN,CSM0,CSM1,
 HALT,
-OPCB0,OPCSIZEHINT,OPCB3,OPCB5,OPCB4,OPCB2,OPCB6,OPCB1,
+OPCB0,OPCB3,OPCB5,OPCB4,OPCSIZEHINT,OPCB2,OPCB6,OPCB1,
 RESET_IN,
-UNUSED2,UNUSED6,UNUSED3,UNUSED5,UNUSED4,UNUSED7,UNUSED8,UNUSED9,
+UNUSED2,UNUSED6,UNUSED3,UNUSED4,UNUSED5,UNUSED7,UNUSED8,UNUSED9,
 }
 Multiplexer assignment for block G
-OPCB0			(MC11	P)   : MUX 1		Ref (F86p)
+OPCB0			(MC7	P)   : MUX 1		Ref (F86p)
 RESET_IN		(MC6	FB)  : MUX 2		Ref (GCLR)
 UNUSED2			(MC15	P)   : MUX 3		Ref (H117p)
-B_CLK_IN		(MC13	P)   : MUX 5		Ref (G99p)
-OPCSIZEHINT		(MC12	P)   : MUX 7		Ref (G97p)
+B_CLK_IN		(MC12	P)   : MUX 5		Ref (G99p)
 UNUSED6			(MC19	P)   : MUX 8		Ref (H125p)
 UNUSED3			(MC16	P)   : MUX 11		Ref (H118p)
 HALT			(MC2	P)   : MUX 12		Ref (G107p)
@@ -375,135 +392,127 @@ C_CLK_IN		(MC14	P)   : MUX 13		Ref (H115p)
 CSM0			(MC1	P)   : MUX 14		Ref (F94p)
 OPCB3			(MC9	P)   : MUX 15		Ref (E67p)
 OPCB5			(MC5	P)   : MUX 17		Ref (F88p)
+UNUSED4			(MC17	P)   : MUX 19		Ref (H120p)
 OPCB4			(MC4	P)   : MUX 21		Ref (F83p)
 CSM1			(MC3	P)   : MUX 22		Ref (G109p)
 UNUSED5			(MC18	P)   : MUX 26		Ref (H123p)
-UNUSED4			(MC17	P)   : MUX 27		Ref (H120p)
+OPCSIZEHINT		(MC13	P)   : MUX 27		Ref (G97p)
 UNUSED7			(MC20	P)   : MUX 28		Ref (H126p)
-OPCB2			(MC8	P)   : MUX 31		Ref (F85p)
+OPCB2			(MC11	P)   : MUX 31		Ref (F85p)
 UNUSED8			(MC21	P)   : MUX 32		Ref (H128p)
 OPCB6			(MC10	P)   : MUX 34		Ref (F91p)
 UNUSED9			(MC22	FB)  : MUX 35		Ref (OE1)
-OPCB1			(MC7	P)   : MUX 39		Ref (E65p)
+OPCB1			(MC8	P)   : MUX 39		Ref (E65p)
 
 Creating JEDEC file C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.jed ...
 
 PLCC84 programmed logic:
 -----------------------------------
-!ALU_CFLATCH.D = ((!CSM0.Q & CSM1.Q & !OPCB3 & OPCB4 & !OPCB5 & !OPCB6 & OPCB0 & OPCB1 & !OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6));
+!ALU_CFLATCH.D = ((!CSM0.Q & CSM1.Q & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB3 & OPCB4 & !OPCB5 & !OPCB6 & OPCB0 & OPCB1 & !OPCB2));
 
-!ALU_FL.D = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6)
-	# XXL_230
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB0));
+!ALU_FL.D = (XXL_230
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6));
 
-!ALU_FUNC0.D = ((!OPCB1 & !OPCB2 & !OPCB3)
-	# (!OPCB1 & !OPCB5));
+!ALU_FUNC0.D = ((!OPCB1 & !OPCB5)
+	# (!OPCB1 & !OPCB2 & !OPCB3));
 
-!ALU_FUNC1.D = ((!OPCB2 & !OPCB5)
-	# (!OPCB2 & !OPCB1 & !OPCB3));
+!ALU_FUNC1.D = ((!OPCB2 & !OPCB1 & !OPCB3)
+	# (!OPCB2 & !OPCB5));
 
-!ALU_FUNC2.D = ((!OPCB3 & !OPCB5)
-	# (!OPCB3 & !OPCB1 & !OPCB2));
+!ALU_FUNC2.D = ((!OPCB3 & !OPCB1 & !OPCB2)
+	# (!OPCB3 & !OPCB5));
 
-!ALU_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB1 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB2 & !OPCB3 & !OPCB1 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB2 & !OPCB3 & !OPCB1 & !OPCB5 & OPCB0)
-	# (!CSM0.Q & CSM1.Q & OPCB4 & !OPCB2 & !OPCB3 & !OPCB1 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & !OPCB3 & OPCB1 & OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & OPCB1 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & OPCB3 & !OPCB1 & !OPCB6));
+!ALU_OE.D = (XXL_241
+	# XXL_240);
 
-!ALU_WC.D = ((!CSM0.Q & CSM1.Q & OPCB0 & OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & !OPCB5));
+!ALU_WC.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & !OPCB5)
+	# (!CSM0.Q & CSM1.Q & OPCB0 & OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5));
 
 !B2A_OE.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5);
 
-CSM0.D = ((!CSM0.Q & CSM1.Q & OPCB4 & OPCB5)
-	# (!CSM0.Q & !CSM1.Q & OPCSIZEHINT));
+CSM0.D = ((!CSM0.Q & !CSM1.Q & OPCSIZEHINT)
+	# (!CSM0.Q & CSM1.Q & OPCB4 & OPCB5));
 
-CSM1.D = ((CSM1.Q & !CSM0.Q & OPCB4 & OPCB5)
-	# (!CSM1.Q & !OPCSIZEHINT)
-	# (!CSM1.Q & CSM0.Q));
+CSM1.D = ((!CSM1.Q & !OPCSIZEHINT)
+	# (!CSM1.Q & CSM0.Q)
+	# (CSM1.Q & !CSM0.Q & OPCB4 & OPCB5));
 
-!DBH_OE.D = ((CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+!DBH_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
+	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
 
-!DBL_OE.D = (XXL_231
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2));
+!DBL_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2)
+	# XXL_231);
 
-!DB_DIR.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+!DB_DIR.D = ((!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5));
 
-!H2L_DIR.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+!H2L_DIR.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5));
 
-!H2L_OE.D = ((AD0 & !CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
-	# (AD0 & !CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+!H2L_OE.D = ((AD0 & !CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (AD0 & !CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
 
 !HALT.D = (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5 & !OPCB6);
 
 !IR1_LATCH.D = (!CSM0.Q & !CSM1.Q);
 
-!IR2_LATCH.D = ((CSM0.Q & !CSM1.Q)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB6));
+!IR2_LATCH.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB6)
+	# (CSM0.Q & !CSM1.Q));
 
-!IR2_OE.D = ((CSM0.Q & CSM1.Q & OPCB5 & OPCB4 & !OPCB1 & !OPCB2 & OPCB3 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB6)
+!IR2_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB5 & OPCB6)
-	# (CSM0.Q & CSM1.Q & OPCB5 & OPCB4 & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3));
+	# (CSM0.Q & CSM1.Q & OPCB5 & OPCB4 & !OPCB1 & !OPCB2 & OPCB3 & !OPCB0)
+	# (CSM0.Q & CSM1.Q & OPCB5 & OPCB4 & !OPCB1 & !OPCB2 & OPCB3 & OPCB6));
 
-!JMPINST.D = ((!CSM0.Q & CSM1.Q & OPCB3 & OPCB4 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+!JMPINST.D = ((!CSM0.Q & CSM1.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & OPCB3 & OPCB4 & !OPCB5));
 
-!MEM_AS.D = ((!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & OPCB2)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
-	# XXL_232
-	# !CSM1.Q);
+!MEM_AS.D = (XXL_243
+	# XXL_242);
 
-!MEM_H_EN.D = (XXL_234
+!MEM_H_EN.D = (XXL_232
 	# XXL_233);
 
-!MEM_L_EN.D = (XXL_236
+!MEM_L_EN.D = (XXL_234
 	# XXL_235);
 
-!MEM_RW.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
+!MEM_RW.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0));
 
-!PC_ADOE.D = (!CSM1.Q
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+!PC_ADOE.D = ((!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# !CSM1.Q);
 
-!PC_BBOE.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB0));
+!PC_BBOE.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0));
 
-PC_MODE0.D = (!CSM1.Q
-	# (!CSM0.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6)
-	# (CSM0.Q & OPCB3 & OPCB4 & OPCB5 & OPCB6 & OPCB0 & !OPCB1 & !OPCB2));
+PC_MODE0.D = ((!CSM0.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (CSM0.Q & OPCB3 & OPCB4 & OPCB5 & OPCB6 & OPCB0 & !OPCB1 & !OPCB2)
+	# !CSM1.Q);
 
-PC_MODE1.D = ((CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5));
+PC_MODE1.D = ((CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+	# (CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
+	# (CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
 
 PC_MODE2.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6);
 
-!RF_BOE.D = XXL_237;
+!RF_BOE.D = XXL_236;
 
-!RF_CWE.D = (XXL_239
+!RF_CWE.D = (XXL_237
 	# XXL_238);
 
-!RF_FHZ.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
+!RF_FHZ.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & !OPCB5));
 
-!SFT_DIR.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6));
+!SFT_DIR.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6));
 
 !SHFT_AR.D = (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
@@ -511,93 +520,108 @@ PC_MODE2.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6);
 
 !SHFT_OE.D = (!CSM0.Q & CSM1.Q & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
-!SP_ADOE.D = XXL_240;
+!SP_ADOE.D = XXL_239;
 
 !SHFT_WC.D = (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
-!SP_MODE0.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2));
+!SP_MODE0.D = ((!CSM0.Q & CSM1.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & OPCB2 & !OPCB0 & !OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & !OPCB0));
 
 !SP_BBOE.D = (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & !OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
-!SP_MODE1.D = ((!CSM0.Q & CSM1.Q & OPCB1 & !OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB0)
-	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+!SP_MODE1.D = ((!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & OPCB1 & !OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB0));
 
-UNUSED1 = ((B_CLK_IN & HALT.Q)
-	# C_CLK_IN
-	# (UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9));
+UNUSED1 = (C_CLK_IN
+	# (UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9)
+	# (B_CLK_IN & HALT.Q));
 
 !Com_Ctrl_229 = (HALT.Q & RESET_IN);
 
-XXL_230 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & OPCB2 & !OPCB6 & !OPCB1)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB2 & !OPCB6 & OPCB1 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & !OPCB2 & !OPCB6 & OPCB1 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3));
+XXL_230 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & OPCB3 & !OPCB6 & !OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB2 & OPCB3 & !OPCB6 & OPCB1 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB2 & !OPCB3 & !OPCB6 & OPCB1 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2));
 
-XXL_231 = ((CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
+XXL_231 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
+	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
+	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
 
-XXL_232 = ((CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB2)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
+XXL_232 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !OPCB0)
+	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB6 & !OPCB2)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB0 & !OPCB6 & OPCB2)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB0 & OPCB6)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & AD0));
 
-XXL_233 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & AD0)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !OPCB0)
-	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !OPCB0));
-
-XXL_234 = ((!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & OPCB6)
-	# !CSM1.Q
-	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB0 & OPCB2 & !OPCB6)
+XXL_233 = (!CSM1.Q
+	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & OPCB2 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & AD0)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB2));
+	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & !OPCB0)
+	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & OPCB6));
 
-XXL_235 = ((CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2)
-	# (!CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & OPCB2)
+XXL_234 = ((!CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & OPCB2)
 	# (!CSM0.Q & !OPCB0 & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2)
 	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2)
-	# (!CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5));
+	# (!CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
+	# (CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
 
-XXL_236 = ((!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
+XXL_235 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
 	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & OPCB2)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !OPCB0)
-	# !CSM1.Q);
+	# !CSM1.Q
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0));
 
-XXL_237 = ((!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB0 & OPCB2)
-	# (CSM0.Q & CSM1.Q & !OPCB6 & OPCB4 & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB5)
+XXL_236 = ((CSM0.Q & CSM1.Q & !OPCB6 & OPCB4 & !OPCB0 & OPCB2 & !OPCB1 & !OPCB3 & OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB3)
-	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & OPCB0 & OPCB1 & !OPCB2));
+	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & OPCB0 & !OPCB2 & OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB0 & OPCB2));
 
-XXL_238 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & OPCB2 & !OPCB1)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB6 & OPCB2 & !OPCB1)
-	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB6 & !OPCB3 & !OPCB2 & !OPCB1 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6));
+XXL_237 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & OPCB2 & !OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & !OPCB1 & !OPCB6)
+	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB3 & !OPCB2 & !OPCB1 & !OPCB6 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3));
 
-XXL_239 = ((!CSM0.Q & CSM1.Q & !OPCB2 & OPCB1 & !OPCB4 & !OPCB0 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB3 & OPCB2 & !OPCB4 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & OPCB5 & !OPCB3 & !OPCB4 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB4 & OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & OPCB2 & !OPCB1));
+XXL_238 = ((!CSM0.Q & CSM1.Q & OPCB2 & !OPCB4 & !OPCB0 & !OPCB3)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB6 & !OPCB3 & OPCB5)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB0 & !OPCB5)
+	# (!CSM0.Q & CSM1.Q & OPCB2 & !OPCB1 & !OPCB3 & !OPCB5)
+	# (!CSM0.Q & CSM1.Q & !OPCB2 & OPCB1 & !OPCB4 & !OPCB0 & !OPCB6));
 
-XXL_240 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6));
+XXL_239 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+	# (CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
+
+XXL_240 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB5 & !OPCB2 & !OPCB3 & OPCB0)
+	# (!CSM0.Q & CSM1.Q & OPCB4 & !OPCB1 & !OPCB5 & !OPCB2 & !OPCB3)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB1 & OPCB2 & !OPCB3 & OPCB6 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB1 & !OPCB5));
+
+XXL_241 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB5)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB1 & !OPCB6 & OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & OPCB1 & !OPCB6 & !OPCB0));
+
+XXL_242 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2)
+	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB2)
+	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2)
+	# !CSM1.Q
+	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2));
+
+XXL_243 = ((!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
+	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & OPCB2));
 
 ALU_CFLATCH.C = A_CLK_IN;
 
@@ -643,7 +667,7 @@ DBH_OE.C = A_CLK_IN;
 
 DBH_OE.AP = !RESET_IN;
 
-DBL_OE.C = A_CLK_IN;
+DBL_OE.C = B_CLK_IN;
 
 DBL_OE.AP = !RESET_IN;
 
@@ -655,7 +679,7 @@ H2L_DIR.C = A_CLK_IN;
 
 H2L_DIR.AP = !RESET_IN;
 
-H2L_OE.C = A_CLK_IN;
+H2L_OE.C = B_CLK_IN;
 
 H2L_OE.AP = !RESET_IN;
 
@@ -679,15 +703,15 @@ JMPINST.C = A_CLK_IN;
 
 JMPINST.AP = !RESET_IN;
 
-MEM_AS.C = A_CLK_IN;
+MEM_AS.C = B_CLK_IN;
 
 MEM_AS.AP = !RESET_IN;
 
-MEM_H_EN.C = A_CLK_IN;
+MEM_H_EN.C = B_CLK_IN;
 
 MEM_H_EN.AP = !RESET_IN;
 
-MEM_L_EN.C = A_CLK_IN;
+MEM_L_EN.C = B_CLK_IN;
 
 MEM_L_EN.AP = !RESET_IN;
 
@@ -838,17 +862,20 @@ PINNODE 348 = Com_Ctrl_229; /* MC 48 Foldback */
 PINNODE 364 = Com_Ctrl_229; /* MC 64 Foldback */
 PINNODE 396 = Com_Ctrl_229; /* MC 96 Foldback */
 PINNODE 412 = Com_Ctrl_229; /* MC 112 Foldback */
-PINNODE 601 = XXL_239; /* MC 1 Feedback */
-PINNODE 602 = XXL_233; /* MC 2 Feedback */
-PINNODE 604 = XXL_237; /* MC 4 Feedback */
-PINNODE 607 = XXL_230; /* MC 7 Feedback */
-PINNODE 609 = XXL_236; /* MC 9 Feedback */
-PINNODE 610 = XXL_234; /* MC 10 Feedback */
-PINNODE 612 = XXL_231; /* MC 12 Feedback */
-PINNODE 628 = XXL_235; /* MC 28 Feedback */
-PINNODE 630 = XXL_232; /* MC 30 Feedback */
-PINNODE 631 = XXL_240; /* MC 31 Feedback */
-PINNODE 632 = XXL_238; /* MC 32 Feedback */
+PINNODE 601 = XXL_238; /* MC 1 Feedback */
+PINNODE 602 = XXL_237; /* MC 2 Feedback */
+PINNODE 604 = XXL_236; /* MC 4 Feedback */
+PINNODE 607 = XXL_232; /* MC 7 Feedback */
+PINNODE 609 = XXL_230; /* MC 9 Feedback */
+PINNODE 610 = XXL_235; /* MC 10 Feedback */
+PINNODE 612 = XXL_233; /* MC 12 Feedback */
+PINNODE 615 = XXL_231; /* MC 15 Feedback */
+PINNODE 623 = XXL_243; /* MC 23 Feedback */
+PINNODE 626 = XXL_241; /* MC 26 Feedback */
+PINNODE 628 = XXL_234; /* MC 28 Feedback */
+PINNODE 630 = XXL_242; /* MC 30 Feedback */
+PINNODE 631 = XXL_239; /* MC 31 Feedback */
+PINNODE 632 = XXL_240; /* MC 32 Feedback */
 
 ** Resource Usage **
 
@@ -868,38 +895,38 @@ DCERP Field = Summary of Allocations.
 For input only = INPUT.
 
 MCell Pin# Oe   PinDrive         DCERP  FBDrive  DCERP  Foldback     CascadeOut     TotPT output_slew
-MC1   0         --                      XXL_239  C----  NA           --             5     slow
-MC2   0         --                      XXL_233  C----  NA           --             5     slow
+MC1   0         --                      XXL_238  C----  NA           --             5     slow
+MC2   0         --                      XXL_237  C----  NA           --             5     slow
 MC3   12   on   IR2_OE           Dg--p  --              NA           --             5     slow
-MC4   0         --                      XXL_237  C----  NA           --             5     slow
-MC5   11   on   H2L_OE           Dg--p  --              --           --             3     slow
+MC4   0         --                      XXL_236  C----  NA           --             5     slow
+MC5   11   on   H2L_OE           Dc--p  --              --           --             4     slow
 MC6   10   on   IR2_LATCH        Dg--p  --              --           --             3     slow
-MC7   0         --                      XXL_230  C----  NA           --             5     slow
+MC7   0         --                      XXL_232  C----  NA           --             5     slow
 MC8   9    on   DB_DIR           Dg--p  --              --           --             4     slow
-MC9   0         --                      XXL_236  C----  NA           --             5     slow
-MC10  0         --                      XXL_234  C----  NA           --             5     slow
+MC9   0         --                      XXL_230  C----  NA           --             5     slow
+MC10  0         --                      XXL_235  C----  NA           --             5     slow
 MC11  8    on   ALU_WC           Dg--p  --              --           --             3     slow
-MC12  0         --                      XXL_231  C----  NA           --             5     slow
+MC12  0         --                      XXL_233  C----  NA           --             5     slow
 MC13  6    on   DBH_OE           Dg--p  --              NA           --             5     slow
 MC14  5    on   ALU_FL           Dg--p  --              --           --             4     slow
-MC15  0         --                      --              NA           -> ALU_OE      5     slow
-MC16  4    on   ALU_OE           Dg--p  --              NA           --             5     slow
+MC15  0         --                      XXL_231  C----  NA           --             5     slow
+MC16  4    on   ALU_OE           Dg--p  --              --           --             3     slow
 MC17  22   on   SP_BBOE          Dg--p  --              --           --             2     slow
 MC18  0         --                      --              --           --             0     slow
 MC19  21   on   SHFT_WC          Dg--p  --              --           --             2     slow
 MC20  0         --                      --              --           --             0     slow
 MC21  20   on   SHFT_AR          Dg--p  --              --           --             2     slow
 MC22  0         --                      --              --           --             0     slow
-MC23  0         --                      --              --           --             0     slow
+MC23  0         --                      XXL_243  C----  --           --             3     slow
 MC24  18   on   SP_ADOE          Dg--p  --              --           --             2     slow
 MC25  17   on   SFT_DIR          Dg--p  --              --           --             3     slow
-MC26  0         --                      --              --           --             0     slow
+MC26  0         --                      XXL_241  C----  --           --             4     slow
 MC27  16   on   PC_BBOE          Dg--p  --              --           --             4     slow
-MC28  0         --                      XXL_235  C----  NA           --             5     slow
+MC28  0         --                      XXL_234  C----  NA           --             5     slow
 MC29  15   on   RF_CWE           Dg--p  --              --           --             3     slow
-MC30  0         --                      XXL_232  C----  NA           --             5     slow
-MC31  0         --                      XXL_240  C----  NA           --             5     slow
-MC32  14   --   TDI              INPUT  XXL_238  C----  NA           --             5     slow
+MC30  0         --                      XXL_242  C----  NA           --             5     slow
+MC31  0         --                      XXL_239  C----  NA           --             5     slow
+MC32  14   --   TDI              INPUT  XXL_240  C----  NA           --             5     slow
 MC33  0         --                      --              --           --             0     slow
 MC34  0         --                      --              --           --             0     slow
 MC35  31   on   PC_MODE2         Dg-r-  --              --           --             2     slow
@@ -910,9 +937,9 @@ MC39  0         --                      --              --           --         
 MC40  28   on   SHFT_OE          Dg--p  --              --           --             2     slow
 MC41  0         --                      --              --           --             0     slow
 MC42  0         --                      --              --           --             0     slow
-MC43  27   on   MEM_L_EN         Dg--p  --              --           --             3     slow
+MC43  27   on   MEM_L_EN         Dc--p  --              --           --             4     slow
 MC44  0         --                      --              --           --             0     slow
-MC45  25   on   MEM_H_EN         Dg--p  --              --           --             3     slow
+MC45  25   on   MEM_H_EN         Dc--p  --              --           --             4     slow
 MC46  24   on   ALU_CFLATCH      Dg--p  --              --           --             3     slow
 MC47  0         --                      --              --           --             0     slow
 MC48  23   --   TMS              INPUT  --              Com_Ctrl_229 --             1     slow
@@ -924,7 +951,7 @@ MC53  39   on   PC_MODE0         Dg-r-  --              --           --         
 MC54  0         --                      --              --           --             0     slow
 MC55  0         --                      --              --           --             0     slow
 MC56  37   on   B2A_OE           Dg--p  --              --           --             2     slow
-MC57  36   on   MEM_AS           Dg--p  --              NA           --             5     slow
+MC57  36   on   MEM_AS           Dc--p  --              --           --             4     slow
 MC58  0         --                      --              --           --             0     slow
 MC59  35   on   PC_MODE1         Dg-r-  --              --           --             4     slow
 MC60  0         --                      --              --           --             0     slow
@@ -942,7 +969,7 @@ MC71  0         --                      --              --           --         
 MC72  48   on   PC_ADOE          Dg--p  --              --           --             3     slow
 MC73  49   on   MEM_RW           Dg--p  --              NA           --             5     slow
 MC74  0         --                      --              --           --             0     slow
-MC75  50   on   DBL_OE           Dg--p  --              --           --             3     slow
+MC75  50   on   DBL_OE           Dc--p  --              --           --             4     slow
 MC76  0         --                      --              --           --             0     slow
 MC77  51   on   IR1_LATCH        Dg--p  --              --           --             2     slow
 MC78  0         --                      --              --           --             0     slow
@@ -1002,25 +1029,25 @@ MC0   84        UNUSED9          INPUT  --              --           --         
 MC0   83        A_CLK_IN         INPUT  --              --           --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		15/16(93%)	8/16(50%)	0/16(0%)	72/80(90%)	(12)	1
-B: LC17	- LC32		11/16(68%)	8/16(50%)	0/16(0%)	38/80(47%)	(13)	0
-C: LC33	- LC48		7/16(43%)	8/16(50%)	1/16(6%)	20/80(25%)	(15)	0
-D: LC49	- LC64		8/16(50%)	8/16(50%)	1/16(6%)	28/80(35%)	(12)	0
-E: LC65	- LC80		6/16(37%)	8/16(50%)	0/16(0%)	17/80(21%)	(12)	0
+A: LC1	- LC16		16/16(100%)	8/16(50%)	0/16(0%)	71/80(88%)	(15)	0
+B: LC17	- LC32		13/16(81%)	8/16(50%)	0/16(0%)	45/80(56%)	(13)	0
+C: LC33	- LC48		7/16(43%)	8/16(50%)	1/16(6%)	22/80(27%)	(16)	0
+D: LC49	- LC64		8/16(50%)	8/16(50%)	1/16(6%)	27/80(33%)	(14)	0
+E: LC65	- LC80		6/16(37%)	8/16(50%)	0/16(0%)	18/80(22%)	(13)	0
 F: LC81	- LC96		1/16(6%)	8/16(50%)	1/16(6%)	4/80(5%)	(7)	0
 G: LC97	- LC112		5/16(31%)	8/16(50%)	1/16(6%)	15/80(18%)	(22)	0
 H: LC113- LC128		0/16(0%)	8/16(50%)	0/16(0%)	0/80(0%)	(0)	0
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		64/64 	(100%)
-Total Logic cells used 		54/128 	(42%)
+Total Logic cells used 		56/128 	(43%)
 Total Flip-Flop used 		41/128 	(32%)
 Total Foldback logic used 	4/128 	(3%)
-Total Nodes+FB/MCells 		57/128 	(44%)
-Total cascade used 		1
+Total Nodes+FB/MCells 		60/128 	(46%)
+Total cascade used 		0
 Total input pins 		26
 Total output pins 		42
-Total Pts 			194
+Total Pts 			202
 Creating pla file C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS
