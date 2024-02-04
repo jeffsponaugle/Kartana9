@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Fri Feb 02 20:16:15 2024 "}
+  {DBtime "Sat Feb 03 16:47:36 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -82,18 +82,20 @@
    {P AD0 {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
    {P CSM0 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
    {P OPCSIZEH {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
-   {P JMPINST {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
-   {P SHFT_INV {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
-   {P HALT {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
-   {P CSM1 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
-   {P UNUSED2 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
-   {P UNUSED3 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
-   {P UNUSED4 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
-   {P UNUSED5 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
-   {P UNUSED6 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
-   {P UNUSED7 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
-   {P UNUSED8 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
-   {P UNUSED9 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P B_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P JMPINST {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P SHFT_INV {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P HALT {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P CSM1 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P C_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P UNUSED2 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P UNUSED3 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P UNUSED4 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P UNUSED5 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P UNUSED6 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P UNUSED7 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P UNUSED8 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P UNUSED9 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
    {P UNUSED1 {Pt "I/O"}{Lq 0}{Ploc 350 20}}
   }
 
@@ -166,10 +168,12 @@
    {Pnl 120 110}
    {Pnl 120 90}
    {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
    [Ts 15][Tj "LC"]
    {Pnl 330 30}
 
-   {Sd A 83 1 2 4 5 6 8 9 10 11 12 15 16 17 18 20 21 22 24 25 27 28 29 30 31 33 34 35 36 37 39 40 41 44 45 46 48 49 50 51 52 54 55 56 57 58 60 61 63 67 68 69 70 74 75 76 77 79 80 81 84 65}
+   {Sd A 83 1 2 4 5 6 8 9 10 11 12 15 16 17 18 20 21 22 24 25 27 28 29 30 31 33 34 35 36 37 39 40 41 44 45 46 48 49 50 51 52 54 55 56 57 58 60 61 63 64 67 68 69 70 73 74 75 76 77 79 80 81 84 65}
   }
 
   {PIC
@@ -238,6 +242,8 @@
    {L 130 100 100 100}
    {L 130 80 100 80}
    {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
    {L 320 20 350 20}
    [Ly "PINNAM"]
    [Tj "LC"]
@@ -290,18 +296,20 @@
    {T "AD0" 140 340}
    {T "CSM0" 140 320}
    {T "OPCSIZEH" 140 300}
-   {T "JMPINST" 140 280}
-   {T "SHFT_INV" 140 260}
-   {T "HALT" 140 240}
-   {T "CSM1" 140 220}
-   {T "UNUSED2" 140 200}
-   {T "UNUSED3" 140 180}
-   {T "UNUSED4" 140 160}
-   {T "UNUSED5" 140 140}
-   {T "UNUSED6" 140 120}
-   {T "UNUSED7" 140 100}
-   {T "UNUSED8" 140 80}
-   {T "UNUSED9" 140 60}
+   {T "B_CLK_IN" 140 280}
+   {T "JMPINST" 140 260}
+   {T "SHFT_INV" 140 240}
+   {T "HALT" 140 220}
+   {T "CSM1" 140 200}
+   {T "C_CLK_IN" 140 180}
+   {T "UNUSED2" 140 160}
+   {T "UNUSED3" 140 140}
+   {T "UNUSED4" 140 120}
+   {T "UNUSED5" 140 100}
+   {T "UNUSED6" 140 80}
+   {T "UNUSED7" 140 60}
+   {T "UNUSED8" 140 40}
+   {T "UNUSED9" 140 20}
    [Tj "RC"]
    {T "UNUSED1" 310 20}
    [Ly "DEVICE"]
@@ -311,7 +319,7 @@
 
   {ATR
    {IN
-    {Org 100 60}
+    {Org 100 20}
     {Ty 255}
    }
    {EX
@@ -425,6 +433,8 @@
    }
    {N OPCSIZEH
    }
+   {N B_CLK_IN
+   }
    {N JMPINST
    }
    {N SHFT_INV
@@ -432,6 +442,8 @@
    {N HALT
    }
    {N CSM1
+   }
+   {N C_CLK_IN
    }
    {N UNUSED2
    }

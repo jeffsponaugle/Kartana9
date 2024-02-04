@@ -100,8 +100,8 @@ $DEFINE INST_ALL_FIRST32 (SM_EX1 & opcf:['b'00XXXXX])
 
 Pin[2] = D_CLK_IN;
 Pin[83] = A_CLK_IN;
-Pin = B_CLK_IN;
-Pin = C_CLK_IN;
+Pin[64] = B_CLK_IN;
+Pin[73] = C_CLK_IN;
 Pin[1]  = RESET_IN;
 Pin[56,44,55,45,54,57,58] = [OPCB0..6];      /* Bits 0 to 6 of the low Instruction Register #1 */
 Pin[60] = AD0;             /* Address Bus Bit 0 from BtoA buffer, for Byte Address Writes */
@@ -264,8 +264,6 @@ DB_DIR.ck = A_CLK_IN;
 DB_DIR.ap = !RESET_IN;
 H2L_DIR.ck = A_CLK_IN;
 H2L_DIR.ap = !RESET_IN;
-MEM_RW.ck = A_CLK_IN;
-MEM_RW.ap = !RESET_IN;
 IR1_LATCH.ck = A_CLK_IN;
 IR1_LATCH.ap = !RESET_IN;
 IR2_LATCH.ck = A_CLK_IN;
@@ -285,16 +283,23 @@ SHFT_INVERTCARRY.ap = !RESET_IN;
    signals above drive an address onto the BBUS.
 */
 
+/* MEM_RESET will be a 1/4 clock cycle pulse at the start of the D_CLK cycle.  It is used to reset the memory
+   output signals and end a memory cycle at the D_CLK rising edge */
+
+MEM_RESET = (!A_CLK_IN & D_CLK_IN);
+
 H2L_OE.ck = B_CLK_IN;
-H2L_OE.ap = !RESET_IN;
+H2L_OE.ap = !RESET_IN # MEM_RESET;
 MEM_AS.ck = B_CLK_IN;
-MEM_AS.ap = !RESET_IN;
+MEM_AS.ap = !RESET_IN # MEM_RESET;
 MEM_H_EN.ck = B_CLK_IN;
-MEM_H_EN.ap = !RESET_IN;
+MEM_H_EN.ap = !RESET_IN # MEM_RESET;
 MEM_L_EN.ck = B_CLK_IN;
-MEM_L_EN.ap = !RESET_IN;
+MEM_L_EN.ap = !RESET_IN # MEM_RESET;
 DBL_OE.ck = B_CLK_IN;
-DBL_OE.ap = !RESET_IN;
+DBL_OE.ap = !RESET_IN # MEM_RESET;
+MEM_RW.ck = A_CLK_IN;
+MEM_RW.ap = !RESET_IN;
 
 /* ALU Function derived from opcode.   
    If OPCB5 == 0,  ALU_FUNC0..2 = OPCB1..3

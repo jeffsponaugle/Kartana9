@@ -1,4 +1,4 @@
-Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Fri Feb 02 20:16:15 2024
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Sat Feb 03 16:47:36 2024
 
 
 fit1508 C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt2 -CUPL -dev P1508C84 -JTAG ON
@@ -90,33 +90,34 @@ Attempt to place floating signals ...
 XXL_238 is placed at feedback node 601 (MC 1)
 XXL_237 is placed at feedback node 602 (MC 2)
 IR2_OE is placed at pin 12 (MC 3)
-XXL_236 is placed at feedback node 604 (MC 4)
+XXL_235 is placed at feedback node 604 (MC 4)
 H2L_OE is placed at pin 11 (MC 5)
 IR2_LATCH is placed at pin 10 (MC 6)
-XXL_232 is placed at feedback node 607 (MC 7)
+XXL_236 is placed at feedback node 607 (MC 7)
 DB_DIR is placed at pin 9 (MC 8)
-XXL_230 is placed at feedback node 609 (MC 9)
-XXL_235 is placed at feedback node 610 (MC 10)
+XXL_234 is placed at feedback node 609 (MC 9)
+XXL_231 is placed at feedback node 610 (MC 10)
 ALU_WC is placed at pin 8 (MC 11)
 XXL_233 is placed at feedback node 612 (MC 12)
 DBH_OE is placed at pin 6 (MC 13)
 ALU_FL is placed at pin 5 (MC 14)
-XXL_231 is placed at feedback node 615 (MC 15)
+XXL_232 is placed at feedback node 615 (MC 15)
 ALU_OE is placed at pin 4 (MC 16)
 SP_BBOE is placed at pin 22 (MC 17)
 SHFT_WC is placed at pin 21 (MC 19)
 SHFT_AR is placed at pin 20 (MC 21)
-XXL_243 is placed at feedback node 623 (MC 23)
+Com_Ctrl_230 is placed at feedback node 622 (MC 22)
+XXL_244 is placed at feedback node 623 (MC 23)
 SP_ADOE is placed at pin 18 (MC 24)
 SFT_DIR is placed at pin 17 (MC 25)
-XXL_241 is placed at feedback node 626 (MC 26)
+XXL_242 is placed at feedback node 626 (MC 26)
 PC_BBOE is placed at pin 16 (MC 27)
-XXL_234 is placed at feedback node 628 (MC 28)
+XXL_243 is placed at feedback node 628 (MC 28)
 RF_CWE is placed at pin 15 (MC 29)
-XXL_242 is placed at feedback node 630 (MC 30)
-XXL_239 is placed at feedback node 631 (MC 31)
+XXL_241 is placed at feedback node 630 (MC 30)
+XXL_240 is placed at feedback node 631 (MC 31)
 TDI is placed at pin 14 (MC 32)
-XXL_240 is placed at feedback node 632 (MC 32)
+XXL_239 is placed at feedback node 632 (MC 32)
 PC_MODE2 is placed at pin 31 (MC 35)
 RF_FHZ is placed at pin 30 (MC 37)
 H2L_DIR is placed at pin 29 (MC 38)
@@ -232,128 +233,138 @@ NC = Unused I/O pins which must be unconnected on the board
 
 Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
-FanIn assignment for block A [15]
+FanIn assignment for block A [16]
 {
 AD0,
 B_CLK_IN,
-CSM0,CSM1,
-OPCB1,OPCB0,OPCB2,OPCB3,OPCB5,OPCB4,OPCB6,
+CSM0,CSM1,Com_Ctrl_230,
+OPCB1,OPCB2,OPCB6,OPCB5,OPCB0,OPCB4,OPCB3,
 RESET_IN,
-XXL_241,XXL_230,XXL_240,
+XXL_242,XXL_231,XXL_241,
 }
 Multiplexer assignment for block A
-XXL_241			(MC2	FB)  : MUX 3		Ref (B26fb)
-AD0			(MC15	P)   : MUX 4		Ref (F93p)
-OPCB1			(MC10	P)   : MUX 7		Ref (E65p)
-CSM0			(MC4	P)   : MUX 8		Ref (F94p)
-OPCB0			(MC9	P)   : MUX 11		Ref (F86p)
-OPCB2			(MC13	P)   : MUX 13		Ref (F85p)
-RESET_IN		(MC8	FB)  : MUX 14		Ref (GCLR)
-OPCB3			(MC11	P)   : MUX 15		Ref (E67p)
-OPCB5			(MC7	P)   : MUX 17		Ref (F88p)
-CSM1			(MC5	P)   : MUX 22		Ref (G109p)
-B_CLK_IN		(MC14	P)   : MUX 23		Ref (G99p)
-OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
-XXL_230			(MC1	FB)  : MUX 31		Ref (A9fb)
-OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
-XXL_240			(MC3	FB)  : MUX 37		Ref (B32fb)
+XXL_242			(MC3	FB)  : MUX 3		Ref (B26fb)
+OPCB1			(MC11	P)   : MUX 7		Ref (E65p)
+CSM0			(MC5	P)   : MUX 8		Ref (F94p)
+OPCB2			(MC14	P)   : MUX 13		Ref (F85p)
+OPCB6			(MC13	P)   : MUX 16		Ref (F91p)
+OPCB5			(MC8	P)   : MUX 17		Ref (F88p)
+OPCB0			(MC10	P)   : MUX 19		Ref (F86p)
+OPCB4			(MC7	P)   : MUX 21		Ref (F83p)
+CSM1			(MC6	P)   : MUX 22		Ref (G109p)
+B_CLK_IN		(MC15	P)   : MUX 23		Ref (G99p)
+AD0			(MC16	P)   : MUX 26		Ref (F93p)
+XXL_231			(MC1	FB)  : MUX 27		Ref (A10fb)
+OPCB3			(MC12	P)   : MUX 29		Ref (E67p)
+Com_Ctrl_230		(MC2	FB)  : MUX 30		Ref (B22fb)
+RESET_IN		(MC9	FB)  : MUX 34		Ref (GCLR)
+XXL_241			(MC4	FB)  : MUX 37		Ref (B30fb)
 
-FanIn assignment for block B [13]
+FanIn assignment for block B [15]
 {
+A_CLK_IN,
 CSM1,CSM0,
-OPCB0,OPCB5,OPCB3,OPCB4,OPCB6,OPCB2,OPCB1,
+D_CLK_IN,
+OPCB4,OPCB5,OPCB0,OPCB2,OPCB3,OPCB6,OPCB1,
 RESET_IN,
-XXL_237,XXL_239,XXL_238,
+XXL_239,XXL_240,XXL_238,
 }
 Multiplexer assignment for block B
-OPCB0			(MC9	P)   : MUX 1		Ref (F86p)
+OPCB4			(MC6	P)   : MUX 1		Ref (F83p)
 RESET_IN		(MC8	FB)  : MUX 2		Ref (GCLR)
 OPCB5			(MC7	P)   : MUX 3		Ref (F88p)
 CSM1			(MC5	P)   : MUX 4		Ref (G109p)
+XXL_239			(MC3	FB)  : MUX 7		Ref (B32fb)
 CSM0			(MC4	P)   : MUX 8		Ref (F94p)
-XXL_237			(MC2	FB)  : MUX 10		Ref (A2fb)
-OPCB3			(MC11	P)   : MUX 11		Ref (E67p)
-OPCB4			(MC6	P)   : MUX 13		Ref (F83p)
-OPCB6			(MC12	P)   : MUX 16		Ref (F91p)
-XXL_239			(MC3	FB)  : MUX 25		Ref (B31fb)
+OPCB0			(MC9	P)   : MUX 11		Ref (F86p)
+A_CLK_IN		(MC14	FB)  : MUX 17		Ref (GCLK)
+XXL_240			(MC2	FB)  : MUX 25		Ref (B31fb)
 XXL_238			(MC1	FB)  : MUX 26		Ref (A1fb)
 OPCB2			(MC13	P)   : MUX 31		Ref (F85p)
+OPCB3			(MC11	P)   : MUX 33		Ref (E67p)
+OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
+D_CLK_IN		(MC15	FB)  : MUX 38		Ref (OE2)
 OPCB1			(MC10	P)   : MUX 39		Ref (E65p)
 
-FanIn assignment for block C [16]
+FanIn assignment for block C [17]
 {
 B_CLK_IN,
-CSM0,CSM1,
+Com_Ctrl_230,CSM0,CSM1,
 HALT,
-OPCB0,OPCB5,OPCB1,OPCB2,OPCB4,OPCB6,OPCB3,
+OPCB2,OPCB0,OPCB3,OPCB5,OPCB6,OPCB4,OPCB1,
 RESET_IN,
-XXL_232,XXL_234,XXL_235,XXL_233,
+XXL_234,XXL_236,XXL_235,XXL_233,
 }
 Multiplexer assignment for block C
-XXL_232			(MC1	FB)  : MUX 0		Ref (A7fb)
-OPCB0			(MC11	P)   : MUX 1		Ref (F86p)
-OPCB5			(MC9	P)   : MUX 3		Ref (F88p)
-B_CLK_IN		(MC16	P)   : MUX 5		Ref (G99p)
-HALT			(MC6	P)   : MUX 6		Ref (G107p)
-OPCB1			(MC12	P)   : MUX 7		Ref (E65p)
-CSM0			(MC5	P)   : MUX 8		Ref (F94p)
-XXL_234			(MC4	FB)  : MUX 9		Ref (B28fb)
-OPCB2			(MC15	P)   : MUX 13		Ref (F85p)
-RESET_IN		(MC10	FB)  : MUX 14		Ref (GCLR)
-OPCB4			(MC8	P)   : MUX 21		Ref (F83p)
-CSM1			(MC7	P)   : MUX 22		Ref (G109p)
-OPCB6			(MC14	P)   : MUX 24		Ref (F91p)
-XXL_235			(MC2	FB)  : MUX 27		Ref (A10fb)
-OPCB3			(MC13	P)   : MUX 29		Ref (E67p)
-XXL_233			(MC3	FB)  : MUX 37		Ref (A12fb)
+B_CLK_IN		(MC17	P)   : MUX 1		Ref (G99p)
+RESET_IN		(MC11	FB)  : MUX 2		Ref (GCLR)
+OPCB2			(MC16	P)   : MUX 5		Ref (F85p)
+Com_Ctrl_230		(MC5	FB)  : MUX 8		Ref (B22fb)
+OPCB0			(MC12	P)   : MUX 11		Ref (F86p)
+CSM0			(MC6	P)   : MUX 14		Ref (F94p)
+OPCB3			(MC14	P)   : MUX 15		Ref (E67p)
+XXL_234			(MC3	FB)  : MUX 17		Ref (A9fb)
+XXL_236			(MC2	FB)  : MUX 20		Ref (A7fb)
+OPCB5			(MC10	P)   : MUX 21		Ref (F88p)
+CSM1			(MC8	P)   : MUX 22		Ref (G109p)
+OPCB6			(MC15	P)   : MUX 24		Ref (F91p)
+HALT			(MC7	P)   : MUX 26		Ref (G107p)
+OPCB4			(MC9	P)   : MUX 27		Ref (F83p)
+OPCB1			(MC13	P)   : MUX 31		Ref (E65p)
+XXL_235			(MC1	FB)  : MUX 32		Ref (A4fb)
+XXL_233			(MC4	FB)  : MUX 37		Ref (A12fb)
 
-FanIn assignment for block D [14]
+FanIn assignment for block D [15]
 {
 B_CLK_IN,
-CSM0,CSM1,
+CSM0,CSM1,Com_Ctrl_230,
 HALT,
-OPCB1,OPCB3,OPCB2,OPCB0,OPCB5,OPCB4,OPCB6,
+OPCB1,OPCB0,OPCB2,OPCB3,OPCB6,OPCB5,OPCB4,
 RESET_IN,
-XXL_243,XXL_242,
+XXL_244,XXL_243,
 }
 Multiplexer assignment for block D
-XXL_243			(MC1	FB)  : MUX 0		Ref (B23fb)
-B_CLK_IN		(MC14	P)   : MUX 5		Ref (G99p)
-HALT			(MC4	P)   : MUX 6		Ref (G107p)
-OPCB1			(MC10	P)   : MUX 7		Ref (E65p)
-CSM0			(MC3	P)   : MUX 8		Ref (F94p)
-OPCB3			(MC11	P)   : MUX 11		Ref (E67p)
-OPCB2			(MC13	P)   : MUX 13		Ref (F85p)
-RESET_IN		(MC8	FB)  : MUX 14		Ref (GCLR)
-OPCB0			(MC9	P)   : MUX 19		Ref (F86p)
-OPCB5			(MC7	P)   : MUX 21		Ref (F88p)
-CSM1			(MC5	P)   : MUX 22		Ref (G109p)
-OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
-OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
-XXL_242			(MC2	FB)  : MUX 37		Ref (B30fb)
+XXL_244			(MC2	FB)  : MUX 0		Ref (B23fb)
+B_CLK_IN		(MC15	P)   : MUX 1		Ref (G99p)
+OPCB1			(MC11	P)   : MUX 7		Ref (E65p)
+CSM0			(MC4	P)   : MUX 8		Ref (F94p)
+XXL_243			(MC3	FB)  : MUX 9		Ref (B28fb)
+OPCB0			(MC10	P)   : MUX 11		Ref (F86p)
+OPCB2			(MC14	P)   : MUX 13		Ref (F85p)
+OPCB3			(MC12	P)   : MUX 15		Ref (E67p)
+OPCB6			(MC13	P)   : MUX 16		Ref (F91p)
+OPCB5			(MC8	P)   : MUX 21		Ref (F88p)
+CSM1			(MC6	P)   : MUX 22		Ref (G109p)
+HALT			(MC5	P)   : MUX 26		Ref (G107p)
+OPCB4			(MC7	P)   : MUX 27		Ref (F83p)
+Com_Ctrl_230		(MC1	FB)  : MUX 30		Ref (B22fb)
+RESET_IN		(MC9	FB)  : MUX 34		Ref (GCLR)
 
-FanIn assignment for block E [13]
+FanIn assignment for block E [15]
 {
+AD0,
 B_CLK_IN,
-CSM0,CSM1,
-OPCB0,OPCB1,OPCB3,OPCB2,OPCB5,OPCB4,OPCB6,
+CSM0,CSM1,Com_Ctrl_230,
+OPCB0,OPCB1,OPCB3,OPCB2,OPCB6,OPCB5,OPCB4,
 RESET_IN,
-XXL_236,XXL_231,
+XXL_237,XXL_232,
 }
 Multiplexer assignment for block E
-OPCB0			(MC8	P)   : MUX 1		Ref (F86p)
-RESET_IN		(MC7	FB)  : MUX 2		Ref (GCLR)
-B_CLK_IN		(MC13	P)   : MUX 5		Ref (G99p)
-OPCB1			(MC9	P)   : MUX 7		Ref (E65p)
-OPCB3			(MC10	P)   : MUX 11		Ref (E67p)
-OPCB2			(MC12	P)   : MUX 13		Ref (F85p)
-CSM0			(MC3	P)   : MUX 14		Ref (F94p)
-XXL_236			(MC1	FB)  : MUX 20		Ref (A4fb)
-OPCB5			(MC6	P)   : MUX 21		Ref (F88p)
-CSM1			(MC4	P)   : MUX 22		Ref (G109p)
-XXL_231			(MC2	FB)  : MUX 25		Ref (A15fb)
-OPCB4			(MC5	P)   : MUX 27		Ref (F83p)
-OPCB6			(MC11	P)   : MUX 34		Ref (F91p)
+OPCB0			(MC9	P)   : MUX 1		Ref (F86p)
+B_CLK_IN		(MC14	P)   : MUX 5		Ref (G99p)
+OPCB1			(MC10	P)   : MUX 7		Ref (E65p)
+CSM0			(MC4	P)   : MUX 8		Ref (F94p)
+XXL_237			(MC1	FB)  : MUX 10		Ref (A2fb)
+OPCB3			(MC11	P)   : MUX 11		Ref (E67p)
+OPCB2			(MC13	P)   : MUX 13		Ref (F85p)
+OPCB6			(MC12	P)   : MUX 16		Ref (F91p)
+OPCB5			(MC7	P)   : MUX 21		Ref (F88p)
+CSM1			(MC5	P)   : MUX 22		Ref (G109p)
+XXL_232			(MC2	FB)  : MUX 25		Ref (A15fb)
+AD0			(MC15	P)   : MUX 26		Ref (F93p)
+OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
+Com_Ctrl_230		(MC3	FB)  : MUX 30		Ref (B22fb)
+RESET_IN		(MC8	FB)  : MUX 34		Ref (GCLR)
 
 FanIn assignment for block F [7]
 {
@@ -411,7 +422,7 @@ PLCC84 programmed logic:
 !ALU_CFLATCH.D = ((!CSM0.Q & CSM1.Q & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB3 & OPCB4 & !OPCB5 & !OPCB6 & OPCB0 & OPCB1 & !OPCB2));
 
-!ALU_FL.D = (XXL_230
+!ALU_FL.D = (XXL_231
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6));
 
@@ -424,8 +435,8 @@ PLCC84 programmed logic:
 !ALU_FUNC2.D = ((!OPCB3 & !OPCB1 & !OPCB2)
 	# (!OPCB3 & !OPCB5));
 
-!ALU_OE.D = (XXL_241
-	# XXL_240);
+!ALU_OE.D = (XXL_242
+	# XXL_241);
 
 !ALU_WC.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & OPCB0 & OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & !OPCB5));
@@ -444,8 +455,8 @@ CSM1.D = ((!CSM1.Q & !OPCSIZEHINT)
 	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
 	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
 
-!DBL_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & OPCB2)
-	# XXL_231);
+!DBL_OE.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
+	# XXL_232);
 
 !DB_DIR.D = ((!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
@@ -472,14 +483,14 @@ CSM1.D = ((!CSM1.Q & !OPCSIZEHINT)
 !JMPINST.D = ((!CSM0.Q & CSM1.Q & OPCB3 & !OPCB4 & OPCB5 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & OPCB3 & OPCB4 & !OPCB5));
 
-!MEM_AS.D = (XXL_243
-	# XXL_242);
+!MEM_AS.D = (XXL_244
+	# XXL_243);
 
-!MEM_H_EN.D = (XXL_232
-	# XXL_233);
+!MEM_H_EN.D = (XXL_233
+	# XXL_234);
 
-!MEM_L_EN.D = (XXL_234
-	# XXL_235);
+!MEM_L_EN.D = (XXL_235
+	# XXL_236);
 
 !MEM_RW.D = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
@@ -503,10 +514,10 @@ PC_MODE1.D = ((CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB
 
 PC_MODE2.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6);
 
-!RF_BOE.D = XXL_236;
+!RF_BOE.D = XXL_237;
 
-!RF_CWE.D = (XXL_237
-	# XXL_238);
+!RF_CWE.D = (XXL_238
+	# XXL_239);
 
 !RF_FHZ.D = ((!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & !OPCB5));
@@ -520,14 +531,14 @@ PC_MODE2.D = (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6);
 
 !SHFT_OE.D = (!CSM0.Q & CSM1.Q & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
-!SP_ADOE.D = XXL_239;
+!SP_ADOE.D = XXL_240;
 
 !SHFT_WC.D = (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & OPCB2 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
-!SP_MODE0.D = ((!CSM0.Q & CSM1.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & OPCB2 & !OPCB0 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & !OPCB0));
+!SP_MODE0.D = ((!CSM0.Q & CSM1.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB0 & !OPCB6 & OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB6));
 
 !SP_BBOE.D = (!CSM0.Q & CSM1.Q & !OPCB0 & OPCB1 & !OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6);
 
@@ -542,86 +553,89 @@ UNUSED1 = (C_CLK_IN
 
 !Com_Ctrl_229 = (HALT.Q & RESET_IN);
 
-XXL_230 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & OPCB3 & !OPCB6 & !OPCB1)
+Com_Ctrl_230 = (!RESET_IN
+	# (!A_CLK_IN & D_CLK_IN));
+
+XXL_231 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & OPCB3 & !OPCB6 & !OPCB1)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB2 & OPCB3 & !OPCB6 & OPCB1 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB2 & !OPCB3 & !OPCB6 & OPCB1 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2));
 
-XXL_231 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0)
-	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
-	# (CSM0.Q & CSM1.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
+XXL_232 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
+	# (CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB6 & !OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB0 & OPCB6)
+	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB0 & !OPCB6 & OPCB2)
+	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !OPCB0));
 
-XXL_232 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !OPCB0)
+XXL_233 = ((!CSM0.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
+	# !CSM1.Q
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & AD0)
+	# (!CSM0.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
+	# (!CSM0.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
+
+XXL_234 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !OPCB0)
 	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB6 & !OPCB2)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB0 & !OPCB6 & OPCB2)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & !OPCB0 & OPCB6)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & AD0));
 
-XXL_233 = (!CSM1.Q
-	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & OPCB2 & !OPCB6 & !OPCB0)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & AD0)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & !OPCB0)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2 & OPCB6));
-
-XXL_234 = ((!CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & OPCB2)
-	# (!CSM0.Q & !OPCB0 & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB2)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2)
-	# (!CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
-	# (CSM0.Q & !OPCB0 & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB2));
-
-XXL_235 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
-	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & OPCB2)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !OPCB0)
+XXL_235 = ((!CSM0.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# !CSM1.Q
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !OPCB0)
+	# (!CSM0.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
+	# (!CSM0.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
+
+XXL_236 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !AD0)
+	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5 & !OPCB0)
 	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6 & !AD0));
 
-XXL_236 = ((CSM0.Q & CSM1.Q & !OPCB6 & OPCB4 & !OPCB0 & OPCB2 & !OPCB1 & !OPCB3 & OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB5)
+XXL_237 = ((CSM0.Q & CSM1.Q & !OPCB6 & OPCB4 & !OPCB0 & OPCB2 & !OPCB1 & OPCB5 & !OPCB3)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB3)
+	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & OPCB0 & !OPCB2 & OPCB1)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB0 & OPCB2));
 
-XXL_237 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & OPCB2 & !OPCB1)
+XXL_238 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & OPCB2 & !OPCB1)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & !OPCB1 & !OPCB6)
 	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB3 & !OPCB2 & !OPCB1 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3));
 
-XXL_238 = ((!CSM0.Q & CSM1.Q & OPCB2 & !OPCB4 & !OPCB0 & !OPCB3)
+XXL_239 = ((!CSM0.Q & CSM1.Q & OPCB2 & !OPCB4 & !OPCB0 & !OPCB3)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB6 & !OPCB3 & OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB0 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & OPCB2 & !OPCB1 & !OPCB3 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB2 & OPCB1 & !OPCB4 & !OPCB0 & !OPCB6));
 
-XXL_239 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
+XXL_240 = ((!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & OPCB1 & OPCB2 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# (CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & OPCB2 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB2 & OPCB3 & OPCB4 & OPCB5 & OPCB6));
 
-XXL_240 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB6)
+XXL_241 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB1 & !OPCB2 & !OPCB3 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB1 & !OPCB5 & !OPCB2 & !OPCB3 & OPCB0)
 	# (!CSM0.Q & CSM1.Q & OPCB4 & !OPCB1 & !OPCB5 & !OPCB2 & !OPCB3)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB1 & OPCB2 & !OPCB3 & OPCB6 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB1 & !OPCB5));
 
-XXL_241 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB5)
+XXL_242 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB5)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB1 & !OPCB6 & OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & OPCB1 & !OPCB6 & !OPCB0));
 
-XXL_242 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & !OPCB0 & !OPCB2)
-	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB5 & OPCB6 & !OPCB2)
+XXL_243 = ((!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & !OPCB0 & !OPCB2 & OPCB5)
+	# (!CSM0.Q & !OPCB1 & OPCB3 & OPCB4 & OPCB6 & !OPCB2 & OPCB5)
+	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & !OPCB6 & !OPCB0 & OPCB2 & OPCB5)
 	# !CSM1.Q
-	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2));
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB6 & !OPCB0 & OPCB2));
 
-XXL_243 = ((!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6)
-	# (!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
-	# (!CSM0.Q & OPCB1 & OPCB3 & !OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & OPCB2));
+XXL_244 = ((!CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & !OPCB5)
+	# (CSM0.Q & !OPCB1 & !OPCB3 & OPCB4 & OPCB5 & !OPCB6 & !OPCB0 & !OPCB2)
+	# (!CSM0.Q & !OPCB1 & !OPCB3 & !OPCB4 & OPCB5 & OPCB6));
 
 ALU_CFLATCH.C = A_CLK_IN;
 
@@ -669,7 +683,7 @@ DBH_OE.AP = !RESET_IN;
 
 DBL_OE.C = B_CLK_IN;
 
-DBL_OE.AP = !RESET_IN;
+DBL_OE.AP = Com_Ctrl_230;
 
 DB_DIR.C = A_CLK_IN;
 
@@ -681,7 +695,7 @@ H2L_DIR.AP = !RESET_IN;
 
 H2L_OE.C = B_CLK_IN;
 
-H2L_OE.AP = !RESET_IN;
+H2L_OE.AP = Com_Ctrl_230;
 
 HALT.C = A_CLK_IN;
 
@@ -705,15 +719,15 @@ JMPINST.AP = !RESET_IN;
 
 MEM_AS.C = B_CLK_IN;
 
-MEM_AS.AP = !RESET_IN;
+MEM_AS.AP = Com_Ctrl_230;
 
 MEM_H_EN.C = B_CLK_IN;
 
-MEM_H_EN.AP = !RESET_IN;
+MEM_H_EN.AP = Com_Ctrl_230;
 
 MEM_L_EN.C = B_CLK_IN;
 
-MEM_L_EN.AP = !RESET_IN;
+MEM_L_EN.AP = Com_Ctrl_230;
 
 MEM_RW.C = A_CLK_IN;
 
@@ -864,18 +878,19 @@ PINNODE 396 = Com_Ctrl_229; /* MC 96 Foldback */
 PINNODE 412 = Com_Ctrl_229; /* MC 112 Foldback */
 PINNODE 601 = XXL_238; /* MC 1 Feedback */
 PINNODE 602 = XXL_237; /* MC 2 Feedback */
-PINNODE 604 = XXL_236; /* MC 4 Feedback */
-PINNODE 607 = XXL_232; /* MC 7 Feedback */
-PINNODE 609 = XXL_230; /* MC 9 Feedback */
-PINNODE 610 = XXL_235; /* MC 10 Feedback */
+PINNODE 604 = XXL_235; /* MC 4 Feedback */
+PINNODE 607 = XXL_236; /* MC 7 Feedback */
+PINNODE 609 = XXL_234; /* MC 9 Feedback */
+PINNODE 610 = XXL_231; /* MC 10 Feedback */
 PINNODE 612 = XXL_233; /* MC 12 Feedback */
-PINNODE 615 = XXL_231; /* MC 15 Feedback */
-PINNODE 623 = XXL_243; /* MC 23 Feedback */
-PINNODE 626 = XXL_241; /* MC 26 Feedback */
-PINNODE 628 = XXL_234; /* MC 28 Feedback */
-PINNODE 630 = XXL_242; /* MC 30 Feedback */
-PINNODE 631 = XXL_239; /* MC 31 Feedback */
-PINNODE 632 = XXL_240; /* MC 32 Feedback */
+PINNODE 615 = XXL_232; /* MC 15 Feedback */
+PINNODE 622 = Com_Ctrl_230; /* MC 22 Feedback */
+PINNODE 623 = XXL_244; /* MC 23 Feedback */
+PINNODE 626 = XXL_242; /* MC 26 Feedback */
+PINNODE 628 = XXL_243; /* MC 28 Feedback */
+PINNODE 630 = XXL_241; /* MC 30 Feedback */
+PINNODE 631 = XXL_240; /* MC 31 Feedback */
+PINNODE 632 = XXL_239; /* MC 32 Feedback */
 
 ** Resource Usage **
 
@@ -894,160 +909,160 @@ DCERP Field = Summary of Allocations.
 
 For input only = INPUT.
 
-MCell Pin# Oe   PinDrive         DCERP  FBDrive  DCERP  Foldback     CascadeOut     TotPT output_slew
-MC1   0         --                      XXL_238  C----  NA           --             5     slow
-MC2   0         --                      XXL_237  C----  NA           --             5     slow
-MC3   12   on   IR2_OE           Dg--p  --              NA           --             5     slow
-MC4   0         --                      XXL_236  C----  NA           --             5     slow
-MC5   11   on   H2L_OE           Dc--p  --              --           --             4     slow
-MC6   10   on   IR2_LATCH        Dg--p  --              --           --             3     slow
-MC7   0         --                      XXL_232  C----  NA           --             5     slow
-MC8   9    on   DB_DIR           Dg--p  --              --           --             4     slow
-MC9   0         --                      XXL_230  C----  NA           --             5     slow
-MC10  0         --                      XXL_235  C----  NA           --             5     slow
-MC11  8    on   ALU_WC           Dg--p  --              --           --             3     slow
-MC12  0         --                      XXL_233  C----  NA           --             5     slow
-MC13  6    on   DBH_OE           Dg--p  --              NA           --             5     slow
-MC14  5    on   ALU_FL           Dg--p  --              --           --             4     slow
-MC15  0         --                      XXL_231  C----  NA           --             5     slow
-MC16  4    on   ALU_OE           Dg--p  --              --           --             3     slow
-MC17  22   on   SP_BBOE          Dg--p  --              --           --             2     slow
-MC18  0         --                      --              --           --             0     slow
-MC19  21   on   SHFT_WC          Dg--p  --              --           --             2     slow
-MC20  0         --                      --              --           --             0     slow
-MC21  20   on   SHFT_AR          Dg--p  --              --           --             2     slow
-MC22  0         --                      --              --           --             0     slow
-MC23  0         --                      XXL_243  C----  --           --             3     slow
-MC24  18   on   SP_ADOE          Dg--p  --              --           --             2     slow
-MC25  17   on   SFT_DIR          Dg--p  --              --           --             3     slow
-MC26  0         --                      XXL_241  C----  --           --             4     slow
-MC27  16   on   PC_BBOE          Dg--p  --              --           --             4     slow
-MC28  0         --                      XXL_234  C----  NA           --             5     slow
-MC29  15   on   RF_CWE           Dg--p  --              --           --             3     slow
-MC30  0         --                      XXL_242  C----  NA           --             5     slow
-MC31  0         --                      XXL_239  C----  NA           --             5     slow
-MC32  14   --   TDI              INPUT  XXL_240  C----  NA           --             5     slow
-MC33  0         --                      --              --           --             0     slow
-MC34  0         --                      --              --           --             0     slow
-MC35  31   on   PC_MODE2         Dg-r-  --              --           --             2     slow
-MC36  0         --                      --              --           --             0     slow
-MC37  30   on   RF_FHZ           Dg--p  --              --           --             3     slow
-MC38  29   on   H2L_DIR          Dg--p  --              --           --             3     slow
-MC39  0         --                      --              --           --             0     slow
-MC40  28   on   SHFT_OE          Dg--p  --              --           --             2     slow
-MC41  0         --                      --              --           --             0     slow
-MC42  0         --                      --              --           --             0     slow
-MC43  27   on   MEM_L_EN         Dc--p  --              --           --             4     slow
-MC44  0         --                      --              --           --             0     slow
-MC45  25   on   MEM_H_EN         Dc--p  --              --           --             4     slow
-MC46  24   on   ALU_CFLATCH      Dg--p  --              --           --             3     slow
-MC47  0         --                      --              --           --             0     slow
-MC48  23   --   TMS              INPUT  --              Com_Ctrl_229 --             1     slow
-MC49  41   on   ALU_FUNC2        Dg-g-  --              --           --             2     slow
-MC50  0         --                      --              --           --             0     slow
-MC51  40   on   ALU_FUNC0        Dg-g-  --              --           --             2     slow
-MC52  0         --                      --              --           --             0     slow
-MC53  39   on   PC_MODE0         Dg-r-  --              --           --             4     slow
-MC54  0         --                      --              --           --             0     slow
-MC55  0         --                      --              --           --             0     slow
-MC56  37   on   B2A_OE           Dg--p  --              --           --             2     slow
-MC57  36   on   MEM_AS           Dc--p  --              --           --             4     slow
-MC58  0         --                      --              --           --             0     slow
-MC59  35   on   PC_MODE1         Dg-r-  --              --           --             4     slow
-MC60  0         --                      --              --           --             0     slow
-MC61  34   on   SP_MODE0         Dg-g-  --              --           --             4     slow
-MC62  0         --                      --              --           --             0     slow
-MC63  0         --                      --              --           --             0     slow
-MC64  33   on   SP_MODE1         Dg-g-  --              Com_Ctrl_229 --             5     slow
-MC65  44   --   OPCB1            INPUT  --              --           --             0     slow
-MC66  0         --                      --              --           --             0     slow
-MC67  45   --   OPCB3            INPUT  --              --           --             0     slow
-MC68  0         --                      --              --           --             0     slow
-MC69  46   on   RF_BOE           Dg--p  --              --           --             2     slow
-MC70  0         --                      --              --           --             0     slow
-MC71  0         --                      --              --           --             0     slow
-MC72  48   on   PC_ADOE          Dg--p  --              --           --             3     slow
-MC73  49   on   MEM_RW           Dg--p  --              NA           --             5     slow
-MC74  0         --                      --              --           --             0     slow
-MC75  50   on   DBL_OE           Dc--p  --              --           --             4     slow
-MC76  0         --                      --              --           --             0     slow
-MC77  51   on   IR1_LATCH        Dg--p  --              --           --             2     slow
-MC78  0         --                      --              --           --             0     slow
-MC79  0         --                      --              --           --             0     slow
-MC80  52   on   ALU_FUNC1        Dg-g-  --              --           --             2     slow
-MC81  0         --                      --              --           --             0     slow
-MC82  0         --                      --              --           --             0     slow
-MC83  54   --   OPCB4            INPUT  --              --           --             0     slow
-MC84  0         --                      --              --           --             0     slow
-MC85  55   --   OPCB2            INPUT  --              --           --             0     slow
-MC86  56   --   OPCB0            INPUT  --              --           --             0     slow
-MC87  0         --                      --              --           --             0     slow
-MC88  57   --   OPCB5            INPUT  --              --           --             0     slow
-MC89  0         --                      --              --           --             0     slow
-MC90  0         --                      --              --           --             0     slow
-MC91  58   --   OPCB6            INPUT  --              --           --             0     slow
-MC92  0         --                      --              --           --             0     slow
-MC93  60   --   AD0              INPUT  --              --           --             0     slow
-MC94  61   on   CSM0             Dg-r-  --              --           --             3     slow
-MC95  0         --                      --              --           --             0     slow
-MC96  62   --   TCK              INPUT  --              Com_Ctrl_229 --             1     slow
-MC97  63   --   OPCSIZEHINT      INPUT  --              --           --             0     slow
-MC98  0         --                      --              --           --             0     slow
-MC99  64   --   B_CLK_IN         INPUT  --              --           --             0     slow
-MC100 0         --                      --              --           --             0     slow
-MC101 65   on   UNUSED1          C----  --              --           --             3     slow
-MC102 0         --                      --              --           --             0     slow
-MC103 0         --                      --              --           --             0     slow
-MC104 67   on   JMPINST          Dg--p  --              --           --             3     slow
-MC105 68   on   SHFT_INVERTCARRY Dg--p  --              --           --             2     slow
-MC106 0         --                      --              --           --             0     slow
-MC107 69   on   HALT             Dg--p  --              --           --             2     slow
-MC108 0         --                      --              --           --             0     slow
-MC109 70   on   CSM1             Dg-r-  --              --           --             4     slow
-MC110 0         --                      --              --           --             0     slow
-MC111 0         --                      --              --           --             0     slow
-MC112 71   --   TDO              INPUT  --              Com_Ctrl_229 --             1     slow
-MC113 0         --                      --              --           --             0     slow
-MC114 0         --                      --              --           --             0     slow
-MC115 73   --   C_CLK_IN         INPUT  --              --           --             0     slow
-MC116 0         --                      --              --           --             0     slow
-MC117 74   --   UNUSED2          INPUT  --              --           --             0     slow
-MC118 75   --   UNUSED3          INPUT  --              --           --             0     slow
-MC119 0         --                      --              --           --             0     slow
-MC120 76   --   UNUSED4          INPUT  --              --           --             0     slow
-MC121 0         --                      --              --           --             0     slow
-MC122 0         --                      --              --           --             0     slow
-MC123 77   --   UNUSED5          INPUT  --              --           --             0     slow
-MC124 0         --                      --              --           --             0     slow
-MC125 79   --   UNUSED6          INPUT  --              --           --             0     slow
-MC126 80   --   UNUSED7          INPUT  --              --           --             0     slow
-MC127 0         --                      --              --           --             0     slow
-MC128 81   --   UNUSED8          INPUT  --              --           --             0     slow
-MC0   2         D_CLK_IN         INPUT  --              --           --             0     slow
-MC0   1         RESET_IN         INPUT  --              --           --             0     slow
-MC0   84        UNUSED9          INPUT  --              --           --             0     slow
-MC0   83        A_CLK_IN         INPUT  --              --           --             0     slow
+MCell Pin# Oe   PinDrive         DCERP  FBDrive      DCERP  Foldback     CascadeOut     TotPT output_slew
+MC1   0         --                      XXL_238      C----  NA           --             5     slow
+MC2   0         --                      XXL_237      C----  NA           --             5     slow
+MC3   12   on   IR2_OE           Dg--p  --                  NA           --             5     slow
+MC4   0         --                      XXL_235      C----  NA           --             5     slow
+MC5   11   on   H2L_OE           Dc--p  --                  --           --             4     slow
+MC6   10   on   IR2_LATCH        Dg--p  --                  --           --             3     slow
+MC7   0         --                      XXL_236      C----  NA           --             5     slow
+MC8   9    on   DB_DIR           Dg--p  --                  --           --             4     slow
+MC9   0         --                      XXL_234      C----  NA           --             5     slow
+MC10  0         --                      XXL_231      C----  NA           --             5     slow
+MC11  8    on   ALU_WC           Dg--p  --                  --           --             3     slow
+MC12  0         --                      XXL_233      C----  NA           --             5     slow
+MC13  6    on   DBH_OE           Dg--p  --                  NA           --             5     slow
+MC14  5    on   ALU_FL           Dg--p  --                  --           --             4     slow
+MC15  0         --                      XXL_232      C----  NA           --             5     slow
+MC16  4    on   ALU_OE           Dg--p  --                  --           --             3     slow
+MC17  22   on   SP_BBOE          Dg--p  --                  --           --             2     slow
+MC18  0         --                      --                  --           --             0     slow
+MC19  21   on   SHFT_WC          Dg--p  --                  --           --             2     slow
+MC20  0         --                      --                  --           --             0     slow
+MC21  20   on   SHFT_AR          Dg--p  --                  --           --             2     slow
+MC22  0         --                      Com_Ctrl_230 C----  --           --             2     slow
+MC23  0         --                      XXL_244      C----  --           --             3     slow
+MC24  18   on   SP_ADOE          Dg--p  --                  --           --             2     slow
+MC25  17   on   SFT_DIR          Dg--p  --                  --           --             3     slow
+MC26  0         --                      XXL_242      C----  --           --             4     slow
+MC27  16   on   PC_BBOE          Dg--p  --                  --           --             4     slow
+MC28  0         --                      XXL_243      C----  NA           --             5     slow
+MC29  15   on   RF_CWE           Dg--p  --                  --           --             3     slow
+MC30  0         --                      XXL_241      C----  NA           --             5     slow
+MC31  0         --                      XXL_240      C----  NA           --             5     slow
+MC32  14   --   TDI              INPUT  XXL_239      C----  NA           --             5     slow
+MC33  0         --                      --                  --           --             0     slow
+MC34  0         --                      --                  --           --             0     slow
+MC35  31   on   PC_MODE2         Dg-r-  --                  --           --             2     slow
+MC36  0         --                      --                  --           --             0     slow
+MC37  30   on   RF_FHZ           Dg--p  --                  --           --             3     slow
+MC38  29   on   H2L_DIR          Dg--p  --                  --           --             3     slow
+MC39  0         --                      --                  --           --             0     slow
+MC40  28   on   SHFT_OE          Dg--p  --                  --           --             2     slow
+MC41  0         --                      --                  --           --             0     slow
+MC42  0         --                      --                  --           --             0     slow
+MC43  27   on   MEM_L_EN         Dc--p  --                  --           --             4     slow
+MC44  0         --                      --                  --           --             0     slow
+MC45  25   on   MEM_H_EN         Dc--p  --                  --           --             4     slow
+MC46  24   on   ALU_CFLATCH      Dg--p  --                  --           --             3     slow
+MC47  0         --                      --                  --           --             0     slow
+MC48  23   --   TMS              INPUT  --                  Com_Ctrl_229 --             1     slow
+MC49  41   on   ALU_FUNC2        Dg-g-  --                  --           --             2     slow
+MC50  0         --                      --                  --           --             0     slow
+MC51  40   on   ALU_FUNC0        Dg-g-  --                  --           --             2     slow
+MC52  0         --                      --                  --           --             0     slow
+MC53  39   on   PC_MODE0         Dg-r-  --                  --           --             4     slow
+MC54  0         --                      --                  --           --             0     slow
+MC55  0         --                      --                  --           --             0     slow
+MC56  37   on   B2A_OE           Dg--p  --                  --           --             2     slow
+MC57  36   on   MEM_AS           Dc--p  --                  --           --             4     slow
+MC58  0         --                      --                  --           --             0     slow
+MC59  35   on   PC_MODE1         Dg-r-  --                  --           --             4     slow
+MC60  0         --                      --                  --           --             0     slow
+MC61  34   on   SP_MODE0         Dg-g-  --                  --           --             4     slow
+MC62  0         --                      --                  --           --             0     slow
+MC63  0         --                      --                  --           --             0     slow
+MC64  33   on   SP_MODE1         Dg-g-  --                  Com_Ctrl_229 --             5     slow
+MC65  44   --   OPCB1            INPUT  --                  --           --             0     slow
+MC66  0         --                      --                  --           --             0     slow
+MC67  45   --   OPCB3            INPUT  --                  --           --             0     slow
+MC68  0         --                      --                  --           --             0     slow
+MC69  46   on   RF_BOE           Dg--p  --                  --           --             2     slow
+MC70  0         --                      --                  --           --             0     slow
+MC71  0         --                      --                  --           --             0     slow
+MC72  48   on   PC_ADOE          Dg--p  --                  --           --             3     slow
+MC73  49   on   MEM_RW           Dg--p  --                  NA           --             5     slow
+MC74  0         --                      --                  --           --             0     slow
+MC75  50   on   DBL_OE           Dc--p  --                  --           --             4     slow
+MC76  0         --                      --                  --           --             0     slow
+MC77  51   on   IR1_LATCH        Dg--p  --                  --           --             2     slow
+MC78  0         --                      --                  --           --             0     slow
+MC79  0         --                      --                  --           --             0     slow
+MC80  52   on   ALU_FUNC1        Dg-g-  --                  --           --             2     slow
+MC81  0         --                      --                  --           --             0     slow
+MC82  0         --                      --                  --           --             0     slow
+MC83  54   --   OPCB4            INPUT  --                  --           --             0     slow
+MC84  0         --                      --                  --           --             0     slow
+MC85  55   --   OPCB2            INPUT  --                  --           --             0     slow
+MC86  56   --   OPCB0            INPUT  --                  --           --             0     slow
+MC87  0         --                      --                  --           --             0     slow
+MC88  57   --   OPCB5            INPUT  --                  --           --             0     slow
+MC89  0         --                      --                  --           --             0     slow
+MC90  0         --                      --                  --           --             0     slow
+MC91  58   --   OPCB6            INPUT  --                  --           --             0     slow
+MC92  0         --                      --                  --           --             0     slow
+MC93  60   --   AD0              INPUT  --                  --           --             0     slow
+MC94  61   on   CSM0             Dg-r-  --                  --           --             3     slow
+MC95  0         --                      --                  --           --             0     slow
+MC96  62   --   TCK              INPUT  --                  Com_Ctrl_229 --             1     slow
+MC97  63   --   OPCSIZEHINT      INPUT  --                  --           --             0     slow
+MC98  0         --                      --                  --           --             0     slow
+MC99  64   --   B_CLK_IN         INPUT  --                  --           --             0     slow
+MC100 0         --                      --                  --           --             0     slow
+MC101 65   on   UNUSED1          C----  --                  --           --             3     slow
+MC102 0         --                      --                  --           --             0     slow
+MC103 0         --                      --                  --           --             0     slow
+MC104 67   on   JMPINST          Dg--p  --                  --           --             3     slow
+MC105 68   on   SHFT_INVERTCARRY Dg--p  --                  --           --             2     slow
+MC106 0         --                      --                  --           --             0     slow
+MC107 69   on   HALT             Dg--p  --                  --           --             2     slow
+MC108 0         --                      --                  --           --             0     slow
+MC109 70   on   CSM1             Dg-r-  --                  --           --             4     slow
+MC110 0         --                      --                  --           --             0     slow
+MC111 0         --                      --                  --           --             0     slow
+MC112 71   --   TDO              INPUT  --                  Com_Ctrl_229 --             1     slow
+MC113 0         --                      --                  --           --             0     slow
+MC114 0         --                      --                  --           --             0     slow
+MC115 73   --   C_CLK_IN         INPUT  --                  --           --             0     slow
+MC116 0         --                      --                  --           --             0     slow
+MC117 74   --   UNUSED2          INPUT  --                  --           --             0     slow
+MC118 75   --   UNUSED3          INPUT  --                  --           --             0     slow
+MC119 0         --                      --                  --           --             0     slow
+MC120 76   --   UNUSED4          INPUT  --                  --           --             0     slow
+MC121 0         --                      --                  --           --             0     slow
+MC122 0         --                      --                  --           --             0     slow
+MC123 77   --   UNUSED5          INPUT  --                  --           --             0     slow
+MC124 0         --                      --                  --           --             0     slow
+MC125 79   --   UNUSED6          INPUT  --                  --           --             0     slow
+MC126 80   --   UNUSED7          INPUT  --                  --           --             0     slow
+MC127 0         --                      --                  --           --             0     slow
+MC128 81   --   UNUSED8          INPUT  --                  --           --             0     slow
+MC0   2         D_CLK_IN         INPUT  --                  --           --             0     slow
+MC0   1         RESET_IN         INPUT  --                  --           --             0     slow
+MC0   84        UNUSED9          INPUT  --                  --           --             0     slow
+MC0   83        A_CLK_IN         INPUT  --                  --           --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		16/16(100%)	8/16(50%)	0/16(0%)	71/80(88%)	(15)	0
-B: LC17	- LC32		13/16(81%)	8/16(50%)	0/16(0%)	45/80(56%)	(13)	0
-C: LC33	- LC48		7/16(43%)	8/16(50%)	1/16(6%)	22/80(27%)	(16)	0
-D: LC49	- LC64		8/16(50%)	8/16(50%)	1/16(6%)	27/80(33%)	(14)	0
-E: LC65	- LC80		6/16(37%)	8/16(50%)	0/16(0%)	18/80(22%)	(13)	0
+A: LC1	- LC16		16/16(100%)	8/16(50%)	0/16(0%)	71/80(88%)	(16)	0
+B: LC17	- LC32		14/16(87%)	8/16(50%)	0/16(0%)	47/80(58%)	(15)	0
+C: LC33	- LC48		7/16(43%)	8/16(50%)	1/16(6%)	22/80(27%)	(17)	0
+D: LC49	- LC64		8/16(50%)	8/16(50%)	1/16(6%)	27/80(33%)	(15)	0
+E: LC65	- LC80		6/16(37%)	8/16(50%)	0/16(0%)	18/80(22%)	(15)	0
 F: LC81	- LC96		1/16(6%)	8/16(50%)	1/16(6%)	4/80(5%)	(7)	0
 G: LC97	- LC112		5/16(31%)	8/16(50%)	1/16(6%)	15/80(18%)	(22)	0
 H: LC113- LC128		0/16(0%)	8/16(50%)	0/16(0%)	0/80(0%)	(0)	0
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		64/64 	(100%)
-Total Logic cells used 		56/128 	(43%)
+Total Logic cells used 		57/128 	(44%)
 Total Flip-Flop used 		41/128 	(32%)
 Total Foldback logic used 	4/128 	(3%)
-Total Nodes+FB/MCells 		60/128 	(46%)
+Total Nodes+FB/MCells 		61/128 	(47%)
 Total cascade used 		0
 Total input pins 		26
 Total output pins 		42
-Total Pts 			202
+Total Pts 			204
 Creating pla file C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS

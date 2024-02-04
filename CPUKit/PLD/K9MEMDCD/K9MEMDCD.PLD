@@ -53,8 +53,8 @@ RAM_ACCESS = (!MEM_AS & ( addr:['b'1XXXXXXXXXXXXXXX] & !(addr:['b'111111111111XX
 
 SW_LOW_READ =  !(!MEM_AS & addr:['h'FFF0] & MEM_RW & !MEM_L_EN);
 SW_HIGH_READ = !(!MEM_AS & addr:['h'FFF0] & MEM_RW & !MEM_H_EN);
-SEVEN_LOW_WRITE = (!MEM_AS & addr:['h'FFF0] & !MEM_RW & !MEM_L_EN);
-SEVEN_HIGH_WRITE = (!MEM_AS & addr:['h'FFF0] & !MEM_RW & !MEM_H_EN);
+SEVEN_LOW_WRITE =  !(!MEM_AS & addr:['h'FFF0] & !MEM_RW & !MEM_L_EN);
+SEVEN_HIGH_WRITE = !(!MEM_AS & addr:['h'FFF0] & !MEM_RW & !MEM_H_EN);
 
 
 RAM_HIGH_CS = !( RAM_ACCESS & !MEM_H_EN

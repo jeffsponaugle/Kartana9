@@ -1,4 +1,4 @@
-Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Wed Jan 24 09:10:52 2024
+Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Sat Feb 03 17:26:33 2024
 
 
 fit1504 C:\SRC\KARTANA9\CPUKIT\PLD\K9MEMDCD\K9MEMDCD.tt2 -CUPL -dev P1504C44 -JTAG ON
@@ -241,9 +241,9 @@ RAM_WE = (!A15
 
 !ROM_HIGH_CS = (!A15 & !MEM_AS & !MEM_H_EN);
 
-SEVEN_HIGH_WRITE = (!A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14 & A15 & !MEM_AS & !MEM_H_EN & !MEM_RW);
+!SEVEN_HIGH_WRITE = (!A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14 & A15 & !MEM_AS & !MEM_H_EN & !MEM_RW);
 
-SEVEN_LOW_WRITE = (!A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14 & A15 & !MEM_AS & !MEM_L_EN & !MEM_RW);
+!SEVEN_LOW_WRITE = (!A1 & !A2 & !A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 & A12 & A13 & A14 & A15 & !MEM_AS & !MEM_L_EN & !MEM_RW);
 
 !ROM_WE = (!A15 & !MEM_AS & !MEM_RW);
 

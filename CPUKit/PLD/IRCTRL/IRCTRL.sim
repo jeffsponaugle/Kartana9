@@ -9,10 +9,10 @@ PIN   4 =  ALU_OE
 PIN   8 =  ALU_WC 
 PIN  83 =  A_CLK_IN 
 PIN  37 =  B2A_OE 
-PIN   0 =  B_CLK_IN 
+PIN  64 =  B_CLK_IN 
 PIN  61 =  CSM0 
 PIN  70 =  CSM1 
-PIN   0 =  C_CLK_IN 
+PIN  73 =  C_CLK_IN 
 PIN   6 =  DBH_OE 
 PIN  50 =  DBL_OE 
 PIN   9 =  DB_DIR 
@@ -307,6 +307,7 @@ DBL_OE.d  =>
 
 DBL_OE.ap  =>
     !RESET_IN
+  # !A_CLK_IN & D_CLK_IN
 
 DBL_OE.ck  =>
     B_CLK_IN
@@ -381,6 +382,7 @@ H2L_OE.d  =>
 
 H2L_OE.ap  =>
     !RESET_IN
+  # !A_CLK_IN & D_CLK_IN
 
 H2L_OE.ck  =>
     B_CLK_IN
@@ -515,6 +517,7 @@ MEM_AS.d  =>
 
 MEM_AS.ap  =>
     !RESET_IN
+  # !A_CLK_IN & D_CLK_IN
 
 MEM_AS.ck  =>
     B_CLK_IN
@@ -563,6 +566,7 @@ MEM_H_EN.d  =>
 
 MEM_H_EN.ap  =>
     !RESET_IN
+  # !A_CLK_IN & D_CLK_IN
 
 MEM_H_EN.ck  =>
     B_CLK_IN
@@ -611,9 +615,13 @@ MEM_L_EN.d  =>
 
 MEM_L_EN.ap  =>
     !RESET_IN
+  # !A_CLK_IN & D_CLK_IN
 
 MEM_L_EN.ck  =>
     B_CLK_IN
+
+MEM_RESET =>
+    !A_CLK_IN & D_CLK_IN
 
 MEM_RW.d  =>
     OPCB0 & OPCB1
