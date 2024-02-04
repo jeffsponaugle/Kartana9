@@ -29,7 +29,7 @@ instmnu =      {"nop"    :{"numops":0,"op1":"","op2":"","op3":"","size":1, "opco
                 "shlc"   :{"numops":3,"op1":"regb","op2":"regc","op3":"imm3a","size":1, "opcode":0x24 },
                 "shra"   :{"numops":3,"op1":"regb","op2":"regc","op3":"imm3a","size":1, "opcode":0x25 },
                 "getsp"  :{"numops":1,"op1":"regc","op2":"","op3":"","size":1, "opcode":0x2A },
-                "putsp"  :{"numops":0,"op1":"","op2":"","op3":"","size":1, "opcode":0x2B },
+                "putsp"  :{"numops":1,"op1":"regb","op2":"","op3":"","size":1, "opcode":0x2B },
                 "mov"    :{"numops":2,"op1":"regb","op2":"regc","op3":"","size":1, "opcode":0x2C },
                 "getpc"  :{"numops":1,"op1":"regc","op2":"","op3":"","size":1, "opcode":0x2D },
                 "push"   :{"numops":1,"op1":"regb","op2":"","op3":"","size":1, "opcode":0x2E },
@@ -85,7 +85,7 @@ def getregisternumber(operandstring,operandnumber):
     errortxt=""
     retval=0
     ro,errortxt = getsingleoperand(operandstring,operandnumber)
-
+    ro=ro.strip("[").strip("]")
     if (ro.startswith("r")):
         rn=ro.split("r",1)[1]
         if (rn.isdecimal()):
@@ -104,6 +104,7 @@ def getregisternumber(operandstring,operandnumber):
 def getimmnumber(operandstring,operandnumber):
     rni=0
     ro,errortxt = getsingleoperand(operandstring,operandnumber)
+    ro=ro.strip("[").strip("]")
     if (len(errortxt)==0):
         # if the imm value starts with a pound sign, it is hex number
         if (ro.startswith("#")):
@@ -339,7 +340,7 @@ for srcline in srcfilerecord:
             # we will continue to print the source output in list file until we get to a src line that has
             # an enrty in the parsed list.  Since the parsed list is ordered by srcline, we only need to do
             # one compare until we find a match, then increment to the next parsed list item
-            lst="{:3d}                                {:90.90s}".format(srclineindex,srcline)
+            lst="{:3d}                                      {:90.90s}".format(srclineindex,srcline)
             listfile.write(lst.rstrip()+"\r\n")
         else:
             # if the srcline and srcln are the same
