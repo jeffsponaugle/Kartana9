@@ -1,0 +1,51 @@
+
+*** Start of List File:test4.asm     Completed        2024-02-04 21:45:26.991938
+
+LN# ADDR  OPCD DATA                    SOURCE
+------------------------------------------------------------------------------------------------------------------------------------
+  1                                      ; test the ALU and Flags
+  2
+  3                                      start:
+  4 0000  (00) 0000                              nop
+  5 0002  (66) CC00 00FE                         loadimm r0,#FE
+  6 0006  (51) A200 FFF0                         storebi r0,[#FFF0]
+  7 000A  (00) 0000                              nop
+  8 000C  (66) CC00 000F                         loadimm r0,15
+  9 0010  (66) CC40 0050                         loadimm r1,sevseg
+ 10 0014  (66) CCC0 0001                         loadimm r3,1
+ 11 0018  (04) 0881                      lp:     add r1,r0,r2        ; r2 is address in sevseg for the value we want
+ 12 001A  (15) 2B10                              loadbr  [r2],r4
+ 13 001C  (51) A204 FFF0                         storebi r4,[#FFF0]
+ 14 0020  (51) A204 FFF1                         storebi r4,[#FFF1]
+ 15 0024  (02) 0418                              sub r0,r3,r0
+ 16 0026  (5A) B400 0018                         jnzi lp
+ 17
+ 18 002A  (00) 0000                              nop
+ 19 002C  (66) CC00 000F                         loadimm r0,15
+ 20 0030  (66) CC40 0050                         loadimm r1,sevseg
+ 21 0034  (66) CCC0 0001                         loadimm r3,1
+ 22 0038  (04) 0881                      lp2:    add r1,r0,r2        ; r2 is address in sevseg for the value we want
+ 23 003A  (15) 2B10                              loadbr  [r2],r4
+ 24 003C  (51) A204 FFF0                         storebi r4,[#FFF0]
+ 25 0040  (51) A204 FFF1                         storebi r4,[#FFF1]
+ 26 0044  (42) 8400 0001                         subi r0,#1,r0
+ 27 0048  (5A) B400 0038                         jnzi lp2
+ 28
+ 29 004C  (58) B000 0000                         jmpi start
+ 30                                      sevseg:
+ 31                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
+ 32 0050       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
+ 32 0058       01 21 11 07 8D 43 0D 1D
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Table of Label Values
+------------------------------------------------------------------------------------------------------------------------------------
+Label              Address
+--------------------------
+start              0000
+lp                 0018
+lp2                0038
+sevseg             0050
+
+*** End of List File:test4.asm     Completed        2024-02-04 21:45:26.992027

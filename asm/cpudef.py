@@ -96,7 +96,7 @@ def getregisternumber(operandstring,operandnumber):
                 errortxt="Register number out of range 0-7"
 
         else:
-            errortxt="Register number is not a decimal number"
+            errortxt="Register number is not a decimal number:"+ro
     else:
         errortxt="Register does not start with an r:"+ro
     return (retval,errortxt)

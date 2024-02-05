@@ -1,5 +1,5 @@
 
-*** Start of List File:test3.asm     Completed        2024-02-03 21:59:36.873825
+*** Start of List File:test3.asm     Completed        2024-02-04 21:45:30.071541
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -9,21 +9,23 @@ LN# ADDR  OPCD DATA                    SOURCE
   4 0000  (00) 0000                              nop
   5 0002  (66) CC00 00FE                         loadimm r0,#FE
   6 0006  (51) A200 FFF0                         storebi r0,[#FFF0]
-  7 000A  (00) 0000                              nop
-  8 000C  (66) CC00 000F                         loadimm r0,15
-  9 0010  (66) CC40 002A                         loadimm r1,sevseg
- 10 0014  (66) CCC0 0001                         loadimm r3,1
- 11 0018  (04) 0881                      lp:     add r1,r0,r2        ; r2 is address in sevseg for the value we want
- 12 001A  (15) 2B10                              loadbr  [r2],r4
- 13 001C  (51) A204 FFF0                         storebi r4,[#FFF0]
- 14 0020  (02) 0418                              sub r0,r3,r0
- 15 0022  (5A) B400 0018                         jnzi lp
- 16 0026  (58) B000 0000                         jmpi start
- 17
- 18                                      sevseg:
- 19                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
- 20 002A       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
- 20 0032       01 21 11 07 8D 43 0D 1D
+  7 000A  (51) A200 FFF1                         storebi r0,[#FFF1]
+  8 000E  (00) 0000                              nop
+  9 0010  (66) CC00 000F                         loadimm r0,15
+ 10 0014  (66) CC40 0032                         loadimm r1,sevseg
+ 11 0018  (66) CCC0 0001                         loadimm r3,1
+ 12 001C  (04) 0881                      lp:     add r1,r0,r2        ; r2 is address in sevseg for the value we want
+ 13 001E  (15) 2B10                              loadbr  [r2],r4
+ 14 0020  (51) A204 FFF0                         storebi r4,[#FFF0]
+ 15 0024  (51) A200 FFF1                         storebi r0,[#FFF1]
+ 16 0028  (02) 0418                              sub r0,r3,r0
+ 17 002A  (5A) B400 001C                         jnzi lp
+ 18 002E  (58) B000 0000                         jmpi start
+ 19
+ 20                                      sevseg:
+ 21                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
+ 22 0032       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
+ 22 003A       01 21 11 07 8D 43 0D 1D
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -32,7 +34,7 @@ Table of Label Values
 Label              Address
 --------------------------
 start              0000
-lp                 0018
-sevseg             002A
+lp                 001C
+sevseg             0032
 
-*** End of List File:test3.asm     Completed        2024-02-03 21:59:36.873885
+*** End of List File:test3.asm     Completed        2024-02-04 21:45:30.071608
