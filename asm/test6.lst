@@ -1,5 +1,5 @@
 
-*** Start of List File:test6.asm     Completed        2024-02-04 21:32:59.559298
+*** Start of List File:test6.asm     Completed        2024-02-06 12:25:25.932657
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -61,4 +61,4 @@ Label              Address
 start              0000
 foo                0064
 
-*** End of List File:test6.asm     Completed        2024-02-04 21:32:59.559394
+*** End of List File:test6.asm     Completed        2024-02-06 12:25:25.932758
