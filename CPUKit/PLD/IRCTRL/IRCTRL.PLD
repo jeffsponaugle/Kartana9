@@ -400,7 +400,7 @@ SP_ADOE.d = !(   INST_PUSH_B
               #  INST_CALL_RI16
               );
 
-SP_MODE0.d = !(  INST_PUSH_B         
+SP_MODE0.d = (  INST_PUSH_B         
               #  INST_POP_C         
               #  INST_CALL_B         
               #  INST_RET
@@ -409,7 +409,7 @@ SP_MODE0.d = !(  INST_PUSH_B
               );
 
 
-SP_MODE1.d = !(  INST_MOV_B_SP
+SP_MODE1.d = (  INST_MOV_B_SP
               #  INST_PUSH_B                 
               #  INST_CALL_B         
               #  INST_CALL_I16 
