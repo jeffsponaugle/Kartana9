@@ -6,7 +6,7 @@ start:
         loadimm r1,1
         loadimm r2,2
         loadimm r3,3
-        loadimm r7,#8120
+        loadimm r7,#F000
         putsp r7
         getsp r6
         push r0
@@ -17,7 +17,7 @@ start:
         pop r1
         pop r2
         pop r3
-        loadimm r7,#1120
+        loadimm r7,#FF00
         putsp r7
         getsp r6
         push r0

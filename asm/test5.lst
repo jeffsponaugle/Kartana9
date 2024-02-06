@@ -1,5 +1,5 @@
 
-*** Start of List File:test5.asm     Completed        2024-02-06 09:37:43.889853
+*** Start of List File:test5.asm     Completed        2024-02-06 10:11:22.083448
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ LN# ADDR  OPCD DATA                    SOURCE
   6 0006  (66) CC40 0001                         loadimm r1,1
   7 000A  (66) CC80 0002                         loadimm r2,2
   8 000E  (66) CCC0 0003                         loadimm r3,3
-  9 0012  (66) CDC0 8120                         loadimm r7,#8120
+  9 0012  (66) CDC0 F000                         loadimm r7,#F000
  10 0016  (2B) 5638                              putsp r7
  11 0018  (2A) 5580                              getsp r6
  12 001A  (2E) 5C00                              push r0
@@ -22,7 +22,7 @@ LN# ADDR  OPCD DATA                    SOURCE
  17 0024  (30) 6040                              pop r1
  18 0026  (30) 6080                              pop r2
  19 0028  (30) 60C0                              pop r3
- 20 002A  (66) CDC0 1120                         loadimm r7,#1120
+ 20 002A  (66) CDC0 FF00                         loadimm r7,#FF00
  21 002E  (2B) 5638                              putsp r7
  22 0030  (2A) 5580                              getsp r6
  23 0032  (2E) 5C00                              push r0
@@ -48,4 +48,4 @@ Label              Address
 start              0000
 lp                 004A
 
-*** End of List File:test5.asm     Completed        2024-02-06 09:37:43.889933
+*** End of List File:test5.asm     Completed        2024-02-06 10:11:22.083528
