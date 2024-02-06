@@ -459,6 +459,7 @@ ALU_OE.d = !(   INST_ALL_MATHOPS
               # INST_STOREW_A_INDI16 # INST_STOREB_A_INDI16
               # INST_STOREW_A_RI16 # INST_STOREB_A_RI16
               # INST_LOADI_C_I16
+              # INST_CMP_A_B
               );
 
 /* ALU_FL - ALU Change Flags on this operation */

@@ -175,8 +175,7 @@ CFOut.d =   (ALU_CFLATCH & (
 CFOut.ck = D_CLK_IN;
 CFOut.ar = !RESET_IN;
 
-ZeroValue = CBUS0.q # CBUS1.q # CBUS2.q # CBUS3.q # CBUS4.q # CBUS5.q # CBUS6.q # CBUS7.q # CBUS8.q 
-            # CBUS9.q # CBUS10.q # CBUS11.q # CBUS12.q # CBUS13.q # CBUS14.q # CBUS15.q;
+ZeroValue = CBUS0 # CBUS1 # CBUS2 # CBUS3 # CBUS4 # CBUS5 # CBUS6 # CBUS7 # CBUS8 # CBUS9 # CBUS10 # CBUS11 # CBUS12 # CBUS13 # CBUS14 # CBUS15;
             
 ZFOut.d = (!ALU_FL & (!ZeroValue)) # ( (ALU_FL) & ZFOut);
 ZFOut.ck = D_CLK_IN;
