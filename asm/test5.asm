@@ -17,7 +17,7 @@ start:
         pop r1
         pop r2
         pop r3
-        loadimm r7,#FF00
+ mid:   loadimm r7,#FF00
         putsp r7
         getsp r6
         push r0
@@ -29,10 +29,12 @@ start:
         pop r2
         pop r3
         loadimm r0,0
-        loadimm r5,#FF
+        loadimm r5,#06
   lp:   subi r5,1,r5
         cmp r5,r0
         jnzi lp
+        jzi mid
+        jmpi start
 
 
 

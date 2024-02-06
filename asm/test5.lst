@@ -1,5 +1,5 @@
 
-*** Start of List File:test5.asm     Completed        2024-02-06 10:11:22.083448
+*** Start of List File:test5.asm     Completed        2024-02-06 12:29:43.525263
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ LN# ADDR  OPCD DATA                    SOURCE
  17 0024  (30) 6040                              pop r1
  18 0026  (30) 6080                              pop r2
  19 0028  (30) 60C0                              pop r3
- 20 002A  (66) CDC0 FF00                         loadimm r7,#FF00
+ 20 002A  (66) CDC0 FF00                  mid:   loadimm r7,#FF00
  21 002E  (2B) 5638                              putsp r7
  22 0030  (2A) 5580                              getsp r6
  23 0032  (2E) 5C00                              push r0
@@ -34,10 +34,12 @@ LN# ADDR  OPCD DATA                    SOURCE
  29 003E  (30) 6080                              pop r2
  30 0040  (30) 60C0                              pop r3
  31 0042  (66) CC00 0000                         loadimm r0,0
- 32 0046  (66) CD40 00FF                         loadimm r5,#FF
+ 32 0046  (66) CD40 0006                         loadimm r5,#06
  33 004A  (42) 8545 0001                   lp:   subi r5,1,r5
  34 004E  (12) 2405                              cmp r5,r0
  35 0050  (5A) B400 004A                         jnzi lp
+ 36 0054  (59) B200 002A                         jzi mid
+ 37 0058  (58) B000 0000                         jmpi start
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -46,6 +48,7 @@ Table of Label Values
 Label              Address
 --------------------------
 start              0000
+mid                002A
 lp                 004A
 
-*** End of List File:test5.asm     Completed        2024-02-06 10:11:22.083528
+*** End of List File:test5.asm     Completed        2024-02-06 12:29:43.525339
