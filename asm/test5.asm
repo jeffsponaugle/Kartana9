@@ -3,13 +3,18 @@
 start:
         nop
         loadimm r0,0
-        addi r0,1,r1
-        addi r0,2,r2
-        subi r2,1,r3
-        subi r1,1,r4
-        loadimm r7,#1000
+        loadimm r1,1
+        loadimm r2,2
+        loadimm r3,3
+        loadimm r7,#8120
         putsp r7
+        putsp r7
+        nop
         getsp r6
+        getsp r6
+        nop
+        putsp r7
+        nop
         push r0
         push r1
         push r2

@@ -1,5 +1,5 @@
 
-*** Start of List File:test5.asm     Completed        2024-02-04 21:45:22.271608
+*** Start of List File:test5.asm     Completed        2024-02-05 21:05:27.481016
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -8,26 +8,31 @@ LN# ADDR  OPCD DATA                    SOURCE
   3                                      start:
   4 0000  (00) 0000                              nop
   5 0002  (66) CC00 0000                         loadimm r0,0
-  6 0006  (44) 8840 0001                         addi r0,1,r1
-  7 000A  (44) 8880 0002                         addi r0,2,r2
-  8 000E  (42) 84C2 0001                         subi r2,1,r3
-  9 0012  (42) 8501 0001                         subi r1,1,r4
- 10 0016  (66) CDC0 1000                         loadimm r7,#1000
- 11 001A  (2B) 5638                              putsp r7
- 12 001C  (2A) 5580                              getsp r6
- 13 001E  (2E) 5C00                              push r0
- 14 0020  (2E) 5C08                              push r1
- 15 0022  (2E) 5C10                              push r2
- 16 0024  (2E) 5C18                              push r3
- 17 0026  (30) 6000                              pop r0
- 18 0028  (30) 6040                              pop r1
- 19 002A  (30) 6080                              pop r2
- 20 002C  (30) 60C0                              pop r3
- 21 002E  (66) CC00 0000                         loadimm r0,0
- 22 0032  (66) CD40 00FF                         loadimm r5,#FF
- 23 0036  (42) 8545 0001                   lp:   subi r5,1,r5
- 24 003A  (12) 2405                              cmp r5,r0
- 25 003C  (5A) B400 0036                         jnzi lp
+  6 0006  (66) CC40 0001                         loadimm r1,1
+  7 000A  (66) CC80 0002                         loadimm r2,2
+  8 000E  (66) CCC0 0003                         loadimm r3,3
+  9 0012  (66) CDC0 8120                         loadimm r7,#8120
+ 10 0016  (2B) 5638                              putsp r7
+ 11 0018  (2B) 5638                              putsp r7
+ 12 001A  (00) 0000                              nop
+ 13 001C  (2A) 5580                              getsp r6
+ 14 001E  (2A) 5580                              getsp r6
+ 15 0020  (00) 0000                              nop
+ 16 0022  (2B) 5638                              putsp r7
+ 17 0024  (00) 0000                              nop
+ 18 0026  (2E) 5C00                              push r0
+ 19 0028  (2E) 5C08                              push r1
+ 20 002A  (2E) 5C10                              push r2
+ 21 002C  (2E) 5C18                              push r3
+ 22 002E  (30) 6000                              pop r0
+ 23 0030  (30) 6040                              pop r1
+ 24 0032  (30) 6080                              pop r2
+ 25 0034  (30) 60C0                              pop r3
+ 26 0036  (66) CC00 0000                         loadimm r0,0
+ 27 003A  (66) CD40 00FF                         loadimm r5,#FF
+ 28 003E  (42) 8545 0001                   lp:   subi r5,1,r5
+ 29 0042  (12) 2405                              cmp r5,r0
+ 30 0044  (5A) B400 003E                         jnzi lp
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -36,6 +41,6 @@ Table of Label Values
 Label              Address
 --------------------------
 start              0000
-lp                 0036
+lp                 003E
 
-*** End of List File:test5.asm     Completed        2024-02-04 21:45:22.271668
+*** End of List File:test5.asm     Completed        2024-02-05 21:05:27.481085

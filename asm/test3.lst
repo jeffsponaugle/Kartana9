@@ -1,5 +1,5 @@
 
-*** Start of List File:test3.asm     Completed        2024-02-04 21:45:30.071541
+*** Start of List File:test3.asm     Completed        2024-02-05 10:42:53.359272
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -37,4 +37,4 @@ start              0000
 lp                 001C
 sevseg             0032
 
-*** End of List File:test3.asm     Completed        2024-02-04 21:45:30.071608
+*** End of List File:test3.asm     Completed        2024-02-05 10:42:53.359345

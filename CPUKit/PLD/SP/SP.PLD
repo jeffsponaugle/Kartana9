@@ -166,14 +166,14 @@ S15 = P15 $ C15;
 /* Stack Pointer 
 
     mode        function
-    00          Do Nothing
-    01          Add 1
-    10          Load
-    11          Subtract 1
+    00 (0)      Do Nothing
+    01 (1)      Add 2
+    10 (2)      Load
+    11 (3)      Subtract 2
 */
 
 SP_STAY = spmode:['d'0];
-SP_INCDEC  = spmode:['d'1,'d'3];
+SP_INCDEC  = (spmode:['d'1] # spmode:['d'3]);
 SP_LOAD = spmode:['d'2];
 
 [SP0..15].ck = D_CLK_IN;
