@@ -255,6 +255,10 @@ for parseinstdata in parsed:
                         imm16val = labels[labelv]      
                 case "imm3a":
                     sela,errortxt = getimmnumber(operand,opnum)
+                    if ((sela<1) or (sela>8)):
+                        ErrorExit("Shift Instruction value < 1 or > 8")
+                    else:
+                        sela=sela-1
                 case "imm16r":
                     imm16val,errortxt = getimmnumber(operand,opnum)
                     if (len(errortxt)!=0):
