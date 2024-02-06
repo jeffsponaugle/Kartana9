@@ -8,13 +8,18 @@ start:
         loadimm r3,3
         loadimm r7,#8120
         putsp r7
-        putsp r7
-        nop
         getsp r6
-        getsp r6
-        nop
+        push r0
+        push r1
+        push r2
+        push r3
+        pop r0
+        pop r1
+        pop r2
+        pop r3
+        loadimm r7,#1120
         putsp r7
-        nop
+        getsp r6
         push r0
         push r1
         push r2
