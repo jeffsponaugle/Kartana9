@@ -32,6 +32,8 @@ start:
         shlc r4,r4,1
         shl r4,r4,1
         getpc r5
+        loadimm r4,#F000
+        putsp r4
         nop
         nop
         calli foo

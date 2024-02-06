@@ -1,5 +1,5 @@
 
-*** Start of List File:test6.asm     Completed        2024-02-06 12:25:25.932657
+*** Start of List File:test6.asm     Completed        2024-02-06 14:23:48.773121
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -12,45 +12,47 @@ LN# ADDR  OPCD DATA                    SOURCE
   7 000A  (04) 0888                              add r0,r1,r2
   8 000C  (05) 0AC8                              addc r0,r1,r3
   9 000E  (66) CC40 0001                         loadimm r1,1
- 10 0012  (22) 4449                              shl r1,r1,1
- 11 0014  (22) 4449                              shl r1,r1,1
- 12 0016  (22) 4449                              shl r1,r1,1
- 13 0018  (22) 4449                              shl r1,r1,1
- 14 001A  (22) 444C                              shl r1,r1,4
- 15 001C  (23) 464C                              shr r1,r1,4
- 16 001E  (23) 4649                              shr r1,r1,1
- 17 0020  (23) 4649                              shr r1,r1,1
- 18 0022  (23) 4649                              shr r1,r1,1
- 19 0024  (23) 4649                              shr r1,r1,1
+ 10 0012  (22) 4448                              shl r1,r1,1
+ 11 0014  (22) 4448                              shl r1,r1,1
+ 12 0016  (22) 4448                              shl r1,r1,1
+ 13 0018  (22) 4448                              shl r1,r1,1
+ 14 001A  (22) 444B                              shl r1,r1,4
+ 15 001C  (23) 464B                              shr r1,r1,4
+ 16 001E  (23) 4648                              shr r1,r1,1
+ 17 0020  (23) 4648                              shr r1,r1,1
+ 18 0022  (23) 4648                              shr r1,r1,1
+ 19 0024  (23) 4648                              shr r1,r1,1
  20 0026  (66) CCC0 8000                         loadimm r3,#8000
- 21 002A  (23) 46D9                              shr r3,r3,1
- 22 002C  (23) 46D9                              shr r3,r3,1
- 23 002E  (23) 46D9                              shr r3,r3,1
- 24 0030  (23) 46D9                              shr r3,r3,1
+ 21 002A  (23) 46D8                              shr r3,r3,1
+ 22 002C  (23) 46D8                              shr r3,r3,1
+ 23 002E  (23) 46D8                              shr r3,r3,1
+ 24 0030  (23) 46D8                              shr r3,r3,1
  25 0032  (66) CCC0 8000                         loadimm r3,#8000
- 26 0036  (25) 4AD9                              shra r3,r3,1
- 27 0038  (25) 4AD9                              shra r3,r3,1
- 28 003A  (25) 4AD9                              shra r3,r3,1
- 29 003C  (25) 4AD9                              shra r3,r3,1        ; carry = 0
+ 26 0036  (25) 4AD8                              shra r3,r3,1
+ 27 0038  (25) 4AD8                              shra r3,r3,1
+ 28 003A  (25) 4AD8                              shra r3,r3,1
+ 29 003C  (25) 4AD8                              shra r3,r3,1        ; carry = 0
  30 003E  (66) CD00 FFFF                         loadimm r4,#FFFF
- 31 0042  (23) 4721                              shr r4,r4,1             ; should set carry
- 32 0044  (24) 4921                              shlc r4,r4,1
- 33 0046  (22) 4521                              shl r4,r4,1
+ 31 0042  (23) 4720                              shr r4,r4,1             ; should set carry
+ 32 0044  (24) 4920                              shlc r4,r4,1
+ 33 0046  (22) 4520                              shl r4,r4,1
  34 0048  (2D) 5B40                              getpc r5
- 35 004A  (00) 0000                              nop
- 36 004C  (00) 0000                              nop
- 37 004E  (78) F000 0064                         calli foo
- 38 0052  (66) CC00 0011                         loadimm r0,#11
- 39 0056  (51) A200 FFF0                         storebi r0,[#FFF0]
- 40 005A  (66) CC00 0007                         loadimm r0,#07
- 41 005E  (51) A200 FFF1                         storebi r0,[#FFF1]
- 42 0062  (01) 0200                              halt
- 43                                       foo:
- 44 0064  (66) CC00 0061                         loadimm r0,#61
- 45 0068  (51) A200 FFF0                         storebi r0,[#FFF0]
- 46 006C  (66) CC00 0033                         loadimm r0,#33
- 47 0070  (51) A200 FFF1                         storebi r0,[#FFF1]
- 48 0074  (38) 7000                              ret
+ 35 004A  (66) CD00 F000                         loadimm r4,#F000
+ 36 004E  (2B) 5620                              putsp r4
+ 37 0050  (00) 0000                              nop
+ 38 0052  (00) 0000                              nop
+ 39 0054  (78) F000 006A                         calli foo
+ 40 0058  (66) CC00 0011                         loadimm r0,#11
+ 41 005C  (51) A200 FFF0                         storebi r0,[#FFF0]
+ 42 0060  (66) CC00 0007                         loadimm r0,#07
+ 43 0064  (51) A200 FFF1                         storebi r0,[#FFF1]
+ 44 0068  (01) 0200                              halt
+ 45                                       foo:
+ 46 006A  (66) CC00 0061                         loadimm r0,#61
+ 47 006E  (51) A200 FFF0                         storebi r0,[#FFF0]
+ 48 0072  (66) CC00 0033                         loadimm r0,#33
+ 49 0076  (51) A200 FFF1                         storebi r0,[#FFF1]
+ 50 007A  (38) 7000                              ret
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -59,6 +61,6 @@ Table of Label Values
 Label              Address
 --------------------------
 start              0000
-foo                0064
+foo                006A
 
-*** End of List File:test6.asm     Completed        2024-02-06 12:25:25.932758
+*** End of List File:test6.asm     Completed        2024-02-06 14:23:48.773223
