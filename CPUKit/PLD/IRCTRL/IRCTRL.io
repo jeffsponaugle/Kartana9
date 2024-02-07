@@ -3,9 +3,9 @@ BEGIN
 
     DEVICE = "PLCC84";
     "XXL_238"                                 : NODE_NUM = 601 ;
-    "XXL_237"                                 : NODE_NUM = 602 ;
+    "XXL_236"                                 : NODE_NUM = 602 ;
     "IR2_OE"                                  : OUTPUT_PIN = 12 ;
-    "XXL_236"                                 : NODE_NUM = 604 ;
+    "XXL_237"                                 : NODE_NUM = 604 ;
     "H2L_OE"                                  : OUTPUT_PIN = 11 ;
     "IR2_LATCH"                               : OUTPUT_PIN = 10 ;
     "XXL_233"                                 : NODE_NUM = 607 ;
@@ -20,14 +20,15 @@ BEGIN
     "ALU_OE"                                  : OUTPUT_PIN = 4 ;
     "SP_BBOE"                                 : OUTPUT_PIN = 22 ;
     "SHFT_WC"                                 : OUTPUT_PIN = 21 ;
+    "Com_Ctrl_230"                            : NODE_NUM = 620 ;
     "SHFT_AR"                                 : OUTPUT_PIN = 20 ;
-    "Com_Ctrl_230"                            : NODE_NUM = 622 ;
-    "XXL_244"                                 : NODE_NUM = 623 ;
+    "XXL_245"                                 : NODE_NUM = 622 ;
+    "XXL_243"                                 : NODE_NUM = 623 ;
     "SP_ADOE"                                 : OUTPUT_PIN = 18 ;
     "SFT_DIR"                                 : OUTPUT_PIN = 17 ;
-    "XXL_242"                                 : NODE_NUM = 626 ;
+    "XXL_244"                                 : NODE_NUM = 626 ;
     "PC_BBOE"                                 : OUTPUT_PIN = 16 ;
-    "XXL_243"                                 : NODE_NUM = 628 ;
+    "XXL_242"                                 : NODE_NUM = 628 ;
     "RF_CWE"                                  : OUTPUT_PIN = 15 ;
     "XXL_241"                                 : NODE_NUM = 630 ;
     "XXL_240"                                 : NODE_NUM = 631 ;

@@ -1,8 +1,8 @@
 CHIP "C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL" ASSIGNED TO AN PLCC84
 XXL_238					: 601
-XXL_237					: 602
+XXL_236					: 602
 IR2_OE					: 12
-XXL_236					: 604
+XXL_237					: 604
 H2L_OE					: 11
 IR2_LATCH					: 10
 XXL_233					: 607
@@ -17,14 +17,15 @@ XXL_234					: 615
 ALU_OE					: 4
 SP_BBOE					: 22
 SHFT_WC					: 21
+Com_Ctrl_230					: 620
 SHFT_AR					: 20
-Com_Ctrl_230					: 622
-XXL_244					: 623
+XXL_245					: 622
+XXL_243					: 623
 SP_ADOE					: 18
 SFT_DIR					: 17
-XXL_242					: 626
+XXL_244					: 626
 PC_BBOE					: 16
-XXL_243					: 628
+XXL_242					: 628
 RF_CWE					: 15
 XXL_241					: 630
 XXL_240					: 631
