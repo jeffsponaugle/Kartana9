@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Wed Jan 17 22:25:45 2024 "}
+  {DBtime "Tue Feb 06 22:06:24 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -59,7 +59,7 @@
    {P DABUS13 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
    {P DABUS15 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
    {P DABUS14 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
-   {P UNUSED4 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P D2B_OE {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
    {P UNUSED5 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
    {P UNUSED6 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
    {P BBUS_OE {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
@@ -273,7 +273,7 @@
    {T "DABUS13" 140 140}
    {T "DABUS15" 140 120}
    {T "DABUS14" 140 100}
-   {T "UNUSED4" 140 80}
+   {T "D2B_OE" 140 80}
    {T "UNUSED5" 140 60}
    {T "UNUSED6" 140 40}
    {T "BBUS_OE" 140 20}
@@ -387,7 +387,7 @@
    }
    {N DABUS14
    }
-   {N UNUSED4
+   {N D2B_OE
    }
    {N UNUSED5
    }

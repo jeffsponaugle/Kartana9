@@ -23,6 +23,7 @@ Pin[83]  = D_CLK_IN;
 Pin[1] = RESET_IN;
 Pin[2] = ADBUS_IB_OE;       /* An active low signal to replicate the BBUS input onto the ADBUS output */
 Pin[45,44]  = [SP_MODE0..1];
+Pin[79] = D2B_OE;
 
 /* Bidirectional Pins */
 
@@ -41,11 +42,10 @@ Pin[46] = IR2_OE;           /* Active low puts IR2 on BBUS */
 Pin[68] = UNUSED1;
 Pin[69] = UNUSED2;
 Pin[70] = UNUSED3;
-Pin[79] = UNUSED4;
 Pin[80] = UNUSED5;
 Pin[81] = UNUSED6;
 
-UNUSED1 = UNUSED2 # UNUSED3 # UNUSED4 # UNUSED5 # UNUSED6;
+UNUSED1 = UNUSED2 # UNUSED3 # UNUSED5 # UNUSED6;
 
 
 PINNODE = [IRTWO0..15];
@@ -61,7 +61,7 @@ PINNODE = [SP0..15];
 PINNODE = [C2..C15];
 
 [ADBUS1..15].oe = !(ADBUS_SP_OE & ADBUS_IB_OE);
-[BBUS0..15].oe = !BBUS_OE # !IR2_OE;
+[BBUS0..15].oe = !BBUS_OE # !IR2_OE # !D2B_OE;
 
 /* Pick the ADBUS output data from either SP or BBUS */
 [ADBUS1..15] = ((!ADBUS_SP_OE) & [SP1..15])
@@ -69,7 +69,7 @@ PINNODE = [C2..C15];
 
 /* Pick the BBUS output from either SP or IR2 */
 
-[BBUS0..15] = (IR2_OE & [SP0..15]) # ( !IR2_OE & [IRTWO0..15]);
+[BBUS0..15] = (IR2_OE & D2B_OE & [SP0..15]) # ( !IR2_OE & [IRTWO0..15]) # (!D2B_OE & [DABUS0..15]);
 
 AD0 = BBUS0.io;
 A0_HOLD = 'b'0;
@@ -207,7 +207,7 @@ Total Nodes+FB/MCells 		99/128 	(77%)
 Total cascade used 		0
 Total input pins 		34
 Total output pins 		34
-Total Pts 			273
+Total Pts 			289
 */
 
 

@@ -49,6 +49,7 @@ PIN   0 =  C12
 PIN   0 =  C13 
 PIN   0 =  C14 
 PIN   0 =  C15 
+PIN  79 =  D2B_OE 
 PIN  54 =  DABUS0 
 PIN  55 =  DABUS1 
 PIN  57 =  DABUS2 
@@ -106,7 +107,6 @@ PIN  44 =  SP_MODE1
 PIN  68 =  UNUSED1 
 PIN  69 =  UNUSED2 
 PIN  70 =  UNUSED3 
-PIN  79 =  UNUSED4 
 PIN  80 =  UNUSED5 
 PIN  81 =  UNUSED6 
 %END
@@ -333,132 +333,164 @@ B15 =>
     SP_MODE1
 
 BBUS0 =>
-    !IR2_OE & IRTWO0
-  # IR2_OE & SP0
+    !D2B_OE & DABUS0
+  # !IR2_OE & IRTWO0
+  # D2B_OE & IR2_OE & SP0
 
 BBUS0.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS1 =>
-    !IR2_OE & IRTWO1
-  # IR2_OE & SP1
+    !D2B_OE & DABUS1
+  # !IR2_OE & IRTWO1
+  # D2B_OE & IR2_OE & SP1
 
 BBUS1.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS2 =>
-    !IR2_OE & IRTWO2
-  # IR2_OE & SP2
+    !D2B_OE & DABUS2
+  # !IR2_OE & IRTWO2
+  # D2B_OE & IR2_OE & SP2
 
 BBUS2.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS3 =>
-    !IR2_OE & IRTWO3
-  # IR2_OE & SP3
+    !D2B_OE & DABUS3
+  # !IR2_OE & IRTWO3
+  # D2B_OE & IR2_OE & SP3
 
 BBUS3.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS4 =>
-    !IR2_OE & IRTWO4
-  # IR2_OE & SP4
+    !D2B_OE & DABUS4
+  # !IR2_OE & IRTWO4
+  # D2B_OE & IR2_OE & SP4
 
 BBUS4.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS5 =>
-    !IR2_OE & IRTWO5
-  # IR2_OE & SP5
+    !D2B_OE & DABUS5
+  # !IR2_OE & IRTWO5
+  # D2B_OE & IR2_OE & SP5
 
 BBUS5.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS6 =>
-    !IR2_OE & IRTWO6
-  # IR2_OE & SP6
+    !D2B_OE & DABUS6
+  # !IR2_OE & IRTWO6
+  # D2B_OE & IR2_OE & SP6
 
 BBUS6.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS7 =>
-    !IR2_OE & IRTWO7
-  # IR2_OE & SP7
+    !D2B_OE & DABUS7
+  # !IR2_OE & IRTWO7
+  # D2B_OE & IR2_OE & SP7
 
 BBUS7.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS8 =>
-    !IR2_OE & IRTWO8
-  # IR2_OE & SP8
+    !D2B_OE & DABUS8
+  # !IR2_OE & IRTWO8
+  # D2B_OE & IR2_OE & SP8
 
 BBUS8.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS9 =>
-    !IR2_OE & IRTWO9
-  # IR2_OE & SP9
+    !D2B_OE & DABUS9
+  # !IR2_OE & IRTWO9
+  # D2B_OE & IR2_OE & SP9
 
 BBUS9.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS10 =>
-    !IR2_OE & IRTWO10
-  # IR2_OE & SP10
+    !D2B_OE & DABUS10
+  # !IR2_OE & IRTWO10
+  # D2B_OE & IR2_OE & SP10
 
 BBUS10.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS11 =>
-    !IR2_OE & IRTWO11
-  # IR2_OE & SP11
+    !D2B_OE & DABUS11
+  # !IR2_OE & IRTWO11
+  # D2B_OE & IR2_OE & SP11
 
 BBUS11.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS12 =>
-    !IR2_OE & IRTWO12
-  # IR2_OE & SP12
+    !D2B_OE & DABUS12
+  # !IR2_OE & IRTWO12
+  # D2B_OE & IR2_OE & SP12
 
 BBUS12.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS13 =>
-    !IR2_OE & IRTWO13
-  # IR2_OE & SP13
+    !D2B_OE & DABUS13
+  # !IR2_OE & IRTWO13
+  # D2B_OE & IR2_OE & SP13
 
 BBUS13.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS14 =>
-    !IR2_OE & IRTWO14
-  # IR2_OE & SP14
+    !D2B_OE & DABUS14
+  # !IR2_OE & IRTWO14
+  # D2B_OE & IR2_OE & SP14
 
 BBUS14.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 BBUS15 =>
-    !IR2_OE & IRTWO15
-  # IR2_OE & SP15
+    !D2B_OE & DABUS15
+  # !IR2_OE & IRTWO15
+  # D2B_OE & IR2_OE & SP15
 
 BBUS15.oe  =>
     !BBUS_OE
   # !IR2_OE
+  # !D2B_OE
 
 C1 =>
     !SP_MODE1
@@ -1111,7 +1143,6 @@ SP_STAY =>
 UNUSED1 =>
     UNUSED2
   # UNUSED3
-  # UNUSED4
   # UNUSED5
   # UNUSED6
 

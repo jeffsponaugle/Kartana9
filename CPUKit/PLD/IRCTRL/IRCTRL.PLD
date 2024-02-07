@@ -142,13 +142,14 @@ Pin[24] = ALU_CFLATCH;
 Pin[21] = SHFT_WC;
 Pin[69] = HALT;
 Pin[68] = SHFT_INVERTCARRY;
+Pin[76] = D2A_OE;
 
 /* Unused pins, reserved for future use */
 
 Pin[65] = UNUSED1;
 Pin[74] = UNUSED2;
 Pin[75] = UNUSED3;
-Pin[76] = UNUSED4;
+
 Pin[77] = UNUSED5;
 Pin[79] = UNUSED6;
 Pin[80] = UNUSED7;
@@ -157,7 +158,7 @@ Pin[84] = UNUSED9;
 
 /* Statment to force B_CLK_IN to be instantiated */
 
-UNUSED1 = B_CLK_IN & HALT # C_CLK_IN # (UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9) ;
+UNUSED1 = B_CLK_IN & HALT # C_CLK_IN # (UNUSED2 & UNUSED3 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9) ;
 
 
 /* The core internal CPU state machine:
@@ -278,6 +279,10 @@ HALT.ck = A_CLK_IN;
 HALT.ap = !RESET_IN;
 SHFT_INVERTCARRY.ck = A_CLK_IN;
 SHFT_INVERTCARRY.ap = !RESET_IN;
+D2A_OE.ck = A_CLK_IN;
+D2A_OE.ap = !RESET_IN;
+
+
 
 /* The following signals need to be clocked after the A_CLK as they depend on the A0 signal which is only available after the 
    signals above drive an address onto the BBUS.
@@ -329,8 +334,7 @@ ALU_FUNC2.d = (OPCB3#OPCB5) & ( !OPCB5 # OPCB3 # OPCB2 # OPCB1);
 
 
 /* Output Enable for instructions that have imm16 values in the second instruction word */
-IR2_OE.d = !(   INST_RET_2                             
-              # INST_CALL_I16_2                          
+IR2_OE.d = !(   INST_CALL_I16_2                          
               # INST_CALL_RI16_2
               # INST_ALL_1_CYCLE_LONG           
             );
@@ -395,7 +399,7 @@ SP_BBOE.d = !(INST_MOV_SP_C);             // 'MOV SP,C'
 SP_ADOE.d = !(   INST_PUSH_B         
               #  INST_POP_C_2          
               #  INST_CALL_B         
-              #  INST_RET
+              #  INST_RET_2
               #  INST_CALL_I16 
               #  INST_CALL_RI16
               );
@@ -552,7 +556,7 @@ MEM_AS.d = !(  (SM_F1 # SM_F2)
               # INST_PUSH_B
               # INST_POP_C_2
               # INST_CALL_B
-              # INST_RET
+              # INST_RET_2
               # INST_STOREW_A_INDI16
               # INST_STOREB_A_INDI16
               # INST_LOADW_INDI16_C
@@ -573,7 +577,7 @@ MEM_L_EN.d = !( (SM_F1 # SM_F2)
               # INST_PUSH_B
               # INST_POP_C_2
               # INST_CALL_B
-              # INST_RET
+              # INST_RET_2
               # INST_STOREW_A_INDI16
               # (INST_STOREB_A_INDI16 & !AD0)
               # INST_LOADW_INDI16_C
@@ -594,7 +598,7 @@ MEM_H_EN.d = !( (SM_F1 # SM_F2)
               # INST_PUSH_B
               # INST_POP_C_2
               # INST_CALL_B
-              # INST_RET
+              # INST_RET_2
               # INST_STOREW_A_INDI16
               # (INST_STOREB_A_INDI16 & AD0)
               # INST_LOADW_INDI16_C
@@ -608,14 +612,11 @@ MEM_H_EN.d = !( (SM_F1 # SM_F2)
               );
 
 IR1_LATCH.d = !( SM_F1 );
-IR2_LATCH.d = !( ( SM_F2 )
-              #  INST_RET
-              );     
+IR2_LATCH.d = !( ( SM_F2 ) );     
 JMPINST.d = !(INST_ALL_JMP);
-HALT.d = !( INST_HALT );             
+HALT.d = !( INST_HALT );     
 
-
-
+D2A_OE.d = !(INST_RET_2);
 
 /*
 Total dedicated input used:	4/4 	(100%)
