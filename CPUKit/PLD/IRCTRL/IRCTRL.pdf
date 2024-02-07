@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Wed Feb 07 10:20:54 2024 "}
+  {DBtime "Wed Feb 07 12:16:19 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -85,7 +85,7 @@
    {P B_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
    {P JMPINST {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
    {P SHFT_INV {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
-   {P HALT {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P HALTOREX {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
    {P CSM1 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
    {P C_CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
    {P UNUSED2 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
@@ -299,7 +299,7 @@
    {T "B_CLK_IN" 140 280}
    {T "JMPINST" 140 260}
    {T "SHFT_INV" 140 240}
-   {T "HALT" 140 220}
+   {T "HALTOREX" 140 220}
    {T "CSM1" 140 200}
    {T "C_CLK_IN" 140 180}
    {T "UNUSED2" 140 160}
@@ -439,7 +439,7 @@
    }
    {N SHFT_INV
    }
-   {N HALT
+   {N HALTOREX
    }
    {N CSM1
    }

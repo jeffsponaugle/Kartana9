@@ -20,7 +20,8 @@ PIN   9 =  DB_DIR
 PIN   2 =  D_CLK_IN 
 PIN  29 =  H2L_DIR 
 PIN  11 =  H2L_OE 
-PIN  69 =  HALT 
+PIN   0 =  HALT 
+PIN  69 =  HALTOREXEC 
 PIN  51 =  IR1_LATCH 
 PIN  10 =  IR2_LATCH 
 PIN  12 =  IR2_OE 
@@ -229,7 +230,7 @@ CSM0.d  =>
 
 CSM0.ar  =>
     !RESET_IN
-  # !HALT
+  # HALTOREXEC
 
 CSM0.ck  =>
     D_CLK_IN
@@ -241,7 +242,7 @@ CSM1.d  =>
 
 CSM1.ar  =>
     !RESET_IN
-  # !HALT
+  # HALTOREXEC
 
 CSM1.ck  =>
     D_CLK_IN
@@ -304,6 +305,7 @@ DBH_OE.d  =>
 
 DBH_OE.ap  =>
     !RESET_IN
+  # HALTOREXEC
 
 DBH_OE.ck  =>
     A_CLK_IN
@@ -357,6 +359,7 @@ DBL_OE.d  =>
 DBL_OE.ap  =>
     !RESET_IN
   # !A_CLK_IN & D_CLK_IN
+  # HALTOREXEC
 
 DBL_OE.ck  =>
     B_CLK_IN
@@ -436,6 +439,7 @@ H2L_OE.d  =>
 H2L_OE.ap  =>
     !RESET_IN
   # !A_CLK_IN & D_CLK_IN
+  # HALTOREXEC
 
 H2L_OE.ck  =>
     B_CLK_IN
@@ -457,12 +461,22 @@ HALT.ap  =>
 HALT.ck  =>
     A_CLK_IN
 
+HALTOREXEC.d  =>
+    1 
+
+HALTOREXEC.ar  =>
+    !RESET_IN
+
+HALTOREXEC.ck  =>
+    !HALT
+
 IR1_LATCH.d  =>
     CSM0
   # CSM1
 
 IR1_LATCH.ap  =>
     !RESET_IN
+  # HALTOREXEC
 
 IR1_LATCH.ck  =>
     A_CLK_IN
@@ -473,6 +487,7 @@ IR2_LATCH.d  =>
 
 IR2_LATCH.ap  =>
     !RESET_IN
+  # HALTOREXEC
 
 IR2_LATCH.ck  =>
     A_CLK_IN
@@ -553,6 +568,7 @@ MEM_AS.d  =>
 MEM_AS.ap  =>
     !RESET_IN
   # !A_CLK_IN & D_CLK_IN
+  # HALTOREXEC
 
 MEM_AS.ck  =>
     B_CLK_IN
@@ -604,6 +620,7 @@ MEM_H_EN.d  =>
 MEM_H_EN.ap  =>
     !RESET_IN
   # !A_CLK_IN & D_CLK_IN
+  # HALTOREXEC
 
 MEM_H_EN.ck  =>
     B_CLK_IN
@@ -655,6 +672,7 @@ MEM_L_EN.d  =>
 MEM_L_EN.ap  =>
     !RESET_IN
   # !A_CLK_IN & D_CLK_IN
+  # HALTOREXEC
 
 MEM_L_EN.ck  =>
     B_CLK_IN
@@ -714,6 +732,7 @@ PC_ADOE.d  =>
 
 PC_ADOE.ap  =>
     !RESET_IN
+  # HALTOREXEC
 
 PC_ADOE.ck  =>
     A_CLK_IN
@@ -752,7 +771,7 @@ PC_MODE0.d  =>
 
 PC_MODE0.ar  =>
     !RESET_IN
-  # !HALT
+  # HALTOREXEC
 
 PC_MODE0.ck  =>
     A_CLK_IN
@@ -764,7 +783,7 @@ PC_MODE1.d  =>
 
 PC_MODE1.ar  =>
     !RESET_IN
-  # !HALT
+  # HALTOREXEC
 
 PC_MODE1.ck  =>
     A_CLK_IN
@@ -774,7 +793,7 @@ PC_MODE2.d  =>
 
 PC_MODE2.ar  =>
     !RESET_IN
-  # !HALT
+  # HALTOREXEC
 
 PC_MODE2.ck  =>
     A_CLK_IN
@@ -1028,7 +1047,7 @@ SP_MODE1.ck  =>
     A_CLK_IN
 
 UNUSED1 =>
-    B_CLK_IN & HALT
+    B_CLK_IN
   # C_CLK_IN
   # UNUSED2 & UNUSED3 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9
 

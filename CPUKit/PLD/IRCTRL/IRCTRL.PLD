@@ -140,7 +140,7 @@ Pin[10] = IR2_LATCH;
 Pin[67] = JMPINST;
 Pin[24] = ALU_CFLATCH;
 Pin[21] = SHFT_WC;
-Pin[69] = HALT;
+Pin[69] = HALTOREXEC;
 Pin[68] = SHFT_INVERTCARRY;
 Pin[76] = D2A_OE;
 
@@ -158,7 +158,7 @@ Pin[84] = UNUSED9;
 
 /* Statment to force B_CLK_IN to be instantiated */
 
-UNUSED1 = B_CLK_IN & HALT # C_CLK_IN # (UNUSED2 & UNUSED3 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9) ;
+UNUSED1 = B_CLK_IN  # C_CLK_IN # (UNUSED2 & UNUSED3 & UNUSED5 & UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9) ;
 
 
 /* The core internal CPU state machine:
@@ -186,6 +186,11 @@ UNUSED1 = B_CLK_IN & HALT # C_CLK_IN # (UNUSED2 & UNUSED3 & UNUSED5 & UNUSED6 & 
 
 PIN[61,70] =  [CSM0..1];
 FIELD stm = [CSM0..1];
+PINNODE = HALT;
+
+HALTOREXEC.d = 'b'1;
+HALTOREXEC.ck = !HALT;
+HALTOREXEC.ar = !RESET_IN;
 
 /* 
    preisize is the instuction size hint directly from the data bus, and is only valid at the end of the F1 machine cycle
@@ -197,7 +202,7 @@ isize = OPCB6;
 FIELD icycles = [OPCB5..OPCB4]; /* 00,01,10 for single cycle, 11 for two cycle instruction */
 
 [CSM0..1].ck = D_CLK_IN;
-[CSM0..1].ar = !RESET_IN # !HALT;         // It is critical that RESET unassert at D_CLK_IN^ 
+[CSM0..1].ar = !RESET_IN # HALTOREXEC;         // It is critical that RESET unassert at D_CLK_IN^ 
 
 /* If HALT == 0, we are in a HALT state, so the state machine will never advance past state 0 */
 
@@ -230,9 +235,9 @@ IR2_OE.ap = !RESET_IN;
 PC_BBOE.ck = A_CLK_IN;
 PC_BBOE.ap = !RESET_IN;
 PC_ADOE.ck = A_CLK_IN;
-PC_ADOE.ap = !RESET_IN;
+PC_ADOE.ap = !RESET_IN # HALTOREXEC;
 [PC_MODE0..2].ck = A_CLK_IN;
-[PC_MODE0..2].ar = !RESET_IN # !HALT;            // IF HALT MODE, PCMODE is stuck at 00 which means no increment
+[PC_MODE0..2].ar = !RESET_IN # HALTOREXEC;            // IF HALT MODE, PCMODE is stuck at 00 which means no increment
 SP_BBOE.ck = A_CLK_IN;
 SP_BBOE.ap = !RESET_IN;
 SP_ADOE.ck = A_CLK_IN;
@@ -260,15 +265,15 @@ SFT_DIR.ap = !RESET_IN;
 SHFT_AR.ck = A_CLK_IN;
 SHFT_AR.ap = !RESET_IN;
 DBH_OE.ck = A_CLK_IN;
-DBH_OE.ap = !RESET_IN;
+DBH_OE.ap = !RESET_IN # HALTOREXEC;
 DB_DIR.ck = A_CLK_IN;
 DB_DIR.ap = !RESET_IN;
 H2L_DIR.ck = A_CLK_IN;
 H2L_DIR.ap = !RESET_IN;
 IR1_LATCH.ck = A_CLK_IN;
-IR1_LATCH.ap = !RESET_IN;
+IR1_LATCH.ap = !RESET_IN # HALTOREXEC;
 IR2_LATCH.ck = A_CLK_IN;
-IR2_LATCH.ap = !RESET_IN;
+IR2_LATCH.ap = !RESET_IN # HALTOREXEC;
 JMPINST.ck = A_CLK_IN;
 JMPINST.ap = !RESET_IN;
 ALU_CFLATCH.ck = A_CLK_IN;
@@ -294,15 +299,15 @@ D2A_OE.ap = !RESET_IN;
 MEM_RESET = (!A_CLK_IN & D_CLK_IN);
 
 H2L_OE.ck = B_CLK_IN;
-H2L_OE.ap = !RESET_IN # MEM_RESET;
+H2L_OE.ap = !RESET_IN # MEM_RESET # HALTOREXEC;
 MEM_AS.ck = B_CLK_IN;
-MEM_AS.ap = !RESET_IN # MEM_RESET;
+MEM_AS.ap = !RESET_IN # MEM_RESET # HALTOREXEC;
 MEM_H_EN.ck = B_CLK_IN;
-MEM_H_EN.ap = !RESET_IN # MEM_RESET;
+MEM_H_EN.ap = !RESET_IN # MEM_RESET # HALTOREXEC;
 MEM_L_EN.ck = B_CLK_IN;
-MEM_L_EN.ap = !RESET_IN # MEM_RESET;
+MEM_L_EN.ap = !RESET_IN # MEM_RESET # HALTOREXEC;
 DBL_OE.ck = B_CLK_IN;
-DBL_OE.ap = !RESET_IN # MEM_RESET;
+DBL_OE.ap = !RESET_IN # MEM_RESET # HALTOREXEC;
 MEM_RW.ck = A_CLK_IN;
 MEM_RW.ap = !RESET_IN;
 
@@ -627,20 +632,19 @@ IR1_LATCH.d = !( SM_F1 );
 IR2_LATCH.d = !( ( SM_F2 ) );     
 JMPINST.d = !(INST_ALL_JMP);
 HALT.d = !( INST_HALT );     
-
 D2A_OE.d = !(INST_RET_2);
 
 /*
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		64/64 	(100%)
-Total Logic cells used 		59/128 	(46%)
-Total Flip-Flop used 		42/128 	(32%)
-Total Foldback logic used 	4/128 	(3%)
-Total Nodes+FB/MCells 		62/128 	(48%)
+Total Logic cells used 		60/128 	(46%)
+Total Flip-Flop used 		43/128 	(33%)
+Total Foldback logic used 	6/128 	(4%)
+Total Nodes+FB/MCells 		65/128 	(50%)
 Total cascade used 		1
 Total input pins 		25
 Total output pins 		43
-Total Pts 			210
+Total Pts 			213
 */
 
 
