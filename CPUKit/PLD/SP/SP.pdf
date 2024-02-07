@@ -1,11 +1,11 @@
-{COMPONENT C:\SP.SYM
+{COMPONENT C:\SRC\KARTANA9\CPUKIT\PLD\SP\SP.SYM
 
  {ENVIRONMENT
   {PDIFvrev 3.00}
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Tue Feb 06 22:06:24 2024 "}
+  {DBtime "Wed Feb 07 09:40:24 2024 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -325,7 +325,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD C:\SP 225 700}
+    {At PLD C:\SRC\KARTANA9\CPUKIT\PLD\SP\SP 225 700}
    }
   }
  }

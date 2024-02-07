@@ -464,6 +464,9 @@ ALU_OE.d = !(   INST_ALL_MATHOPS
               # INST_STOREW_A_RI16 # INST_STOREB_A_RI16
               # INST_LOADI_C_I16
               # INST_CMP_A_B
+              # INST_CALL_B
+              # INST_CALL_I16
+              # INST_CALL_RI16
               );
 
 /* ALU_FL - ALU Change Flags on this operation */
@@ -499,6 +502,9 @@ DBH_OE.d = !(   INST_STOREW_A_INDB
               # INST_LOADW_INDI16_C
               # INST_STOREW_A_RI16
               # INST_LOADW_RI16_C
+              # INST_CALL_B
+              # INST_CALL_I16
+              # INST_CALL_RI16
               );
 DBL_OE.d = !(   INST_STOREW_A_INDB 
               # (INST_STOREB_A_INDB & !AD0)
@@ -514,12 +520,18 @@ DBL_OE.d = !(   INST_STOREW_A_INDB
               # (INST_STOREB_A_RI16 & !AD0)
               # INST_LOADW_RI16_C
               # (INST_LOADB_RI16_C & !AD0)
+              # INST_CALL_B
+              # INST_CALL_I16
+              # INST_CALL_RI16
               );
 
 DB_DIR.d = !(   INST_STOREW_A_INDB # INST_STOREB_A_INDB
               # INST_PUSH_B
               # INST_STOREW_A_INDI16 # INST_STOREB_A_INDI16
               # INST_STOREW_A_RI16 # INST_STOREB_A_RI16
+              # INST_CALL_B
+              # INST_CALL_I16
+              # INST_CALL_RI16
               );
 
 H2L_OE.d = !(   (INST_STOREB_A_INDB & AD0)
@@ -621,14 +633,14 @@ D2A_OE.d = !(INST_RET_2);
 /*
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		64/64 	(100%)
-Total Logic cells used 		54/128 	(42%)
-Total Flip-Flop used 		41/128 	(32%)
+Total Logic cells used 		59/128 	(46%)
+Total Flip-Flop used 		42/128 	(32%)
 Total Foldback logic used 	4/128 	(3%)
-Total Nodes+FB/MCells 		57/128 	(44%)
+Total Nodes+FB/MCells 		62/128 	(48%)
 Total cascade used 		1
-Total input pins 		26
-Total output pins 		42
-Total Pts 			193
+Total input pins 		25
+Total output pins 		43
+Total Pts 			210
 */
 
 
