@@ -540,6 +540,8 @@ MEM_RW.d = !(   INST_STOREW_A_INDB
               # INST_STOREB_A_INDI16
               # INST_STOREW_A_RI16
               # INST_STOREB_A_RI16
+              # INST_CALL_I16
+              # INST_CALL_RI16
               );
 
 MEM_AS.d = !(  (SM_F1 # SM_F2)
