@@ -3,6 +3,8 @@
 start:
         
         nop
+        loadimm r0,#F000
+        putsp r0
         loadimm r0,#FF
         loadimm r1,#AA55
         loadimm r2,#55AA
@@ -25,7 +27,7 @@ lp:     calli sevseg
         ori r1,#5555,r2
         andi r1,#AAAA,r2
         xori r1,#55AA,r2
-        
+
         jmpi start
 
 

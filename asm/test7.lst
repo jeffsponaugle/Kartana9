@@ -1,5 +1,5 @@
 
-*** Start of List File:test7.asm     Completed        2024-02-11 18:06:52.493118
+*** Start of List File:test7.asm     Completed        2024-02-11 19:01:32.149812
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -8,54 +8,56 @@ LN# ADDR  OPCD DATA                    SOURCE
   3                                      start:
   4
   5 0000  (00) 0000                              nop
-  6 0002  (66) CC00 00FF                         loadimm r0,#FF
-  7 0006  (66) CC40 AA55                         loadimm r1,#AA55
-  8 000A  (66) CC80 55AA                         loadimm r2,#55AA
-  9 000E  (51) A200 FFF0                         storebi r0,[#FFF0]
- 10 0012  (51) A200 FFF1                         storebi r0,[#FFF1]
- 11 0016  (78) F000 004E                 lp:     calli sevseg
- 12 001A  (42) 8400 0001                         subi r0,1,r0
- 13 001E  (5A) B400 0016                         jnzi lp
- 14
- 15 0022  (54) A800 FFF0                         loadwi [#FFF0],r0
- 16 0026  (78) F000 004E                         calli sevseg
- 17 002A  (23) 4607                              shr r0,r0,8
- 18 002C  (78) F000 004E                         calli sevseg
- 19 0030  (08) 10D1                              or r1,r2,r3
- 20 0032  (0A) 14D1                              and r1,r2,r3
- 21 0034  (06) 0CD1                              xor r1,r2,r3
- 22 0036  (0C) 1848                              not r1,r1
- 23 0038  (06) 0CD1                              xor r1,r2,r3
- 24 003A  (66) CC40 AA55                         loadimm r1,#AA55
- 25 003E  (48) 9081 5555                         ori r1,#5555,r2
- 26 0042  (4A) 9481 AAAA                         andi r1,#AAAA,r2
- 27 0046  (46) 8C81 55AA                         xori r1,#55AA,r2
- 28
- 29 004A  (58) B000 0000                         jmpi start
+  6 0002  (66) CC00 F000                         loadimm r0,#F000
+  7 0006  (2B) 5600                              putsp r0
+  8 0008  (66) CC00 00FF                         loadimm r0,#FF
+  9 000C  (66) CC40 AA55                         loadimm r1,#AA55
+ 10 0010  (66) CC80 55AA                         loadimm r2,#55AA
+ 11 0014  (51) A200 FFF0                         storebi r0,[#FFF0]
+ 12 0018  (51) A200 FFF1                         storebi r0,[#FFF1]
+ 13 001C  (78) F000 0054                 lp:     calli sevseg
+ 14 0020  (42) 8400 0001                         subi r0,1,r0
+ 15 0024  (5A) B400 001C                         jnzi lp
+ 16
+ 17 0028  (54) A800 FFF0                         loadwi [#FFF0],r0
+ 18 002C  (78) F000 0054                         calli sevseg
+ 19 0030  (23) 4607                              shr r0,r0,8
+ 20 0032  (78) F000 0054                         calli sevseg
+ 21 0036  (08) 10D1                              or r1,r2,r3
+ 22 0038  (0A) 14D1                              and r1,r2,r3
+ 23 003A  (06) 0CD1                              xor r1,r2,r3
+ 24 003C  (0C) 1848                              not r1,r1
+ 25 003E  (06) 0CD1                              xor r1,r2,r3
+ 26 0040  (66) CC40 AA55                         loadimm r1,#AA55
+ 27 0044  (48) 9081 5555                         ori r1,#5555,r2
+ 28 0048  (4A) 9481 AAAA                         andi r1,#AAAA,r2
+ 29 004C  (46) 8C81 55AA                         xori r1,#55AA,r2
  30
- 31
- 32                                      ; Subroutine to display value on 7-seg display.  Pass value in R0.  Stack must be setup.
- 33                                      sevseg:
- 34 004E  (2E) 5C08                              push r1
- 35 0050  (2E) 5C10                              push r2
- 36 0052  (66) CC80 0072                         loadimm r2,sevsegd
- 37 0056  (4A) 9440 000F                         andi r0,#000F,r1
- 38 005A  (04) 0851                              add r1,r2,r1
- 39 005C  (51) A201 FFF0                         storebi r1,[#FFF0]
- 40 0060  (4A) 9440 00F0                         andi r0,#00F0,r1
- 41 0064  (23) 464B                              shr r1,r1,4
- 42 0066  (04) 0851                              add r1,r2,r1
- 43 0068  (51) A201 FFF1                         storebi r1,[#FFF1]
- 44 006C  (30) 6080                              pop r2
- 45 006E  (30) 6040                              pop r1
- 46 0070  (38) 7000                              ret
- 47
- 48
+ 31 0050  (58) B000 0000                         jmpi start
+ 32
+ 33
+ 34                                      ; Subroutine to display value on 7-seg display.  Pass value in R0.  Stack must be setup.
+ 35                                      sevseg:
+ 36 0054  (2E) 5C08                              push r1
+ 37 0056  (2E) 5C10                              push r2
+ 38 0058  (66) CC80 0078                         loadimm r2,sevsegd
+ 39 005C  (4A) 9440 000F                         andi r0,#000F,r1
+ 40 0060  (04) 0851                              add r1,r2,r1
+ 41 0062  (51) A201 FFF0                         storebi r1,[#FFF0]
+ 42 0066  (4A) 9440 00F0                         andi r0,#00F0,r1
+ 43 006A  (23) 464B                              shr r1,r1,4
+ 44 006C  (04) 0851                              add r1,r2,r1
+ 45 006E  (51) A201 FFF1                         storebi r1,[#FFF1]
+ 46 0072  (30) 6080                              pop r2
+ 47 0074  (30) 6040                              pop r1
+ 48 0076  (38) 7000                              ret
  49
- 50                                      sevsegd:
- 51                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
- 52 0072       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
- 52 007A       01 21 11 07 8D 43 0D 1D
+ 50
+ 51
+ 52                                      sevsegd:
+ 53                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
+ 54 0078       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
+ 54 0080       01 21 11 07 8D 43 0D 1D
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -64,8 +66,8 @@ Table of Label Values
 Label              Address
 --------------------------
 start              0000
-lp                 0016
-sevseg             004E
-sevsegd            0072
+lp                 001C
+sevseg             0054
+sevsegd            0078
 
-*** End of List File:test7.asm     Completed        2024-02-11 18:06:52.493231
+*** End of List File:test7.asm     Completed        2024-02-11 19:01:32.149930
