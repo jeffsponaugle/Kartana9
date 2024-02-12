@@ -38,11 +38,13 @@ sevseg:
         loadimm r2,sevsegd
         andi r0,#000F,r1
         add r1,r2,r1
-        storebi r1,[#FFF0]
+        loadbr r1,r3
+        storebi r3,[#FFF0]
         andi r0,#00F0,r1
         shr r1,r1,4
         add r1,r2,r1
-        storebi r1,[#FFF1]
+        loadbr r1,r3
+        storebi r3,[#FFF1]
         pop r2
         pop r1
         ret
