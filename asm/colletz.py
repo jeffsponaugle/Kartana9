@@ -16,7 +16,7 @@ def getclen(num):
 total=0
 bigmax=0
 
-for i in range(1,16):
+for i in range(1,256):
     (l,m) = getclen(i)
     print(i,"Steps:",l,"Max:",m)
     total=total+l

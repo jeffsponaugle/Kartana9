@@ -1,0 +1,114 @@
+
+*** Start of List File:test9.asm     Completed        2024-02-12 22:48:57.704495
+
+LN# ADDR  OPCD DATA                    SOURCE
+------------------------------------------------------------------------------------------------------------------------------------
+  1                                      ; Output FF down to 00 on the 7 seg display.
+  2
+  3                                      start:
+  4
+  5 0000  (00) 0000                               nop
+  6                                              ; setup the stack pointer to an area of RAM
+  7 0002  (66) CC00 F000                         loadimm r0,#F000
+  8 0006  (2B) 5600                              putsp r0
+  9                                              ; clear display
+ 10 0008  (66) CC00 00FF                         loadimm r0,#00FF
+ 11 000C  (51) A200 FFF0                         storebi r0,[#FFF0]
+ 12 0010  (51) A200 FFF1                         storebi r0,[#FFF1]
+ 13                                              ; We can test the conjector.
+ 14 0014  (66) CC00 0006                         loadimm r0,6  ; Calling it with 6 should return 8 steps
+ 15 0018  (78) F000 0046                         calli ccnt
+ 16 001C  (78) F000 0088                         calli sevseg
+ 17 0020  (66) CC00 000E                         loadimm r0,14  ; Calling it with 14 should return 17 steps
+ 18 0024  (78) F000 0046                         calli ccnt
+ 19 0028  (78) F000 0088                         calli sevseg
+ 20 002C  (66) CC00 0030                         loadimm r0,48  ; Calling it with 48 should return 11 steps
+ 21 0030  (78) F000 0046                         calli ccnt
+ 22 0034  (78) F000 0088                         calli sevseg
+ 23 0038  (66) CC00 003F                         loadimm r0,63  ; Calling it with 14 should return 107 steps
+ 24 003C  (78) F000 0046                         calli ccnt
+ 25 0040  (78) F000 0088                         calli sevseg
+ 26 0044  (01) 0200                              halt
+ 27
+ 28
+ 29
+ 30                                      ; ****************************************************************************************
+ 31                                      ; Calculate the number of loops needed to get to 1 using the Collatz Conjector
+ 32                                      ; This routine takes a number passed in R0 and returns the number of collatz cycles needed
+ 33                                      ; It will work with any number greater than 1
+ 34                                      ; ****************************************************************************************
+ 35                                      ccnt:
+ 36 0046  (2E) 5C08                              push r1
+ 37 0048  (2E) 5C10                              push r2
+ 38 004A  (2E) 5C18                              push r3
+ 39 004C  (66) CC40 0000                         loadimm r1,0
+ 40                                      ccntlp:
+ 41                                              ; lets check to see if r0 == 1
+ 42 0050  (66) CC80 0001                         loadimm r2,1
+ 43 0054  (12) 2402                              cmp r2,r0
+ 44 0056  (59) B200 007E                         jzi ccdone
+ 45                                              ; r0 is not 1, so lets do a cycle
+ 46 005A  (44) 8841 0001                         addi r1,1,r1            ; increment the count
+ 47 005E  (4A) 9480 0001                         andi r0,#0001,r2        ; see if the number is even
+ 48 0062  (66) CCC0 0000                         loadimm r3,0
+ 49 0066  (12) 241A                              cmp r2,r3
+ 50 0068  (59) B200 0078                         jzi cceven
+ 51                                              ; since the number is odd, we need to compute n*3 +1
+ 52 006C  (22) 4480                              shl r0,r2,1     ; multiply by 2
+ 53 006E  (04) 0890                              add r0,r2,r2    ; add r0 to get r0*3
+ 54 0070  (44) 8802 0001                         addi r2,1,r0    ; increment by 1, so now r0 has 3n+1
+ 55 0074  (58) B000 0050                         jmpi ccntlp     ; lets loop
+ 56                                      cceven:
+ 57                                              ; since the number is even, we can divide by 2
+ 58 0078  (23) 4600                              shr r0,r0,1     ; /2
+ 59 007A  (58) B000 0050                         jmpi ccntlp
+ 60                                      ccdone:
+ 61 007E  (2C) 5808                              mov r1,r0   ; r1 has the count, so lets return that in r0
+ 62 0080  (30) 60C0                              pop r3
+ 63 0082  (30) 6080                              pop r2
+ 64 0084  (30) 6040                              pop r1
+ 65 0086  (38) 7000                              ret
+ 66
+ 67
+ 68                                      ; Subroutine to display value on 7-seg display.  Pass value in R0.  Stack must be setup.
+ 69                                      sevseg:
+ 70 0088  (2E) 5C08                              push r1
+ 71 008A  (2E) 5C10                              push r2
+ 72 008C  (2E) 5C18                              push r3
+ 73 008E  (66) CC80 00B4                         loadimm r2,sevsegd
+ 74 0092  (4A) 9440 000F                         andi r0,#000F,r1
+ 75 0096  (04) 0851                              add r1,r2,r1
+ 76 0098  (15) 2AC8                              loadbr r1,r3
+ 77 009A  (51) A203 FFF0                         storebi r3,[#FFF0]
+ 78 009E  (4A) 9440 00F0                         andi r0,#00F0,r1
+ 79 00A2  (23) 464B                              shr r1,r1,4
+ 80 00A4  (04) 0851                              add r1,r2,r1
+ 81 00A6  (15) 2AC8                              loadbr r1,r3
+ 82 00A8  (51) A203 FFF1                         storebi r3,[#FFF1]
+ 83 00AC  (30) 60C0                              pop r3
+ 84 00AE  (30) 6080                              pop r2
+ 85 00B0  (30) 6040                              pop r1
+ 86 00B2  (38) 7000                              ret
+ 87
+ 88
+ 89
+ 90                                      sevsegd:
+ 91                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
+ 92 00B4       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
+ 92 00BC       01 21 11 07 8D 43 0D 1D
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Table of Label Values
+------------------------------------------------------------------------------------------------------------------------------------
+Label              Address
+--------------------------
+start              0000
+ccnt               0046
+ccntlp             0050
+cceven             0078
+ccdone             007E
+sevseg             0088
+sevsegd            00B4
+
+*** End of List File:test9.asm     Completed        2024-02-12 22:48:57.704660
