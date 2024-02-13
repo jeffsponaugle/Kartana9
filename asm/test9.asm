@@ -49,8 +49,8 @@ ccntlp:
         cmp r2,r3
         jzi cceven
         ; since the number is odd, we need to compute n*3 +1
-        shl r0,r2,1     ; multiply by 2
-        add r0,r2,r2    ; add r0 to get r0*3
+        shl r0,r2,1     ; multiply r0 by 2 and store in r2
+        add r0,r2,r2    ; add r0 to r2 to get r2=r0*3
         addi r2,1,r0    ; increment by 1, so now r0 has 3n+1
         jmpi ccntlp     ; lets loop
 cceven:
