@@ -1,5 +1,5 @@
 
-*** Start of List File:test9.asm     Completed        2024-02-12 22:48:57.704495
+*** Start of List File:test9.asm     Completed        2024-02-12 22:52:14.403452
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -54,8 +54,8 @@ LN# ADDR  OPCD DATA                    SOURCE
  49 0066  (12) 241A                              cmp r2,r3
  50 0068  (59) B200 0078                         jzi cceven
  51                                              ; since the number is odd, we need to compute n*3 +1
- 52 006C  (22) 4480                              shl r0,r2,1     ; multiply by 2
- 53 006E  (04) 0890                              add r0,r2,r2    ; add r0 to get r0*3
+ 52 006C  (22) 4480                              shl r0,r2,1     ; multiply r0 by 2 and store in r2
+ 53 006E  (04) 0890                              add r0,r2,r2    ; add r0 to r2 to get r2=r0*3
  54 0070  (44) 8802 0001                         addi r2,1,r0    ; increment by 1, so now r0 has 3n+1
  55 0074  (58) B000 0050                         jmpi ccntlp     ; lets loop
  56                                      cceven:
@@ -111,4 +111,4 @@ ccdone             007E
 sevseg             0088
 sevsegd            00B4
 
-*** End of List File:test9.asm     Completed        2024-02-12 22:48:57.704660
+*** End of List File:test9.asm     Completed        2024-02-12 22:52:14.403616
