@@ -20,11 +20,12 @@ lp1:    add r1,r7,r2
         storerb r0,r2
         subi r1,1,r1
         jnzi lp1
+
         loadimm r0,1
         storerb r0,r7   ; 0 is not prime
         addi r7,1,r7
         storerb r0,r7   ; 1 is not prime
-        addi r7,1,r7
+
         ; lets mark all of the even numbers as not prime
         loadimm r0,2
         calli mark
@@ -35,6 +36,8 @@ lp2:    calli mark
         addi r0,2,r0
         cmp r1,r0
         jnci lp2
+        calli disp
+        jmpi start
 
 disp:
 ; this routine will display all of the primes
@@ -76,9 +79,9 @@ mark:
         loadimm r2,#8100
         loadimm r3,#8000
 mk2:
-        add r3,r0,r3
-        storerb r1,r3
-        cmp r2,r3
+        add r3,r0,r3            ; increment the address by the sieve amount
+        storerb r1,r3           ; mark as not prime (1)
+        cmp r2,r3               ; check to see if we are at or past the end of the table
         jnci mk2
         pop r3
         pop r2
@@ -114,7 +117,9 @@ sevsegd:
 
 ; the hex primes
 ;  2 3 5 7 B D 11 13 17 1D 1F 25 29 2B 2F 35 3B 3D 43 47 49 4F 53 59 61 65 67 6B 6D 71 7F 83 89 8B 95 97 9D A3 
-;  A7 AD B3 B5 BF C1 C5 C7 D3 DF E3 E5 E9 EF F1 FB 101 107 10D 10F 115 119 11B 125 133 137 139 13D 14B 151 15B 
+;  A7 AD B3 B5 BF C1 C5 C7 D3 DF E3 E5 E9 EF F1 FB 
+;
+;  101 107 10D 10F 115 119 11B 125 133 137 139 13D 14B 151 15B 
 ;  15D 161 167 16F 175 17B 17F 185 18D 191 199 1A3 1A5 1AF 1B1 1B7 1BB 1C1 1C9 1CD 1CF 1D3 1DF 1E7 1EB 1F3 1F7 
 ;  1FD 209 20B 21D 223 22D 233 239 23B 241 24B 251 257 259 25F 265 269 26B 277 281 283 287 28D 293 295 2A1 2A5 
 ;  2AB 2B3 2BD 2C5 2CF 2D7 2DD 2E3 2E7 2EF 2F5 2F9 301 305 313 31D 329 32B 335 337 33B 33D 347 355 359 35B 35F 
