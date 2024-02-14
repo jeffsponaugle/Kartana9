@@ -63,6 +63,7 @@ $DEFINE INST_OR_A_I16_C (SM_EX1 & opcf:['b'1001000])
 $DEFINE INST_AND_A_I16_C (SM_EX1 & opcf:['b'1001010])
 $DEFINE INST_STOREW_A_INDI16 (SM_EX1 & opcf:['b'1010000])
 $DEFINE INST_STOREB_A_INDI16 (SM_EX1 & opcf:['b'1010001])
+$DEFINE INST_CMPI_A_I16 (SM_EX1 & opcf:['b'1010010])
 $DEFINE INST_LOADW_INDI16_C (SM_EX1 & opcf:['b'1010100])
 $DEFINE INST_LOADB_INDI16_C (SM_EX1 & opcf:['b'1010101])
 $DEFINE INST_JMP_I16 (SM_EX1 & opcf:['b'1011000])
@@ -341,7 +342,8 @@ ALU_FUNC2.d = (OPCB3#OPCB5) & ( !OPCB5 # OPCB3 # OPCB2 # OPCB1);
 /* Output Enable for instructions that have imm16 values in the second instruction word */
 IR2_OE.d = !(   INST_CALL_I16_2                          
               # INST_CALL_RI16_2
-              # INST_ALL_1_CYCLE_LONG           
+              # INST_ALL_1_CYCLE_LONG  
+              # INST_CMPI_A_I16       
             );
 /* Program Counter on BBUS output enable */
 PC_BBOE.d = !(  INST_MOV_PC_C                                       
@@ -469,6 +471,7 @@ ALU_OE.d = !(   INST_ALL_MATHOPS
               # INST_STOREW_A_RI16 # INST_STOREB_A_RI16
               # INST_LOADI_C_I16
               # INST_CMP_A_B
+              # INST_CMPI_A_I16
               # INST_CALL_B
               # INST_CALL_I16
               # INST_CALL_RI16
@@ -478,6 +481,7 @@ ALU_OE.d = !(   INST_ALL_MATHOPS
 
 ALU_FL.d = !(   INST_ALL_MATHOPS
               # INST_CMP_A_B
+              # INST_CMPI_A_I16
               # INST_MOV_SP_C
               # INST_MOV_B_C
               # INST_MOV_PC_C
