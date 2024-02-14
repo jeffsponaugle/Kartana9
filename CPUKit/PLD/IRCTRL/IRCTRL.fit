@@ -1,4 +1,4 @@
-Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Wed Feb 07 12:16:19 2024
+Atmel ATF1508AS Fitter Version 1.8.7.8 ,running Wed Feb 14 11:28:56 2024
 
 
 fit1508 C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.tt2 -CUPL -dev P1508C84 -JTAG ON
@@ -250,10 +250,10 @@ AD0			(MC19	P)   : MUX 4		Ref (F93p)
 OPCB1			(MC17	P)   : MUX 7		Ref (E65p)
 CSM0			(MC7	P)   : MUX 8		Ref (F94p)
 XXL_245			(MC1	FB)  : MUX 10		Ref (A2fb)
-OPCB0			(MC16	P)   : MUX 11		Ref (F86p)
+OPCB0			(MC15	P)   : MUX 11		Ref (F86p)
 OPCB4			(MC10	P)   : MUX 13		Ref (F83p)
 OPCB3			(MC14	P)   : MUX 15		Ref (E67p)
-OPCB6			(MC15	P)   : MUX 16		Ref (F91p)
+OPCB6			(MC16	P)   : MUX 16		Ref (F91p)
 XXL_243			(MC3	FB)  : MUX 17		Ref (A9fb)
 Com_Ctrl_240		(MC6	FB)  : MUX 20		Ref (B20fb)
 CSM1			(MC9	P)   : MUX 22		Ref (G109p)
@@ -282,12 +282,12 @@ OPCB1			(MC13	P)   : MUX 13		Ref (E65p)
 RESET_IN		(MC8	FB)  : MUX 14		Ref (GCLR)
 OPCB3			(MC10	P)   : MUX 15		Ref (E67p)
 A_CLK_IN		(MC16	FB)  : MUX 17		Ref (GCLK)
-OPCB0			(MC12	P)   : MUX 19		Ref (F86p)
+OPCB0			(MC11	P)   : MUX 19		Ref (F86p)
 CSM1			(MC5	P)   : MUX 22		Ref (G109p)
 OPCB2			(MC9	P)   : MUX 23		Ref (F85p)
 OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
 HALTOREXEC		(MC4	P)   : MUX 28		Ref (G107p)
-OPCB6			(MC11	P)   : MUX 34		Ref (F91p)
+OPCB6			(MC12	P)   : MUX 34		Ref (F91p)
 XXL_253			(MC2	FB)  : MUX 37		Ref (B30fb)
 D_CLK_IN		(MC15	FB)  : MUX 38		Ref (OE2)
 
@@ -307,12 +307,12 @@ CSM1			(MC8	P)   : MUX 4		Ref (G109p)
 OPCB2			(MC12	P)   : MUX 5		Ref (F85p)
 OPCB1			(MC16	P)   : MUX 7		Ref (E65p)
 CSM0			(MC6	P)   : MUX 8		Ref (F94p)
-OPCB0			(MC15	P)   : MUX 11		Ref (F86p)
+OPCB0			(MC14	P)   : MUX 11		Ref (F86p)
 XXL_250			(MC3	FB)  : MUX 16		Ref (B22fb)
 XXL_248			(MC4	FB)  : MUX 18		Ref (B23fb)
 Com_Ctrl_240		(MC2	FB)  : MUX 20		Ref (B20fb)
 OPCB5			(MC10	P)   : MUX 21		Ref (F88p)
-OPCB6			(MC14	P)   : MUX 24		Ref (F91p)
+OPCB6			(MC15	P)   : MUX 24		Ref (F91p)
 XXL_247			(MC1	FB)  : MUX 25		Ref (A15fb)
 HALTOREXEC		(MC7	P)   : MUX 26		Ref (G107p)
 OPCB4			(MC9	P)   : MUX 27		Ref (F83p)
@@ -334,13 +334,13 @@ RESET_IN		(MC8	FB)  : MUX 2		Ref (GCLR)
 CSM1			(MC5	P)   : MUX 4		Ref (G109p)
 OPCB2			(MC9	P)   : MUX 5		Ref (F85p)
 HALTOREXEC		(MC4	P)   : MUX 6		Ref (G107p)
-OPCB0			(MC12	P)   : MUX 11		Ref (F86p)
+OPCB0			(MC11	P)   : MUX 11		Ref (F86p)
 OPCB1			(MC13	P)   : MUX 13		Ref (E65p)
 CSM0			(MC3	P)   : MUX 14		Ref (F94p)
 OPCB3			(MC10	P)   : MUX 15		Ref (E67p)
 Com_Ctrl_240		(MC2	FB)  : MUX 20		Ref (B20fb)
 OPCB5			(MC7	P)   : MUX 21		Ref (F88p)
-OPCB6			(MC11	P)   : MUX 24		Ref (F91p)
+OPCB6			(MC12	P)   : MUX 24		Ref (F91p)
 OPCB4			(MC6	P)   : MUX 27		Ref (F83p)
 XXL_246			(MC1	FB)  : MUX 32		Ref (A4fb)
 
@@ -355,7 +355,7 @@ RESET_IN,
 XXL_252,XXL_251,
 }
 Multiplexer assignment for block E
-OPCB0			(MC13	P)   : MUX 1		Ref (F86p)
+OPCB0			(MC12	P)   : MUX 1		Ref (F86p)
 RESET_IN		(MC9	FB)  : MUX 2		Ref (GCLR)
 OPCB5			(MC8	P)   : MUX 3		Ref (F88p)
 CSM1			(MC6	P)   : MUX 4		Ref (G109p)
@@ -367,7 +367,7 @@ OPCB3			(MC11	P)   : MUX 11		Ref (E67p)
 OPCB2			(MC10	P)   : MUX 13		Ref (F85p)
 AD0			(MC16	P)   : MUX 18		Ref (F93p)
 Com_Ctrl_240		(MC1	FB)  : MUX 20		Ref (B20fb)
-OPCB6			(MC12	P)   : MUX 24		Ref (F91p)
+OPCB6			(MC13	P)   : MUX 24		Ref (F91p)
 XXL_251			(MC3	FB)  : MUX 25		Ref (B31fb)
 OPCB4			(MC7	P)   : MUX 27		Ref (F83p)
 OPCB1			(MC14	P)   : MUX 39		Ref (E65p)
@@ -398,7 +398,7 @@ RESET_IN,
 UNUSED2,UNUSED6,UNUSED3,UNUSED5,UNUSED7,UNUSED8,UNUSED9,
 }
 Multiplexer assignment for block G
-OPCB0			(MC11	P)   : MUX 1		Ref (F86p)
+OPCB0			(MC10	P)   : MUX 1		Ref (F86p)
 HALT			(MC1	FB)  : MUX 2		Ref (A1fb)
 UNUSED2			(MC16	P)   : MUX 3		Ref (H117p)
 CSM1			(MC4	P)   : MUX 4		Ref (G109p)
@@ -416,7 +416,7 @@ OPCSIZEHINT		(MC14	P)   : MUX 27		Ref (G97p)
 UNUSED7			(MC20	P)   : MUX 28		Ref (H126p)
 OPCB2			(MC8	P)   : MUX 31		Ref (F85p)
 UNUSED8			(MC21	P)   : MUX 32		Ref (H128p)
-OPCB6			(MC10	P)   : MUX 34		Ref (F91p)
+OPCB6			(MC11	P)   : MUX 34		Ref (F91p)
 UNUSED9			(MC22	FB)  : MUX 35		Ref (OE1)
 RESET_IN		(MC7	FB)  : MUX 36		Ref (GCLR)
 OPCB1			(MC12	P)   : MUX 39		Ref (E65p)
@@ -428,7 +428,7 @@ OPCB0,OPCB2,OPCB3,OPCB1,OPCB5,OPCB4,OPCB6,
 RESET_IN,
 }
 Multiplexer assignment for block H
-OPCB0			(MC9	P)   : MUX 1		Ref (F86p)
+OPCB0			(MC8	P)   : MUX 1		Ref (F86p)
 OPCB2			(MC6	P)   : MUX 5		Ref (F85p)
 CSM0			(MC1	P)   : MUX 8		Ref (F94p)
 OPCB3			(MC7	P)   : MUX 11		Ref (E67p)
@@ -437,7 +437,7 @@ RESET_IN		(MC5	FB)  : MUX 14		Ref (GCLR)
 OPCB5			(MC4	P)   : MUX 21		Ref (F88p)
 CSM1			(MC2	P)   : MUX 22		Ref (G109p)
 OPCB4			(MC3	P)   : MUX 27		Ref (F83p)
-OPCB6			(MC8	P)   : MUX 34		Ref (F91p)
+OPCB6			(MC9	P)   : MUX 34		Ref (F91p)
 
 Creating JEDEC file C:\SRC\KARTANA9\CPUKIT\PLD\IRCTRL\IRCTRL.jed ...
 
@@ -446,9 +446,9 @@ PLCC84 programmed logic:
 !ALU_CFLATCH.D = ((!CSM0.Q & CSM1.Q & !OPCB3 & OPCB4 & !OPCB5 & !OPCB6 & OPCB0 & OPCB1 & !OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB3 & !OPCB4 & OPCB5 & !OPCB6));
 
-!ALU_FL.D = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6)
+!ALU_FL.D = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB0)
 	# XXL_241
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB0));
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6));
 
 !ALU_FUNC0.D = ((!OPCB1 & !OPCB2 & !OPCB3)
 	# (!OPCB1 & !OPCB5));
@@ -592,11 +592,11 @@ Com_Ctrl_240 = ((!HALTOREXEC.Q & RESET_IN & !D_CLK_IN)
 XXL_241 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB2)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & OPCB2 & !OPCB6 & !OPCB1)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB3 & !OPCB2 & !OPCB6 & OPCB1 & !OPCB0)
-	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & !OPCB2 & !OPCB6 & OPCB1 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & !OPCB2 & OPCB1 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3));
 
 XXL_242 = ((!CSM0.Q & CSM1.Q & !OPCB4 & OPCB1 & !OPCB5)
-	# (!CSM0.Q & CSM1.Q & !OPCB2 & !OPCB3 & OPCB1 & !OPCB6 & !OPCB5 & !OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB2 & !OPCB3 & OPCB1 & !OPCB5 & !OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB2 & !OPCB3 & !OPCB1 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB2 & !OPCB3 & !OPCB1 & !OPCB5 & OPCB0)
 	# (!CSM0.Q & CSM1.Q & !OPCB4 & OPCB2 & OPCB3 & !OPCB1 & !OPCB6));
@@ -660,15 +660,15 @@ XXL_252 = ((!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & OPCB0 & !OPCB2 & OPCB1)
 	# (!CSM0.Q & CSM1.Q & !OPCB6 & !OPCB4 & !OPCB0 & OPCB2));
 
 XXL_253 = ((!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB3)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB6 & !OPCB0 & !OPCB2 & OPCB1)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB3 & !OPCB0 & OPCB2)
-	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB6 & !OPCB3 & !OPCB0 & !OPCB2 & !OPCB1)
-	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB6));
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB0 & !OPCB6 & !OPCB2 & OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB0 & !OPCB3 & OPCB2)
+	# (CSM0.Q & CSM1.Q & OPCB4 & OPCB5 & !OPCB0 & !OPCB3 & !OPCB6 & !OPCB2 & !OPCB1)
+	# (!CSM0.Q & CSM1.Q & !OPCB4 & !OPCB5 & OPCB0));
 
 XXL_254 = ((!CSM0.Q & CSM1.Q & !OPCB3 & OPCB2 & !OPCB1 & !OPCB4)
 	# (!CSM0.Q & CSM1.Q & OPCB2 & !OPCB1 & !OPCB4 & !OPCB6)
 	# (!CSM0.Q & CSM1.Q & OPCB5 & !OPCB3 & !OPCB4 & !OPCB6)
-	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB4 & OPCB0)
+	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB4 & OPCB6)
 	# (!CSM0.Q & CSM1.Q & !OPCB5 & !OPCB3 & OPCB2 & !OPCB1));
 
 ALU_CFLATCH.C = A_CLK_IN;
