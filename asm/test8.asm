@@ -57,7 +57,7 @@ displp:
         jzi dispdone
         loadbr r1,r4        ; get the value from the table
         cmp r3,r4
-        jzi displp          ; if the memory location is not zero, this is not a prime, so go to the next one
+        jnzi displp          ; if the memory location is not zero, this is not a prime, so go to the next one
         calli sevseg         ; if it is prime, print on the 7 segment display
         jmpi displp
 dispdone:   

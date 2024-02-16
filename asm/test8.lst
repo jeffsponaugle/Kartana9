@@ -1,5 +1,5 @@
 
-*** Start of List File:test8.asm     Completed        2024-02-16 10:13:05.260088
+*** Start of List File:test8.asm     Completed        2024-02-16 10:14:30.975285
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ LN# ADDR  OPCD DATA                    SOURCE
  57 007E  (59) B200 0092                         jzi dispdone
  58 0082  (15) 2B08                              loadbr r1,r4        ; get the value from the table
  59 0084  (12) 2423                              cmp r3,r4
- 60 0086  (59) B200 0074                         jzi displp          ; if the memory location is not zero, this is not a prime, so
+ 60 0086  (5A) B400 0074                         jnzi displp          ; if the memory location is not zero, this is not a prime, so
  61 008A  (78) F000 00C2                         calli sevseg         ; if it is prime, print on the 7 segment display
  62 008E  (58) B000 0074                         jmpi displp
  63                                      dispdone:
@@ -137,4 +137,4 @@ mk2                00B0
 sevseg             00C2
 sevsegd            00EE
 
-*** End of List File:test8.asm     Completed        2024-02-16 10:13:05.260325
+*** End of List File:test8.asm     Completed        2024-02-16 10:14:30.975500
