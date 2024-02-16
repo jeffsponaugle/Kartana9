@@ -13,12 +13,12 @@ start:
         ; RAM starts of 0x8000, and we will start our table of primes there.
         ; The sieve table has an entry for each number from 0-255.
         ; Let us zero out that entire table
-        loadimm r1,255  ; size of the sieve table (0-255)
+        loadimm r1,254  ; size of the sieve table (0-255)
         loadimm r7,#8000 ; pointer to the sieve table
         loadimm r0,0
 lp1:    add r1,r7,r2
-        storerb r0,r2
-        subi r1,1,r1
+        storerw r0,r2
+        subi r1,2,r1
         jnzi lp1
 
         loadimm r0,1
@@ -35,7 +35,7 @@ lp1:    add r1,r7,r2
 lp2:    calli mark
         addi r0,2,r0
         cmp r1,r0
-        jnci lp2
+        jci lp2
         calli disp
         jmpi start
 
@@ -82,7 +82,7 @@ mk2:
         add r3,r0,r3            ; increment the address by the sieve amount
         storerb r1,r3           ; mark as not prime (1)
         cmp r2,r3               ; check to see if we are at or past the end of the table
-        jnci mk2
+        jci mk2
         pop r3
         pop r2
         pop r1

@@ -1,5 +1,5 @@
 
-*** Start of List File:test8.asm     Completed        2024-02-12 19:50:39.957014
+*** Start of List File:test8.asm     Completed        2024-02-16 10:13:05.260088
 
 LN# ADDR  OPCD DATA                    SOURCE
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -18,104 +18,107 @@ LN# ADDR  OPCD DATA                    SOURCE
  13                                              ; RAM starts of 0x8000, and we will start our table of primes there.
  14                                              ; The sieve table has an entry for each number from 0-255.
  15                                              ; Let us zero out that entire table
- 16 0014  (66) CC40 00FF                         loadimm r1,255  ; size of the sieve table (0-255)
+ 16 0014  (66) CC40 00FE                         loadimm r1,254  ; size of the sieve table (0-255)
  17 0018  (66) CDC0 8000                         loadimm r7,#8000 ; pointer to the sieve table
  18 001C  (66) CC00 0000                         loadimm r0,0
  19 0020  (04) 08B9                      lp1:    add r1,r7,r2
- 20 0022  (11) 2210                              storerb r0,r2
- 21 0024  (42) 8441 0001                         subi r1,1,r1
+ 20 0022  (10) 2010                              storerw r0,r2
+ 21 0024  (42) 8441 0002                         subi r1,2,r1
  22 0028  (5A) B400 0020                         jnzi lp1
- 23 002C  (66) CC00 0001                         loadimm r0,1
- 24 0030  (11) 2238                              storerb r0,r7   ; 0 is not prime
- 25 0032  (44) 89C7 0001                         addi r7,1,r7
- 26 0036  (11) 2238                              storerb r0,r7   ; 1 is not prime
- 27 0038  (44) 89C7 0001                         addi r7,1,r7
- 28                                              ; lets mark all of the even numbers as not prime
- 29 003C  (66) CC00 0002                         loadimm r0,2
- 30 0040  (78) F000 009A                         calli mark
- 31                                              ; lets now mark all of the odd numbers up to the sqrt of 256
- 32 0044  (66) CC40 0011                         loadimm r1,17
- 33 0048  (66) CC00 0003                         loadimm r0,3
- 34 004C  (78) F000 009A                 lp2:    calli mark
- 35 0050  (44) 8800 0002                         addi r0,2,r0
- 36 0054  (12) 2401                              cmp r1,r0
- 37 0056  (5C) B800 004C                         jnci lp2
- 38
- 39                                      disp:
- 40                                      ; this routine will display all of the primes
- 41 005A  (2E) 5C00                              push r0
- 42 005C  (2E) 5C08                              push r1
- 43 005E  (2E) 5C10                              push r2
- 44 0060  (2E) 5C18                              push r3
- 45 0062  (2E) 5C20                              push r4
- 46 0064  (66) CC00 0000                         loadimm r0,0        ; the current number we are looking at
- 47 0068  (66) CC80 8100                         loadimm r2,#8100    ; the end address of the table
- 48 006C  (66) CCC0 0000                         loadimm r3,0        ; the flag for a number being prime
- 49
- 50                                      displp:
- 51 0070  (44) 8800 0001                         addi r0,1,r0        ; increment the number we are looking for
- 52 0074  (44) 8840 8000                         addi r0,#8000,r1    ; r1 = the address to get
- 53 0078  (12) 240A                              cmp r2,r1           ; if we are at the end address, we are done
- 54 007A  (59) B200 008E                         jzi dispdone
- 55 007E  (15) 2B08                              loadbr r1,r4        ; get the value from the table
- 56 0080  (12) 2423                              cmp r3,r4
- 57 0082  (59) B200 0070                         jzi displp          ; if the memory location is not zero, this is not a prime, so
- 58 0086  (78) F000 00BE                         calli sevseg         ; if it is prime, print on the 7 segment display
- 59 008A  (58) B000 0070                         jmpi displp
- 60                                      dispdone:
- 61 008E  (30) 6100                              pop r4
- 62 0090  (30) 60C0                              pop r3
- 63 0092  (30) 6080                              pop r2
- 64 0094  (30) 6040                              pop r1
- 65 0096  (30) 6000                              pop r0
- 66 0098  (38) 7000                              ret
- 67
- 68
- 69
- 70                                      ; this routine will take r0 and use is as the increment the mark the sieve
- 71                                      mark:
- 72 009A  (2E) 5C08                              push r1
- 73 009C  (2E) 5C10                              push r2
- 74 009E  (2E) 5C18                              push r3
- 75 00A0  (66) CC40 0001                         loadimm r1,1
- 76 00A4  (66) CC80 8100                         loadimm r2,#8100
- 77 00A8  (66) CCC0 8000                         loadimm r3,#8000
- 78                                      mk2:
- 79 00AC  (04) 08C3                              add r3,r0,r3
- 80 00AE  (11) 2219                              storerb r1,r3
- 81 00B0  (12) 241A                              cmp r2,r3
- 82 00B2  (5C) B800 00AC                         jnci mk2
- 83 00B6  (30) 60C0                              pop r3
- 84 00B8  (30) 6080                              pop r2
- 85 00BA  (30) 6040                              pop r1
- 86 00BC  (38) 7000                              ret
- 87
- 88                                      ; Subroutine to display value on 7-seg display.  Pass value in R0.  Stack must be setup.
- 89                                      sevseg:
- 90 00BE  (2E) 5C08                              push r1
- 91 00C0  (2E) 5C10                              push r2
- 92 00C2  (2E) 5C18                              push r3
- 93 00C4  (66) CC80 00EA                         loadimm r2,sevsegd
- 94 00C8  (4A) 9440 000F                         andi r0,#000F,r1
- 95 00CC  (04) 0851                              add r1,r2,r1
- 96 00CE  (15) 2AC8                              loadbr r1,r3
- 97 00D0  (51) A203 FFF0                         storebi r3,[#FFF0]
- 98 00D4  (4A) 9440 00F0                         andi r0,#00F0,r1
- 99 00D8  (23) 464B                              shr r1,r1,4
-100 00DA  (04) 0851                              add r1,r2,r1
-101 00DC  (15) 2AC8                              loadbr r1,r3
-102 00DE  (51) A203 FFF1                         storebi r3,[#FFF1]
-103 00E2  (30) 60C0                              pop r3
-104 00E4  (30) 6080                              pop r2
-105 00E6  (30) 6040                              pop r1
-106 00E8  (38) 7000                              ret
-107
-108
-109
-110                                      sevsegd:
-111                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
-112 00EA       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
-112 00F2       01 21 11 07 8D 43 0D 1D
+ 23
+ 24 002C  (66) CC00 0001                         loadimm r0,1
+ 25 0030  (11) 2238                              storerb r0,r7   ; 0 is not prime
+ 26 0032  (44) 89C7 0001                         addi r7,1,r7
+ 27 0036  (11) 2238                              storerb r0,r7   ; 1 is not prime
+ 28
+ 29                                              ; lets mark all of the even numbers as not prime
+ 30 0038  (66) CC00 0002                         loadimm r0,2
+ 31 003C  (78) F000 009E                         calli mark
+ 32                                              ; lets now mark all of the odd numbers up to the sqrt of 256
+ 33 0040  (66) CC40 0011                         loadimm r1,17
+ 34 0044  (66) CC00 0003                         loadimm r0,3
+ 35 0048  (78) F000 009E                 lp2:    calli mark
+ 36 004C  (44) 8800 0002                         addi r0,2,r0
+ 37 0050  (12) 2401                              cmp r1,r0
+ 38 0052  (5B) B600 0048                         jci lp2
+ 39 0056  (78) F000 005E                         calli disp
+ 40 005A  (58) B000 0000                         jmpi start
+ 41
+ 42                                      disp:
+ 43                                      ; this routine will display all of the primes
+ 44 005E  (2E) 5C00                              push r0
+ 45 0060  (2E) 5C08                              push r1
+ 46 0062  (2E) 5C10                              push r2
+ 47 0064  (2E) 5C18                              push r3
+ 48 0066  (2E) 5C20                              push r4
+ 49 0068  (66) CC00 0000                         loadimm r0,0        ; the current number we are looking at
+ 50 006C  (66) CC80 8100                         loadimm r2,#8100    ; the end address of the table
+ 51 0070  (66) CCC0 0000                         loadimm r3,0        ; the flag for a number being prime
+ 52
+ 53                                      displp:
+ 54 0074  (44) 8800 0001                         addi r0,1,r0        ; increment the number we are looking for
+ 55 0078  (44) 8840 8000                         addi r0,#8000,r1    ; r1 = the address to get
+ 56 007C  (12) 240A                              cmp r2,r1           ; if we are at the end address, we are done
+ 57 007E  (59) B200 0092                         jzi dispdone
+ 58 0082  (15) 2B08                              loadbr r1,r4        ; get the value from the table
+ 59 0084  (12) 2423                              cmp r3,r4
+ 60 0086  (59) B200 0074                         jzi displp          ; if the memory location is not zero, this is not a prime, so
+ 61 008A  (78) F000 00C2                         calli sevseg         ; if it is prime, print on the 7 segment display
+ 62 008E  (58) B000 0074                         jmpi displp
+ 63                                      dispdone:
+ 64 0092  (30) 6100                              pop r4
+ 65 0094  (30) 60C0                              pop r3
+ 66 0096  (30) 6080                              pop r2
+ 67 0098  (30) 6040                              pop r1
+ 68 009A  (30) 6000                              pop r0
+ 69 009C  (38) 7000                              ret
+ 70
+ 71
+ 72
+ 73                                      ; this routine will take r0 and use is as the increment the mark the sieve
+ 74                                      mark:
+ 75 009E  (2E) 5C08                              push r1
+ 76 00A0  (2E) 5C10                              push r2
+ 77 00A2  (2E) 5C18                              push r3
+ 78 00A4  (66) CC40 0001                         loadimm r1,1
+ 79 00A8  (66) CC80 8100                         loadimm r2,#8100
+ 80 00AC  (66) CCC0 8000                         loadimm r3,#8000
+ 81                                      mk2:
+ 82 00B0  (04) 08C3                              add r3,r0,r3            ; increment the address by the sieve amount
+ 83 00B2  (11) 2219                              storerb r1,r3           ; mark as not prime (1)
+ 84 00B4  (12) 241A                              cmp r2,r3               ; check to see if we are at or past the end of the table
+ 85 00B6  (5B) B600 00B0                         jci mk2
+ 86 00BA  (30) 60C0                              pop r3
+ 87 00BC  (30) 6080                              pop r2
+ 88 00BE  (30) 6040                              pop r1
+ 89 00C0  (38) 7000                              ret
+ 90
+ 91                                      ; Subroutine to display value on 7-seg display.  Pass value in R0.  Stack must be setup.
+ 92                                      sevseg:
+ 93 00C2  (2E) 5C08                              push r1
+ 94 00C4  (2E) 5C10                              push r2
+ 95 00C6  (2E) 5C18                              push r3
+ 96 00C8  (66) CC80 00EE                         loadimm r2,sevsegd
+ 97 00CC  (4A) 9440 000F                         andi r0,#000F,r1
+ 98 00D0  (04) 0851                              add r1,r2,r1
+ 99 00D2  (15) 2AC8                              loadbr r1,r3
+100 00D4  (51) A203 FFF0                         storebi r3,[#FFF0]
+101 00D8  (4A) 9440 00F0                         andi r0,#00F0,r1
+102 00DC  (23) 464B                              shr r1,r1,4
+103 00DE  (04) 0851                              add r1,r2,r1
+104 00E0  (15) 2AC8                              loadbr r1,r3
+105 00E2  (51) A203 FFF1                         storebi r3,[#FFF1]
+106 00E6  (30) 60C0                              pop r3
+107 00E8  (30) 6080                              pop r2
+108 00EA  (30) 6040                              pop r1
+109 00EC  (38) 7000                              ret
+110
+111
+112
+113                                      sevsegd:
+114                                              ;    0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
+115 00EE       81 F3 49 61 33 25 05 F1           db #81,#F3,#49,#61,#33,#25,#05,#F1,#01,#21,#11,#07,#8D,#43,#0D,#1D
+115 00F6       01 21 11 07 8D 43 0D 1D
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -125,13 +128,13 @@ Label              Address
 --------------------------
 start              0000
 lp1                0020
-lp2                004C
-disp               005A
-displp             0070
-dispdone           008E
-mark               009A
-mk2                00AC
-sevseg             00BE
-sevsegd            00EA
+lp2                0048
+disp               005E
+displp             0074
+dispdone           0092
+mark               009E
+mk2                00B0
+sevseg             00C2
+sevsegd            00EE
 
-*** End of List File:test8.asm     Completed        2024-02-12 19:50:39.957201
+*** End of List File:test8.asm     Completed        2024-02-16 10:13:05.260325
