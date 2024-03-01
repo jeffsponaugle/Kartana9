@@ -50,7 +50,7 @@ FIELD aluop = [FUNC0..2];
 
 /* Setup Carry-in for addition or subtraction, and if the with carry flag is active. */
 C0 =   (aluop:['d'2] & CFOut & (!ALU_WC) )       // inst=ADD: if WC==0 Cin=CF else Cin=0
-     # (aluop:['d'1] & ( (!CFOut) # ALU_WC));    // inst=SUB: if WC==0 Cin=!CF else Cin=1
+     # (aluop:['d'1] & ( (CFOut) # ALU_WC));    // inst=SUB: if WC==0 Cin=CF else Cin=1
 
 P0 = A0 $ B0;
 G0 = A0 & B0;
