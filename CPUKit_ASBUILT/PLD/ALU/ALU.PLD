@@ -48,9 +48,14 @@ FIELD aluop = [FUNC0..2];
 /* Invert the B input bits for SUB functions */
 [B0..15] = aluop:['d'0,'d'2,'d'3,'d'4,'d'5,'d'6,'d'7]&[BBUS0..15] # aluop:['d'1]&!([BBUS0..15]);
 
-/* Setup Carry-in for addition or subtraction, and if the with carry flag is active. */
+/* Setup Carry-in for addition or subtraction, and if the with carry flag is active.
+   For addition, the carry bit equals 1 to  indicates a carry from the previous op.
+   For subtraction, the carry bit equals 0 to indicate a borrow from the previous op.
+   This is the opposite of X86 and 68K, but the same as ARM,6502.
+   
+    */
 C0 =   (aluop:['d'2] & CFOut & (!ALU_WC) )       // inst=ADD: if WC==0 Cin=CF else Cin=0
-     # (aluop:['d'1] & ( (!CFOut) # ALU_WC));    // inst=SUB: if WC==0 Cin=!CF else Cin=1
+     # (aluop:['d'1] & ( (CFOut) # ALU_WC));    // inst=SUB: if WC==0 Cin=CF else Cin=1
 
 P0 = A0 $ B0;
 G0 = A0 & B0;
