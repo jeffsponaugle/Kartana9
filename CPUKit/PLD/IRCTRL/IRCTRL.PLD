@@ -144,12 +144,13 @@ Pin[21] = SHFT_WC;
 Pin[69] = HALTOREXEC;
 Pin[68] = SHFT_INVERTCARRY;
 Pin[76] = D2A_OE;
+Pin[75] = A2D_OE;    /* SP Module connect address bus inputs to data bus output.  Used for getting effective address */
 
 /* Unused pins, reserved for future use */
 
 Pin[65] = UNUSED1;
 Pin[74] = UNUSED2;
-Pin[75] = UNUSED3;
+
 
 Pin[77] = UNUSED5;
 Pin[79] = UNUSED6;
@@ -287,6 +288,8 @@ SHFT_INVERTCARRY.ck = A_CLK_IN;
 SHFT_INVERTCARRY.ap = !RESET_IN;
 D2A_OE.ck = A_CLK_IN;
 D2A_OE.ap = !RESET_IN;
+A2D_OE.ck = A_CLK_IN;
+A2D_OE.ap = !RESET_IN;
 
 
 
@@ -637,6 +640,8 @@ IR2_LATCH.d = !( ( SM_F2 ) );
 JMPINST.d = !(INST_ALL_JMP);
 HALT.d = !( INST_HALT );     
 D2A_OE.d = !(INST_RET_2);
+
+A2D_OE.d = 'b'1;
 
 /*
 Total dedicated input used:	4/4 	(100%)

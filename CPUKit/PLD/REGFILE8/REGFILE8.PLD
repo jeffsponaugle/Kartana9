@@ -85,6 +85,12 @@ PINNODE = REGWRITE;
 REGWRITE = !C_WE;   /* If this ==1, we are doing a regular register write, if ==0 no write  */
 
 
+/* 
+   For each of the 8 internal registers (RA,RB..RH), the input to that register is controlled by the REGWRITE flag, 
+   which is the invert of the C_WE input pin.  If REGWRITE is 1 AND creg has selected this register we will 
+   load the register from the CBUS.  If either REGWRITE is not 1, or creg has selected a different register we 
+   will loop back what is currently in the register (thus not changing it)
+*/
 [RAB0..7].ck = D_CLK_IN;
 [RAB0..7].ar = !ResetIN;
 RAB0.d = (REGWRITE & creg:['d'0] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB0);
