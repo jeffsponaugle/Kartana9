@@ -58,7 +58,7 @@ All decode and execution logic is direct sequential logic implemented inside the
 
 ## Physcial Implementation
 
-The CPU is implemented on a 4-layer PCBs using 7 ATF1508 CPLDs.  
+The CPU is implemented on a 4-layer PCBs using 7 ATF1508 CPLDs.  Each CPLD has 128 Logic cells that include a flip flop.   With 7 CPLDs we have a total of 896 Logic cells.  For comparison the small lower power Lattice ICE40 has 5280 Logic cells while larger FPGAs can have 10,000-200,000 Logic cells.  Implementing with such a small number of logic cells requires significant optimization and iteration in the design process. 
 
 - A primary CPU PCB that has the entire CPU, plus display/logic analyzer outputs.
 
@@ -76,11 +76,12 @@ Both of these PCBs go into slots on a generic microprocessor test platform that 
 
  ![](/images/IMG_7428.jpeg)
 
- I also built some small 'display' PCBs that are designed to go into the pin layout for an HP Logic Analyizer probe.  This allows me to use an LA when needed, but also be able to single step and see bus values and signal levels.
+ I also built some small 'display' PCBs that are designed to go into the pin layout for an HP Logic Analyizer probe.  This allows me to use an LA when needed, but also be able to single step and see bus values and signal levels.  It also looks cool. 
 
   ![](/images/IMG_6729.jpeg)
 
   ![](/images/IMG_6429.jpeg)
+
 ## Schematics
 
 There are DIPTRACE format schmatics in the CPUKIT_ASBUILT/schematics folder. 
