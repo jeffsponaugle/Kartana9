@@ -1,7 +1,7 @@
 # Kartana9
-A simple 16-bit CPU implemented completely in a collection of ATF15XX CPLDs.
+A simple 16-bit CPU implemented completely in a collection of ATF1508 CPLDs.
 
-This is an implemenation of a simple 16-bit CPU design using ATF5XX CPLDs on a single  4-layer PCBs.   
+This is an implemenation of a simple 16-bit CPU design using ATF508 CPLDs on a single  4-layer PCBs.   
 
 The goal was to pick a simple instruction set that would allow for simple assembly language programs.  With a 16 bit address bus capable of addressing 64K of memory it was important for the ISA to support relative offsets and fully relocatable code.  While the first iteration does not have a multiply or divide instruction, some features in the shifting mechanism have been enhanced to make it easy to implment.
 
@@ -9,7 +9,7 @@ The goal was to pick a simple instruction set that would allow for simple assemb
 
 ## Instruction Set Architecture
 
-The instruction set is a RISC-like 3 operand load-store design with support for 8 general purpose 16 bit registers as well as two special purpose registers (Stack Pointer and Program Counter)   The internal data path is 16-bits wide, as are the registers and the external data path.  Access to external memory can be either 8 or 16 bits wide with automatic byte shifting to support loading 8 bit values odd and even addresses. 
+The instruction set is a RISC-like 3 operand load-store design with support for 8 general purpose 16-bit registers as well as two special purpose registers (Stack Pointer and Program Counter)   The internal data path is 16-bits wide, as are the registers and the external data path.  Access to external memory can be either 8 or 16 bits wide with automatic byte shifting to support loading 8 bit values odd and even addresses. 
 
 Signed and Unsigned comparisons are supported, as are 'with carry' and 'without carry'  math operations.  
 
