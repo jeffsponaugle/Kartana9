@@ -80,7 +80,7 @@ The CPLD source code is located in the CPUKIT_ASBUILT/PLD folder.
 
 ## Operations
 
- ![](/images/IMG_6837.mov)
+[Youtube Video](https://youtu.be/H3OF3yWDvbs)
 
 
 
