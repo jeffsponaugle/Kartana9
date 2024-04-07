@@ -70,6 +70,11 @@ Both of these PCBs go into slots on a generic microprocessor test platform that 
 
  ![](/images/IMG_7428.jpeg)
 
+ I also built some small 'display' PCBs that are designed to go into the pin layout for an HP Logic Analyizer probe.  This allows me to use an LA when needed, but also be able to single step and see bus values and signal levels.
+
+  ![](/images/IMG_6729.jpeg)
+
+  ![](/images/IMG_6429.jpeg)
 ## Schematics
 
 There are DIPTRACE format schmatics in the CPUKIT_ASBUILT/schematics folder. 
