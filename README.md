@@ -1,9 +1,9 @@
 # Kartana9
 A simple 16-bit CPU implemented completely in a collection of ATF1508 CPLDs.
 
-This is an implemenation of a simple 16-bit CPU design using ATF508 CPLDs on a single  4-layer PCBs.   
+This is an implemenation of a simple 16-bit CPU design using ATF1508 CPLDs on a single  4-layer PCBs.   
 
-The goal was to pick a simple instruction set that would allow for simple assembly language programs.  With a 16 bit address bus capable of addressing 64K of memory it was important for the ISA to support relative offsets and fully relocatable code.  While the first iteration does not have a multiply or divide instruction, some features in the shifting mechanism have been enhanced to make it easy to implment.
+The goal was to pick a simple instruction set that would allow for assembly language programs  With a 16 bit address bus capable of addressing 64K of memory it was important for the ISA to support relative offsets and fully relocatable code.  While the first iteration does not have an integer multiply or divide instruction, some features in the shifting mechanism have been enhanced to make it easy to implement.
 
 ![](/images/IMG_6812.jpeg)
 
@@ -46,13 +46,19 @@ Load and Store operations use either an immediate address, a relative immediate 
 
 The shift instructions include the standard logical right and left as well as arithmetic right. There is an additional shift left with CARRY FILL, an instruction that can be used in some division algorythms.
 
-The JUMP operations is to an address in a register, a direct immeditate addresss, or a reltive address (for relocatable code).  CALL (subroutine) operations also support register, a direct immeditate addresss, or a reltive address.
+The JUMP operations is to an address in a register, a direct immeditate addresss, or a relative address (for relocatable code).  CALL (subroutine) operations also support register, direct immeditate address, or relative address modes.
 
-All decode and operation logic is direct sequential logic implemented inside the CPLDs with no microcode.  
+All decode and execution logic is direct sequential logic implemented inside the CPLDs with no microcode.  Since all instructions execute in either 1 or 2 cycles it was easiser to use direct logic expressions for internals signals. 
+
+
+## Internal dataflow Architecture
+
+ ![](/Kartana16B-Architecture.drawio)
+
 
 ## Physcial Implementation
 
-The CPU is implemented on a 4-layer PCBs using ATF1508 CPLDs.  
+The CPU is implemented on a 4-layer PCBs using 7 ATF1508 CPLDs.  
 
 - A primary CPU PCB that has the entire CPU, plus display/logic analyzer outputs.
 
