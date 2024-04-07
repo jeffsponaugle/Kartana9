@@ -53,7 +53,7 @@ All decode and execution logic is direct sequential logic implemented inside the
 
 ## Internal dataflow Architecture
 
- ![](/Kartana16B-Architecture.drawio)
+ ![](/Kartana16B-Architecture.drawio.png)
 
 
 ## Physcial Implementation
