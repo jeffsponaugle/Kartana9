@@ -1,9 +1,0 @@
-log: read User Electronic Signature from device #1:
-     UES = "" (ASCII) or "1111111111111111" (binary).
-log: bypass device #2.
-log: bypass device #3.
-log: bypass device #4.
-log: bypass device #5.
-log: bypass device #6.
-log: bypass device #7.
-log: JTAG instructions finished successfully.

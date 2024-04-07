@@ -1,0 +1,41 @@
+CHIP "C:\SRC\KARTANA9\CPUKIT\PLD\K9MEMDCD\K9MEMDCD"
+BEGIN
+
+    DEVICE = "PLCC44";
+    "SEVEN_HIGH_WRITE"                        : OUTPUT_PIN = 12 ;
+    "SEVEN_LOW_WRITE"                         : OUTPUT_PIN = 11 ;
+    "SW_HIGH_READ"                            : OUTPUT_PIN = 9 ;
+    "SW_LOW_READ"                             : OUTPUT_PIN = 8 ;
+    "TDI"                                     : INPUT_PIN = 7 ;
+    "ROM_WE"                                  : OUTPUT_PIN = 6 ;
+    "ROM_OE"                                  : OUTPUT_PIN = 5 ;
+    "ROM_LOW_CS"                              : OUTPUT_PIN = 4 ;
+    "A6"                                      : INPUT_PIN = 21 ;
+    "A5"                                      : INPUT_PIN = 20 ;
+    "A4"                                      : INPUT_PIN = 19 ;
+    "A3"                                      : INPUT_PIN = 18 ;
+    "A2"                                      : INPUT_PIN = 17 ;
+    "A1"                                      : INPUT_PIN = 16 ;
+    "UNUSED"                                  : OUTPUT_PIN = 14 ;
+    "TMS"                                     : INPUT_PIN = 13 ;
+    "A7"                                      : INPUT_PIN = 24 ;
+    "A8"                                      : INPUT_PIN = 25 ;
+    "A9"                                      : INPUT_PIN = 26 ;
+    "A10"                                     : INPUT_PIN = 27 ;
+    "A11"                                     : INPUT_PIN = 28 ;
+    "A12"                                     : INPUT_PIN = 29 ;
+    "A13"                                     : INPUT_PIN = 31 ;
+    "TCK"                                     : INPUT_PIN = 32 ;
+    "A14"                                     : INPUT_PIN = 33 ;
+    "A15"                                     : INPUT_PIN = 34 ;
+    "ROM_HIGH_CS"                             : OUTPUT_PIN = 36 ;
+    "RAM_WE"                                  : OUTPUT_PIN = 37 ;
+    "TDO"                                     : INPUT_PIN = 38 ;
+    "RAM_OE"                                  : OUTPUT_PIN = 39 ;
+    "RAM_LOW_CS"                              : OUTPUT_PIN = 40 ;
+    "RAM_HIGH_CS"                             : OUTPUT_PIN = 41 ;
+    "MEM_RW"                                  : INPUT_PIN = 2 ;
+    "MEM_L_EN"                                : INPUT_PIN = 43 ;
+    "MEM_AS"                                  : INPUT_PIN = 1 ;
+    "MEM_H_EN"                                : INPUT_PIN = 44 ;
+END;

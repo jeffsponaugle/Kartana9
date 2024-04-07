@@ -1,0 +1,54 @@
+#$ TOOL CUPL
+# Berkeley PLA format generated using CUPL(WM) 5.0a
+# Serial#  60008009
+# Created  Sat Feb 03 17:26:32 2024
+#
+#    Name        K9MEMCD
+#    Partno      K9MEMCD
+#    Revision    01
+#    Date        04/18/2022
+#    Designer    Sponaugle
+#    Company     Ratiometric
+#    Assembly    None
+#    Location    None
+#
+#$ TITLE  K9MEMCD
+#$ PROPERTY ATMEL TDI_PULLUP = ON
+#$ PROPERTY ATMEL TMS_PULLUP = ON
+#$ PROPERTY ATMEL PREASSIGN = KEEP
+#$ PROPERTY ATMEL XOR_SYNTHESIS = OFF
+#$ MODULE  K9MEMCD
+#$ JEDECFILE  K9MEMCD
+#$ DEVICE  f1504ispplcc44
+#$ PINS  32 A1+:16 A2+:17 A3+:18 A4+:19 A5+:20 A6+:21 A7+:24 A8+:25 A9+:26 A10+:27 A11+:28 A12+:29 A13+:31 A14+:33 A15+:34 MEM_AS+:1 MEM_H_EN+:44 MEM_L_EN+:43 MEM_RW+:2 RAM_HIGH_CS+:41 RAM_LOW_CS+:40 RAM_OE+:39 RAM_WE+:37 ROM_HIGH_CS+:36 ROM_LOW_CS+:4 ROM_OE+:5 ROM_WE+:6 SEVEN_HIGH_WRITE+:12 SEVEN_LOW_WRITE+:11 SW_HIGH_READ+:9 SW_LOW_READ+:8 UNUSED+:14 
+.i 19
+.o 13
+.type f
+.ilb  A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 MEM_AS MEM_H_EN MEM_L_EN MEM_RW 
+.ob   RAM_HIGH_CS RAM_LOW_CS RAM_OE RAM_WE ROM_HIGH_CS ROM_LOW_CS ROM_OE ROM_WE SEVEN_HIGH_WRITE SEVEN_LOW_WRITE SW_HIGH_READ SW_LOW_READ UNUSED 
+.phase 1111111111111
+.p 23
+---------------1--- 1111111111110
+--------------0---- 1111000011110
+---111111111111---- 1111000000000
+----------------1-- 1000100010100
+-----------------1- 0100010001010
+------------------0 0010001000110
+------------------1 0001000111000
+--------------1---- 0000111100000
+1------------------ 0000000011111
+-1----------------- 0000000011111
+--1---------------- 0000000011111
+---0--------------- 0000000011110
+----0-------------- 0000000011110
+-----0------------- 0000000011110
+------0------------ 0000000011110
+-------0----------- 0000000011110
+--------0---------- 0000000011110
+---------0--------- 0000000011110
+----------0-------- 0000000011110
+-----------0------- 0000000011110
+------------0------ 0000000011110
+-------------0----- 0000000011110
+---1--------------- 0000000000001
+.e

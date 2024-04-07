@@ -1,0 +1,350 @@
+Name	    REGFILE;
+PartNo   REGFILE;
+Date     12/12/2023;
+Revision 01;
+Designer Sponaugle;
+Company  Ratiometric;
+Assembly None;
+Location None;
+Device   f1508ispplcc84;
+
+PROPERTY ATMEL {TDI_PULLUP = ON};
+PROPERTY ATMEL {TMS_PULLUP = ON};
+PROPERTY ATMEL {LOGIC_DOUBLING = OFF};
+PROPERTY ATMEL {PREASSIGN = KEEP};
+PROPERTY ATMEL {CASCADE_LOGIC = TRY};
+
+
+/* Input Pins [48,49,46,45,36,40,44,39] */
+Pin[36,39,40,44,45,46,48,49]  = [CBUS0..7];
+Pin[6,21,22]  = [ASEL0..2];
+Pin[12,11,10]  = [BSEL0..2];
+Pin[17,25,31]  = [CSEL0..2];
+Pin[83] = D_CLK_IN;
+Pin[1] = ResetIN;
+Pin[84]  = B_OE;
+Pin[30]  = C_WE;        /* Active Low Write Enable */
+Pin[41]  = C_ZH;        /* Active Low Force C high bits to all zero.  Since each REGFILE CPLD is 8 bits wide this will be used on just one **/
+
+/* Output Pins */
+
+Pin[8,9,18,20,28,29,35,37]  = [ABUS0..7];     
+Pin[4,5,15,16,24,27,33,34]  = [BBUS0..7];
+
+Pin[50] = UNUSED1;
+Pin[51] = UNUSED2;
+Pin[52] = UNUSED3;
+Pin[54] = UNUSED4;
+Pin[55] = UNUSED5;
+Pin[56] = UNUSED6;
+Pin[57] = UNUSED7;
+Pin[58] = UNUSED8;
+Pin[60] = UNUSED9;
+Pin[61] = UNUSED10;
+Pin[63] = UNUSED11;
+Pin[64] = UNUSED12;
+Pin[65] = UNUSED13;
+Pin[67] = UNUSED14;
+Pin[68] = UNUSED15;
+Pin[69] = UNUSED16;
+Pin[70] = UNUSED17;
+Pin[73] = UNUSED18;
+Pin[74] = UNUSED19;
+Pin[75] = UNUSED20;
+Pin[76] = UNUSED21;
+Pin[77] = UNUSED22;
+Pin[79] = UNUSED23;
+Pin[80] = UNUSED24;
+Pin[81] = UNUSED25;
+Pin[2] = UNUSED26;
+
+UNUSED1 = (UNUSED1 & UNUSED2 & UNUSED3 & UNUSED4 & UNUSED5) # (UNUSED6 & UNUSED7 & UNUSED8 & UNUSED9 & UNUSED10 ) # (UNUSED11 & UNUSED12 & UNUSED13 & UNUSED14 & UNUSED15);
+UNUSED16 = (UNUSED17 & UNUSED18 & UNUSED19 & UNUSED20 & UNUSED21) # (UNUSED22 & UNUSED23 & UNUSED24 & UNUSED25 & UNUSED26);
+
+
+
+/* Internal Nodes */
+
+PINNODE = [RAB0..7];
+PINNODE = [RBB0..7];
+PINNODE = [RCB0..7];
+PINNODE = [RDB0..7];
+PINNODE = [REB0..7];
+PINNODE = [RFB0..7];
+PINNODE = [RGB0..7];
+PINNODE = [RHB0..7];
+
+
+FIELD areg = [ASEL0..2];
+FIELD breg = [BSEL0..2];
+FIELD creg = [CSEL0..2];
+
+[BBUS0..7].oe = !B_OE;
+
+PINNODE = REGWRITE;
+REGWRITE = !C_WE;   /* If this ==1, we are doing a regular register write, if ==0 no write  */
+
+
+/* 
+   For each of the 8 internal registers (RA,RB..RH), the input to that register is controlled by the REGWRITE flag, 
+   which is the invert of the C_WE input pin.  If REGWRITE is 1 AND creg has selected this register we will 
+   load the register from the CBUS.  If either REGWRITE is not 1, or creg has selected a different register we 
+   will loop back what is currently in the register (thus not changing it)
+*/
+[RAB0..7].ck = D_CLK_IN;
+[RAB0..7].ar = !ResetIN;
+RAB0.d = (REGWRITE & creg:['d'0] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB0);
+RAB1.d = (REGWRITE & creg:['d'0] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB1);
+RAB2.d = (REGWRITE & creg:['d'0] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB2);
+RAB3.d = (REGWRITE & creg:['d'0] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB3);
+RAB4.d = (REGWRITE & creg:['d'0] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB4);
+RAB5.d = (REGWRITE & creg:['d'0] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB5);
+RAB6.d = (REGWRITE & creg:['d'0] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB6);
+RAB7.d = (REGWRITE & creg:['d'0] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'0]) & RAB7);
+
+
+[RBB0..7].ck = D_CLK_IN;
+[RBB0..7].ar = !ResetIN;
+RBB0.d = (REGWRITE & creg:['d'1] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB0);
+RBB1.d = (REGWRITE & creg:['d'1] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB1);
+RBB2.d = (REGWRITE & creg:['d'1] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB2);
+RBB3.d = (REGWRITE & creg:['d'1] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB3);
+RBB4.d = (REGWRITE & creg:['d'1] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB4);
+RBB5.d = (REGWRITE & creg:['d'1] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB5);
+RBB6.d = (REGWRITE & creg:['d'1] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB6);
+RBB7.d = (REGWRITE & creg:['d'1] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'1]) & RBB7);
+
+
+[RCB0..7].ck = D_CLK_IN;
+[RCB0..7].ar = !ResetIN;
+RCB0.d = (REGWRITE & creg:['d'2] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB0);
+RCB1.d = (REGWRITE & creg:['d'2] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB1);
+RCB2.d = (REGWRITE & creg:['d'2] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB2);
+RCB3.d = (REGWRITE & creg:['d'2] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB3);
+RCB4.d = (REGWRITE & creg:['d'2] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB4);
+RCB5.d = (REGWRITE & creg:['d'2] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB5);
+RCB6.d = (REGWRITE & creg:['d'2] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB6);
+RCB7.d = (REGWRITE & creg:['d'2] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'2]) & RCB7);
+
+
+[RDB0..7].ck = D_CLK_IN;
+[RDB0..7].ar = !ResetIN;
+RDB0.d = (REGWRITE & creg:['d'3] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB0);
+RDB1.d = (REGWRITE & creg:['d'3] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB1);
+RDB2.d = (REGWRITE & creg:['d'3] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB2);
+RDB3.d = (REGWRITE & creg:['d'3] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB3);
+RDB4.d = (REGWRITE & creg:['d'3] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB4);
+RDB5.d = (REGWRITE & creg:['d'3] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB5);
+RDB6.d = (REGWRITE & creg:['d'3] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB6);
+RDB7.d = (REGWRITE & creg:['d'3] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'3]) & RDB7);
+
+
+[REB0..7].ck = D_CLK_IN;
+[REB0..7].ar = !ResetIN;
+REB0.d = (REGWRITE & creg:['d'4] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB0);
+REB1.d = (REGWRITE & creg:['d'4] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB1);
+REB2.d = (REGWRITE & creg:['d'4] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB2);
+REB3.d = (REGWRITE & creg:['d'4] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB3);
+REB4.d = (REGWRITE & creg:['d'4] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB4);
+REB5.d = (REGWRITE & creg:['d'4] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB5);
+REB6.d = (REGWRITE & creg:['d'4] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB6);
+REB7.d = (REGWRITE & creg:['d'4] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'4]) & REB7);
+
+
+[RFB0..7].ck = D_CLK_IN;
+[RFB0..7].ar = !ResetIN;
+RFB0.d = (REGWRITE & creg:['d'5] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB0);
+RFB1.d = (REGWRITE & creg:['d'5] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB1);
+RFB2.d = (REGWRITE & creg:['d'5] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB2);
+RFB3.d = (REGWRITE & creg:['d'5] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB3);
+RFB4.d = (REGWRITE & creg:['d'5] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB4);
+RFB5.d = (REGWRITE & creg:['d'5] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB5);
+RFB6.d = (REGWRITE & creg:['d'5] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB6);
+RFB7.d = (REGWRITE & creg:['d'5] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'5]) & RFB7);
+
+[RGB0..7].ck = D_CLK_IN;
+[RGB0..7].ar = !ResetIN;
+RGB0.d = (REGWRITE & creg:['d'6] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB0);
+RGB1.d = (REGWRITE & creg:['d'6] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB1);
+RGB2.d = (REGWRITE & creg:['d'6] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB2);
+RGB3.d = (REGWRITE & creg:['d'6] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB3);
+RGB4.d = (REGWRITE & creg:['d'6] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB4);
+RGB5.d = (REGWRITE & creg:['d'6] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB5);
+RGB6.d = (REGWRITE & creg:['d'6] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB6);
+RGB7.d = (REGWRITE & creg:['d'6] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'6]) & RGB7);
+
+
+[RHB0..7].ck = D_CLK_IN;
+[RHB0..7].ar = !ResetIN;
+RHB0.d = (REGWRITE & creg:['d'7] & CBUS0 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB0);
+RHB1.d = (REGWRITE & creg:['d'7] & CBUS1 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB1);
+RHB2.d = (REGWRITE & creg:['d'7] & CBUS2 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB2);
+RHB3.d = (REGWRITE & creg:['d'7] & CBUS3 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB3);
+RHB4.d = (REGWRITE & creg:['d'7] & CBUS4 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB4);
+RHB5.d = (REGWRITE & creg:['d'7] & CBUS5 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB5);
+RHB6.d = (REGWRITE & creg:['d'7] & CBUS6 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB6);
+RHB7.d = (REGWRITE & creg:['d'7] & CBUS7 & C_ZH ) # (!(REGWRITE & creg:['d'7]) & RHB7);
+
+
+/* A output based on areg */
+
+ABUS0 = (areg:['d'0] & RAB0)
+     # (areg:['d'1] & RBB0)
+     # (areg:['d'2] & RCB0)
+     # (areg:['d'3] & RDB0)
+     # (areg:['d'4] & REB0)
+     # (areg:['d'5] & RFB0)
+     # (areg:['d'6] & RGB0)
+     # (areg:['d'7] & RHB0);
+ABUS1 = (areg:['d'0] & RAB1)
+     # (areg:['d'1] & RBB1)
+     # (areg:['d'2] & RCB1)
+     # (areg:['d'3] & RDB1)
+     # (areg:['d'4] & REB1)
+     # (areg:['d'5] & RFB1)
+     # (areg:['d'6] & RGB1)
+     # (areg:['d'7] & RHB1);
+ABUS2 = (areg:['d'0] & RAB2)
+     # (areg:['d'1] & RBB2)
+     # (areg:['d'2] & RCB2)
+     # (areg:['d'3] & RDB2)
+     # (areg:['d'4] & REB2)
+     # (areg:['d'5] & RFB2)
+     # (areg:['d'6] & RGB2)
+     # (areg:['d'7] & RHB2);
+ABUS3 = (areg:['d'0] & RAB3)
+     # (areg:['d'1] & RBB3)
+     # (areg:['d'2] & RCB3)
+     # (areg:['d'3] & RDB3)
+     # (areg:['d'4] & REB3)
+     # (areg:['d'5] & RFB3)
+     # (areg:['d'6] & RGB3)
+     # (areg:['d'7] & RHB3);
+ABUS4 = (areg:['d'0] & RAB4)
+     # (areg:['d'1] & RBB4)
+     # (areg:['d'2] & RCB4)
+     # (areg:['d'3] & RDB4)
+     # (areg:['d'4] & REB4)
+     # (areg:['d'5] & RFB4)
+     # (areg:['d'6] & RGB4)
+     # (areg:['d'7] & RHB4);
+ABUS5 = (areg:['d'0] & RAB5)
+     # (areg:['d'1] & RBB5)
+     # (areg:['d'2] & RCB5)
+     # (areg:['d'3] & RDB5)
+     # (areg:['d'4] & REB5)
+     # (areg:['d'5] & RFB5)
+     # (areg:['d'6] & RGB5)
+     # (areg:['d'7] & RHB5);
+ABUS6 = (areg:['d'0] & RAB6)
+     # (areg:['d'1] & RBB6)
+     # (areg:['d'2] & RCB6)
+     # (areg:['d'3] & RDB6)
+     # (areg:['d'4] & REB6)
+     # (areg:['d'5] & RFB6)
+     # (areg:['d'6] & RGB6)
+     # (areg:['d'7] & RHB6);
+ABUS7 = (areg:['d'0] & RAB7)
+     # (areg:['d'1] & RBB7)
+     # (areg:['d'2] & RCB7)
+     # (areg:['d'3] & RDB7)
+     # (areg:['d'4] & REB7)
+     # (areg:['d'5] & RFB7)
+     # (areg:['d'6] & RGB7)
+     # (areg:['d'7] & RHB7);
+
+/* B output based on breg.  If BSPEC==1, we should output the special register instead of the BSEL# register */
+
+BBUS0 = ( (breg:['d'0] & RAB0)
+     # (breg:['d'1] & RBB0)
+     # (breg:['d'2] & RCB0)
+     # (breg:['d'3] & RDB0)
+     # (breg:['d'4] & REB0)
+     # (breg:['d'5] & RFB0)
+     # (breg:['d'6] & RGB0)
+     # (breg:['d'7] & RHB0));
+BBUS1 = ( (breg:['d'0] & RAB1)
+     # (breg:['d'1] & RBB1)
+     # (breg:['d'2] & RCB1)
+     # (breg:['d'3] & RDB1)
+     # (breg:['d'4] & REB1)
+     # (breg:['d'5] & RFB1)
+     # (breg:['d'6] & RGB1)
+     # (breg:['d'7] & RHB1));
+BBUS2 = ( (breg:['d'0] & RAB2)
+     # (breg:['d'1] & RBB2)
+     # (breg:['d'2] & RCB2)
+     # (breg:['d'3] & RDB2)
+     # (breg:['d'4] & REB2)
+     # (breg:['d'5] & RFB2)
+     # (breg:['d'6] & RGB2)
+     # (breg:['d'7] & RHB2));
+BBUS3 = ( (breg:['d'0] & RAB3)
+     # (breg:['d'1] & RBB3)
+     # (breg:['d'2] & RCB3)
+     # (breg:['d'3] & RDB3)
+     # (breg:['d'4] & REB3)
+     # (breg:['d'5] & RFB3)
+     # (breg:['d'6] & RGB3)
+     # (breg:['d'7] & RHB3));
+BBUS4 = ( (breg:['d'0] & RAB4)
+     # (breg:['d'1] & RBB4)
+     # (breg:['d'2] & RCB4)
+     # (breg:['d'3] & RDB4)
+     # (breg:['d'4] & REB4)
+     # (breg:['d'5] & RFB4)
+     # (breg:['d'6] & RGB4)
+     # (breg:['d'7] & RHB4));
+BBUS5 = ( (breg:['d'0] & RAB5)
+     # (breg:['d'1] & RBB5)
+     # (breg:['d'2] & RCB5)
+     # (breg:['d'3] & RDB5)
+     # (breg:['d'4] & REB5)
+     # (breg:['d'5] & RFB5)
+     # (breg:['d'6] & RGB5)
+     # (breg:['d'7] & RHB5));
+BBUS6 = ( (breg:['d'0] & RAB6)
+     # (breg:['d'1] & RBB6)
+     # (breg:['d'2] & RCB6)
+     # (breg:['d'3] & RDB6)
+     # (breg:['d'4] & REB6)
+     # (breg:['d'5] & RFB6)
+     # (breg:['d'6] & RGB6)
+     # (breg:['d'7] & RHB6));
+BBUS7 = ( (breg:['d'0] & RAB7)
+     # (breg:['d'1] & RBB7)
+     # (breg:['d'2] & RCB7)
+     # (breg:['d'3] & RDB7)
+     # (breg:['d'4] & REB7)
+     # (breg:['d'5] & RFB7)
+     # (breg:['d'6] & RGB7)
+     # (breg:['d'7] & RHB7));
+
+/*
+8 Registers, 8 bit each.
+
+Total dedicated input used:	3/4 	(75%)
+Total I/O pins used		39/64 	(60%)
+Total Logic cells used 		96/128 	(75%)
+Total Flip-Flop used 		64/128 	(50%)
+Total Foldback logic used 	0/128 	(0%)
+Total Nodes+FB/MCells 		80/128 	(62%)
+Total cascade used 		16
+Total input pins 		26
+Total output pins 		16
+Total Pts 			448
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+log: erasing device #6.
+log: bypass device #1.
+log: bypass device #2.
+log: bypass device #3.
+log: bypass device #4.
+log: bypass device #5.
+log: programming device #6.
+log: verifying device #6: ... OK ...
+log: bypass device #7.
+log: JTAG instructions finished successfully.

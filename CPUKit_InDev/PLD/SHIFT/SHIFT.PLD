@@ -1,0 +1,351 @@
+Name	 SHFTR;
+PartNo   SHFTR;
+Date     04/18/2022;
+Revision 01;
+Designer Sponaugle;
+Company  Ratiometric;
+Assembly None;
+Location None;
+Device   f1508ispplcc84;
+
+PROPERTY ATMEL {TDI_PULLUP = ON};
+PROPERTY ATMEL {TMS_PULLUP = ON};
+PROPERTY ATMEL {PREASSIGN = KEEP};
+
+Pin[12] = SHFT_DIR;   /* 0 = LEFT SHIFT, 1 = RIGHT SHIFT */
+Pin[84] = SHFT_OE;
+Pin[29] = SHFT_AR;      /* Active low to indicate right shift is arethmetic (sign extend) */
+Pin[50] = CFInFromALU;      /* Carry flag in from ALU CF Flag.  This is shifted in for the special shift left with carry */
+Pin[16] = CFOutToALU;       /* Carry flag out to the ALU.  This always has the last bit shifted out either the left or right side */
+Pin[57] = SHFT_WC;   /* If this flag is 0, shift in on left shifts the value of the carry flag */
+Pin[22] = SHFT_INVERTCARRY;  /* Active low signal to invert CFIn to CFOut; */
+
+Pin[31,70,11] = [SHFT_CNT0..2];  /* Shift count, 1-8 (so 0=Shift 1, 1=Shift 2...) */
+Pin[45,46,48,49,51,52,54,55,56,60,61,63,64,67,68] = [BBUS0..15];
+Pin[4,5,6,8,9,10,15,17,18,20,21,25,27,28,30,44] = [CBUS0..15];
+
+Pin[24] = UNUSED0;
+Pin[33] = UNUSED1;
+Pin[34] = UNUSED2;
+Pin[35] = UNUSED3;
+Pin[36] = UNUSED4;
+Pin[37] = UNUSED5;
+Pin[39] = UNUSED6;
+Pin[40] = UNUSED7;
+Pin[58] = UNUSED8;
+Pin[65] = UNUSED9;
+Pin[69] = UNUSED10;
+Pin[73] = UNUSED11;
+Pin[74] = UNUSED12;
+Pin[75] = UNUSED13;
+Pin[76] = UNUSED14;
+Pin[77] = UNUSED15;
+Pin[79] = UNUSED16;
+Pin[80] = UNUSED17;
+Pin[81] = UNUSED18;
+Pin[83] = UNUSED19;
+Pin[1] = UNUSED20;
+Pin[2] = UNUSED21;
+
+
+UNUSED1 = UNUSED2 # UNUSED3 # UNUSED4 # (UNUSED5 & UNUSED6 & UNUSED7) # (UNUSED8 & UNUSED9 & UNUSED10 & UNUSED11 & UNUSED12 ) 
+		# (UNUSED13 & UNUSED14 & UNUSED15)
+              # (UNUSED16 & UNUSED17 & UNUSED18 & UNUSED19 & UNUSED21) # UNUSED20;
+UNUSED0 = UNUSED2 # UNUSED3;
+
+
+PINNODE = [SHFT0..15];       /* The shifted bits based on direction and count */
+
+[CBUS0..15] = [SHFT0..15];
+[CBUS0..15].oe = !SHFT_OE;
+
+FIELD shftc = [SHFT_CNT0..2];
+
+/* The shifter, which used direction and count to shift bits from B 
+
+    SHFT_DIR = 0 for left shift, 1 for right shift.  For bit 0, left shift will shift in 0
+    SHFT_WC = 0 to indicate the value shifted in should be the CFInFromALU
+
+*/
+SHFT0 =   ( SHFT_DIR & shftc:['d'0] & BBUS1 )    // Right shift 1
+        # ( SHFT_DIR & shftc:['d'1] & BBUS2 )    // Right shift 2
+        # ( SHFT_DIR & shftc:['d'2] & BBUS3 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS4 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS5 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS6 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS7 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS8 )
+        # ( !SHFT_WC & !SHFT_DIR & CFInFromALU );  // Left shift with carryin
+
+SHFT1 =   ( SHFT_DIR & shftc:['d'0] & BBUS2 )    // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS3 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS4 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS5 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS6 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS7 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS8 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS9 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS0 )        // Left Shft
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'1..'d'7] & CFInFromALU );  // Left shift with carryin
+
+SHFT2 =   ( SHFT_DIR & shftc:['d'0] & BBUS3 )    // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS4 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS5 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS6 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS7 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS8 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS9 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS10 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS1 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS0 )
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'2..'d'7] & CFInFromALU );
+
+SHFT3 =   ( SHFT_DIR & shftc:['d'0] & BBUS4 )    // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS5 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS6 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS7 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS8 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS9 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS10 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS11 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS2 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS1 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS0 )
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'3..'d'7] & CFInFromALU );
+        
+
+SHFT4 =   ( SHFT_DIR & shftc:['d'0] & BBUS5 )    // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS6 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS7 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS8 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS9 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS10 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS11 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS12 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS3 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS2 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS1 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS0 )
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'4..'d'7] & CFInFromALU );
+
+SHFT5 =   ( SHFT_DIR & shftc:['d'0] & BBUS6 )    // Right shift  
+        # ( SHFT_DIR & shftc:['d'1] & BBUS7 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS8 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS9 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS10 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS11 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS12 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS13 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS4 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS3 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS2 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS1 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS0 )
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'5..'d'7] & CFInFromALU );
+
+SHFT6 =   ( SHFT_DIR & shftc:['d'0] & BBUS7 )    // Right shift
+       # ( SHFT_DIR & shftc:['d'1] & BBUS8 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS9 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS10 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS11 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS12 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS13 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS14 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS5 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS4 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS3 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS2 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS1 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS0 )
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'6..'d'7] & CFInFromALU );
+
+SHFT7 =   ( SHFT_DIR & shftc:['d'0] & BBUS8 )    // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS9 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS10 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS11 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS12 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS13 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS14 )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS6 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS5 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS4 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS3 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS2 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS1 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS0 )
+        # ( !SHFT_WC & !SHFT_DIR & shftc:['d'7] & CFInFromALU );
+
+SHFT8 =   ( SHFT_DIR & shftc:['d'0] & BBUS9 )    // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS10 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS11 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS12 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS13 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS14 )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 )
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS7 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS6 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS5 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS4 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS3 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS2 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS1 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS0 );
+
+SHFT9 =   ( SHFT_DIR & shftc:['d'0] & BBUS10 )   // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS11 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS12 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS13 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS14 )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS15 )
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'6..'d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS8 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS7 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS6 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS5 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS4 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS3 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS2 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS1 );
+
+SHFT10 =   ( SHFT_DIR & shftc:['d'0] & BBUS11 )  // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS12 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS13 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS14 )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS15 )
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'5..'d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS9 )   // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS8 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS7 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS6 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS5 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS4 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS3 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS2 );
+
+SHFT11 =   ( SHFT_DIR & shftc:['d'0] & BBUS12 )  // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS13 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS14 )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS15 )
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'4..'d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS10 )  // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS9 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS8 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS7 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS6 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS5 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS4 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS3 );
+
+SHFT12 =  ( SHFT_DIR & shftc:['d'0] & BBUS13 )  // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS14 )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS15 )
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'3..'d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'3] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS11 )  // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS10 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS9 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS8 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS7 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS6 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS5 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS4 );
+
+SHFT13 =   ( SHFT_DIR & shftc:['d'0] & BBUS14 )  // Right shift
+        # ( SHFT_DIR & shftc:['d'1] & BBUS15 )
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'2..'d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'2] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS15 & !SHFT_AR ) 
+        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS12 )  // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS11 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS10 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS9 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS8 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS7 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS6 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS5 );
+
+SHFT14 =  ( SHFT_DIR & shftc:['d'0] & BBUS15 )  // Right shift
+        # ( !SHFT_WC & SHFT_DIR & shftc:['d'1..'d'7] & CFInFromALU )    // Right Shift Carry
+        # ( SHFT_DIR & shftc:['d'1] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'2] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'3] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'4] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'5] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'6] & BBUS15 & !SHFT_AR )
+        # ( SHFT_DIR & shftc:['d'7] & BBUS15 & !SHFT_AR )                // Right shift
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS13 )
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS12 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS11 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS10 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS9 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS8 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS7 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS6 );
+
+SHFT15 =  ( SHFT_DIR & BBUS15 & !SHFT_AR )                 // Right shift arthimetic
+        # ( !SHFT_WC & SHFT_DIR & CFInFromALU )            // Right Shift Carry
+        # ( !SHFT_DIR & shftc:['d'0] & BBUS14 )  // Left shift
+        # ( !SHFT_DIR & shftc:['d'1] & BBUS13 )
+        # ( !SHFT_DIR & shftc:['d'2] & BBUS12 )
+        # ( !SHFT_DIR & shftc:['d'3] & BBUS11 )
+        # ( !SHFT_DIR & shftc:['d'4] & BBUS10 )
+        # ( !SHFT_DIR & shftc:['d'5] & BBUS9 )
+        # ( !SHFT_DIR & shftc:['d'6] & BBUS8 )
+        # ( !SHFT_DIR & shftc:['d'7] & BBUS7 );
+
+CFOutToALU =
+            (SHFT_INVERTCARRY &    
+              (( SHFT_DIR & shftc:['d'0] & BBUS0 )  // Right shift
+              # ( SHFT_DIR & shftc:['d'1] & BBUS1 )
+              # ( SHFT_DIR & shftc:['d'2] & BBUS2 )
+              # ( SHFT_DIR & shftc:['d'3] & BBUS3 )
+              # ( SHFT_DIR & shftc:['d'4] & BBUS4 )
+              # ( SHFT_DIR & shftc:['d'5] & BBUS5 )
+              # ( SHFT_DIR & shftc:['d'6] & BBUS6 )
+              # ( SHFT_DIR & shftc:['d'7] & BBUS7 )                // Right shift
+              # ( !SHFT_DIR & shftc:['d'0] & BBUS15 )
+              # ( !SHFT_DIR & shftc:['d'1] & BBUS14 )
+              # ( !SHFT_DIR & shftc:['d'2] & BBUS13 )
+              # ( !SHFT_DIR & shftc:['d'3] & BBUS12 )
+              # ( !SHFT_DIR & shftc:['d'4] & BBUS11 )
+              # ( !SHFT_DIR & shftc:['d'5] & BBUS10 )
+              # ( !SHFT_DIR & shftc:['d'6] & BBUS9 )
+              # ( !SHFT_DIR & shftc:['d'7] & BBUS8 ))
+            )
+            #
+            ( !SHFT_INVERTCARRY & !CFInFromALU);
+
+/*
+Total dedicated input used:	1/4 	(25%)
+Total I/O pins used		45/64 	(70%)
+Total Logic cells used 		56/128 	(43%)
+Total Flip-Flop used 		0/128 	(0%)
+Total Foldback logic used 	0/128 	(0%)
+Total Nodes+FB/MCells 		56/128 	(43%)
+Total cascade used 		0
+Total input pins 		29
+Total output pins 		17
+Total Pts 			263
+
+*/
+

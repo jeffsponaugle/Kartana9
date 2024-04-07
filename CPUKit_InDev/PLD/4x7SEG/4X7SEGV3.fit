@@ -1,0 +1,622 @@
+Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Tue Jan 23 09:42:32 2024
+
+
+fit1504 C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.tt2 -CUPL -dev P1504T44 -JTAG ON
+
+
+****** Initial fitting strategy and property ******
+ Pla_in_file = 4X7SEGV3.tt2
+ Pla_out_file = 4X7SEGV3.tt3
+ Jedec_file = 4X7SEGV3.jed
+ Vector_file = 4X7SEGV3.tmv
+ verilog_file = 4X7SEGV3.vt
+ Time_file = 
+ Log_file = 4X7SEGV3.fit
+ err_file = 
+ Device_name = TQFP44
+ Module_name = 
+ Package_type = TQFP
+ Preassign_file = 
+ Property_file = 
+ Sleep_mode = 
+ Preassignment = 
+ Security_mode = OFF
+ Pin_keep_mode = ON
+ Dedicated_input_clock = 
+ Dedicated_input_reset = 
+ Dedicated_input_oe = 
+ supporter = CUPL
+ optimize = ON
+ Soft_buffer = 
+ Xor_synthesis = OFF
+ Foldback_logic =  on
+ Expander = 
+ Cascade_logic = OFF
+ Dedicated_input = 
+ Output_fast = ON
+ *******************************
+ Power down pin 1 = OFF
+ Power down pin 2 = OFF
+ power_reset = OFF
+ JTAG = ON
+ TDI pullup = ON
+ TMS pullup = ON
+ MC_power = OFF
+ Open_collector = OFF
+ ITD0 = ON
+ ITD1 = ON
+ ITD2 = ON
+ Fast_inlatch = off
+ *******************************
+Info: C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3 uses 95% of the pins available in device TQFP44
+  If you wish to have more pins available for future logic changes
+  Atmel  recommends using a larger device
+---------------------------------------------------------
+ Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
+ ... 
+More than 16 MCs on Block D
+ ## Warning : Grouping fail 
+---------------------------------------------------------
+ Fitter_Pass 2, Preassign = KEEP, CASCADE_LOGIC : (TRY) 
+ ... 
+
+Performing global Output Enable pin assignments ...
+
+Performing global pin assignments ...
+--------------------------------------
+
+
+
+Final global control pins assignment (if applicable)...
+-------------------------------------------------------
+clk assigned to pin  37
+
+
+
+Performing input pin pre-assignments ...
+------------------------------------
+D2 assigned to pin  40
+clk assigned to pin  37
+D1 assigned to pin  39
+D0 assigned to pin  38
+
+Attempt to place floating signals ...
+------------------------------------
+A3 is placed at pin 6 (MC 1)
+XXL_51 is placed at feedback node 601 (MC 1)
+XXL_41 is placed at feedback node 602 (MC 2)
+A2 is placed at pin 5 (MC 3)
+XXL_42 is placed at feedback node 603 (MC 3)
+A1 is placed at pin 3 (MC 4)
+XXL_39 is placed at feedback node 604 (MC 4)
+A0 is placed at pin 2 (MC 5)
+XXL_40 is placed at feedback node 605 (MC 5)
+XXL_38 is placed at feedback node 606 (MC 6)
+XXL_53 is placed at feedback node 607 (MC 7)
+TDI is placed at pin 1 (MC 8)
+XXL_45 is placed at feedback node 608 (MC 8)
+XXL_48 is placed at feedback node 609 (MC 9)
+XXL_50 is placed at feedback node 610 (MC 10)
+LED2 is placed at pin 44 (MC 11)
+XXL_52 is placed at feedback node 612 (MC 12)
+XXL_47 is placed at feedback node 613 (MC 13)
+LEC2 is placed at pin 43 (MC 14)
+XXL_49 is placed at feedback node 615 (MC 15)
+D3 is placed at pin 42 (MC 16)
+XXL_44 is placed at feedback node 616 (MC 16)
+C2 is placed at pin 15 (MC 17)
+C1 is placed at pin 14 (MC 19)
+C0 is placed at pin 13 (MC 20)
+B3 is placed at pin 12 (MC 21)
+B2 is placed at pin 11 (MC 24)
+B1 is placed at pin 10 (MC 25)
+icnt0 is placed at feedback node 627 (MC 27)
+icnt1 is placed at feedback node 628 (MC 28)
+XXL_46 is placed at feedback node 629 (MC 29)
+B0 is placed at pin 8 (MC 30)
+XXL_43 is placed at feedback node 630 (MC 30)
+XXL_54 is placed at feedback node 631 (MC 31)
+TMS is placed at pin 7 (MC 32)
+XXL_55 is placed at feedback node 632 (MC 32)
+C3 is placed at pin 18 (MC 33)
+LED is placed at pin 19 (MC 35)
+LEC is placed at pin 20 (MC 36)
+LEB is placed at pin 21 (MC 37)
+LEA is placed at pin 22 (MC 40)
+SEGA is placed at pin 23 (MC 41)
+SEGB is placed at pin 25 (MC 46)
+TCK is placed at pin 26 (MC 48)
+SEGC is placed at pin 27 (MC 49)
+SEGD is placed at pin 28 (MC 51)
+SEGE is placed at pin 30 (MC 52)
+SEGF is placed at pin 31 (MC 53)
+TDO is placed at pin 32 (MC 56)
+SEGG is placed at pin 33 (MC 57)
+LEA2 is placed at pin 34 (MC 62)
+LEB2 is placed at pin 35 (MC 64)
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                 L  L                       L  L                 
+                 E  E     V           c  G  E  E                 
+                 D  C  D  C  D  D  D  l  N  B  A                 
+                 2  2  3  C  2  1  0  k  D  2  2                 
+               ____________________________________              
+              /  44 43 42 41 40 39 38 37 36 35 34  \             
+         TDI |  1                                33 | SEGG       
+          A0 |  2                                32 | TDO        
+          A1 |  3                                31 | SEGF       
+         GND |  4                                30 | SEGE       
+          A2 |  5                                29 | VCC        
+          A3 |  6            ATF1504             28 | SEGD       
+         TMS |  7          44-Lead TQFP          27 | SEGC       
+          B0 |  8                                26 | TCK        
+         VCC |  9                                25 | SEGB       
+          B1 | 10                                24 | GND        
+          B2 | 11                                23 | SEGA       
+             |   12 13 14 15 16 17 18 19 20 21 22   |            
+              \____________________________________/             
+                 B  C  C  C  G  V  C  L  L  L  L                 
+                 3  0  1  2  N  C  3  E  E  E  E                 
+                             D  C     D  C  B  A                 
+
+
+
+VCC = Supply Voltage pin which must be connected to (5.0V or 3.0V)
+
+GND = GND pin which must be connected to ground
+
+TMS,TDI,TDO,TDI = JTAG pins which must reserved for the JTAG interface
+
+NC = Unused I/O pins which must be unconnected on the board
+
+Universal-Interconnect-Multiplexer assignments
+------------------------------------------------
+FanIn assignment for block A [18]
+{
+A3,A2,A1,A0,
+B3,B0,B2,B1,
+C1,C2,C0,C3,
+D2,D0,D1,D3,
+icnt1,icnt0,
+}
+Multiplexer assignment for block A
+B3			(MC13	P)   : MUX 1		Ref (B21p)
+A3			(MC6	P)   : MUX 3		Ref (A1p)
+B0			(MC10	P)   : MUX 4		Ref (B30p)
+A2			(MC5	P)   : MUX 7		Ref (A3p)
+A1			(MC4	P)   : MUX 9		Ref (A4p)
+D2			(MC8	FB)  : MUX 12		Ref (OE2)
+B2			(MC12	P)   : MUX 13		Ref (B24p)
+D0			(MC18	FB)  : MUX 17		Ref (OE1)
+A0			(MC3	P)   : MUX 21		Ref (A5p)
+B1			(MC11	P)   : MUX 22		Ref (B25p)
+C1			(MC15	P)   : MUX 23		Ref (B19p)
+C2			(MC16	P)   : MUX 25		Ref (B17p)
+icnt1			(MC2	FB)  : MUX 29		Ref (B28fb)
+D1			(MC7	FB)  : MUX 32		Ref (GCLR)
+C0			(MC14	P)   : MUX 33		Ref (B20p)
+D3			(MC9	P)   : MUX 36		Ref (A16p)
+C3			(MC17	P)   : MUX 37		Ref (C33p)
+icnt0			(MC1	FB)  : MUX 39		Ref (B27fb)
+
+FanIn assignment for block B [18]
+{
+A3,A2,A1,A0,
+B3,B0,B2,B1,
+C1,C2,C0,C3,
+D2,D0,D1,D3,
+icnt1,icnt0,
+}
+Multiplexer assignment for block B
+B3			(MC13	P)   : MUX 1		Ref (B21p)
+A3			(MC6	P)   : MUX 3		Ref (A1p)
+B0			(MC10	P)   : MUX 4		Ref (B30p)
+A2			(MC5	P)   : MUX 7		Ref (A3p)
+A1			(MC4	P)   : MUX 9		Ref (A4p)
+D2			(MC8	FB)  : MUX 12		Ref (OE2)
+B2			(MC12	P)   : MUX 13		Ref (B24p)
+D0			(MC18	FB)  : MUX 17		Ref (OE1)
+A0			(MC3	P)   : MUX 21		Ref (A5p)
+B1			(MC11	P)   : MUX 22		Ref (B25p)
+C1			(MC15	P)   : MUX 23		Ref (B19p)
+C2			(MC16	P)   : MUX 25		Ref (B17p)
+icnt1			(MC2	FB)  : MUX 29		Ref (B28fb)
+D1			(MC7	FB)  : MUX 32		Ref (GCLR)
+C0			(MC14	P)   : MUX 33		Ref (B20p)
+D3			(MC9	P)   : MUX 36		Ref (A16p)
+C3			(MC17	P)   : MUX 37		Ref (C33p)
+icnt0			(MC1	FB)  : MUX 39		Ref (B27fb)
+
+FanIn assignment for block C [12]
+{
+A3,A2,A1,A0,
+XXL_41,XXL_42,XXL_43,XXL_39,XXL_38,XXL_40,
+icnt1,icnt0,
+}
+Multiplexer assignment for block C
+XXL_41			(MC1	FB)  : MUX 0		Ref (A2fb)
+A3			(MC12	P)   : MUX 1		Ref (A1p)
+XXL_42			(MC2	FB)  : MUX 2		Ref (A3fb)
+A2			(MC11	P)   : MUX 7		Ref (A3p)
+A1			(MC10	P)   : MUX 9		Ref (A4p)
+XXL_43			(MC8	FB)  : MUX 15		Ref (B30fb)
+XXL_39			(MC3	FB)  : MUX 18		Ref (A4fb)
+XXL_38			(MC5	FB)  : MUX 20		Ref (A6fb)
+A0			(MC9	P)   : MUX 23		Ref (A5p)
+icnt1			(MC7	FB)  : MUX 25		Ref (B28fb)
+XXL_40			(MC4	FB)  : MUX 26		Ref (A5fb)
+icnt0			(MC6	FB)  : MUX 33		Ref (B27fb)
+
+FanIn assignment for block D [21]
+{
+A3,A1,A2,A0,
+D2,D1,D3,
+XXL_48,XXL_55,XXL_51,XXL_50,XXL_54,XXL_52,XXL_46,XXL_53,XXL_47,XXL_45,XXL_49,XXL_44,
+icnt1,icnt0,
+}
+Multiplexer assignment for block D
+A3			(MC18	P)   : MUX 1		Ref (A1p)
+XXL_48			(MC4	FB)  : MUX 3		Ref (A9fb)
+XXL_55			(MC14	FB)  : MUX 5		Ref (B32fb)
+XXL_51			(MC1	FB)  : MUX 6		Ref (A1fb)
+XXL_50			(MC5	FB)  : MUX 7		Ref (A10fb)
+A1			(MC16	P)   : MUX 9		Ref (A4p)
+A2			(MC17	P)   : MUX 11		Ref (A3p)
+D2			(MC20	FB)  : MUX 12		Ref (OE2)
+XXL_54			(MC13	FB)  : MUX 13		Ref (B31fb)
+XXL_52			(MC6	FB)  : MUX 15		Ref (A12fb)
+XXL_46			(MC12	FB)  : MUX 19		Ref (B29fb)
+A0			(MC15	P)   : MUX 21		Ref (A5p)
+XXL_53			(MC2	FB)  : MUX 22		Ref (A7fb)
+XXL_47			(MC7	FB)  : MUX 23		Ref (A13fb)
+XXL_45			(MC3	FB)  : MUX 24		Ref (A8fb)
+icnt1			(MC11	FB)  : MUX 25		Ref (B28fb)
+XXL_49			(MC8	FB)  : MUX 31		Ref (A15fb)
+D1			(MC19	FB)  : MUX 32		Ref (GCLR)
+icnt0			(MC10	FB)  : MUX 33		Ref (B27fb)
+XXL_44			(MC9	FB)  : MUX 35		Ref (A16fb)
+D3			(MC21	P)   : MUX 36		Ref (A16p)
+
+Creating JEDEC file C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.jed ...
+
+TQFP44 programmed logic:
+-----------------------------------
+!LEA2 = (!icnt0.Q & !icnt1.Q);
+
+!LEB = (icnt0.Q & !icnt1.Q);
+
+!LEA = (!icnt0.Q & !icnt1.Q);
+
+!LEC2 = (!icnt0.Q & icnt1.Q);
+
+!LEB2 = (icnt0.Q & !icnt1.Q);
+
+!LED = (icnt0.Q & icnt1.Q);
+
+!LEC = (!icnt0.Q & icnt1.Q);
+
+SEGA = ((A0 & A1 & !A2 & A3 & !icnt0.Q & !icnt1.Q)
+	# XXL_38
+	# XXL_39
+	# XXL_40);
+
+!LED2 = (icnt0.Q & icnt1.Q);
+
+SEGB = ((!A0 & A1 & A2 & !icnt0.Q & !icnt1.Q)
+	# XXL_41
+	# XXL_42
+	# XXL_43);
+
+SEGD = ((!A0 & !A1 & A2 & !A3 & !icnt0.Q & !icnt1.Q)
+	# XXL_44
+	# XXL_45
+	# XXL_46);
+
+SEGC = ((icnt0.Q & icnt1.Q & D2 & D3 & D1)
+	# (!A0 & A2 & A3 & !icnt0.Q & !icnt1.Q)
+	# XXL_47
+	# XXL_48);
+
+SEGF = ((A0 & !A1 & A2 & A3 & !icnt0.Q & !icnt1.Q)
+	# XXL_49
+	# XXL_50
+	# XXL_51);
+
+SEGE = ((icnt0.Q & icnt1.Q & !D1 & D2 & !D3)
+	# (A0 & !A1 & !A2 & !icnt0.Q & !icnt1.Q)
+	# XXL_52
+	# XXL_53);
+
+SEGG = ((icnt0.Q & icnt1.Q & !D1 & !D2 & !D3)
+	# (!A0 & !A1 & A2 & A3 & !icnt0.Q & !icnt1.Q)
+	# XXL_54
+	# XXL_55);
+
+icnt0.D = !icnt0.Q;
+
+icnt1.D = ((!icnt0.Q & icnt1.Q)
+	# (icnt0.Q & !icnt1.Q));
+
+XXL_38 = ((!A0 & !A1 & A2 & !A3 & !icnt0.Q & !icnt1.Q)
+	# (A0 & !A1 & A2 & A3 & !icnt0.Q & !icnt1.Q)
+	# (A0 & !A1 & !A2 & !A3 & !icnt0.Q & !icnt1.Q)
+	# (icnt0.Q & !icnt1.Q & B0 & B1 & !B2 & B3)
+	# (icnt0.Q & !icnt1.Q & !B0 & !B1 & B2 & !B3));
+
+XXL_39 = ((icnt0.Q & !icnt1.Q & B0 & !B1 & B2 & B3)
+	# (icnt0.Q & !icnt1.Q & B0 & !B1 & !B2 & !B3)
+	# (!icnt0.Q & icnt1.Q & C0 & C1 & !C2 & C3)
+	# (!icnt0.Q & icnt1.Q & !C0 & !C1 & C2 & !C3)
+	# (!icnt0.Q & icnt1.Q & C0 & !C1 & C2 & C3));
+
+XXL_40 = ((!icnt0.Q & icnt1.Q & C0 & !C1 & !C2 & !C3)
+	# (icnt0.Q & icnt1.Q & D0 & D1 & !D2 & D3)
+	# (icnt0.Q & icnt1.Q & !D0 & !D1 & D2 & !D3)
+	# (icnt0.Q & icnt1.Q & D0 & !D1 & D2 & D3)
+	# (icnt0.Q & icnt1.Q & D0 & !D1 & !D2 & !D3));
+
+XXL_41 = ((!A0 & A2 & !icnt0.Q & !icnt1.Q & A3)
+	# (A0 & !A1 & A2 & !icnt0.Q & !icnt1.Q & !A3)
+	# (A0 & A1 & !icnt0.Q & !icnt1.Q & A3)
+	# (icnt0.Q & !icnt1.Q & !B0 & B1 & B2)
+	# (icnt0.Q & !icnt1.Q & !B0 & B2 & B3));
+
+XXL_42 = ((icnt0.Q & !icnt1.Q & B0 & !B1 & B2 & !B3)
+	# (icnt0.Q & !icnt1.Q & B0 & B1 & B3)
+	# (!icnt0.Q & icnt1.Q & !C0 & C1 & C2)
+	# (!icnt0.Q & icnt1.Q & !C0 & C2 & C3)
+	# (!icnt0.Q & icnt1.Q & C0 & !C1 & C2 & !C3));
+
+XXL_43 = ((!icnt0.Q & icnt1.Q & C0 & C1 & C3)
+	# (icnt0.Q & icnt1.Q & !D0 & D1 & D2)
+	# (icnt0.Q & icnt1.Q & !D0 & D2 & D3)
+	# (icnt0.Q & icnt1.Q & D0 & !D1 & D2 & !D3)
+	# (icnt0.Q & icnt1.Q & D0 & D1 & D3));
+
+XXL_44 = ((icnt0.Q & !icnt1.Q & !B0 & !B1 & B2 & !B3)
+	# (!icnt0.Q & icnt1.Q & !C0 & !C1 & C2 & !C3)
+	# (icnt0.Q & icnt1.Q & !D0 & !D1 & D2 & !D3)
+	# (!A0 & A1 & !A2 & A3 & !icnt0.Q & !icnt1.Q)
+	# (A0 & !A1 & !A2 & !icnt0.Q & !icnt1.Q));
+
+XXL_45 = ((A0 & A1 & A2 & !icnt0.Q & !icnt1.Q)
+	# (icnt0.Q & !icnt1.Q & !B0 & B1 & !B2 & B3)
+	# (icnt0.Q & !icnt1.Q & B0 & !B1 & !B2)
+	# (icnt0.Q & !icnt1.Q & B0 & B1 & B2)
+	# (!icnt0.Q & icnt1.Q & !C0 & C1 & !C2 & C3));
+
+XXL_46 = ((!icnt0.Q & icnt1.Q & C0 & !C1 & !C2)
+	# (!icnt0.Q & icnt1.Q & C0 & C1 & C2)
+	# (icnt0.Q & icnt1.Q & !D0 & D1 & !D2 & D3)
+	# (icnt0.Q & icnt1.Q & D0 & !D1 & !D2)
+	# (icnt0.Q & icnt1.Q & D0 & D1 & D2));
+
+XXL_47 = ((icnt0.Q & !icnt1.Q & !B0 & B2 & B3)
+	# (!icnt0.Q & icnt1.Q & !C0 & C2 & C3)
+	# (icnt0.Q & icnt1.Q & !D0 & D2 & D3)
+	# (!A0 & !A2 & !A3 & !icnt0.Q & !icnt1.Q & A1)
+	# (A2 & A3 & !icnt0.Q & !icnt1.Q & A1));
+
+XXL_48 = ((icnt0.Q & !icnt1.Q & !B0 & !B2 & !B3 & B1)
+	# (icnt0.Q & !icnt1.Q & B2 & B3 & B1)
+	# (!icnt0.Q & icnt1.Q & !C0 & !C2 & !C3 & C1)
+	# (!icnt0.Q & icnt1.Q & C2 & C3 & C1)
+	# (icnt0.Q & icnt1.Q & !D0 & !D2 & !D3 & D1));
+
+XXL_49 = ((icnt0.Q & !icnt1.Q & B0 & !B1 & B2 & B3)
+	# (!icnt0.Q & icnt1.Q & C0 & !C1 & C2 & C3)
+	# (icnt0.Q & icnt1.Q & D0 & !D1 & D2 & D3)
+	# (A0 & !A2 & !A3 & !icnt0.Q & !icnt1.Q)
+	# (A1 & !A2 & !A3 & !icnt0.Q & !icnt1.Q));
+
+XXL_50 = ((A0 & A1 & !A3 & !icnt0.Q & !icnt1.Q)
+	# (icnt0.Q & !icnt1.Q & B0 & !B2 & !B3)
+	# (icnt0.Q & !icnt1.Q & B1 & !B2 & !B3)
+	# (icnt0.Q & !icnt1.Q & B0 & B1 & !B3)
+	# (!icnt0.Q & icnt1.Q & C0 & !C2 & !C3));
+
+XXL_51 = ((!icnt0.Q & icnt1.Q & C1 & !C2 & !C3)
+	# (!icnt0.Q & icnt1.Q & C0 & C1 & !C3)
+	# (icnt0.Q & icnt1.Q & D0 & !D2 & !D3)
+	# (icnt0.Q & icnt1.Q & D1 & !D2 & !D3)
+	# (icnt0.Q & icnt1.Q & D0 & D1 & !D3));
+
+XXL_52 = ((icnt0.Q & !icnt1.Q & B0 & !B1 & !B2)
+	# (!icnt0.Q & icnt1.Q & C0 & !C1 & !C2)
+	# (icnt0.Q & icnt1.Q & D0 & !D1 & !D2)
+	# (A0 & !icnt0.Q & !icnt1.Q & !A3)
+	# (!A1 & A2 & !icnt0.Q & !icnt1.Q & !A3));
+
+XXL_53 = ((icnt0.Q & !icnt1.Q & B0 & !B3)
+	# (icnt0.Q & !icnt1.Q & !B1 & B2 & !B3)
+	# (!icnt0.Q & icnt1.Q & C0 & !C3)
+	# (!icnt0.Q & icnt1.Q & !C1 & C2 & !C3)
+	# (icnt0.Q & icnt1.Q & D0 & !D3));
+
+XXL_54 = ((A0 & A1 & A2 & !A3 & !icnt0.Q & !icnt1.Q)
+	# (!A1 & !A2 & !A3 & !icnt0.Q & !icnt1.Q)
+	# (icnt0.Q & !icnt1.Q & !B0 & !B1 & B2 & B3)
+	# (icnt0.Q & !icnt1.Q & B0 & B1 & B2 & !B3)
+	# (icnt0.Q & !icnt1.Q & !B1 & !B2 & !B3));
+
+XXL_55 = ((!icnt0.Q & icnt1.Q & !C0 & !C1 & C2 & C3)
+	# (!icnt0.Q & icnt1.Q & C0 & C1 & C2 & !C3)
+	# (!icnt0.Q & icnt1.Q & !C1 & !C2 & !C3)
+	# (icnt0.Q & icnt1.Q & !D0 & !D1 & D2 & D3)
+	# (icnt0.Q & icnt1.Q & D0 & D1 & D2 & !D3));
+
+icnt0.C = clk;
+
+icnt1.C = clk;
+
+
+TQFP44 Pin/Node Placement:
+------------------------------------
+Pin 1  = TDI; /* MC 8 */
+Pin 2  = A0; /* MC 5 */
+Pin 3  = A1; /* MC 4 */
+Pin 5  = A2; /* MC 3 */
+Pin 6  = A3; /* MC 1 */
+Pin 7  = TMS; /* MC 32 */
+Pin 8  = B0; /* MC 30 */
+Pin 10 = B1; /* MC 25 */ 
+Pin 11 = B2; /* MC 24 */ 
+Pin 12 = B3; /* MC 21 */ 
+Pin 13 = C0; /* MC 20 */ 
+Pin 14 = C1; /* MC 19 */ 
+Pin 15 = C2; /* MC 17 */ 
+Pin 18 = C3; /* MC 33 */ 
+Pin 19 = LED; /* MC 35 */ 
+Pin 20 = LEC; /* MC 36 */ 
+Pin 21 = LEB; /* MC 37 */ 
+Pin 22 = LEA; /* MC 40 */ 
+Pin 23 = SEGA; /* MC 41 */ 
+Pin 25 = SEGB; /* MC 46 */ 
+Pin 26 = TCK; /* MC 48 */ 
+Pin 27 = SEGC; /* MC 49 */ 
+Pin 28 = SEGD; /* MC 51 */ 
+Pin 30 = SEGE; /* MC 52 */ 
+Pin 31 = SEGF; /* MC 53 */ 
+Pin 32 = TDO; /* MC 56 */ 
+Pin 33 = SEGG; /* MC 57 */ 
+Pin 34 = LEA2; /* MC 62 */ 
+Pin 35 = LEB2; /* MC 64 */ 
+Pin 37 = clk;
+Pin 38 = D0;
+Pin 39 = D1;
+Pin 40 = D2;
+Pin 42 = D3; /* MC 16 */ 
+Pin 43 = LEC2; /* MC 14 */ 
+Pin 44 = LED2; /* MC 11 */ 
+PINNODE 601 = XXL_51; /* MC 1 Feedback */
+PINNODE 602 = XXL_41; /* MC 2 Feedback */
+PINNODE 603 = XXL_42; /* MC 3 Feedback */
+PINNODE 604 = XXL_39; /* MC 4 Feedback */
+PINNODE 605 = XXL_40; /* MC 5 Feedback */
+PINNODE 606 = XXL_38; /* MC 6 Feedback */
+PINNODE 607 = XXL_53; /* MC 7 Feedback */
+PINNODE 608 = XXL_45; /* MC 8 Feedback */
+PINNODE 609 = XXL_48; /* MC 9 Feedback */
+PINNODE 610 = XXL_50; /* MC 10 Feedback */
+PINNODE 612 = XXL_52; /* MC 12 Feedback */
+PINNODE 613 = XXL_47; /* MC 13 Feedback */
+PINNODE 615 = XXL_49; /* MC 15 Feedback */
+PINNODE 616 = XXL_44; /* MC 16 Feedback */
+PINNODE 627 = icnt0; /* MC 27 Feedback */
+PINNODE 628 = icnt1; /* MC 28 Feedback */
+PINNODE 629 = XXL_46; /* MC 29 Feedback */
+PINNODE 630 = XXL_43; /* MC 30 Feedback */
+PINNODE 631 = XXL_54; /* MC 31 Feedback */
+PINNODE 632 = XXL_55; /* MC 32 Feedback */
+
+** Resource Usage **
+
+
+DCERP Field = Summary of Allocations.
+|||||
+|||||_Preset [p,-]       ==  p = PT preset, - No Preset.
+||||
+||||__Reset [g,r,-]      ==  g= Global AR, r = PT reset, - No reset.
+|||
+|||___Clock Enable [e,-] ==  e = Product Term, - always enabled, - none.
+||
+||____Clock [c,g,-],     ==  c = Product term, g = Global term, - No Clock.
+|
+|_____Type [C,D,L,T],    ==  Register type C= combin, D=dff, L=latch, T=tff.
+
+For input only = INPUT.
+
+MCell Pin# Oe   PinDrive  DCERP  FBDrive  DCERP  Foldback  CascadeOut     TotPT output_slew
+MC1   6    --   A3        INPUT  XXL_51   C----  NA        --             5     fast
+MC2   0         --               XXL_41   C----  NA        --             5     fast
+MC3   5    --   A2        INPUT  XXL_42   C----  NA        --             5     fast
+MC4   3    --   A1        INPUT  XXL_39   C----  NA        --             5     fast
+MC5   2    --   A0        INPUT  XXL_40   C----  NA        --             5     fast
+MC6   0         --               XXL_38   C----  NA        --             5     fast
+MC7   0         --               XXL_53   C----  NA        --             5     fast
+MC8   1    --   TDI       INPUT  XXL_45   C----  NA        --             5     fast
+MC9   0         --               XXL_48   C----  NA        --             5     fast
+MC10  0         --               XXL_50   C----  NA        --             5     fast
+MC11  44   on   LED2      C----  --              --        --             1     fast
+MC12  0         --               XXL_52   C----  NA        --             5     fast
+MC13  0         --               XXL_47   C----  NA        --             5     fast
+MC14  43   on   LEC2      C----  --              --        --             1     fast
+MC15  0         --               XXL_49   C----  NA        --             5     fast
+MC16  42   --   D3        INPUT  XXL_44   C----  NA        --             5     fast
+MC17  15   --   C2        INPUT  --              --        --             0     fast
+MC18  0         --               --              --        --             0     fast
+MC19  14   --   C1        INPUT  --              --        --             0     fast
+MC20  13   --   C0        INPUT  --              --        --             0     fast
+MC21  12   --   B3        INPUT  --              --        --             0     fast
+MC22  0         --               --              --        --             0     fast
+MC23  0         --               --              --        --             0     fast
+MC24  11   --   B2        INPUT  --              --        --             0     fast
+MC25  10   --   B1        INPUT  --              --        --             0     fast
+MC26  0         --               --              --        --             0     fast
+MC27  0         --               icnt0    Dg---  --        --             1     fast
+MC28  0         --               icnt1    Dg---  --        --             2     fast
+MC29  0         --               XXL_46   C----  NA        --             5     fast
+MC30  8    --   B0        INPUT  XXL_43   C----  NA        --             5     fast
+MC31  0         --               XXL_54   C----  NA        --             5     fast
+MC32  7    --   TMS       INPUT  XXL_55   C----  NA        --             5     fast
+MC33  18   --   C3        INPUT  --              --        --             0     fast
+MC34  0         --               --              --        --             0     fast
+MC35  19   on   LED       C----  --              --        --             1     fast
+MC36  20   on   LEC       C----  --              --        --             1     fast
+MC37  21   on   LEB       C----  --              --        --             1     fast
+MC38  0         --               --              --        --             0     fast
+MC39  0         --               --              --        --             0     fast
+MC40  22   on   LEA       C----  --              --        --             1     fast
+MC41  23   on   SEGA      C----  --              --        --             4     fast
+MC42  0         --               --              --        --             0     fast
+MC43  0         --               --              --        --             0     fast
+MC44  0         --               --              --        --             0     fast
+MC45  0         --               --              --        --             0     fast
+MC46  25   on   SEGB      C----  --              --        --             4     fast
+MC47  0         --               --              --        --             0     fast
+MC48  26   --   TCK       INPUT  --              --        --             0     fast
+MC49  27   on   SEGC      C----  --              --        --             4     fast
+MC50  0         --               --              --        --             0     fast
+MC51  28   on   SEGD      C----  --              --        --             4     fast
+MC52  30   on   SEGE      C----  --              --        --             4     fast
+MC53  31   on   SEGF      C----  --              --        --             4     fast
+MC54  0         --               --              --        --             0     fast
+MC55  0         --               --              --        --             0     fast
+MC56  32   --   TDO       INPUT  --              --        --             0     fast
+MC57  33   on   SEGG      C----  --              --        --             4     fast
+MC58  0         --               --              --        --             0     fast
+MC59  0         --               --              --        --             0     fast
+MC60  0         --               --              --        --             0     fast
+MC61  0         --               --              --        --             0     fast
+MC62  34   on   LEA2      C----  --              --        --             1     fast
+MC63  0         --               --              --        --             0     fast
+MC64  35   on   LEB2      C----  --              --        --             1     fast
+MC0   40        D2        INPUT  --              --        --             0     fast
+MC0   39        D1        INPUT  --              --        --             0     fast
+MC0   38        D0        INPUT  --              --        --             0     fast
+MC0   37        clk       INPUT  --              --        --             0     fast
+
+Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
+A: LC1	- LC16		16/16(100%)	8/16(50%)	0/16(0%)	72/80(90%)	(18)	0
+B: LC17	- LC32		6/16(37%)	8/16(50%)	0/16(0%)	23/80(28%)	(18)	0
+C: LC33	- LC48		6/16(37%)	8/16(50%)	0/16(0%)	12/80(15%)	(12)	0
+D: LC49	- LC64		7/16(43%)	8/16(50%)	0/16(0%)	22/80(27%)	(21)	0
+
+Total dedicated input used:	4/4 	(100%)
+Total I/O pins used		32/32 	(100%)
+Total Logic cells used 		35/64 	(54%)
+Total Flip-Flop used 		2/64 	(3%)
+Total Foldback logic used 	0/64 	(0%)
+Total Nodes+FB/MCells 		35/64 	(54%)
+Total cascade used 		0
+Total input pins 		21
+Total output pins 		15
+Total Pts 			129
+Creating pla file C:\SRC\KARTANA9\CPUKIT\PLD\4X7SEG\4X7SEGV3.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+
+----------------  End fitter, Design FITS
+$Device TQFP44 fits 
+FIT1504 completed in 0.00 seconds
