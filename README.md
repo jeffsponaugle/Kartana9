@@ -64,7 +64,11 @@ A second PCB implements the 'computer' support around the CPU including boot FLA
 
   ![](/images/IMG_7431.jpeg)
 
-   ![](/images/IMG_7435.jpeg)
+  ![](/images/IMG_7435.jpeg)
+
+Both of these PCBs go into slots on a generic microprocessor test platform that I use for different CPU designs.
+
+ ![](/images/IMG_7428.jpeg)
 
 ## Schematics
 
@@ -76,7 +80,7 @@ The CPLD source code is located in the CPUKIT_ASBUILT/PLD folder.
 
 ## Operations
 
-
+ ![](/images/IMG_6837.mov)
 
 
 
